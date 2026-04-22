@@ -31,7 +31,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
   const { recordActivity, setStreakModalVisibility } = useStreak();
   const { setContextualModalActive } = useModalQueue();
   const { getVocabularyNativeAdConfig } = useRemoteConfig();
-  const { isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
+  const { isAdFree, isPremium, isRewardAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
@@ -57,7 +57,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
     // Skip ads if user has any ad-free status
     if (isAdFree) {
       const reason = isPremium ? 'premium' : 
-                     isGiftAdFreeActive ? 'gift_reward' : 
+                     isRewardAdFreeActive ? 'reward_ad_free' : 
                      isStreakAdFreeActive ? 'streak_reward' : 'unknown';
       console.log(`[VocabularyStudyNewScreen] Ad-free active (${reason}) - skipping ads`);
       logEvent(AnalyticsEvents.VOCABULARY_NATIVE_AD_SKIPPED, { reason });
@@ -71,7 +71,7 @@ const VocabularyStudyNewScreen: React.FC = () => {
     }
     
     return true;
-  }, [isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive, nativeAdConfig.enabled]);
+  }, [isAdFree, isPremium, isRewardAdFreeActive, isStreakAdFreeActive, nativeAdConfig.enabled]);
   
   // Check if we should show an ad at the current word index
   const shouldShowAdAtIndex = useCallback((index: number) => {

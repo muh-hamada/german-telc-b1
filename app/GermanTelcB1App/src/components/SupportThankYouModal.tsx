@@ -135,7 +135,7 @@ const SupportThankYouModal: React.FC<SupportThankYouModalProps> = ({
         >
           {/* Hearts GIF */}
           <Image
-            source={require('../../assets/images/hearts.gif')}
+            source={require('../../assets/images/diamond-transparent.gif')}
             style={styles.heartsGif}
             resizeMode="cover"
           />
@@ -182,8 +182,8 @@ const createStyles = (colors: ThemeColors) =>
       padding: spacing.padding.xl,
     },
     heartsGif: {
-      width: SCREEN_WIDTH * 0.8,
-      height: SCREEN_HEIGHT * 0.5,
+      width: SCREEN_WIDTH * 0.7,
+      height: SCREEN_HEIGHT * 0.4,
       marginBottom: spacing.margin['2xl'],
     },
     textContainer: {

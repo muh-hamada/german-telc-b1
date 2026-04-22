@@ -14,6 +14,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, ThemeColors, typography } from '../theme';
 import { activeExamConfig } from '../config/active-exam.config';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { grantRewardAdFree } from '../hooks/useAdFreeStatus';
 import SupportThankYouModal from './SupportThankYouModal';
 import { useAppTheme } from '../contexts/ThemeContext';
 
@@ -105,6 +106,9 @@ const SupportAdScreen: React.FC<SupportAdScreenProps> = ({
       // Show thank you modal if user earned reward
       if (adEarnedRewardRef.current) {
         setShowThankYouModal(true);
+        grantRewardAdFree(1).catch(err =>
+          console.warn('[SupportAdScreen] Failed to grant ad-free reward:', err),
+        );
       } else {
         // If user didn't earn reward, just continue
         onContinue();

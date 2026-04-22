@@ -203,6 +203,9 @@ export const AnalyticsEvents = {
   AD_FREE_ACTIVATED: 'ad_free_activated',
   AD_FREE_EXPIRED: 'ad_free_expired',
   AD_FREE_STATUS_CHECKED: 'ad_free_status_checked',
+  AD_FREE_REWARD_GRANTED: 'ad_free_reward_granted', // When rewarded ad-free period is saved to storage
+  AD_FREE_REWARD_EXPIRED: 'ad_free_reward_expired', // When stored reward period is found expired
+  AD_FREE_REWARD_STATUS_CHECKED: 'ad_free_reward_status_checked', // When reward status is loaded from storage
   
   // App Update
   APP_UPDATE_MODAL_SHOWN: 'app_update_modal_shown',

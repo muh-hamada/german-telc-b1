@@ -1387,9 +1387,9 @@
       "cacheInfo": "ℹ️ Cached result (answer unchanged)"
     },
     "rewardedAdModal": {
-      "title": "AI Evaluation Support",
-      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real {{provider}} exam. This process incurs costs. Watching this short ad helps keep our service free for everyone.",
-      "watchAdButton": "Watch Ad and Evaluate",
+      "title": "AI Evaluation",
+      "message": "We use advanced AI to evaluate your writing, providing comprehensive feedback similar to the real {{provider}} exam. Watch a short video to unlock your AI evaluation.",
+      "watchAdButton": "Watch Video & Evaluate",
       "maybeLaterButton": "Maybe Later",
       "adLoadingError": "Failed to load ad. Please try again.",
       "adNotReady": "Ad is not ready yet. Please wait a moment and try again."
@@ -1539,18 +1539,18 @@
     "forcedNote": "This update is required to continue"
   },
   "supportAd": {
-    "title": "Support us by watching an ad",
-    "subtitle": "Tap to watch",
+    "title": "Get 1 hour ad-free",
+    "subtitle": "Watch a short video",
     "loading": "Loading ad...",
     "unavailable": "Ad currently unavailable",
-    "thankYou": "Thank You!",
-    "appreciation": "Your support means the world to us and helps keep this app free for everyone.",
+    "thankYou": "You're ad-free!",
+    "appreciation": "Enjoy 1 hour without banner ads. The timer starts now!",
     "tapToDismiss": "Tap anywhere to dismiss"
   },
   "supportAdModal": {
-    "title": "Support Us!",
-    "subtitle": "Help keep this app free by watching a short ad.",
-    "watchAd": "Watch Ad",
+    "title": "Go ad-free for 1 hour",
+    "subtitle": "Watch a short video to remove banner ads for 1 hour.",
+    "watchAd": "Watch & Go Ad-Free",
     "skip": "Skip"
   },
   "premium": {

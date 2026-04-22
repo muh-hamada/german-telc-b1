@@ -1593,9 +1593,9 @@
       "cacheInfo": "ℹ️ Résultat en cache (réponse inchangée)"
     },
     "rewardedAdModal": {
-      "title": "Support d'évaluation par IA",
-      "message": "Nous utilisons une IA avancée pour évaluer votre écriture, en fournissant des commentaires complets similaires au véritable examen {{provider}}. Ce processus entraîne des coûts. Regarder cette courte publicité aide à garder notre service gratuit pour tous.",
-      "watchAdButton": "Regarder la Publicité et Évaluer",
+      "title": "Évaluation par IA",
+      "message": "Nous utilisons une IA avancée pour évaluer votre écriture, en fournissant des commentaires complets similaires au véritable examen {{provider}}. Regardez une courte vidéo pour débloquer votre évaluation par IA.",
+      "watchAdButton": "Regarder la vidéo et évaluer",
       "maybeLaterButton": "Peut-être plus tard",
       "adLoadingError": "Échec du chargement de la publicité. Veuillez réessayer.",
       "adNotReady": "La publicité n'est pas encore prête. Veuillez patienter un moment et réessayer."
@@ -1749,18 +1749,18 @@
     "title": "Statistiques"
   },
   "supportAd": {
-    "title": "Soutenez-nous avec une pub",
-    "subtitle": "Appuyez pour regarder",
+    "title": "1 heure sans pub",
+    "subtitle": "Regarder une courte vidéo",
     "loading": "Chargement de la pub...",
     "unavailable": "Pub actuellement indisponible",
-    "thankYou": "Merci !",
-    "appreciation": "Votre soutien compte énormément pour nous et aide à garder cette app gratuite pour tous.",
+    "thankYou": "Vous êtes sans pub !",
+    "appreciation": "Profitez d'1 heure sans bannières publicitaires. Le compte à rebours commence !",
     "tapToDismiss": "Appuyez n'importe où pour fermer"
   },
   "supportAdModal": {
-    "title": "Soutenez-nous !",
-    "subtitle": "Aidez-nous à garder cette app gratuite en regardant une courte pub.",
-    "watchAd": "Regarder la pub",
+    "title": "1 heure sans pub",
+    "subtitle": "Regardez une courte vidéo pour supprimer les bannières pendant 1 heure.",
+    "watchAd": "Regarder et supprimer les pubs",
     "skip": "Passer"
   },
   "premium": {

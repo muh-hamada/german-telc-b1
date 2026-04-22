@@ -43,7 +43,7 @@ interface AdBannerProps {
  * - Prevents multiple banner ad instances from accumulating in memory
  */
 const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
-  const { isAdFree, isPremium, isGiftAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
+  const { isAdFree, isPremium, isRewardAdFreeActive, isStreakAdFreeActive } = useAdFreeStatus();
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   
@@ -146,8 +146,8 @@ const AdBanner: React.FC<AdBannerProps> = ({ style, screen }) => {
   if (isAdFree) {
     if (isPremium) {
       console.log('[AdBanner] Premium user, hiding ad');
-    } else if (isGiftAdFreeActive) {
-      console.log('[AdBanner] Gift ad-free period active, hiding ad');
+    } else if (isRewardAdFreeActive) {
+      console.log('[AdBanner] Reward ad-free period active, hiding ad');
     } else if (isStreakAdFreeActive) {
       console.log('[AdBanner] Streak ad-free period active, hiding ad');
     }

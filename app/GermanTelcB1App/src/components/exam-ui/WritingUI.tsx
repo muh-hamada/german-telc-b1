@@ -60,7 +60,7 @@ const WritingUI: React.FC<WritingUIProps> = ({ exam, onComplete, isMockExam = fa
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const { setContextualModalActive } = useModalQueue();
-  const { isAdFree, isPremium, isGiftAdFreeActive } = useAdFreeStatus();
+  const { isAdFree, isPremium } = useAdFreeStatus();
   const [userAnswer, setUserAnswer] = useState('');
   const [showWarning, setShowWarning] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);

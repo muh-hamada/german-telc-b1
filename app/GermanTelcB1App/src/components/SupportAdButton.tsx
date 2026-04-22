@@ -9,11 +9,13 @@ import {
 } from 'react-native';
 import { AdEventType, RewardedAd, RewardedAdEventType, TestIds } from 'react-native-google-mobile-ads';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { activeExamConfig } from '../config/active-exam.config';
 import { usePremium } from '../contexts/PremiumContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { grantRewardAdFree, useAdFreeStatus } from '../hooks/useAdFreeStatus';
 import { spacing, ThemeColors, typography } from '../theme';
 import SupportThankYouModal from './SupportThankYouModal';
 
@@ -53,6 +55,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
 }) => {
   const { t } = useCustomTranslation();
   const { isPremium, isLoading: isPremiumLoading } = usePremium();
+  const { isAdFree } = useAdFreeStatus();
   const [rewardedAd, setRewardedAd] = useState<RewardedAd | null>(null);
   const [isAdLoaded, setIsAdLoaded] = useState(false);
   const [isAdLoading, setIsAdLoading] = useState(true);
@@ -64,8 +67,8 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
 
   // Initialize and load rewarded ad (must be before any conditional returns)
   useEffect(() => {
-    // Skip ad loading for premium users
-    if (isPremium) {
+    // Skip ad loading for premium users or active ad-free period
+    if (isPremium || isAdFree) {
       setIsAdLoading(false);
       return;
     }
@@ -105,9 +108,12 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
 
       setIsShowingAd(false);
 
-      // Show thank you modal and call callback if user earned reward
+      // Show thank you modal and grant ad-free reward if user earned reward
       if (adEarnedRewardRef.current) {
         setShowThankYouModal(true);
+        grantRewardAdFree(1).catch(err =>
+          console.warn('[SupportAdButton] Failed to grant ad-free reward:', err),
+        );
         if (onAdWatched) {
           onAdWatched();
         }
@@ -178,7 +184,7 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
       setIsAdLoading(false);
       adEarnedRewardRef.current = false;
     };
-  }, [screen, onAdWatched, isPremium]);
+  }, [screen, onAdWatched, isPremium, isAdFree]);
 
   const handlePress = useCallback(async () => {
     if (!rewardedAd || !isAdLoaded) {
@@ -217,9 +223,8 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
     setShowThankYouModal(false);
   }, []);
 
-  // Don't render for premium users (after all hooks)
-  // Also hide while loading premium status to avoid flicker
-  if (isPremium || isPremiumLoading) {
+  // Don't render when any ad-free period is active
+  if (isAdFree || isPremiumLoading) {
     return null;
   }
 
@@ -264,10 +269,10 @@ const SupportAdButton: React.FC<SupportAdButtonProps> = ({
           }
         </Text>
       </View>
-      <Icon 
-        name="heart" 
-        size={16} 
-        color={isDisabled ? colors.text.tertiary : colors.error[500]} 
+      <MaterialIcon 
+        name="verified-user" 
+        size={18} 
+        color={isDisabled ? colors.text.tertiary : colors.primary[500]} 
         style={styles.heartIcon}
       />
     </TouchableOpacity>
