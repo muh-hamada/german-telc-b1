@@ -124,7 +124,7 @@
     {
       "type": "speech",
       "repeated": true,
-      "text": "Vielen Dank!",
+      "text": "Vielen Dank für das Gespräch!",
       "voiceId": "person1",
       "id": "interview-18"
     },
@@ -253,7 +253,7 @@
     {
       "type": "speech",
       "repeated": true,
-      "text": "Vielen Dank!",
+      "text": "Vielen Dank für das Gespräch!",
       "voiceId": "person1",
       "id": "interview-18"
     },

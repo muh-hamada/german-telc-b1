@@ -120,23 +120,37 @@ async function generateSegment(filePath: string, segment: Segment) {
 
         const speedValue = segment.speed || defaultSpeed;
 
-        // Generate audio using Google Gemini API
-        const response = await genAI.models.generateContent({
-            model: 'gemini-2.5-flash-preview-tts',
-            contents: [{ parts: [{ text: segment.text }] }],
-            config: {
-                responseModalities: ['AUDIO'],
-                speechConfig: {
-                    voiceConfig: {
-                        prebuiltVoiceConfig: { 
-                            voiceName: segment.voiceId 
+        // Generate audio using Google Gemini API (with retries for short text failures)
+        const maxRetries = 3;
+        let audioData: string | undefined;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                const response = await genAI.models.generateContent({
+                    model: 'gemini-2.5-flash-preview-tts',
+                    contents: [{ parts: [{ text: segment.text }] }],
+                    config: {
+                        responseModalities: ['AUDIO'],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { 
+                                    voiceName: segment.voiceId 
+                                },
+                            },
                         },
                     },
-                },
-            },
-        });
-
-        const audioData = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+                });
+                audioData = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+                if (audioData) break;
+            } catch (err: any) {
+                const isRetryable = err?.status === 400 && err?.message?.includes('only be used for TTS');
+                if (isRetryable && attempt < maxRetries) {
+                    console.warn(`TTS attempt ${attempt} failed for "${segment.text.substring(0, 40)}...", retrying...`);
+                    await new Promise(r => setTimeout(r, 1000 * attempt));
+                    continue;
+                }
+                throw err;
+            }
+        }
         if (!audioData) {
             throw new Error('No audio data received from Gemini API');
         }
