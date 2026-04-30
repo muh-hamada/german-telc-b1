@@ -132,6 +132,7 @@ const ListeningPracticeScreen: React.FC = () => {
       isMounted = false;
       Sound.stopPlayer();
       Sound.removePlayBackListener();
+      Sound.removePlaybackEndListener();
     };
   }, [interview.audio_url]);
 

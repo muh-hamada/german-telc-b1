@@ -38,6 +38,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
     return () => {
       Sound.stopPlayer();
       Sound.removePlayBackListener();
+      Sound.removePlaybackEndListener();
     };
   }, []);
 
@@ -80,7 +81,6 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
   };
 
   const handlePlayAudio = async () => {
-    setHasStarted(true);
     setIsPlaying(true);
     const startTs = Date.now();
     logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id, part });
@@ -91,6 +91,10 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
       const audioUrl = exam.audio_url || `listening-part${part}/${exam.id}.mp3`;
       const audioPath = await offlineService.getLocalAudioPath(audioUrl);
       console.log(`[DeleListeningPart${part}] Playing audio from:`, audioPath);
+
+      // Remove existing listeners before adding new ones
+      Sound.removePlayBackListener();
+      Sound.removePlaybackEndListener();
 
       // Add playback listener for progress tracking
       Sound.addPlayBackListener((e: any) => {
@@ -109,15 +113,18 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
 
       // Start playback
       await Sound.startPlayer(audioPath);
+      setHasStarted(true);
 
     } catch (error) {
       console.error('Failed to load the sound', error);
+      logEvent(AnalyticsEvents.AUDIO_PLAY_PRESSED, { exam_id: exam.id, part, error: error instanceof Error ? error.message : 'Unknown error', failed: true });
       Alert.alert(
         t('listening.part1.audioError'),
         t('listening.part1.audioErrorMessage'),
         [{ text: 'OK' }]
       );
       setIsPlaying(false);
+      setHasStarted(false);
     }
   };
 
@@ -366,7 +373,7 @@ const DeleListeningUI: React.FC<DeleListeningUIProps> = ({ exam, sectionDetails,
             </View>
           </View>
 
-          {!hasStarted && (
+          {!hasStarted && !isPlaying && (
             <TouchableOpacity style={styles.playButton} onPress={handlePlayAudio}>
               <Text style={styles.playButtonText}>{t('listening.part1.playAudio')}</Text>
             </TouchableOpacity>

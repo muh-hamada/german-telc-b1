@@ -228,7 +228,7 @@ const ListeningMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart1Exam}
         examType="listening"
         partNumber={1}
-        title={t('practice.listening.part1')}
+        title={getCardTitle(1)}
       />
 
       <ExamSelectionModal
@@ -238,7 +238,7 @@ const ListeningMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart2Exam}
         examType="listening"
         partNumber={2}
-        title={t('practice.listening.part2')}
+        title={getCardTitle(2)}
       />
 
       <ExamSelectionModal
@@ -248,7 +248,7 @@ const ListeningMenuScreen: React.FC = () => {
         onSelectExam={handleSelectPart3Exam}
         examType="listening"
         partNumber={3}
-        title={t('practice.listening.part3')}
+        title={getCardTitle(3)}
       />
 
       {isDele && (
@@ -260,7 +260,7 @@ const ListeningMenuScreen: React.FC = () => {
             onSelectExam={handleSelectPart4Exam}
             examType="listening"
             partNumber={4}
-            title={t('practice.listening.part4')}
+            title={getCardTitle(4)}
           />
 
           <ExamSelectionModal
@@ -270,7 +270,7 @@ const ListeningMenuScreen: React.FC = () => {
             onSelectExam={handleSelectPart5Exam}
             examType="listening"
             partNumber={5}
-            title={t('practice.listening.part5')}
+            title={getCardTitle(5)}
           />
         </>
       )}

@@ -27,14 +27,14 @@
       "type": "speech",
       "repeated": true,
       "text": "Wir sind eine Gruppe von Nachbarn, die zusammen gärtnern. Mitten in der Stadt, auf einer alten Fläche hinter dem Bahnhof, bauen wir Gemüse, Obst und Blumen an. Jeder kann mitmachen, der Lust hat, sich die Hände schmutzig zu machen.",
-      "voiceId": "person3",
+      "voiceId": "person1",
       "id": "interview-4"
     },
     {
       "type": "speech",
       "repeated": true,
       "text": "Das ist ja eine tolle Idee. Wie lange gibt es Ihr Projekt denn schon?",
-      "voiceId": "person1",
+      "voiceId": "person3",
       "id": "interview-5"
     },
     {
@@ -156,14 +156,14 @@
       "type": "speech",
       "repeated": true,
       "text": "Wir sind eine Gruppe von Nachbarn, die zusammen gärtnern. Mitten in der Stadt, auf einer alten Fläche hinter dem Bahnhof, bauen wir Gemüse, Obst und Blumen an. Jeder kann mitmachen, der Lust hat, sich die Hände schmutzig zu machen.",
-      "voiceId": "person3",
+      "voiceId": "person1",
       "id": "interview-4"
     },
     {
       "type": "speech",
       "repeated": true,
       "text": "Das ist ja eine tolle Idee. Wie lange gibt es Ihr Projekt denn schon?",
-      "voiceId": "person1",
+      "voiceId": "person3",
       "id": "interview-5"
     },
     {
