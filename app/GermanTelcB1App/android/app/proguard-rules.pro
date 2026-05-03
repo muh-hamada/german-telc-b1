@@ -118,7 +118,15 @@
     void set*(***);
     *** get*();
 }
+# AdMob Mediation: InMobi adapter
+-keep class com.inmobi.** { *; }
+-dontwarn com.inmobi.**
+-keep class com.google.ads.mediation.inmobi.** { *; }
 
+# AdMob Mediation: Unity Ads adapter
+-keep class com.unity3d.ads.** { *; }
+-dontwarn com.unity3d.ads.**
+-keep class com.google.ads.mediation.unity.** { *; }
 # Keep React Native New Architecture entry point
 -keep class com.facebook.react.ReactNativeApplicationEntryPoint { 
     public static <methods>; 

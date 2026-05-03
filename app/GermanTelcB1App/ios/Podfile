@@ -55,6 +55,12 @@ target 'ExamPreparationApp' do
   # GIF support for animated images
   pod 'SDWebImageWebPCoder'
 
+  # AdMob Mediation: InMobi
+  pod 'GoogleMobileAdsMediationInMobi'
+
+  # AdMob Mediation: Unity Ads
+  pod 'GoogleMobileAdsMediationUnity'
+
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
