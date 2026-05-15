@@ -90,8 +90,8 @@ android {
         applicationId "com.mhamada.deleb1spanish"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 92
-        versionName "1.0.92"
+        versionCode 93
+        versionName "1.0.93"
         missingDimensionStrategy "store", "play"
         
         // Explicitly specify ABI filters to ensure all architectures are included
