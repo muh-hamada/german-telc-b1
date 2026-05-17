@@ -87,7 +87,15 @@ const SplashBootScreen: React.FC<Props> = ({ onBootComplete }) => {
         complete();
         return;
       }
-      await mobileAds().initialize();
+      const adapterStatuses = await mobileAds().initialize();
+      console.log(
+        '[Ads] Adapter initialization statuses:',
+        adapterStatuses.map(s => ({
+          name: s.name,
+          state: s.state,
+          description: s.description,
+        })),
+      );
 
       // Step 4: If ads are disabled, the user is ad-free, or this is the first
       // launch (onboarding), skip the App Open Ad. Showing a full-screen ad to

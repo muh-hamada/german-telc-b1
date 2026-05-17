@@ -56,10 +56,14 @@ target 'ExamPreparationApp' do
   pod 'SDWebImageWebPCoder'
 
   # AdMob Mediation: InMobi
-  pod 'GoogleMobileAdsMediationInMobi'
+  # Pinned to last version tested with GMA iOS SDK 12.14.0 (bundled by react-native-google-mobile-ads@16.0.1)
+  # 11.1.1.1+ bumped GMA dependency to 13.0.0 — do not upgrade until rn-google-mobile-ads upgrades GMA SDK
+  pod 'GoogleMobileAdsMediationInMobi', '= 11.1.1.0'
 
   # AdMob Mediation: Unity Ads
-  pod 'GoogleMobileAdsMediationUnity'
+  # Pinned to last version tested with GMA iOS SDK 12.14.0 (bundled by react-native-google-mobile-ads@16.0.1)
+  # 4.16.6.0+ bumped GMA dependency to 13.0.0 — do not upgrade until rn-google-mobile-ads upgrades GMA SDK
+  pod 'GoogleMobileAdsMediationUnity', '= 4.16.5.0'
 
   use_react_native!(
     :path => config[:reactNativePath],

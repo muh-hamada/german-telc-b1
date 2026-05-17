@@ -1360,7 +1360,7 @@ PODS:
   - GoogleMobileAdsMediationInMobi (11.1.1.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - InMobiSDK (= 11.1.1)
-  - GoogleMobileAdsMediationUnity (4.16.6.0):
+  - GoogleMobileAdsMediationUnity (4.16.5.0):
     - Google-Mobile-Ads-SDK (~> 12.0)
     - UnityAds (= 4.16.5)
   - GoogleSignIn (9.1.0):
@@ -4596,8 +4596,8 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - GoogleMobileAdsMediationInMobi
-  - GoogleMobileAdsMediationUnity
+  - GoogleMobileAdsMediationInMobi (= 11.1.1.0)
+  - GoogleMobileAdsMediationUnity (= 4.16.5.0)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - NitroModules (from `../node_modules/react-native-nitro-modules`)
   - NitroSound (from `../node_modules/react-native-nitro-sound`)
@@ -4991,7 +4991,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 72c9a682fec6290327ea5e3c4b829b247fcb2c17
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleMobileAdsMediationInMobi: 010c989845587e66ef33491f2bdf5426cb3e1c15
-  GoogleMobileAdsMediationUnity: 85fd40e2b42371341446745899e2963faaaaaba9
+  GoogleMobileAdsMediationUnity: 8b3e518d94c750231a88b9f13b84be22b295c8f9
   GoogleSignIn: fcee2257188d5eda57a5e2b6a715550ffff9206d
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
@@ -5107,6 +5107,6 @@ SPEC CHECKSUMS:
   UnityAds: 8b9e0ecf7c4aa7334d15f81efb58db279e28f502
   Yoga: ce55ebb197c21e22b6700cd36e3f36b7ec26e6f8
 
-PODFILE CHECKSUM: d0c25e07351e1a60a74f4eeb0e13ed98b3cf8b0a
+PODFILE CHECKSUM: 236a4421c5c5468c44ed231fddeb6c61a3a312c7
 
 COCOAPODS: 1.16.2
