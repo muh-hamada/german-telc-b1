@@ -185,7 +185,8 @@
       "reading": "Чтение",
       "listening": "Аудирование",
       "writing": "Письмо",
-      "speaking": "Говорение"
+      "speaking": "Говорение",
+      "grammar": "Грамматика"
     },
     "descriptions": {
       "examStructure": "Узнайте о формате и системе оценки экзамена {{provider}} B1",
@@ -2054,5 +2055,20 @@
     "lastAttempt": "Последняя попытка: {{date}}",
     "resumeButton": "Загрузить ответы",
     "startFresh": "Начать заново"
+  },
+  "sectionStats": {
+    "title": "Ваш прогресс",
+    "noAttempts": "Начните практику, чтобы увидеть статистику",
+    "detailsButton": "Подробнее",
+    "part": "Часть {{number}}",
+    "attempts": "{{count}} попытка(ок)",
+    "attemptsWithAvg": "{{count}} попытка(ок) · сред. {{score}}%",
+    "avg": "сред. {{score}}%",
+    "best": "Лучший: {{score}}%",
+    "detailsTitle": "Прогресс: {{section}}",
+    "noAttemptsForPart": "Попыток ещё нет",
+    "historyTitle": "История результатов",
+    "historyEntry": "{{date}}: {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "Подробная история недоступна"
   }
 }

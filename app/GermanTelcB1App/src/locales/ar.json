@@ -185,7 +185,8 @@
       "reading": "الفهم القرائي",
       "listening": "الفهم السمعي",
       "writing": "التعبير الكتابي",
-      "speaking": "التعبير الشفهي"
+      "speaking": "التعبير الشفهي",
+      "grammar": "النحو"
     },
     "descriptions": {
       "examStructure": "تعرف على صيغة امتحان {{provider}} {{level}} ونظام التقييم",
@@ -2054,5 +2055,20 @@
     "lastAttempt": "آخر محاولة: {{date}}",
     "resumeButton": "تحميل الإجابات السابقة",
     "startFresh": "ابدأ من جديد"
+  },
+  "sectionStats": {
+    "title": "تقدمك",
+    "noAttempts": "ابدأ التدريب لترى إحصائياتك",
+    "detailsButton": "تفاصيل",
+    "part": "الجزء {{number}}",
+    "attempts": "{{count}} محاولة",
+    "attemptsWithAvg": "{{count}} محاولة · متوسط {{score}}%",
+    "avg": "متوسط {{score}}%",
+    "best": "الأفضل: {{score}}%",
+    "detailsTitle": "تقدم {{section}}",
+    "noAttemptsForPart": "لا توجد محاولات بعد",
+    "historyTitle": "سجل الدرجات",
+    "historyEntry": "{{date}}: {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "لا يوجد سجل تفصيلي متاح"
   }
 }

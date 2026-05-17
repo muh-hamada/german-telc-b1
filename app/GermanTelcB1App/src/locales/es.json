@@ -185,7 +185,8 @@
       "reading": "Comprensión Lectora",
       "listening": "Comprensión Auditiva",
       "writing": "Expresión Escrita",
-      "speaking": "Expresión Oral"
+      "speaking": "Expresión Oral",
+      "grammar": "Gramática"
     },
     "descriptions": {
       "examStructure": "Conozca el formato del examen {{provider}} {{level}} y el sistema de puntuación",
@@ -2066,5 +2067,20 @@
     "lastAttempt": "Último intento: {{date}}",
     "resumeButton": "Cargar respuestas",
     "startFresh": "Empezar de nuevo"
+  },
+  "sectionStats": {
+    "title": "Tu progreso",
+    "noAttempts": "Practica para ver tus estadísticas",
+    "detailsButton": "Detalles",
+    "part": "Parte {{number}}",
+    "attempts": "{{count}} intento(s)",
+    "attemptsWithAvg": "{{count}} intento(s) · prom. {{score}}%",
+    "avg": "prom. {{score}}%",
+    "best": "Mejor: {{score}}%",
+    "detailsTitle": "Progreso de {{section}}",
+    "noAttemptsForPart": "Sin intentos aún",
+    "historyTitle": "Historial de puntuaciones",
+    "historyEntry": "{{date}}: {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "No hay historial detallado disponible"
   }
 }

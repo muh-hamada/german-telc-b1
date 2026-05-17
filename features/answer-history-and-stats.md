@@ -204,7 +204,7 @@ Each screen received the same pattern:
 | Grammar | `GrammarPart1Screen`, `GrammarPart2Screen` |
 | Reading | `ReadingPart1Screen`, `ReadingPart1A1Screen`, `ReadingPart1A2Screen`, `ReadingPart2Screen`, `ReadingPart2A1Screen`, `ReadingPart2A2Screen`, `ReadingPart3Screen`, `ReadingPart3A1Screen`, `ReadingPart3A2Screen` |
 | Listening | `ListeningPart1Screen`, `ListeningPart1A1Screen`, `ListeningPart1A2Screen`, `ListeningPart2Screen`, `ListeningPart2A1Screen`, `ListeningPart2A2Screen`, `ListeningPart3Screen`, `ListeningPart3A1Screen`, `ListeningPart3A2Screen`, `ListeningPart4Screen`, `ListeningPart5Screen` |
-| Writing | `WritingPart2Screen` |
+| Writing | `WritingPart1Screen`, `WritingPart2Screen` |
 
 #### Safety Measures
 - All `initialAnswers` usage is null-safe (`?? []`, `?? ''`, optional chaining)
@@ -218,6 +218,17 @@ Each screen received the same pattern:
 **examId type mismatch in `getExamProgress`** — `updateExamProgress` receives `examId` as a JS number (from `route.params?.examId ?? 0`) even though the TypeScript signature declares `string`. At runtime the value is stored as a number (e.g. `0`). `getExamProgress` then searches with `String(id)` (e.g. `"0"`). Strict equality `0 === "0"` is `false`, so the lookup always returned `null` and the modal never appeared. **Fix:** changed `getExamProgress` to compare with `String(exam.examId) === String(examId)`, coercing both sides to string.
 
 **Modal placement inside `isLoading` conditional** — In 21 of 23 screens the `<ResumeExamModal>` JSX was rendered inside the `if (isLoading)` early return block. The progress check runs after data loads (when `isLoading` becomes `false`), so the modal was unmounted before it could display. **Fix:** moved `<ResumeExamModal>` to the main `return` block in all screens.
+
+**GrammarPart2Screen missing `catch` block** — `Alert.alert(failedToLoad)` was placed outside the `try/catch`, so the error alert fired on every load regardless of success or failure. **Fix:** added the missing `catch` keyword to properly scope the alert.
+
+**WritingPart1Screen not implemented** — The screen was missed in the initial pass. Added full resume modal support (imports, state vars, progress check, `ResumeExamModal` JSX, `key={uiKey}`, `initialAnswers`). Also added `initialAnswers?: UserAnswer[]` prop to `WritingPart1UIA1` with mapping from `ua.questionId` → `field.question_number` → `field.id`.
+
+**Writing Part 2 score displayed as `0/1` instead of `0/10`** — `WritingPart2Screen.handleComplete` passed `answers.length` (always `1` for a single writing submission) as `maxScore` to `updateExamProgress`. Writing evaluation scores are on a 10-point scale. Two-part fix:
+- **`WritingPart2Screen`**: now reads `answers[0]?.assessment?.maxScore` from the evaluation result and uses it as `maxScore`, falling back to `answers.length`.
+- **`ResumeExamModal`**: now derives `effectiveMaxScore` from `savedProgress.answers[0]?.assessment?.maxScore` before falling back to `savedProgress.maxScore`. This retroactively fixes the display for any existing saved progress that has `maxScore: 1` but contains the full assessment blob. Safe for all other exam types — `assessment.maxScore` is only present on writing evaluation answers (Part 2 / WritingUI), never on reading, listening, grammar, or WritingPart1 answers.
+
+#### Feature 1 — Status: Complete ✅
+User-tested and confirmed working: Reading Part 2 modal, Grammar Part 2 loads, Writing Part 1 modal, Writing Part 2 score display. Debug logs still present in `ProgressContext.tsx` and `ReadingPart2Screen.tsx` — remove before release.
 
 ---
 

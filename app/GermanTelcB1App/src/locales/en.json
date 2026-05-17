@@ -186,7 +186,8 @@
       "reading": "Reading",
       "listening": "Listening",
       "writing": "Writing",
-      "speaking": "Speaking"
+      "speaking": "Speaking",
+      "grammar": "Grammar"
     },
     "descriptions": {
       "examStructure": "Learn about the {{provider}} {{level}} exam format and scoring",
@@ -1781,5 +1782,20 @@
     "lastAttempt": "Last attempt: {{date}}",
     "resumeButton": "Load Previous Answers",
     "startFresh": "Start Fresh"
+  },
+  "sectionStats": {
+    "title": "Your Progress",
+    "noAttempts": "Start practicing to see your stats",
+    "detailsButton": "Details",
+    "part": "Part {{number}}",
+    "attempts": "{{count}} attempt(s)",
+    "attemptsWithAvg": "{{count}} attempt(s) · avg {{score}}%",
+    "avg": "avg {{score}}%",
+    "best": "Best: {{score}}%",
+    "detailsTitle": "{{section}} Progress",
+    "noAttemptsForPart": "No attempts yet",
+    "historyTitle": "Score History",
+    "historyEntry": "{{date}}: {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "No detailed history available"
   }
 }

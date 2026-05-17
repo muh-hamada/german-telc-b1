@@ -17,6 +17,7 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
 import CardsListSeperator from '../../components/CardsListSeperator';
+import SectionStatsCard from '../../components/SectionStatsCard';
 
 const GrammarMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -92,6 +93,7 @@ const GrammarMenuScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
+        <SectionStatsCard section="grammar" sectionLabel={t('home.practiceSections.grammar')} />
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
           <Text style={styles.cardDescription}>{t('practice.grammar.descriptions.main')}</Text>

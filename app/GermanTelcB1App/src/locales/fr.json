@@ -185,7 +185,8 @@
       "reading": "Compréhension écrite",
       "listening": "Compréhension orale",
       "writing": "Expression écrite",
-      "speaking": "Expression orale"
+      "speaking": "Expression orale",
+      "grammar": "Grammaire"
     },
     "descriptions": {
       "examStructure": "Apprenez le format et le système de notation de l'examen {{provider}} {{level}}",
@@ -2054,5 +2055,20 @@
     "lastAttempt": "Dernière tentative : {{date}}",
     "resumeButton": "Charger les réponses",
     "startFresh": "Recommencer"
+  },
+  "sectionStats": {
+    "title": "Votre progression",
+    "noAttempts": "Entraînez-vous pour voir vos statistiques",
+    "detailsButton": "Détails",
+    "part": "Partie {{number}}",
+    "attempts": "{{count}} tentative(s)",
+    "attemptsWithAvg": "{{count}} tentative(s) · moy. {{score}}%",
+    "avg": "moy. {{score}}%",
+    "best": "Meilleur : {{score}}%",
+    "detailsTitle": "Progression {{section}}",
+    "noAttemptsForPart": "Aucune tentative",
+    "historyTitle": "Historique des scores",
+    "historyEntry": "{{date}} : {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "Pas d'historique détaillé disponible"
   }
 }

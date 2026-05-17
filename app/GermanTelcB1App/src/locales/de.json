@@ -185,7 +185,8 @@
       "reading": "Lesen",
       "listening": "Hören",
       "writing": "Schreiben",
-      "speaking": "Sprechen"
+      "speaking": "Sprechen",
+      "grammar": "Grammatik"
     },
     "descriptions": {
       "examStructure": "Erfahren Sie mehr über das Format und die Bewertung der {{provider}} {{level}} Prüfung",
@@ -2063,5 +2064,20 @@
     "lastAttempt": "Letzter Versuch: {{date}}",
     "resumeButton": "Antworten laden",
     "startFresh": "Neu starten"
+  },
+  "sectionStats": {
+    "title": "Dein Fortschritt",
+    "noAttempts": "Übe, um deine Statistiken zu sehen",
+    "detailsButton": "Details",
+    "part": "Teil {{number}}",
+    "attempts": "{{count}} Versuch(e)",
+    "attemptsWithAvg": "{{count}} Versuch(e) · Ø {{score}}%",
+    "avg": "Ø {{score}}%",
+    "best": "Beste: {{score}}%",
+    "detailsTitle": "{{section}}-Fortschritt",
+    "noAttemptsForPart": "Noch keine Versuche",
+    "historyTitle": "Verlauf",
+    "historyEntry": "{{date}}: {{score}}/{{max}} ({{pct}}%)",
+    "noHistory": "Kein detaillierter Verlauf verfügbar"
   }
 }

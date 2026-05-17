@@ -15,6 +15,7 @@ import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
+import SectionStatsCard from '../../components/SectionStatsCard';
 
 const ReadingMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -151,6 +152,7 @@ const ReadingMenuScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
+        <SectionStatsCard section="reading" sectionLabel={t('home.practiceSections.reading')} />
         <Card style={styles.card} onPress={handlePart1Press}>
           <Text style={styles.cardTitle}>{getCardTitle(1)}</Text>
           <Text style={styles.cardDescription}>{getCardDescription(1)}</Text>
