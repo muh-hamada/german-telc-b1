@@ -2058,5 +2058,13 @@
     "maybeLaterButton": "tal vez más tarde",
     "congratulations": "¡Felicidades!",
     "youEarned": "¡Te ganaste una recompensa!"
+  },
+  "resume": {
+    "title": "Ya lo hiciste antes",
+    "message": "Carga tus respuestas anteriores o empieza de nuevo.",
+    "lastScore": "Última puntuación: {{score}}/{{max}}",
+    "lastAttempt": "Último intento: {{date}}",
+    "resumeButton": "Cargar respuestas",
+    "startFresh": "Empezar de nuevo"
   }
 }

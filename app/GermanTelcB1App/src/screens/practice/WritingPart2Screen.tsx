@@ -4,8 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
-} from 'react-native';
+  Alert,} from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { spacing, type ThemeColors } from '../../theme';
@@ -17,9 +16,10 @@ import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
-import { UserAnswer } from '../../types/exam.types';
+import { UserAnswer , ExamProgress } from '../../types/exam.types';
 import WritingPart2UIA1 from '../../components/exam-ui/WritingPart2UIA1';
 import ReportIssueModal from '../../components/ReportIssueModal';
+import ResumeExamModal from '../../components/ResumeExamModal';
 
 const WritingPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -28,7 +28,7 @@ const WritingPart2Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
-  const { updateExamProgress } = useProgress();
+  const { updateExamProgress, getExamProgress } = useProgress();
 
   const { isCompleted, toggleCompletion } = useExamCompletion('writing-part2', examId);
 
@@ -36,6 +36,10 @@ const WritingPart2Screen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState(0);
   const [showReportIssueModal, setShowReportIssueModal] = useState(false);
+  const [uiKey, setUiKey] = useState(0);
+  const [resumedAnswers, setResumedAnswers] = useState<UserAnswer[] | undefined>(undefined);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+  const [savedProgress, setSavedProgress] = useState<ExamProgress | null>(null);
 
   useEffect(() => {
     loadExam();
@@ -46,6 +50,12 @@ const WritingPart2Screen: React.FC = () => {
       setIsLoading(true);
       const exam = await dataService.getWritingPart2Exam(examId);
       setCurrentExam(exam || null);
+        // Check for saved progress from previous attempt
+        const progress = getExamProgress('writing-part2', String(examId));
+        if (progress?.answers && progress.answers.length > 0) {
+          setSavedProgress(progress);
+          setShowResumeModal(true);
+        }
     } catch (error) {
       console.error('Error loading exam:', error);
     } finally {
@@ -88,17 +98,21 @@ const WritingPart2Screen: React.FC = () => {
   const handleComplete = (calculatedScore: number, answers: UserAnswer[]) => {
     setScore(calculatedScore);
     
+    // Writing exams have assessment-based scoring (e.g. 0-10), not per-answer scoring
+    const assessmentMaxScore = answers[0]?.assessment?.maxScore;
+    const maxScore = assessmentMaxScore ?? answers.length;
+
     // Log completion
     logEvent(AnalyticsEvents.PRACTICE_EXAM_COMPLETED, {
       section: 'writing',
       part: 2,
       exam_id: examId,
       score: calculatedScore,
-      max_score: answers.length,
+      max_score: maxScore,
     });
 
     // Update progress
-    updateExamProgress('writing-part2', examId, answers, calculatedScore, answers.length);
+    updateExamProgress('writing-part2', examId, answers, calculatedScore, maxScore);
   };
 
   if (isLoading) {
@@ -123,7 +137,23 @@ const WritingPart2Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <WritingPart2UIA1 exam={currentExam} onComplete={handleComplete} isMockExam={false} />
+      <ResumeExamModal
+        visible={showResumeModal}
+        savedProgress={savedProgress}
+        onResume={() => {
+          if (savedProgress?.answers?.length) {
+            setResumedAnswers(savedProgress.answers);
+            setUiKey(k => k + 1);
+          }
+          setShowResumeModal(false);
+        }}
+        onStartFresh={() => {
+          setResumedAnswers(undefined);
+          setUiKey(k => k + 1);
+          setShowResumeModal(false);
+        }}
+      />
+      <WritingPart2UIA1 key={uiKey} exam={currentExam} onComplete={handleComplete} isMockExam={false} initialAnswers={resumedAnswers} />
       
       <ReportIssueModal
         visible={showReportIssueModal}

@@ -18,13 +18,28 @@ import MultiChoiceSelectionModal from './MultiChoiceSelectionModal';
 interface DeleGrammarPart2UIProps {
   exam: DeleGrammarPart2Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const DeleGrammarPart2UI: React.FC<DeleGrammarPart2UIProps> = ({ exam, onComplete }) => {
+const DeleGrammarPart2UI: React.FC<DeleGrammarPart2UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: number } = {};
+    try {
+      for (const ua of initialAnswers) {
+        const question = exam.questions.find((q: any) => q.id === ua.questionId);
+        if (!question) continue;
+        const idx = question.options.findIndex((opt: any) => opt.text === ua.answer);
+        if (idx !== -1) map[ua.questionId] = idx;
+      }
+    } catch {
+      // Safety: if exam data changed, skip restoration
+    }
+    return map;
+  });
   const [showModal, setShowModal] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
 

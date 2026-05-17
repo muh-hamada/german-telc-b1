@@ -2055,5 +2055,13 @@
     "maybeLaterButton": "Vielleicht später",
     "congratulations": "Glückwunsch!",
     "youEarned": "Du hast eine Belohnung erhalten!"
+  },
+  "resume": {
+    "title": "Bereits bearbeitet",
+    "message": "Vorherige Antworten laden oder neu starten.",
+    "lastScore": "Letztes Ergebnis: {{score}}/{{max}}",
+    "lastAttempt": "Letzter Versuch: {{date}}",
+    "resumeButton": "Antworten laden",
+    "startFresh": "Neu starten"
   }
 }

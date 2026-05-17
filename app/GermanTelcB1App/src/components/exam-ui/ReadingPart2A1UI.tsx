@@ -17,13 +17,22 @@ import { formatText } from '../../utils/text-formatter';
 interface ReadingPart2A1UIProps {
   exam: ReadingPart2A1Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const ReadingPart2A1UI: React.FC<ReadingPart2A1UIProps> = ({ exam, onComplete }) => {
+const ReadingPart2A1UI: React.FC<ReadingPart2A1UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [key: number]: number }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [key: number]: number }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: number } = {};
+    for (const ua of initialAnswers) {
+      const n = parseInt(ua.answer, 10);
+      if (!isNaN(n)) map[ua.questionId] = n;
+    }
+    return map;
+  });
 
   const handleAnswerSelect = (questionId: number, optionId: number) => {
     setUserAnswers(prev => ({ ...prev, [questionId]: optionId }));

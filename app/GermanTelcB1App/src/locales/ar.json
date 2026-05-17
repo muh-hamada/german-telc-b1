@@ -2046,5 +2046,13 @@
     "maybeLaterButton": "ربما في وقت لاحق",
     "congratulations": "تهانينا!",
     "youEarned": "لقد حصلت على مكافأة!"
+  },
+  "resume": {
+    "title": "لقد أجبت على هذا من قبل",
+    "message": "حمّل إجاباتك السابقة أو ابدأ من جديد.",
+    "lastScore": "آخر نتيجة: {{score}}/{{max}}",
+    "lastAttempt": "آخر محاولة: {{date}}",
+    "resumeButton": "تحميل الإجابات السابقة",
+    "startFresh": "ابدأ من جديد"
   }
 }

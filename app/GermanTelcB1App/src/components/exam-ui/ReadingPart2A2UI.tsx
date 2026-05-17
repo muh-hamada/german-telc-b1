@@ -16,13 +16,21 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 interface ReadingPart2A2UIProps {
   exam: ReadingPart2A2Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const ReadingPart2A2UI: React.FC<ReadingPart2A2UIProps> = ({ exam, onComplete }) => {
+const ReadingPart2A2UI: React.FC<ReadingPart2A2UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [key: number]: boolean }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [key: number]: boolean }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: boolean } = {};
+    for (const ua of initialAnswers) {
+      map[ua.questionId] = ua.answer === 'true';
+    }
+    return map;
+  });
 
   const handleAnswerSelect = (questionId: number, answer: boolean) => {
     setUserAnswers(prev => ({ ...prev, [questionId]: answer }));

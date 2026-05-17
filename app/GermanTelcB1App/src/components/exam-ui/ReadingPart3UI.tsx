@@ -16,13 +16,21 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 interface ReadingPart3UIProps {
   exam: ReadingPart3Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete }) => {
+const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [situationId: number]: string }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: string } = {};
+    for (const ua of initialAnswers) {
+      if (ua.answer) map[ua.questionId] = ua.answer;
+    }
+    return map;
+  });
 
   const renderMarkdownText = (text: string, style: any) => {
     // Split text by newlines to preserve line breaks

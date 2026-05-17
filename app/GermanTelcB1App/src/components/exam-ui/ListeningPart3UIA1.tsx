@@ -41,13 +41,14 @@ interface ListeningPart3UIA1Props {
   exam: Exam;
   sectionDetails: any;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const ListeningPart3UIA1: React.FC<ListeningPart3UIA1Props> = ({ exam, sectionDetails, onComplete }) => {
+const ListeningPart3UIA1: React.FC<ListeningPart3UIA1Props> = ({ exam, sectionDetails, onComplete, initialAnswers }) => {
   const { i18n, t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>(initialAnswers ?? []);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);

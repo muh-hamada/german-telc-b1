@@ -5,14 +5,12 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Text,
-  Alert,
-} from 'react-native';
+  Alert,} from 'react-native';
 import { spacing, type ThemeColors } from '../../theme';
 import dataService from '../../services/data.service';
 import ListeningPart1UIA1 from '../../components/exam-ui/ListeningPart1UIA1';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { UserAnswer } from '../../types/exam.types';
-import { ExamResult } from '../../types/exam.types';
+import { ExamProgress, ExamResult, UserAnswer } from '../../types/exam.types';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import { useProgress } from '../../contexts/ProgressContext';
@@ -25,6 +23,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/core';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { HomeStackParamList } from '../../types/navigation.types';
+import ResumeExamModal from '../../components/ResumeExamModal';
 
 type ListeningPart1A1RouteProp = RouteProp<HomeStackParamList, 'ListeningPart1A1'>;
 
@@ -59,7 +58,11 @@ const ListeningPart1A1Screen: React.FC = () => {
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [showReportIssueModal, setShowReportIssueModal] = useState(false);
-  const { updateExamProgress } = useProgress();
+  const [uiKey, setUiKey] = useState(0);
+  const [resumedAnswers, setResumedAnswers] = useState<UserAnswer[] | undefined>(undefined);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+  const [savedProgress, setSavedProgress] = useState<ExamProgress | null>(null);
+  const { updateExamProgress, getExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
   const sectionDetails = listeningData?.section_details || {};
   const exams = listeningData?.exams as Exam[] || [];
@@ -106,6 +109,12 @@ const ListeningPart1A1Screen: React.FC = () => {
       const data = await dataService.getListeningPart1Content();
       console.log('Listening Part 1 A1 data loaded:', data);
       setListeningData(data);
+        // Check for saved progress from previous attempt
+        const progress = getExamProgress('listening-part1', String(examId));
+        if (progress?.answers && progress.answers.length > 0) {
+          setSavedProgress(progress);
+          setShowResumeModal(true);
+        }
     } catch (err) {
       console.error('Error loading listening part 1 A1 data:', err);
       setError(t('general.loadingDataError'));
@@ -161,11 +170,27 @@ const ListeningPart1A1Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <ResumeExamModal
+        visible={showResumeModal}
+        savedProgress={savedProgress}
+        onResume={() => {
+          if (savedProgress?.answers?.length) {
+            setResumedAnswers(savedProgress.answers);
+            setUiKey(k => k + 1);
+          }
+          setShowResumeModal(false);
+        }}
+        onStartFresh={() => {
+          setResumedAnswers(undefined);
+          setUiKey(k => k + 1);
+          setShowResumeModal(false);
+        }}
+      />
       {currentExam && (
-        <ListeningPart1UIA1
+        <ListeningPart1UIA1 key={uiKey}
         exam={currentExam}
           sectionDetails={sectionDetails}
-          onComplete={handleComplete}
+          onComplete={handleComplete} initialAnswers={resumedAnswers}
         />
       )}
       <ResultsModal

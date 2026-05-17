@@ -20,14 +20,27 @@ interface WritingPart1UIA1Props {
   exam: any;
   onComplete: (score: number, answers: UserAnswer[]) => void;
   isMockExam?: boolean;
+  initialAnswers?: UserAnswer[];
 }
 
-const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, isMockExam = false }) => {
+const WritingPart1UIA1: React.FC<WritingPart1UIA1Props> = ({ exam, onComplete, isMockExam = false, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   
-  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>(() => {
+    if (!initialAnswers?.length || !exam?.form_fields) return {};
+    try {
+      const map: { [key: string]: string } = {};
+      for (const ua of initialAnswers) {
+        const field = exam.form_fields.find((f: any) => f.question_number === ua.questionId);
+        if (field && ua.answer) {
+          map[field.id] = ua.answer;
+        }
+      }
+      return map;
+    } catch { return {}; }
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [showResultsModal, setShowResultsModal] = useState(false);

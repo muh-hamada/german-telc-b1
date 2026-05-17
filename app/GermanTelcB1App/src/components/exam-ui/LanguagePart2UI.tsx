@@ -18,13 +18,21 @@ import MultiChoiceSelectionModal from './MultiChoiceSelectionModal';
 interface LanguagePart2UIProps {
   exam: GrammarPart2Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete }) => {
+const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [gapId: number]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [gapId: number]: string }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: string } = {};
+    for (const ua of initialAnswers) {
+      if (ua.answer) map[ua.questionId] = ua.answer;
+    }
+    return map;
+  });
   const [showWordBank, setShowWordBank] = useState(false);
   const [selectedGap, setSelectedGap] = useState<number | null>(null);
 

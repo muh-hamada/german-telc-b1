@@ -17,13 +17,30 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 interface DeleReadingPart2UIProps {
   exam: DeleReadingPart2Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const DeleReadingPart2UI: React.FC<DeleReadingPart2UIProps> = ({ exam, onComplete }) => {
+const DeleReadingPart2UI: React.FC<DeleReadingPart2UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: number }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: number } = {};
+    try {
+      for (const ua of initialAnswers) {
+        const question = exam.questions.find(q => q.id === ua.questionId);
+        if (!question) continue;
+        const idx = question.options.findIndex(
+          (opt: any) => (opt.text === ua.answer) || (opt.option === ua.answer)
+        );
+        if (idx !== -1) map[ua.questionId] = idx;
+      }
+    } catch {
+      // Safety: if exam data changed, skip restoration
+    }
+    return map;
+  });
 
   const handleAnswerSelect = (questionId: number, answerIndex: number) => {
     setUserAnswers(prev => ({

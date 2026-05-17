@@ -17,13 +17,21 @@ import MarkdownText from '../MarkdownText';
 interface ReadingPart3A2UIProps {
   exam: ReadingPart3A2Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const ReadingPart3A2UI: React.FC<ReadingPart3A2UIProps> = ({ exam, onComplete }) => {
+const ReadingPart3A2UI: React.FC<ReadingPart3A2UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: string } = {};
+    for (const ua of initialAnswers) {
+      if (ua.answer) map[ua.questionId] = ua.answer;
+    }
+    return map;
+  });
 
   const advertisementKeys = useMemo(() => {
     return Object.keys(exam.advertisements).sort((a, b) => {

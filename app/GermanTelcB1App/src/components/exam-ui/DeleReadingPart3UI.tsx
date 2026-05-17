@@ -16,13 +16,21 @@ import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 interface DeleReadingPart3UIProps {
   exam: DeleReadingPart3Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplete }) => {
+const DeleReadingPart3UI: React.FC<DeleReadingPart3UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [questionId: number]: string }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: number]: string } = {};
+    for (const ua of initialAnswers) {
+      if (ua.answer) map[ua.questionId] = ua.answer;
+    }
+    return map;
+  });
 
   const textKeys = useMemo(() => Object.keys(exam.texts).sort((a, b) => a.localeCompare(b)), [exam.texts]);
 

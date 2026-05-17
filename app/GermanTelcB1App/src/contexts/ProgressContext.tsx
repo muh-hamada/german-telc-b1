@@ -393,13 +393,20 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   };
 
   const getExamProgress = (examType: string, examId: string): ExamProgress | null => {
-    if (!state.userProgress) return null;
+    if (!state.userProgress) {
+      console.log('[getExamProgress] No userProgress in state');
+      return null;
+    }
     
-    return (
-      state.userProgress.exams.find(
-        exam => exam.examId === examId && exam.examType === examType
-      ) || null
-    );
+    console.log('[getExamProgress] Looking for:', { examType, examId, examIdType: typeof examId });
+    console.log('[getExamProgress] Available exams:', state.userProgress.exams.map(e => ({ examType: e.examType, examId: e.examId, examIdType: typeof e.examId, answersLen: e.answers?.length })));
+    
+    const found = state.userProgress.exams.find(
+      exam => String(exam.examId) === String(examId) && exam.examType === examType
+    ) || null;
+    
+    console.log('[getExamProgress] Found:', found ? { examId: found.examId, answersLen: found.answers?.length } : null);
+    return found;
   };
 
   const clearUserProgress = async (): Promise<boolean> => {

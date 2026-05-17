@@ -2046,5 +2046,13 @@
     "maybeLaterButton": "Peut-être plus tard",
     "congratulations": "Félicitations!",
     "youEarned": "Vous avez gagné une récompense !"
+  },
+  "resume": {
+    "title": "Déjà fait",
+    "message": "Chargez vos réponses précédentes ou recommencez.",
+    "lastScore": "Dernier score : {{score}}/{{max}}",
+    "lastAttempt": "Dernière tentative : {{date}}",
+    "resumeButton": "Charger les réponses",
+    "startFresh": "Recommencer"
   }
 }

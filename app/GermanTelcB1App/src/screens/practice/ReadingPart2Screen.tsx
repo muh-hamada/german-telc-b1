@@ -4,8 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
-} from 'react-native';
+  Alert,} from 'react-native';
 import { useCustomTranslation } from '../../hooks/useCustomTranslation';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -19,18 +18,19 @@ import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import { useToast } from '../../contexts/ToastContext';
 import ResultsModal from '../../components/ResultsModal';
 import ReportIssueModal from '../../components/ReportIssueModal';
-import { ReadingPart2Exam, DeleReadingPart2Exam, UserAnswer, ExamResult } from '../../types/exam.types';
+import { ReadingPart2Exam, DeleReadingPart2Exam, UserAnswer, ExamResult , ExamProgress } from '../../types/exam.types';
 import ReadingPart2UI from '../../components/exam-ui/ReadingPart2UI';
 import DeleReadingPart2UI from '../../components/exam-ui/DeleReadingPart2UI';
 import { HomeStackRouteProp } from '../../types/navigation.types';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { activeExamConfig } from '../../config/active-exam.config';
+import ResumeExamModal from '../../components/ResumeExamModal';
 
 const ReadingPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
   const route = useRoute<HomeStackRouteProp<'ReadingPart2'>>();
   const navigation = useNavigation();
-  const { updateExamProgress } = useProgress();
+  const { updateExamProgress, getExamProgress } = useProgress();
   const { setContextualModalActive } = useModalQueue();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
@@ -46,6 +46,10 @@ const ReadingPart2Screen: React.FC = () => {
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showReportIssueModal, setShowReportIssueModal] = useState(false);
+  const [uiKey, setUiKey] = useState(0);
+  const [resumedAnswers, setResumedAnswers] = useState<UserAnswer[] | undefined>(undefined);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+  const [savedProgress, setSavedProgress] = useState<ExamProgress | null>(null);
 
   useEffect(() => {
     loadExam(examId);
@@ -96,6 +100,17 @@ const ReadingPart2Screen: React.FC = () => {
         setCurrentExam(exam);
         setShowResults(false);
         setExamResult(null);
+        // Check for saved progress from previous attempt
+        console.log('[ReadingPart2] Checking progress for id:', id, 'type:', typeof id, 'String(id):', String(id));
+        const progress = getExamProgress('reading-part2', String(id));
+        console.log('[ReadingPart2] Progress result:', progress ? { examId: progress.examId, examIdType: typeof progress.examId, answersLen: progress.answers?.length } : null);
+        if (progress?.answers && progress.answers.length > 0) {
+          console.log('[ReadingPart2] Showing resume modal');
+          setSavedProgress(progress);
+          setShowResumeModal(true);
+        } else {
+          console.log('[ReadingPart2] No saved progress found, skipping modal');
+        }
       }
     } catch (error) {
       console.error('Error loading exam:', error);
@@ -152,15 +167,31 @@ const ReadingPart2Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <ResumeExamModal
+        visible={showResumeModal}
+        savedProgress={savedProgress}
+        onResume={() => {
+          if (savedProgress?.answers?.length) {
+            setResumedAnswers(savedProgress.answers);
+            setUiKey(k => k + 1);
+          }
+          setShowResumeModal(false);
+        }}
+        onStartFresh={() => {
+          setResumedAnswers(undefined);
+          setUiKey(k => k + 1);
+          setShowResumeModal(false);
+        }}
+      />
       {isDele ? (
-        <DeleReadingPart2UI 
+        <DeleReadingPart2UI key={uiKey} 
           exam={currentExam as DeleReadingPart2Exam} 
-          onComplete={handleComplete} 
+          onComplete={handleComplete} initialAnswers={resumedAnswers} 
         />
       ) : (
-        <ReadingPart2UI 
+        <ReadingPart2UI key={uiKey} 
           exam={currentExam as ReadingPart2Exam} 
-          onComplete={handleComplete} 
+          onComplete={handleComplete} initialAnswers={resumedAnswers} 
         />
       )}
 

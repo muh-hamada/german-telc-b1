@@ -17,9 +17,10 @@ import { HomeStackRouteProp } from '../../types/navigation.types';
 import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useProgress } from '../../contexts/ProgressContext';
-import { UserAnswer } from '../../types/exam.types';
+import { UserAnswer, ExamProgress } from '../../types/exam.types';
 import WritingPart1UIA1 from '../../components/exam-ui/WritingPart1UIA1';
 import ReportIssueModal from '../../components/ReportIssueModal';
+import ResumeExamModal from '../../components/ResumeExamModal';
 
 const WritingPart1Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -28,7 +29,7 @@ const WritingPart1Screen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
-  const { updateExamProgress } = useProgress();
+  const { updateExamProgress, getExamProgress } = useProgress();
 
   const { isCompleted, toggleCompletion } = useExamCompletion('writing-part1', examId);
 
@@ -36,6 +37,10 @@ const WritingPart1Screen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState(0);
   const [showReportIssueModal, setShowReportIssueModal] = useState(false);
+  const [uiKey, setUiKey] = useState(0);
+  const [resumedAnswers, setResumedAnswers] = useState<UserAnswer[] | undefined>(undefined);
+  const [showResumeModal, setShowResumeModal] = useState(false);
+  const [savedProgress, setSavedProgress] = useState<ExamProgress | null>(null);
 
   useEffect(() => {
     loadExam();
@@ -46,6 +51,13 @@ const WritingPart1Screen: React.FC = () => {
       setIsLoading(true);
       const exam = await dataService.getWritingPart1Exam(examId);
       setCurrentExam(exam || null);
+      if (exam) {
+        const progress = getExamProgress('writing-part1', String(examId));
+        if (progress?.answers && progress.answers.length > 0) {
+          setSavedProgress(progress);
+          setShowResumeModal(true);
+        }
+      }
     } catch (error) {
       console.error('Error loading exam:', error);
     } finally {
@@ -131,7 +143,23 @@ const WritingPart1Screen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <WritingPart1UIA1 exam={currentExam} onComplete={handleComplete} />
+      <ResumeExamModal
+        visible={showResumeModal}
+        savedProgress={savedProgress}
+        onResume={() => {
+          if (savedProgress?.answers?.length) {
+            setResumedAnswers(savedProgress.answers);
+            setUiKey(k => k + 1);
+          }
+          setShowResumeModal(false);
+        }}
+        onStartFresh={() => {
+          setResumedAnswers(undefined);
+          setUiKey(k => k + 1);
+          setShowResumeModal(false);
+        }}
+      />
+      <WritingPart1UIA1 key={uiKey} exam={currentExam} onComplete={handleComplete} initialAnswers={resumedAnswers} />
       
       <ReportIssueModal
         visible={showReportIssueModal}

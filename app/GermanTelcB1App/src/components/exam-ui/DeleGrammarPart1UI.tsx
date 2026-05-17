@@ -18,13 +18,21 @@ import AnswerListSelectionModal from './AnswerListSelectionModal';
 interface DeleGrammarPart1UIProps {
   exam: DeleGrammarPart1Exam;
   onComplete: (score: number, answers: UserAnswer[]) => void;
+  initialAnswers?: UserAnswer[];
 }
 
-const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplete }) => {
+const DeleGrammarPart1UI: React.FC<DeleGrammarPart1UIProps> = ({ exam, onComplete, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
-  const [userAnswers, setUserAnswers] = useState<{ [gapId: string]: string }>({});
+  const [userAnswers, setUserAnswers] = useState<{ [gapId: string]: string }>(() => {
+    if (!initialAnswers?.length) return {};
+    const map: { [key: string]: string } = {};
+    for (const ua of initialAnswers) {
+      if (ua.answer) map[ua.questionId.toString()] = ua.answer;
+    }
+    return map;
+  });
   const [showModal, setShowModal] = useState(false);
   const [selectedGap, setSelectedGap] = useState<string | null>(null);
 

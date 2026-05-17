@@ -44,16 +44,17 @@ interface WritingPart2UIA1Props {
   exam: any;
   onComplete: (score: number, answers: UserAnswer[]) => void;
   isMockExam?: boolean;
+  initialAnswers?: UserAnswer[];
 }
 
-const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, isMockExam = false }) => {
+const WritingPart2UIA1: React.FC<WritingPart2UIA1Props> = ({ exam, onComplete, isMockExam = false, initialAnswers }) => {
   const { t } = useCustomTranslation();
   const { colors, typography } = useAppTheme();
   const { isPremium } = usePremium();
   const { setContextualModalActive } = useModalQueue();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
-  const [userText, setUserText] = useState('');
+  const [userText, setUserText] = useState(initialAnswers?.[0]?.answer ?? '');
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [assessment, setAssessment] = useState<WritingAssessmentA1 | null>(null);
   const [showResultsModal, setShowResultsModal] = useState(false);
