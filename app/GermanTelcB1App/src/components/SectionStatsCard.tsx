@@ -74,12 +74,15 @@ const SectionStatsCard: React.FC<SectionStatsCardProps> = ({ section, sectionLab
 const createStyles = (colors: ThemeColors, typography: Typography) =>
   StyleSheet.create({
     card: {
-      backgroundColor: colors.background.secondary,
+      backgroundColor: colors.gray[50],
       borderRadius: 12,
       padding: spacing.md,
       marginBottom: spacing.md,
       borderWidth: 1,
-      borderColor: colors.border.light,
+      borderTopWidth: 1,
+      borderLeftWidth: 4,
+      borderBottomWidth: 4,
+      borderColor: colors.black,
     },
     headerRow: {
       flexDirection: 'row',
@@ -90,7 +93,7 @@ const createStyles = (colors: ThemeColors, typography: Typography) =>
     cardTitle: {
       fontSize: typography.fontSize.sm,
       fontWeight: '600',
-      color: colors.text.secondary,
+      color: colors.text.primary,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
     },
