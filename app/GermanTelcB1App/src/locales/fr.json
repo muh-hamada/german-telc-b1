@@ -167,6 +167,10 @@
     "ready": {
       "title": "Prêt à essayer votre premier examen blanc?",
       "text": "Vivez l'examen {{provider}} exactement comme il sera le jour du test."
+    },
+    "successStories": {
+      "title": "DE VRAIS HISTOIRES DE SUCCÈS",
+      "subtitle": "Rejoignez les milliers d'apprenants qui ont réussi leur examen avec nous."
     }
   },
   "navigation": {

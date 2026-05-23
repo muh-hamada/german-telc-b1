@@ -50,7 +50,7 @@ const createStyles = (colors: ThemeColors) =>
       flex: 1,
       backgroundColor: colors.border.light,
       borderRadius: 2,
-      maxWidth: 60,
+      maxWidth: 40,
     },
     stepCompleted: {
       backgroundColor: colors.primary[500],

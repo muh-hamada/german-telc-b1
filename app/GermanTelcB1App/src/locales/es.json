@@ -167,6 +167,10 @@
     "ready": {
       "title": "¿Listo para probar tu primer examen de práctica?",
       "text": "Experimenta el examen {{provider}} exactamente como será el día del examen."
+    },
+    "successStories": {
+      "title": "HISTORIAS DE ÉXITO REALES",
+      "subtitle": "Únase a los miles de estudiantes que aprobaron su examen con nosotros."
     }
   },
   "navigation": {

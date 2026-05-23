@@ -364,7 +364,7 @@ const createStyles = (colors: ThemeColors) =>
     },
     contentContainer: {
       flex: 1,
-      justifyContent: 'center',
+      // Removed justifyContent: 'center' to let Success Stories use full height
     },
     buttonsWrapper: {
       paddingHorizontal: spacing.padding.xl,

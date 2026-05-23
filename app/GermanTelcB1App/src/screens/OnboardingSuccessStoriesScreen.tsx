@@ -26,21 +26,23 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 // Animation constants (all values from PRD)
 const CARD_WIDTH = SCREEN_WIDTH * 0.78;
 const CARD_HEIGHT_ESTIMATE = 110;
-const VERTICAL_SPEED = 70; // px/s — within the 40–60 px/s range
-const SINE_AMPLITUDE = 20; // px — within 10–25 range
-const SINE_PERIOD_MS = 6000; // 6 s full cycle — within 5–7 s range
+const VERTICAL_SPEED = 70; // px/s
+const SINE_AMPLITUDE = 20; // px
+const SINE_PERIOD_MS = 6000; // 6 s full cycle
 const HEADER_HEIGHT_APPROX = 130; // rough height of title + subtitle block
-const FOOTER_HEIGHT_PERCENT = 0.1; // bottom 10% = fade-in zone / button overlay
-const FOOTER_PX = SCREEN_HEIGHT * FOOTER_HEIGHT_PERCENT;
-// Card travel range: from just below screen bottom to just above header
-const SPAWN_Y = SCREEN_HEIGHT + CARD_HEIGHT_ESTIMATE; // start below visible area
+const CONTENT_HEIGHT = SCREEN_HEIGHT - 200; // approximate view inside the step container
+const FOOTER_HEIGHT_PERCENT = 0.1; // bottom 10% fade-in zone
+const FOOTER_PX = CONTENT_HEIGHT * FOOTER_HEIGHT_PERCENT;
+
+// Card travel range: from just below step container bottom to just above header
+const SPAWN_Y = CONTENT_HEIGHT + CARD_HEIGHT_ESTIMATE; // start below visible container
 const DEATH_Y = HEADER_HEIGHT_APPROX; // stop above header text
 
 const TRAVEL_DISTANCE = SPAWN_Y - DEATH_Y; // total px to travel
 const TRAVEL_DURATION_MS = (TRAVEL_DISTANCE / VERTICAL_SPEED) * 1000;
 
 // Opacity thresholds
-const FADE_IN_ZONE_TOP = SCREEN_HEIGHT - FOOTER_PX; // below this Y → fading in
+const FADE_IN_ZONE_TOP = CONTENT_HEIGHT - FOOTER_PX; // below this Y → fading in
 const FADE_OUT_ZONE_BOTTOM = DEATH_Y + CARD_HEIGHT_ESTIMATE + 20; // above this Y → fading out
 
 interface CardState {
@@ -308,16 +310,14 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
   }, [reviews]);
 
   return (
-    <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+    <View style={styles.contentWrapper} pointerEvents="box-none">
       {/* Static header */}
-      <SafeAreaView style={styles.headerSafeArea} edges={['top']}>
-        <View style={styles.header} pointerEvents="none">
-          <Text style={styles.title}>{t('onboarding.successStories.title')}</Text>
-          <Text style={styles.subtitle}>
-            {t('onboarding.successStories.subtitle')}
-          </Text>
-        </View>
-      </SafeAreaView>
+      <View style={styles.header} pointerEvents="none">
+        <Text style={styles.title}>{t('onboarding.successStories.title')}</Text>
+        <Text style={styles.subtitle}>
+          {t('onboarding.successStories.subtitle')}
+        </Text>
+      </View>
 
       {/* Floating cards layer */}
       <View style={StyleSheet.absoluteFill} pointerEvents="none">
@@ -335,18 +335,21 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
 // ─── Styles ────────────────────────────────────────────────────────────────
 function createStyles(colors: ThemeColors) {
   return StyleSheet.create({
+    contentWrapper: {
+      flex: 1,
+      width: '100%',
+      // Crop animations falling outside this container
+      overflow: 'hidden',
+    },
     container: {
       flex: 1,
       backgroundColor: '#F8F9FA',
     },
-    headerSafeArea: {
-      zIndex: 10,
-    },
     header: {
       paddingHorizontal: spacing[6],
-      paddingTop: spacing[6],
+      paddingTop: spacing[4],
       paddingBottom: spacing[4],
-      backgroundColor: 'rgba(248, 249, 250, 0.85)',
+      zIndex: 10,
     },
     title: {
       fontSize: 22,
@@ -370,7 +373,8 @@ function createStyles(colors: ThemeColors) {
       left: 0,
       right: 0,
       height: FOOTER_PX,
-      backgroundColor: 'rgba(248, 249, 250, 0.7)',
+      // Create a fading out effect at the bottom where cards spawn before entering
+      backgroundColor: 'transparent',
     },
     footer: {
       position: 'absolute',
