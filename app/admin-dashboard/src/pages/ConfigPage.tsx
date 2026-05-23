@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { configService } from '../services/config.service';
+import { storeRatingsService, AppId, ALL_APP_IDS } from '../services/store-ratings.service';
 import {
   GlobalConfig,
   RemoteConfig,
   CrossAppPromotionEntry,
+  OnboardingReview,
   DEFAULT_GLOBAL_CONFIG,
   DEFAULT_REMOTE_CONFIG,
   DEFAULT_CROSS_APP_PROMOTION_APP_CONFIG,
@@ -25,6 +27,9 @@ const APP_DISPLAY_NAMES: { [key: string]: string } = {
   'english-b2': 'English B2',
   'dele-spanish-b1': 'DELE Spanish B1',
 };
+
+const MAX_ONBOARDING_REVIEWS = 15; // Maximum number of reviews allowed for onboarding screen
+const MIN_ONBOARDING_REVIEWS = 5; // Minimum recommended reviews for good visual spacing on onboarding screen
 
 export const ConfigPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ConfigTab>('global');
@@ -53,6 +58,28 @@ export const ConfigPage: React.FC = () => {
   const [editingApp, setEditingApp] = useState<{ platform: 'ios' | 'android'; index: number } | null>(null);
   const [editAppTitle, setEditAppTitle] = useState('');
   const [editAppSubtitle, setEditAppSubtitle] = useState('');
+
+  // Onboarding reviews modal state
+  const [showReviewsImportModal, setShowReviewsImportModal] = useState(false);
+  const [reviewsImportPlatform, setReviewsImportPlatform] = useState<'ios' | 'android'>('ios');
+  const [reviewsImportLoading, setReviewsImportLoading] = useState(false);
+  const [reviewsImportError, setReviewsImportError] = useState('');
+  const [reviewsImportList, setReviewsImportList] = useState<Array<{
+    id: string;
+    author: string;
+    rating: number;
+    title?: string;
+    body: string;
+    date: string;
+    source: 'App Store' | 'Google Play';
+  }>>([]);
+  const [reviewsImportNextPageToken, setReviewsImportNextPageToken] = useState<string | null>(null);
+  const [reviewsImportLoadingMore, setReviewsImportLoadingMore] = useState(false);
+  const [reviewsImportSelected, setReviewsImportSelected] = useState<Set<string>>(new Set());
+  const [reviewsImportAvatars, setReviewsImportAvatars] = useState<Record<string, string>>({});
+  const [reviewsImportSearchQuery, setReviewsImportSearchQuery] = useState('');
+  const [reviewsImportFilterRating, setReviewsImportFilterRating] = useState<number | null>(null);
+  const [reviewsImportAppId, setReviewsImportAppId] = useState<AppId>('german-b1');
 
   const apps = getAllAppConfigs();
 
@@ -212,6 +239,128 @@ export const ConfigPage: React.FC = () => {
     setEditingApp(null);
   };
 
+  // ── Onboarding reviews import helpers ──────────────────────────────────
+
+  const AVATAR_COLORS = ['#e53935','#8e24aa','#1e88e5','#00897b','#f4511e','#6d4c41','#546e7a','#43a047'];
+  const avatarColor = (name: string) => AVATAR_COLORS[(name.codePointAt(0) ?? 0) % AVATAR_COLORS.length];
+
+  const APP_LABELS: Record<AppId, string> = {
+    'german-a1': 'German A1',
+    'goethe-german-a1': 'Goethe A1',
+    'german-a2': 'German A2',
+    'german-b1': 'German B1',
+    'german-b2': 'German B2',
+    'english-b1': 'English B1',
+    'english-b2': 'English B2',
+    'dele-spanish-b1': 'DELE B1',
+  };
+
+  const openReviewsImportModal = async (platform: 'ios' | 'android') => {
+    setReviewsImportPlatform(platform);
+    setReviewsImportAppId('german-b1');
+    setReviewsImportList([]);
+    setReviewsImportNextPageToken(null);
+    setReviewsImportSelected(new Set());
+    setReviewsImportAvatars({});
+    setReviewsImportSearchQuery('');
+    setReviewsImportFilterRating(null);
+    setReviewsImportError('');
+    setShowReviewsImportModal(true);
+    await fetchReviewsPage(platform, undefined, 'german-b1');
+  };
+
+  const fetchReviewsPage = async (platform: 'ios' | 'android', pageToken?: string, appId?: AppId) => {
+    const resolvedAppId = appId ?? reviewsImportAppId;
+    const isLoadMore = !!pageToken;
+    if (isLoadMore) {
+      setReviewsImportLoadingMore(true);
+    } else {
+      setReviewsImportLoading(true);
+    }
+    setReviewsImportError('');
+    try {
+      const result = await storeRatingsService.fetchReviews(resolvedAppId, platform, pageToken);
+      const mapped = result.reviews.map((r: any) => ({
+        ...r,
+        appId: resolvedAppId,
+        source: platform === 'ios' ? 'App Store' : 'Google Play',
+      }));
+      setReviewsImportList(prev => isLoadMore ? [...prev, ...mapped] : mapped);
+      setReviewsImportNextPageToken(result.nextPageToken);
+    } catch (err: any) {
+      setReviewsImportError(err.message || 'Failed to load reviews');
+    } finally {
+      setReviewsImportLoading(false);
+      setReviewsImportLoadingMore(false);
+    }
+  };
+
+  const toggleReviewImportSelection = (id: string) => {
+    setReviewsImportSelected(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const handleConfirmReviewsImport = () => {
+    const currentReviews: OnboardingReview[] = globalConfig.onboardingReviewsData || [];
+    const existingIds = new Set(currentReviews.map(r => r.id));
+
+    const toAdd: OnboardingReview[] = reviewsImportList
+      .filter(r => reviewsImportSelected.has(r.id) && !existingIds.has(r.id))
+      .map(r => ({
+        id: r.id,
+        user_name: r.author,
+        avatar_url: reviewsImportAvatars[r.id] || '',
+        rating: r.rating,
+        text: r.body,
+        source: r.source,
+      }));
+
+    const combined = [...currentReviews, ...toAdd];
+    if (combined.length > MAX_ONBOARDING_REVIEWS) {
+      toast.warning(`Maximum ${MAX_ONBOARDING_REVIEWS} reviews recommended. Only the first ${MAX_ONBOARDING_REVIEWS} will be kept.`);
+    }
+
+    updateGlobalConfig({ onboardingReviewsData: combined.slice(0, MAX_ONBOARDING_REVIEWS) });
+    setShowReviewsImportModal(false);
+    toast.success(`${toAdd.length} review(s) added`);
+  };
+
+  const handleRemoveReview = (index: number) => {
+    const updated = [...(globalConfig.onboardingReviewsData || [])];
+    const name = updated[index]?.user_name || 'this review';
+    openConfirmModal(
+      'Remove Review',
+      `Remove "${name}" from the onboarding reviews?`,
+      () => {
+        updated.splice(index, 1);
+        updateGlobalConfig({ onboardingReviewsData: updated });
+        toast.success('Review removed');
+      },
+    );
+  };
+
+  const moveReview = (fromIndex: number, toIndex: number) => {
+    const updated = [...(globalConfig.onboardingReviewsData || [])];
+    const [removed] = updated.splice(fromIndex, 1);
+    updated.splice(toIndex, 0, removed);
+    updateGlobalConfig({ onboardingReviewsData: updated });
+  };
+
+  const filteredImportReviews = reviewsImportList.filter(r => {
+    const matchesSearch = !reviewsImportSearchQuery ||
+      r.author.toLowerCase().includes(reviewsImportSearchQuery.toLowerCase()) ||
+      r.body.toLowerCase().includes(reviewsImportSearchQuery.toLowerCase());
+    const matchesRating = reviewsImportFilterRating === null || r.rating === reviewsImportFilterRating;
+    return matchesSearch && matchesRating;
+  });
+
   useEffect(() => {
     loadConfigs();
   }, []);
@@ -242,6 +391,9 @@ export const ConfigPage: React.FC = () => {
         onboardingImages: global?.onboardingImages || DEFAULT_GLOBAL_CONFIG.onboardingImages,
         // Ensure crossAppPromotion is always defined
         crossAppPromotion: global?.crossAppPromotion || DEFAULT_GLOBAL_CONFIG.crossAppPromotion,
+        // Ensure onboarding reviews fields are always defined
+        enableOnboardingReviewsScreen: global?.enableOnboardingReviewsScreen ?? false,
+        onboardingReviewsData: Array.isArray(global?.onboardingReviewsData) ? global!.onboardingReviewsData : [],
       };
 
       setGlobalConfig(fullGlobalConfig);
@@ -522,6 +674,95 @@ export const ConfigPage: React.FC = () => {
                     Remove "Telc" from Text on iOS
                     <span className="field-hint">Automatically remove "Telc" references from all translations on iOS</span>
                   </label>
+                </div>
+              </div>
+
+              {/* Onboarding Reviews (Social Proof) */}
+              <div className="config-group">
+                <h3>Onboarding Flow — Social Proof Reviews</h3>
+                <p className="config-group-description">
+                  Show real App Store / Google Play reviews in the onboarding flow to boost conversion.
+                  Recommended: 5–10 reviews for optimal loop spacing.
+                </p>
+
+                <div className="config-field-checkbox">
+                  <input
+                    id="enableOnboardingReviewsScreen"
+                    type="checkbox"
+                    checked={globalConfig.enableOnboardingReviewsScreen ?? false}
+                    onChange={(e) => updateGlobalConfig({ enableOnboardingReviewsScreen: e.target.checked })}
+                  />
+                  <label htmlFor="enableOnboardingReviewsScreen">
+                    Enable Social Proof Screen
+                    <span className="field-hint">Show the floating reviews screen before the user enters the app</span>
+                  </label>
+                </div>
+
+                {(globalConfig.onboardingReviewsData?.length ?? 0) < MIN_ONBOARDING_REVIEWS && globalConfig.enableOnboardingReviewsScreen && (
+                  <div className="config-alert config-alert-warning">
+                    ⚠️ Recommended: Select between {MIN_ONBOARDING_REVIEWS} and {MAX_ONBOARDING_REVIEWS} reviews for optimal visual loop spacing.
+                    Currently {globalConfig.onboardingReviewsData?.length ?? 0} review(s) configured.
+                  </div>
+                )}
+
+                {/* Review list */}
+                <div className="reviews-list">
+                  {(globalConfig.onboardingReviewsData || []).map((review, index) => (
+                    <div key={review.id} className="review-list-item">
+                      <div className="review-list-order">
+                        <button
+                          className="btn-icon"
+                          disabled={index === 0}
+                          onClick={() => moveReview(index, index - 1)}
+                          title="Move up"
+                        >▲</button>
+                        <span>{index + 1}</span>
+                        <button
+                          className="btn-icon"
+                          disabled={index === (globalConfig.onboardingReviewsData?.length ?? 1) - 1}
+                          onClick={() => moveReview(index, index + 1)}
+                          title="Move down"
+                        >▼</button>
+                      </div>
+                      <div className="review-list-body">
+                        <div className="review-list-header">
+                          <strong>{review.user_name}</strong>
+                          <span className="review-stars">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</span>
+                          <span className="review-source">{review.source}</span>
+                        </div>
+                        <p className="review-text">{review.text}</p>
+                      </div>
+                      <button
+                        className="btn-icon btn-danger"
+                        onClick={() => handleRemoveReview(index)}
+                        title="Remove"
+                      >✕</button>
+                    </div>
+                  ))}
+                  {(globalConfig.onboardingReviewsData?.length ?? 0) === 0 && (
+                    <p className="reviews-empty">No reviews configured yet. Import from the store below.</p>
+                  )}
+                </div>
+
+                {/* Import buttons */}
+                <div className="reviews-import-actions">
+                  <button
+                    className="btn-secondary"
+                    onClick={() => openReviewsImportModal('ios')}
+                    disabled={(globalConfig.onboardingReviewsData?.length ?? 0) >= MAX_ONBOARDING_REVIEWS}
+                  >
+                    + Import from App Store
+                  </button>
+                  <button
+                    className="btn-secondary"
+                    onClick={() => openReviewsImportModal('android')}
+                    disabled={(globalConfig.onboardingReviewsData?.length ?? 0) >= MAX_ONBOARDING_REVIEWS}
+                  >
+                    + Import from Google Play
+                  </button>
+                  {(globalConfig.onboardingReviewsData?.length ?? 0) >= MAX_ONBOARDING_REVIEWS && (
+                    <span className="field-hint">Maximum {MAX_ONBOARDING_REVIEWS} reviews reached</span>
+                  )}
                 </div>
               </div>
 
@@ -1214,6 +1455,162 @@ export const ConfigPage: React.FC = () => {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ── Onboarding Reviews Import Modal ───────────────────────── */}
+      {showReviewsImportModal && (
+        <div className="modal-overlay">
+          <dialog
+            className="modal-container modal-large"
+            open
+            aria-label={`Import Reviews from ${reviewsImportPlatform === 'ios' ? 'App Store' : 'Google Play'}`}
+          >
+            <div className="modal-header">
+              <h3>
+                Import Reviews from {reviewsImportPlatform === 'ios' ? 'App Store' : 'Google Play'}
+              </h3>
+              <div className="modal-header-meta">
+                Selected: <strong>{reviewsImportSelected.size} review(s)</strong>
+              </div>
+            </div>
+
+            {/* Filters */}
+            <div className="reviews-import-filters">
+              <select
+                value={reviewsImportAppId}
+                onChange={(e) => {
+                  const newAppId = e.target.value as AppId;
+                  setReviewsImportAppId(newAppId);
+                  setReviewsImportList([]);
+                  setReviewsImportNextPageToken(null);
+                  fetchReviewsPage(reviewsImportPlatform, undefined, newAppId);
+                }}
+                className="config-input reviews-app-filter"
+              >
+                {ALL_APP_IDS.map(id => (
+                  <option key={id} value={id}>{APP_LABELS[id] ?? id}</option>
+                ))}
+              </select>
+              <input
+                type="text"
+                placeholder="Search by author or text…"
+                value={reviewsImportSearchQuery}
+                onChange={(e) => setReviewsImportSearchQuery(e.target.value)}
+                className="config-input reviews-search-input"
+              />
+              <select
+                value={reviewsImportFilterRating ?? ''}
+                onChange={(e) => setReviewsImportFilterRating(e.target.value ? Number.parseInt(e.target.value) : null)}
+                className="config-input reviews-rating-filter"
+              >
+                <option value="">All ratings</option>
+                {[5, 4, 3, 2, 1].map(r => (
+                  <option key={r} value={r}>{'★'.repeat(r)} ({r} star{r === 1 ? '' : 's'})</option>
+                ))}
+              </select>
+              <button
+                className="btn-secondary"
+                onClick={() => {
+                  const other = reviewsImportPlatform === 'ios' ? 'android' : 'ios';
+                  setReviewsImportPlatform(other);
+                  fetchReviewsPage(other);
+                }}
+              >
+                Switch to {reviewsImportPlatform === 'ios' ? 'Google Play' : 'App Store'}
+              </button>
+            </div>
+
+            {/* Review list */}
+            <div className="reviews-import-list">
+              {reviewsImportLoading && (
+                <div className="reviews-import-loading">
+                  <div className="loading-spinner"></div>
+                  <p>Loading reviews…</p>
+                </div>
+              )}
+              {reviewsImportError && (
+                <div className="config-alert config-alert-error">{reviewsImportError}</div>
+              )}
+              {!reviewsImportLoading && filteredImportReviews.map((review) => {
+                const isSelected = reviewsImportSelected.has(review.id);
+                return (
+              <button
+                key={review.id}
+                type="button"
+                className={`review-import-card ${isSelected ? 'selected' : ''}`}
+                onClick={() => toggleReviewImportSelection(review.id)}
+              >
+                    <div
+                      className="review-import-avatar"
+                      style={{ background: avatarColor(review.author) }}
+                      aria-hidden="true"
+                    >
+                      {review.author.charAt(0).toUpperCase() || '?'}
+                    </div>
+                    <input
+                      type="checkbox"
+                      checked={isSelected}
+                      onChange={() => toggleReviewImportSelection(review.id)}
+                      onClick={(e) => e.stopPropagation()}
+                      className="review-import-checkbox"
+                    />
+                    <div className="review-import-body">
+                      <div className="review-import-header">
+                        <strong>{review.author}</strong>
+                        <span className="review-stars">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</span>
+                        <span className="review-source">{reviewsImportPlatform === 'ios' ? 'App Store' : 'Google Play'}</span>
+                        <span className="review-app-badge">{APP_LABELS[reviewsImportAppId] ?? reviewsImportAppId}</span>
+                        {review.date && <span className="review-date">{review.date.slice(0, 10)}</span>}
+                      </div>
+                      {review.title && <div className="review-import-title">{review.title}</div>}
+                      <p className="review-text">{review.body}</p>
+                      {isSelected && (
+                        <div className="review-avatar-row">
+                          <label htmlFor={`avatar-${review.id}`}>Avatar URL (optional):</label>
+                          <input
+                            id={`avatar-${review.id}`}
+                            type="text"
+                            placeholder="https://… or leave blank for initials fallback"
+                            value={reviewsImportAvatars[review.id] || ''}
+                            onChange={(e) =>
+                              setReviewsImportAvatars(prev => ({ ...prev, [review.id]: e.target.value }))
+                            }
+                            onClick={(e) => e.stopPropagation()}
+                            className="config-input review-avatar-input"
+                          />
+                        </div>
+                      )}
+                    </div>
+              </button>
+                );
+              })}
+              {!reviewsImportLoading && reviewsImportNextPageToken && (
+                <div className="reviews-load-more">
+                  <button
+                    className="btn-secondary"
+                    onClick={() => fetchReviewsPage(reviewsImportPlatform, reviewsImportNextPageToken ?? undefined)}
+                    disabled={reviewsImportLoadingMore}
+                  >
+                    {reviewsImportLoadingMore ? 'Loading…' : 'Load more reviews'}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="modal-footer">
+              <button className="btn-modal-cancel" onClick={() => setShowReviewsImportModal(false)}>
+                Cancel
+              </button>
+              <button
+                className="btn-modal-confirm"
+                onClick={handleConfirmReviewsImport}
+                disabled={reviewsImportSelected.size === 0}
+              >
+                Confirm Selection ({reviewsImportSelected.size})
+              </button>
+            </div>
+          </dialog>
         </div>
       )}
     </div>

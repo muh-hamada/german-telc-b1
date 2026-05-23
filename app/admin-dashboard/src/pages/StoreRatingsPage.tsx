@@ -55,7 +55,7 @@ function ReviewCard({ review }: { review: StoreReview }) {
       <div className="sr-review-header">
         <span className="sr-review-stars">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</span>
         <span className="sr-review-author">{review.author}</span>
-        <span className="sr-review-date">{review.date.slice(0, 10)}</span>
+        {review.date && <span className="sr-review-date">{review.date.slice(0, 10)}</span>}
       </div>
       {review.title && <div className="sr-review-title">{review.title}</div>}
       <p className="sr-review-body">{review.body}</p>

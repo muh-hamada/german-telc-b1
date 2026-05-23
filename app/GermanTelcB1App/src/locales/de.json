@@ -126,6 +126,10 @@
     "modalAnswer": "Modale Antwort"
   },
   "onboarding": {
+    "successStories": {
+      "title": "ECHTE ERFOLGSGESCHICHTEN",
+      "subtitle": "Schließen Sie sich Tausenden von Lernenden an, die ihre Prüfung mit uns bestanden haben."
+    },
     "welcome": {
       "title": "Bereiten Sie sich mit Zuversicht auf Ihre {{provider}}-Prüfung vor",
       "text": "Üben Sie mit realistischen Probeprüfungen, die dem echten Prüfungsformat, Schwierigkeitsgrad und der Struktur entsprechen."

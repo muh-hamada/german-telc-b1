@@ -32,6 +32,8 @@ To safely roll out this screen and perform A/B testing, the entire screen must b
 
 ### 3.1 Screen Layout & UI Design
 
+Design: onboarding-success-stories.jpeg
+
 The layout must conform to the existing light-mode visual design system of the application:
 
 - **Background Color:** `#F8F9FA` (Clean Light Gray)

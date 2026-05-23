@@ -32,7 +32,7 @@ export interface StoreReview {
   rating: number;
   title?: string;
   body: string;
-  date: string;
+  date?: string;
 }
 
 export interface ReviewsResult {

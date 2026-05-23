@@ -53,7 +53,7 @@ export interface StoreReview {
   rating: number;
   title?: string;
   body: string;
-  date: string;
+  date?: string;
 }
 
 export interface ReviewsResult {
@@ -112,7 +112,7 @@ async function fetchIosReviews(
       rating: r.attributes?.rating ?? 0,
       title: r.attributes?.title,
       body: r.attributes?.body ?? '',
-      date: r.attributes?.createdDate ?? new Date().toISOString(),
+      date: r.attributes?.createdDate ?? '',
     })),
     nextPageToken: json.links?.next ?? null,
   };
@@ -168,7 +168,7 @@ async function fetchAndroidReviews(
       body: comment?.text ?? '',
       date: comment?.lastModified?.seconds
         ? new Date(Number(comment.lastModified.seconds) * 1000).toISOString()
-        : new Date().toISOString(),
+        : '',
     };
   });
   return {

@@ -206,6 +206,10 @@ class FirebaseRemoteConfigService {
         : DEFAULT_GLOBAL_CONFIG.onboardingImages,
       removeTelcFromText_iOS: data.removeTelcFromText_iOS ?? DEFAULT_GLOBAL_CONFIG.removeTelcFromText_iOS,
       crossAppPromotion: data.crossAppPromotion || DEFAULT_GLOBAL_CONFIG.crossAppPromotion,
+      enableOnboardingReviewsScreen: data.enableOnboardingReviewsScreen ?? false,
+      onboardingReviewsData: Array.isArray(data.onboardingReviewsData)
+        ? data.onboardingReviewsData
+        : [],
       updatedAt: data.updatedAt || Date.now(),
     };
   }

@@ -126,6 +126,10 @@
     "modalAnswer": "Modal Answer"
   },
   "onboarding": {
+    "successStories": {
+      "title": "REAL SUCCESS STORIES",
+      "subtitle": "Join the thousands of learners who've passed their exam with us."
+    },
     "welcome": {
       "title": "Prepare for your {{provider}} exam with confidence",
       "text": "Practice with realistic mock exams designed to match the real exam format, difficulty, and structure."

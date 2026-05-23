@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from '../types/navigation.types';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import OnboardingWelcomeScreen from '../screens/OnboardingWelcomeScreen';
+import OnboardingSuccessStoriesScreen from '../screens/OnboardingSuccessStoriesScreen';
 import OnboardingDisclaimerScreen from '../screens/OnboardingDisclaimerScreen';
 import TabNavigator from './TabNavigator';
 import MockExamRunningScreen from '../screens/MockExamRunningScreen';
@@ -80,6 +81,7 @@ const RootNavigator: React.FC = () => {
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="OnboardingDisclaimer" component={OnboardingDisclaimerScreen} />
         <Stack.Screen name="OnboardingWelcome" component={OnboardingWelcomeScreen} />
+        <Stack.Screen name="OnboardingSuccessStories" component={OnboardingSuccessStoriesScreen} />
         <Stack.Screen name="Main" component={TabNavigator} />
         <Stack.Screen name="MockExamRunning" component={MockExamRunningScreen} />
       </Stack.Navigator>

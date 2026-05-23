@@ -12,13 +12,12 @@ import OnboardingProgressIndicator from '../components/OnboardingProgressIndicat
 import OnboardingStepContent from '../components/OnboardingStepContent';
 import Button from '../components/Button';
 import PremiumContent from '../components/PremiumContent';
+import { OnboardingSuccessStoriesContent } from './OnboardingSuccessStoriesScreen';
 import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createInitialMockExamProgress, saveMockExamProgress } from '../services/mock-exam.service';
 
 type OnboardingWelcomeScreenProps = StackScreenProps<RootStackParamList, 'OnboardingWelcome'>;
-
-const TOTAL_STEPS = 5;
 
 const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navigation }) => {
   const { t } = useCustomTranslation();
@@ -29,6 +28,9 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
   const { purchasePremium, isPurchasing, restorePurchases } = usePremium();
   const { globalConfig } = useRemoteConfig();
   
+  const hasSuccessStories = globalConfig?.enableOnboardingReviewsScreen && (globalConfig?.onboardingReviewsData?.length ?? 0) > 0;
+  const TOTAL_STEPS = hasSuccessStories ? 6 : 5;
+
   // Get onboarding images from remote config
   const onboardingImages = globalConfig?.onboardingImages || [];
 
@@ -64,7 +66,11 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
   }, [currentStep]);
 
   const getStepName = (step: number): string => {
-    const stepNames = ['welcome', 'coverage', 'writing', 'speaking', 'ready'];
+    const stepNames = ['welcome', 'coverage', 'writing', 'speaking'];
+    if (hasSuccessStories) {
+      stepNames.push('successStories');
+    }
+    stepNames.push('ready');
     return stepNames[step] || 'unknown';
   };
 
@@ -141,7 +147,7 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
       timestamp: Date.now(),
     });
 
-    // Navigate to main app
+    // Go to main app
     navigation.reset({
       index: 0,
       routes: [{ name: 'Main' }],
@@ -162,12 +168,11 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
       timestamp: Date.now(),
     });
     
-    // After modal closed, navigate to main app
     navigation.reset({
       index: 0,
       routes: [{ name: 'Main' }],
     });
-  }, [navigation]);
+  }, [navigation, TOTAL_STEPS]);
 
   const handlePurchasePress = useCallback(async () => {
     logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_PURCHASE_CLICKED, {
@@ -252,7 +257,19 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
           />
         );
       case 4:
-        // Step 5 – Ready to Start (CTA)
+        if (hasSuccessStories) {
+          return <OnboardingSuccessStoriesContent reviews={globalConfig?.onboardingReviewsData || []} />;
+        }
+        // Fall through to ready step if no success stories
+        return (
+          <OnboardingStepContent
+            title={t('onboarding.ready.title')}
+            text={t('onboarding.ready.text')}
+            imageUrl={onboardingImages[4]}
+          />
+        );
+      case 5:
+        // Step 6 (or 5) – Ready to Start (CTA)
         return (
           <OnboardingStepContent
             title={t('onboarding.ready.title')}

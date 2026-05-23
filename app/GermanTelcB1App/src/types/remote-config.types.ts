@@ -52,6 +52,19 @@ export interface CrossAppPromotionAppConfig {
 }
 
 /**
+ * Onboarding Review Card
+ * A single review entry shown in the social proof screen
+ */
+export interface OnboardingReview {
+  id: string;
+  user_name: string;
+  avatar_url: string;
+  rating: number; // 1–5
+  text: string;
+  source: 'App Store' | 'Google Play';
+}
+
+/**
  * Global Configuration
  * Applies to all apps - stored in app_configs/global
  */
@@ -60,6 +73,8 @@ export interface GlobalConfig {
   onboardingImages: string[]; // Array of 5 image URLs for onboarding steps
   removeTelcFromText_iOS: boolean; // Whether to remove "telc" text from translations on iOS
   crossAppPromotion: CrossAppPromotionGlobalConfig; // Cross-app promotion directory
+  enableOnboardingReviewsScreen: boolean; // Feature flag: show social proof screen in onboarding
+  onboardingReviewsData: OnboardingReview[]; // Up to 10 review cards (remote-managed)
   updatedAt: number;
 }
 
@@ -150,6 +165,8 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfig = {
   ],
   removeTelcFromText_iOS: true, // Default: remove telc text on iOS (initial behavior)
   crossAppPromotion: DEFAULT_CROSS_APP_PROMOTION_GLOBAL_CONFIG,
+  enableOnboardingReviewsScreen: false, // Off by default; enable via Remote Config
+  onboardingReviewsData: [],
   updatedAt: Date.now(),
 };
 

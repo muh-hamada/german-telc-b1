@@ -83,6 +83,8 @@ export const AnalyticsEvents = {
   ONBOARDING_PREMIUM_PURCHASE_FAILED: 'onboarding_premium_purchase_failed',
   ONBOARDING_COMPLETED: 'onboarding_completed',
   ONBOARDING_FLOW_ABANDONED: 'onboarding_flow_abandoned',
+  ONBOARDING_REVIEWS_SCREEN_VIEWED: 'onboarding_reviews_screen_viewed',
+  ONBOARDING_REVIEWS_CONTINUE_CLICKED: 'onboarding_reviews_continue_clicked',
   PROFILE_LOGIN_MODAL_OPENED: 'profile_login_modal_opened',
   PROFILE_LOGIN_SUCCESS: 'profile_login_success',
   PROFILE_LOGIN_FAILED: 'profile_login_failed',
