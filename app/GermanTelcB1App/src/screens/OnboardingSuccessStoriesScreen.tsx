@@ -196,67 +196,18 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
     };
   }, []);
 
-  const spawnCard = useCallback(
-    (delayMs = 0) => {
-      if (!isMountedRef.current || reviews.length === 0) return;
-
-      const reviewIndex = nextReviewIndexRef.current % reviews.length;
-      nextReviewIndexRef.current += 1;
-      const review = reviews[reviewIndex];
-
-      const instanceKey = `${review.id}-${spawnCounterRef.current++}`;
-      const phaseOffset = Math.random() * Math.PI * 2;
-      // Randomise horizontal centre so cards don't all align
-      const centerX = (SCREEN_WIDTH - CARD_WIDTH) / 2 + (Math.random() - 0.5) * 20;
-
-      const progress = new Animated.Value(0);
-
-      const animation = Animated.timing(progress, {
-        toValue: 1,
-        duration: TRAVEL_DURATION_MS + delayMs,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      });
-
-      const card: CardState = {
-        review,
-        instanceKey,
-        phaseOffset,
-        centerX,
-        progress,
-        animation,
-      };
-
-      activeCards.current = [...activeCards.current, card];
-      forceUpdate();
-
-      // When animation completes, remove card and spawn the next one
-      animation.start(({ finished }) => {
-        if (!isMountedRef.current) return;
-        if (finished) {
-          activeCards.current = activeCards.current.filter(
-            c => c.instanceKey !== instanceKey,
-          );
-          forceUpdate();
-          // Spawn replacement after a tiny randomised delay so spawns feel organic
-          const jitter = Math.random() * 500;
-          setTimeout(() => spawnCard(0), jitter);
-        }
-      });
-    },
-    [reviews],
-  );
-
-  // Initialise: pre-fill the viewport with staggered cards
+  // ── Fixed-interval spawner ────────────────────────────────────────────
+  // Cards travel at a constant speed. We pre-fill the viewport with evenly
+  // staggered cards, then fire a setInterval at exactly TRAVEL_DURATION_MS /
+  // slotCount to maintain constant gap forever — no random jitter accumulation.
   useEffect(() => {
     if (reviews.length === 0) return;
 
-    // Determine how many cards fit in the viewport + give each a staggered start
     const slotCount = Math.max(3, Math.ceil(TRAVEL_DISTANCE / (CARD_HEIGHT_ESTIMATE * 1.5)));
-    for (let i = 0; i < slotCount; i++) {
-      // Each slot starts at a different point in the travel path (pre-distributed)
-      const initialProgress = i / slotCount;
-      const progressValue = new Animated.Value(initialProgress);
+    const spawnInterval = TRAVEL_DURATION_MS / slotCount;
+
+    const spawnAt = (initialProgress: number) => {
+      if (!isMountedRef.current) return;
 
       const reviewIndex = nextReviewIndexRef.current % reviews.length;
       nextReviewIndexRef.current += 1;
@@ -266,7 +217,9 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
       const phaseOffset = Math.random() * Math.PI * 2;
       const centerX = (SCREEN_WIDTH - CARD_WIDTH) / 2 + (Math.random() - 0.5) * 20;
 
+      const progressValue = new Animated.Value(initialProgress);
       const remainingFraction = 1 - initialProgress;
+
       const animation = Animated.timing(progressValue, {
         toValue: 1,
         duration: TRAVEL_DURATION_MS * remainingFraction,
@@ -285,6 +238,7 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
 
       activeCards.current = [...activeCards.current, card];
 
+      // Remove card when animation completes — no respawn here; interval handles that
       animation.start(({ finished }) => {
         if (!isMountedRef.current) return;
         if (finished) {
@@ -292,16 +246,24 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
             c => c.instanceKey !== instanceKey,
           );
           forceUpdate();
-          const jitter = Math.random() * 500;
-          setTimeout(() => spawnCard(0), jitter);
         }
       });
-    }
+    };
 
+    // Pre-fill viewport: distribute cards evenly across the travel path
+    for (let i = 0; i < slotCount; i++) {
+      spawnAt(i / slotCount);
+    }
     forceUpdate();
 
+    // Fixed-interval spawn — guarantees constant spacing, no drift
+    const timer = setInterval(() => {
+      spawnAt(0);
+      forceUpdate();
+    }, spawnInterval);
+
     return () => {
-      // Stop all animations on unmount
+      clearInterval(timer);
       activeCards.current.forEach(c => c.animation.stop());
       activeCards.current = [];
     };
