@@ -26,24 +26,23 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 // Animation constants (all values from PRD)
 const CARD_WIDTH = SCREEN_WIDTH * 0.78;
 const CARD_HEIGHT_ESTIMATE = 110;
-const VERTICAL_SPEED = 70; // px/s
+const VERTICAL_SPEED = 60; // px/s
 const SINE_AMPLITUDE = 20; // px
 const SINE_PERIOD_MS = 6000; // 6 s full cycle
-const HEADER_HEIGHT_APPROX = 130; // rough height of title + subtitle block
-const CONTENT_HEIGHT = SCREEN_HEIGHT - 200; // approximate view inside the step container
-const FOOTER_HEIGHT_PERCENT = 0.1; // bottom 10% fade-in zone
-const FOOTER_PX = CONTENT_HEIGHT * FOOTER_HEIGHT_PERCENT;
 
-// Card travel range: from just below step container bottom to just above header
-const SPAWN_Y = CONTENT_HEIGHT + CARD_HEIGHT_ESTIMATE; // start below visible container
-const DEATH_Y = HEADER_HEIGHT_APPROX; // stop above header text
+// Card travel range
+// Keep animations inside the container to avoid overflow rendering issues
+const CONTENT_HEIGHT = SCREEN_HEIGHT - 240; // rough bounds of onboarding content container
+const SPAWN_Y = CONTENT_HEIGHT; 
+const DEATH_Y = 10; 
+const FOOTER_PX = 140;
 
-const TRAVEL_DISTANCE = SPAWN_Y - DEATH_Y; // total px to travel
+const TRAVEL_DISTANCE = SPAWN_Y - DEATH_Y;
 const TRAVEL_DURATION_MS = (TRAVEL_DISTANCE / VERTICAL_SPEED) * 1000;
 
-// Opacity thresholds
-const FADE_IN_ZONE_TOP = CONTENT_HEIGHT - FOOTER_PX; // below this Y → fading in
-const FADE_OUT_ZONE_BOTTOM = DEATH_Y + CARD_HEIGHT_ESTIMATE + 20; // above this Y → fading out
+// Opacity thresholds (relative to SPAWN and DEATH)
+const FADE_IN_ZONE_TOP = SPAWN_Y - 80; 
+const FADE_OUT_ZONE_BOTTOM = DEATH_Y + CARD_HEIGHT_ESTIMATE + 10;
 
 interface CardState {
   review: OnboardingReview;
@@ -78,7 +77,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ card, colors }) => {
   const sinX = card.progress.interpolate({
     // Approximate sine by sampling enough points across one full cycle
     inputRange: buildSineInputRange(),
-    outputRange: buildSineOutputRange(card.phaseOffset, card.centerX),
+    outputRange: buildSineOutputRange(card.phaseOffset),
     extrapolate: 'clamp',
   });
 
@@ -97,7 +96,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ card, colors }) => {
         {
           opacity,
           transform: [{ translateY }, { translateX: sinX }],
-          left: 0,
+          start: card.centerX, // start properly handles LTR and RTL positioning
           width: CARD_WIDTH,
         },
       ]}
@@ -139,11 +138,11 @@ function buildSineInputRange(): number[] {
   return Array.from({ length: SINE_SAMPLES }, (_, i) => i / (SINE_SAMPLES - 1));
 }
 
-function buildSineOutputRange(phaseOffset: number, centerX: number): number[] {
+function buildSineOutputRange(phaseOffset: number): number[] {
   return Array.from({ length: SINE_SAMPLES }, (_, i) => {
     const t = (i / (SINE_SAMPLES - 1)) * (TRAVEL_DURATION_MS / 1000);
     const B = (2 * Math.PI) / (SINE_PERIOD_MS / 1000);
-    return centerX + SINE_AMPLITUDE * Math.sin(B * t + phaseOffset);
+    return SINE_AMPLITUDE * Math.sin(B * t + phaseOffset);
   });
 }
 
@@ -413,7 +412,7 @@ function createCardStyles(colors: ThemeColors) {
       padding: spacing[4],
     },
     avatarContainer: {
-      marginRight: spacing[3],
+      marginEnd: spacing[3],
     },
     avatar: {
       width: 48,
@@ -444,7 +443,7 @@ function createCardStyles(colors: ThemeColors) {
       fontWeight: '700',
       color: '#1A1A1A',
       flex: 1,
-      marginRight: spacing[2],
+      marginEnd: spacing[2],
     },
     stars: {
       fontSize: 13,

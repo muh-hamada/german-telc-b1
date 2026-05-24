@@ -28,7 +28,7 @@ const APP_DISPLAY_NAMES: { [key: string]: string } = {
   'dele-spanish-b1': 'DELE Spanish B1',
 };
 
-const MAX_ONBOARDING_REVIEWS = 15; // Maximum number of reviews allowed for onboarding screen
+const MAX_ONBOARDING_REVIEWS = 20; // Maximum number of reviews allowed for onboarding screen
 const MIN_ONBOARDING_REVIEWS = 5; // Minimum recommended reviews for good visual spacing on onboarding screen
 
 export const ConfigPage: React.FC = () => {
@@ -1533,13 +1533,15 @@ export const ConfigPage: React.FC = () => {
                 <div className="config-alert config-alert-error">{reviewsImportError}</div>
               )}
               {!reviewsImportLoading && filteredImportReviews.map((review) => {
-                const isSelected = reviewsImportSelected.has(review.id);
+                const isAlreadyAdded = (globalConfig.onboardingReviewsData || []).some(r => r.id === review.id);
+                const isSelected = reviewsImportSelected.has(review.id) || isAlreadyAdded;
                 return (
               <button
                 key={review.id}
                 type="button"
-                className={`review-import-card ${isSelected ? 'selected' : ''}`}
-                onClick={() => toggleReviewImportSelection(review.id)}
+                className={`review-import-card ${isSelected && !isAlreadyAdded ? 'selected' : ''} ${isAlreadyAdded ? 'already-added' : ''}`}
+                onClick={() => { if (!isAlreadyAdded) toggleReviewImportSelection(review.id); }}
+                disabled={isAlreadyAdded}
               >
                     <div
                       className="review-import-avatar"
@@ -1551,7 +1553,8 @@ export const ConfigPage: React.FC = () => {
                     <input
                       type="checkbox"
                       checked={isSelected}
-                      onChange={() => toggleReviewImportSelection(review.id)}
+                      disabled={isAlreadyAdded}
+                      onChange={() => { if (!isAlreadyAdded) toggleReviewImportSelection(review.id); }}
                       onClick={(e) => e.stopPropagation()}
                       className="review-import-checkbox"
                     />
@@ -1561,11 +1564,12 @@ export const ConfigPage: React.FC = () => {
                         <span className="review-stars">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</span>
                         <span className="review-source">{reviewsImportPlatform === 'ios' ? 'App Store' : 'Google Play'}</span>
                         <span className="review-app-badge">{APP_LABELS[reviewsImportAppId] ?? reviewsImportAppId}</span>
+                        {isAlreadyAdded && <span className="already-added-badge">Already Imported</span>}
                         {review.date && <span className="review-date">{review.date.slice(0, 10)}</span>}
                       </div>
                       {review.title && <div className="review-import-title">{review.title}</div>}
                       <p className="review-text">{review.body}</p>
-                      {isSelected && (
+                      {isSelected && !isAlreadyAdded && (
                         <div className="review-avatar-row">
                           <label htmlFor={`avatar-${review.id}`}>Avatar URL (optional):</label>
                           <input
