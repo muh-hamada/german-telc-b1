@@ -190,7 +190,9 @@ export const OnboardingSuccessStoriesContent: React.FC<{ reviews: OnboardingRevi
   const isMountedRef = useRef(true);
 
   useEffect(() => {
-    logEvent(AnalyticsEvents.ONBOARDING_REVIEWS_SCREEN_VIEWED, {});
+    logEvent(AnalyticsEvents.ONBOARDING_REVIEWS_SCREEN_VIEWED, {
+      source: 'onboarding_step',
+    });
     return () => {
       isMountedRef.current = false;
     };

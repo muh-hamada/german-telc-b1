@@ -133,26 +133,16 @@ const OnboardingWelcomeScreen: React.FC<OnboardingWelcomeScreenProps> = ({ navig
       step: TOTAL_STEPS,
       stepName: 'ready',
     });
-    
-    logEvent(AnalyticsEvents.ONBOARDING_VIEW_SECTIONS_CLICKED, {
-      step: TOTAL_STEPS,
-      stepName: 'ready',
-    });
 
     await AsyncStorage.setItem('hasLaunched', 'true');
-    
-    logEvent(AnalyticsEvents.ONBOARDING_COMPLETED, {
-      completedSteps: TOTAL_STEPS,
-      action: 'view_sections',
-      timestamp: Date.now(),
-    });
 
-    // Go to main app
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Main' }],
+    // Show premium upsell modal (same as Start Exam)
+    setShowPremiumModal(true);
+
+    logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_MODAL_SHOWN, {
+      source: 'later_button',
     });
-  }, [navigation]);
+  }, []);
 
   const handlePremiumModalClose = useCallback(() => {
     logEvent(AnalyticsEvents.ONBOARDING_PREMIUM_MODAL_CLOSED, {
