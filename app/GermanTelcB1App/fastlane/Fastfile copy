@@ -1,0 +1,557 @@
+# Fastfile for Telc Exam Apps
+# This file contains the fastlane.tools configuration for Android and iOS releases
+
+default_platform(:android)
+
+# Path to update messages JSON file
+UPDATE_MESSAGES_PATH = File.expand_path("../../update-messages.json", __dir__)
+
+# Path to App Store metadata JSON file
+APP_STORE_METADATA_PATH = File.expand_path("app-store-metadata.json", __dir__)
+
+# Helper method to load update messages
+def load_update_message(index)
+  unless File.exist?(UPDATE_MESSAGES_PATH)
+    UI.user_error!("Update messages file not found at: #{UPDATE_MESSAGES_PATH}")
+  end
+  
+  messages = JSON.parse(File.read(UPDATE_MESSAGES_PATH))
+  
+  if index < 0 || index >= messages.length
+    UI.user_error!("Invalid message index: #{index}. Must be between 0 and #{messages.length - 1}")
+  end
+  
+  messages[index]
+end
+
+# Helper method to load and process App Store metadata
+def load_app_store_metadata(app_id)
+  unless File.exist?(APP_STORE_METADATA_PATH)
+    UI.user_error!("App Store metadata file not found at: #{APP_STORE_METADATA_PATH}")
+  end
+  
+  metadata = JSON.parse(File.read(APP_STORE_METADATA_PATH))
+  
+  # Parse app_id to extract language and level
+  # Format: "german-a1", "german-a2", "german-b1", "german-b2", "english-b1", "english-b2", "dele-spanish-b1", "goethe-german-a1"
+  parts = app_id.split('-')
+  
+  # Handle special cases for 3-part IDs with prefix (e.g., "dele-spanish-b1", "goethe-german-a1")
+  if parts.length == 3 && ["dele", "goethe"].include?(parts[0])
+    language = parts[1]  # "spanish" or "german"
+    level = parts[2].upcase  # "B1", "A1"
+  else
+    language = parts[0]  # "german" or "english"
+    level = parts[1].upcase  # "A1", "B1", "B2"
+  end
+  
+  # Create a processed metadata hash with placeholders replaced
+  processed = {}
+  
+  # Process descriptions for all locales
+  processed[:description] = {}
+  metadata["description"].each do |locale, template|
+    # Map locale codes (en, de, etc.) to full locale codes for App Store
+    locale_map = {
+      "en" => "en-US",
+      "de" => "de-DE",
+      "es" => "es-ES",
+      "fr" => "fr-FR",
+      "it" => "it-IT",
+      "pt" => "pt-PT",
+      "ru" => "ru-RU",
+      "ar" => "ar",
+      "tr" => "tr-TR"
+    }
+    
+    full_locale = locale_map[locale] || locale
+    
+    # Get localized language name
+    language_name = metadata["languages"][language][locale]
+    
+    # Get localized country name
+    country_name = metadata["countries"][language][locale]
+    
+    # Get localized level name
+    level_name = metadata["level_names"][level][locale]
+    
+    # Replace placeholders
+    text = template.gsub("{{LANGUAGE}}", language_name)
+                   .gsub("{{LEVEL}}", level)
+                   .gsub("{{LEVEL_NAME}}", level_name)
+                   .gsub("{{COUNTRY}}", country_name)
+    
+    # App Store limit: description must not exceed 4000 characters
+    text = text[0, 4000] if text.length > 4000
+    
+    processed[:description][full_locale] = text
+  end
+  
+  # Process keywords for all locales
+  processed[:keywords] = {}
+  metadata["keywords"].each do |locale, template|
+    locale_map = {
+      "en" => "en-US",
+      "de" => "de-DE",
+      "es" => "es-ES",
+      "fr" => "fr-FR",
+      "it" => "it-IT",
+      "pt" => "pt-PT",
+      "ru" => "ru-RU",
+      "ar" => "ar",
+      "tr" => "tr-TR"
+    }
+    
+    full_locale = locale_map[locale] || locale
+    language_name = metadata["languages"][language][locale]
+    
+    text = template.gsub("{{LANGUAGE}}", language_name)
+                   .gsub("{{LEVEL}}", level)
+    
+    # App Store limit: keywords must not exceed 100 characters
+    text = text[0, 100] if text.length > 100
+    
+    processed[:keywords][full_locale] = text
+  end
+  
+  # URLs are the same for all apps
+  processed[:support_url] = metadata["support_url"]
+  processed[:marketing_url] = metadata["marketing_url"]
+  
+  processed
+end
+
+# Helper method to remove emojis from text (for App Store)
+def remove_emojis(text)
+  # Remove all emoji characters and extra spaces
+  text.gsub(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/u, '')
+      .gsub(/\s+/, ' ')  # Replace multiple spaces with single space
+      .strip             # Remove leading/trailing whitespace
+end
+
+# Helper method to write Play Store changelogs
+def write_play_store_changelogs(package_name, update_message)
+  # Base metadata path (absolute path using fastlane directory)
+  # Use File.expand_path to ensure we get an absolute path
+  # NOTE: We don't include package_name in the path - fastlane handles that via the package_name parameter
+  base_metadata_path = File.expand_path(File.join(__dir__, "metadata", "android"))
+  
+  # Create base metadata directory first
+  FileUtils.mkdir_p(base_metadata_path)
+  
+  # Language mapping for Play Store (Play Store uses different locale codes)
+  locale_mapping = {
+    "en" => "en-US",
+    "de" => "de-DE",
+    "es" => "es-ES",
+    "fr" => "fr-FR",
+    "it" => "it-IT",
+    "pt" => "pt-PT",
+    "ru" => "ru-RU",
+    "ar" => "ar",
+    "tr" => "tr-TR"
+  }
+  
+  locale_mapping.each do |msg_key, play_locale|
+    # Validate that the message exists for this language
+    unless update_message[msg_key]
+      UI.error("⚠️  Warning: Missing translation for '#{msg_key}', using English as fallback")
+      changelog_text = update_message["en"] || "Bug fixes and improvements"
+    else
+      changelog_text = update_message[msg_key]
+    end
+    
+    # Write changelogs directly under locale directories (no package name in path)
+    changelog_dir = File.join(base_metadata_path, play_locale, "changelogs")
+    FileUtils.mkdir_p(changelog_dir)
+    
+    # Write the changelog (filename doesn't matter for new releases)
+    changelog_file = File.join(changelog_dir, "default.txt")
+    File.write(changelog_file, changelog_text)
+  end
+  
+  UI.message("   📝 Changelogs written to: #{base_metadata_path}")
+  
+  # Return absolute path to base metadata directory
+  base_metadata_path
+end
+
+# Helper method to get app configuration
+def get_app_config(app_id)
+  case app_id
+  when "german-a1"
+    {
+      android_package: "com.mhamada.telca1german",
+      ios_bundle_id: "com.mhamada.telca1german"
+    }
+  when "goethe-german-a1"
+    {
+      android_package: "com.mhamada.goethea1german",
+      ios_bundle_id: "com.mhamada.goethea1german"
+    }
+  when "german-a2"
+    {
+      android_package: "com.mhamada.telca2german",
+      ios_bundle_id: "com.mhamada.telca2german"
+    }
+  when "german-b1"
+    {
+      android_package: "com.mhamada.telcb1german",
+      ios_bundle_id: "com.mhamada.telcb1german"
+    }
+  when "german-b2"
+    {
+      android_package: "com.mhamada.telcb2german",
+      ios_bundle_id: "com.mhamada.telcb2german"
+    }
+  when "english-b1"
+    {
+      android_package: "com.mhamada.telcb1english",
+      ios_bundle_id: "com.mhamada.telcb1english"
+    }
+  when "english-b2"
+    {
+      android_package: "com.mhamada.telcb2english",
+      ios_bundle_id: "com.mhamada.telcb2english"
+    }
+  when "dele-spanish-b1"
+    {
+      android_package: "com.mhamada.deleb1spanish",
+      ios_bundle_id: "com.mhamada.deleb1spanish"
+    }
+  else
+    UI.user_error!("Unknown app ID: #{app_id}")
+  end
+end
+
+# Helper method to wait for build to be available in App Store Connect
+def wait_for_build_processing(bundle_id, build_number, max_wait_minutes: 10)
+  UI.message("⏳ Waiting for build #{build_number} to be processed by TestFlight...")
+  
+  max_attempts = max_wait_minutes * 4  # Check every 15 seconds
+  attempt = 0
+  
+  while attempt < max_attempts
+    begin
+      # Login to App Store Connect first
+      Spaceship::ConnectAPI.login
+      
+      # Get the app
+      app = Spaceship::ConnectAPI::App.find(bundle_id)
+      
+      unless app
+        UI.error("Could not find app with bundle ID: #{bundle_id}")
+        sleep(15)
+        attempt += 1
+        next
+      end
+      
+      # Get all builds for this app
+      builds = app.get_builds(
+        filter: { version: build_number.to_s },
+        includes: "preReleaseVersion",
+        limit: 1
+      )
+      
+      build = builds.first
+      
+      if build
+        # Check if build is processed
+        if build.processing_state == "VALID" || build.processing_state == "PROCESSING_COMPLETE"
+          UI.success("✅ Build #{build_number} is ready! (State: #{build.processing_state})")
+          return true
+        else
+          UI.message("   Build found but still processing... State: #{build.processing_state} (attempt #{attempt + 1}/#{max_attempts})")
+        end
+      else
+        UI.message("   Build #{build_number} not found yet... (attempt #{attempt + 1}/#{max_attempts})")
+      end
+      
+      sleep(15)  # Wait 15 seconds before checking again
+      attempt += 1
+      
+    rescue => e
+      UI.message("   Error checking build: #{e.message} (attempt #{attempt + 1}/#{max_attempts})")
+      sleep(15)
+      attempt += 1
+    end
+  end
+  
+  UI.error("⚠️  Build #{build_number} was not processed within #{max_wait_minutes} minutes")
+  UI.error("   This could mean:")
+  UI.error("   1. The build is taking longer than usual to process")
+  UI.error("   2. There was an issue with the build upload")
+  UI.error("   Please check TestFlight in App Store Connect manually")
+  return false
+end
+
+platform :android do
+  desc "Upload AAB to Google Play Store and create release"
+  lane :release do |options|
+    # Validate required parameters
+    unless options[:app_id]
+      UI.user_error!("app_id parameter is required")
+    end
+    
+    unless options[:aab_path]
+      UI.user_error!("aab_path parameter is required")
+    end
+    
+    unless options[:message_index]
+      UI.user_error!("message_index parameter is required")
+    end
+    
+    app_config = get_app_config(options[:app_id])
+    package_name = app_config[:android_package]
+    aab_path = options[:aab_path]
+    message_index = options[:message_index].to_i
+    rollout = options[:rollout] || 1.0  # Default to 100% rollout
+    track = options[:track] || "production"
+    
+    # Validate AAB file exists
+    unless File.exist?(aab_path)
+      UI.user_error!("AAB file not found at: #{aab_path}")
+    end
+    
+    # Load update message
+    update_message = load_update_message(message_index)
+    
+    UI.message("📦 Uploading to Play Store...")
+    UI.message("   App: #{options[:app_id]}")
+    UI.message("   Package: #{package_name}")
+    UI.message("   AAB: #{aab_path}")
+    UI.message("   Track: #{track}")
+    UI.message("   Rollout: #{(rollout * 100).to_i}%")
+    
+    # Write changelogs to metadata directory
+    metadata_path = write_play_store_changelogs(package_name, update_message)
+    
+    # Upload to Google Play
+    upload_to_play_store(
+      package_name: package_name,
+      aab: aab_path,
+      track: track,
+      rollout: rollout,  # Already a float, no need to convert to string
+      release_status: "completed",
+      metadata_path: metadata_path,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: false
+    )
+    
+    UI.success("✅ Successfully uploaded #{options[:app_id]} to Google Play Store!")
+  end
+end
+
+platform :ios do
+  desc "Create release in App Store Connect and submit for review"
+  lane :release do |options|
+    # Validate required parameters
+    unless options[:app_id]
+      UI.user_error!("app_id parameter is required")
+    end
+    
+    unless options[:version]
+      UI.user_error!("version parameter is required")
+    end
+    
+    unless options[:build_number]
+      UI.user_error!("build_number parameter is required")
+    end
+    
+    unless options[:message_index]
+      UI.user_error!("message_index parameter is required")
+    end
+    
+    app_config = get_app_config(options[:app_id])
+    bundle_id = app_config[:ios_bundle_id]
+    version = options[:version]
+    build_number = options[:build_number]
+    message_index = options[:message_index].to_i
+    
+    # Load update message (has keys like "en", "de", "es", "fr", "ar", "tr", "ja", "ko", etc.)
+    update_message = load_update_message(message_index)
+    
+    # Load App Store metadata with placeholders replaced
+    # app_metadata[:description] has keys like "en-US", "de-DE", "es-ES", etc. (9 locales from our JSON)
+    # app_metadata[:keywords] same structure
+    # app_metadata[:support_url] and [:marketing_url] are plain strings
+    app_metadata = load_app_store_metadata(options[:app_id])
+    
+    UI.message("   🔍 Detecting configured localizations for #{bundle_id}...")
+    
+    # Login to App Store Connect
+    Spaceship::ConnectAPI.login
+    app = Spaceship::ConnectAPI::App.find(bundle_id)
+    
+    unless app
+      UI.user_error!("Could not find app with bundle ID: #{bundle_id}")
+    end
+    
+    # ──────────────────────────────────────────────────────────────────────
+    # STEP 1: Detect configured locales from App Store Connect
+    #
+    # App Store Connect requires that EVERY configured locale has:
+    #   - whatsNew (release notes)
+    #   - description
+    #   - keywords
+    #   - supportUrl
+    # If we miss any, the submission is rejected.
+    #
+    # We try multiple API methods because depending on app state
+    # (no edit version yet, pending review, etc.) different APIs work.
+    # ──────────────────────────────────────────────────────────────────────
+    configured_locales = []
+    
+    # Method 1: Try to get locales from existing app store versions
+    begin
+      versions = app.get_app_store_versions(filter: { platform: "IOS" })
+      if versions && !versions.empty?
+        versions.each do |ver|
+          begin
+            version_localizations = ver.get_app_store_version_localizations
+            if version_localizations && !version_localizations.empty?
+              configured_locales = version_localizations.map { |loc| loc.locale }
+              UI.message("   ✅ Detected #{configured_locales.length} locales from app store version (state: #{ver.app_store_state})")
+              break
+            end
+          rescue => e
+            UI.message("   ⚠️  Could not get localizations from version (#{ver.app_store_state}): #{e.message}")
+          end
+        end
+      end
+    rescue => e
+      UI.message("   ⚠️  Could not fetch app store versions: #{e.message}")
+    end
+    
+    # Method 2: Fallback to app info localizations
+    if configured_locales.empty?
+      begin
+        app_info = app.fetch_edit_app_info || app.fetch_live_app_info
+        if app_info
+          app_info_localizations = app_info.get_app_info_localizations
+          if app_info_localizations && !app_info_localizations.empty?
+            configured_locales = app_info_localizations.map { |loc| loc.locale }
+            UI.message("   ✅ Detected #{configured_locales.length} locales from app info")
+          end
+        end
+      rescue => e
+        UI.message("   ⚠️  Could not fetch app info localizations: #{e.message}")
+      end
+    end
+    
+    # Method 3: Last resort — en-US is always safe
+    if configured_locales.empty?
+      UI.message("   ⚠️  Could not detect configured locales, defaulting to en-US only")
+      configured_locales = ["en-US"]
+    end
+    
+    UI.message("   📍 Configured locales: #{configured_locales.join(', ')}")
+    
+    # ──────────────────────────────────────────────────────────────────────
+    # STEP 2: Build localized data for EVERY configured locale.
+    #
+    # Mapping: App Store Connect locale code -> update_message short key
+    # Some apps use short codes (e.g. "tr", "ar") and some use full
+    # codes (e.g. "tr-TR", "ar-SA"). We handle both directions.
+    # ──────────────────────────────────────────────────────────────────────
+    
+    # Maps App Store locale -> short key in update_message / metadata JSON
+    reverse_locale_map = {
+      "en-US" => "en", "de-DE" => "de", "es-ES" => "es", "fr-FR" => "fr",
+      "it-IT" => "it", "pt-PT" => "pt", "pt-BR" => "pt", "ru-RU" => "ru",
+      "ar-SA" => "ar", "ar" => "ar", "tr-TR" => "tr", "tr" => "tr"
+    }
+    
+    # Maps short key -> App Store full locale (used for looking up our metadata)
+    forward_locale_map = {
+      "en" => "en-US", "de" => "de-DE", "es" => "es-ES", "fr" => "fr-FR",
+      "it" => "it-IT", "pt" => "pt-PT", "ru" => "ru-RU", "ar" => "ar", "tr" => "tr-TR"
+    }
+    
+    en_release_note = remove_emojis(update_message["en"] || "Bug fixes and improvements")
+    en_description = app_metadata[:description]["en-US"] || ""
+    en_keywords = app_metadata[:keywords]["en-US"] || ""
+    
+    ios_release_notes = {}
+    ios_descriptions = {}
+    ios_keywords = {}
+    ios_support_url = {}
+    ios_marketing_url = {}
+    
+    configured_locales.each do |app_store_locale|
+      # Find the short key for this locale (e.g. "de-DE" -> "de", "tr" -> "tr")
+      short_key = reverse_locale_map[app_store_locale]
+      
+      # Also try to find the metadata locale key (how load_app_store_metadata indexed it)
+      # Our metadata uses forward_locale_map values as keys (e.g. "en-US", "de-DE", "tr-TR")
+      # But App Store Connect might report "tr" while our metadata has "tr-TR"
+      metadata_locale = app_store_locale
+      if short_key && forward_locale_map[short_key]
+        metadata_locale = forward_locale_map[short_key]
+      end
+      
+      # Release notes: use translated update_message, or English fallback
+      if short_key && update_message[short_key]
+        ios_release_notes[app_store_locale] = remove_emojis(update_message[short_key])
+      elsif update_message[app_store_locale]
+        # Try direct match (e.g. "pt-BR" key exists in update_message)
+        ios_release_notes[app_store_locale] = remove_emojis(update_message[app_store_locale])
+      else
+        ios_release_notes[app_store_locale] = en_release_note
+        UI.message("   ⚠️  No release note for '#{app_store_locale}', using English")
+      end
+      
+      # Description: use localized metadata, or English fallback
+      ios_descriptions[app_store_locale] = app_metadata[:description][metadata_locale] ||
+                                           app_metadata[:description][app_store_locale] ||
+                                           en_description
+      
+      # Keywords: use localized metadata, or English fallback
+      ios_keywords[app_store_locale] = app_metadata[:keywords][metadata_locale] ||
+                                       app_metadata[:keywords][app_store_locale] ||
+                                       en_keywords
+      
+      # URLs: same for all locales
+      ios_support_url[app_store_locale] = app_metadata[:support_url]
+      ios_marketing_url[app_store_locale] = app_metadata[:marketing_url]
+    end
+    
+    UI.message("   📝 Release notes for: #{ios_release_notes.keys.join(', ')}")
+    UI.message("   📝 Descriptions for: #{ios_descriptions.keys.join(', ')}")
+    
+    UI.message("🍎 Creating App Store release...")
+    UI.message("   App: #{options[:app_id]}")
+    UI.message("   Bundle ID: #{bundle_id}")
+    UI.message("   Version: #{version}")
+    UI.message("   Build: #{build_number}")
+    
+    # Wait for build to be processed by TestFlight (max 10 minutes)
+    unless wait_for_build_processing(bundle_id, build_number, max_wait_minutes: 10)
+      UI.user_error!("Build #{build_number} not ready. Please check TestFlight and try again later.")
+    end
+    
+    # Create/update app version in App Store Connect
+    deliver(
+      app_identifier: bundle_id,
+      app_version: version,
+      build_number: build_number.to_s,
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: false,
+      force: true,
+      submit_for_review: true,
+      automatic_release: true,
+      
+      # All fields provided for EVERY configured locale
+      release_notes: ios_release_notes,
+      description: ios_descriptions,
+      keywords: ios_keywords,
+      support_url: ios_support_url,
+      marketing_url: ios_marketing_url
+    )
+    
+    UI.success("✅ Successfully created and submitted release for #{options[:app_id]} in App Store Connect!")
+  end
+end
