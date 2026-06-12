@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, type ThemeColors, type Typography } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { PartStat } from '../hooks/useSectionStats';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface SectionStatsModalProps {
   visible: boolean;
@@ -29,13 +30,30 @@ const SectionStatsModal: React.FC<SectionStatsModalProps> = ({
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
+  useEffect(() => {
+    if (!visible) return;
+    logEvent(AnalyticsEvents.SECTION_STATS_MODAL_VIEWED, {
+      section_label: sectionLabel,
+      parts_count: stats.length,
+      parts_with_attempts: stats.filter(s => s.attempted > 0).length,
+    });
+  }, [visible]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleClose = (method: 'x_button' | 'done_button' | 'back_gesture') => {
+    logEvent(AnalyticsEvents.SECTION_STATS_MODAL_CLOSED, {
+      section_label: sectionLabel,
+      close_method: method,
+    });
+    onClose();
+  };
+
   return (
     <Modal
       visible={visible}
       transparent
       animationType="slide"
       statusBarTranslucent
-      onRequestClose={onClose}
+      onRequestClose={() => handleClose('back_gesture')}
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
@@ -43,7 +61,7 @@ const SectionStatsModal: React.FC<SectionStatsModalProps> = ({
             <Text style={styles.title}>
               {t('sectionStats.detailsTitle', { section: sectionLabel })}
             </Text>
-            <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+            <TouchableOpacity onPress={() => handleClose('x_button')} style={styles.closeButton}>
               <Text style={styles.closeButtonText}>✕</Text>
             </TouchableOpacity>
           </View>
@@ -113,7 +131,7 @@ const SectionStatsModal: React.FC<SectionStatsModalProps> = ({
             ))}
           </ScrollView>
 
-          <TouchableOpacity style={styles.doneButton} onPress={onClose}>
+          <TouchableOpacity style={styles.doneButton} onPress={() => handleClose('done_button')}>
             <Text style={styles.doneButtonText}>{t('common.done')}</Text>
           </TouchableOpacity>
         </View>

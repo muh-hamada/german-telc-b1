@@ -48,6 +48,12 @@ export const AnalyticsEvents = {
   PROGRESS_CARD_LOGIN_NAVIGATED: 'progress_card_login_navigated',
   PROGRESS_CARD_VIEW_FULL_STATS: 'progress_card_view_full_stats',
 
+  // Section Stats Card
+  SECTION_STATS_CARD_VIEWED: 'section_stats_card_viewed',
+  SECTION_STATS_DETAILS_CLICKED: 'section_stats_details_clicked',
+  SECTION_STATS_MODAL_VIEWED: 'section_stats_modal_viewed',
+  SECTION_STATS_MODAL_CLOSED: 'section_stats_modal_closed',
+
   // Ads
   BANNER_AD_LOADED: 'banner_ad_loaded',
   BANNER_AD_FAILED: 'banner_ad_failed',

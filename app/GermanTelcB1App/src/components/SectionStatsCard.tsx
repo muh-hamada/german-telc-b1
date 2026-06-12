@@ -1,10 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { spacing, type ThemeColors, type Typography } from '../theme';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useSectionStats, PartStat } from '../hooks/useSectionStats';
 import SectionStatsModal from './SectionStatsModal';
+import { AnalyticsEvents, logEvent } from '../services/analytics.events';
 
 interface SectionStatsCardProps {
   section: string;
@@ -17,6 +18,40 @@ const SectionStatsCard: React.FC<SectionStatsCardProps> = ({ section, sectionLab
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
   const { stats, hasAnyAttempts } = useSectionStats(section);
   const [modalVisible, setModalVisible] = useState(false);
+
+  useEffect(() => {
+    if (stats.length === 0) return;
+    const partsAttempted = stats.filter(s => s.attempted > 0).length;
+    logEvent(AnalyticsEvents.SECTION_STATS_CARD_VIEWED, {
+      section,
+      has_attempts: hasAnyAttempts,
+      parts_count: stats.length,
+      parts_attempted: partsAttempted,
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [section]);
+
+  const handleDetailsPressed = useCallback(() => {
+    const partsAttempted = stats.filter(s => s.attempted > 0).length;
+    const scoredParts = stats.filter(s => s.avgScore != null);
+    const avgScore =
+      scoredParts.length > 0
+        ? Math.round(
+            scoredParts.reduce((sum, s) => sum + s.avgScore!, 0) / scoredParts.length,
+          )
+        : null;
+    logEvent(AnalyticsEvents.SECTION_STATS_DETAILS_CLICKED, {
+      section,
+      parts_count: stats.length,
+      parts_attempted: partsAttempted,
+      avg_score: avgScore,
+    });
+    setModalVisible(true);
+  }, [section, stats]);
+
+  const handleModalClose = useCallback(() => {
+    setModalVisible(false);
+  }, []);
 
   const getPartStatsText = (part: PartStat): string => {
     if (part.attempted === 0) {
@@ -39,7 +74,9 @@ const SectionStatsCard: React.FC<SectionStatsCardProps> = ({ section, sectionLab
         <View style={styles.headerRow}>
           <Text style={styles.cardTitle}>{t('sectionStats.title')}</Text>
           {hasAnyAttempts && (
-            <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.detailsButton}>
+            <TouchableOpacity
+              onPress={handleDetailsPressed}
+              style={styles.detailsButton}>
               <Text style={styles.detailsButtonText}>{t('sectionStats.detailsButton')}</Text>
             </TouchableOpacity>
           )}
@@ -63,7 +100,7 @@ const SectionStatsCard: React.FC<SectionStatsCardProps> = ({ section, sectionLab
 
       <SectionStatsModal
         visible={modalVisible}
-        onClose={() => setModalVisible(false)}
+        onClose={handleModalClose}
         sectionLabel={sectionLabel}
         stats={stats}
       />
