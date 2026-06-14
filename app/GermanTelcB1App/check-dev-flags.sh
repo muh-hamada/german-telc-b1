@@ -14,9 +14,12 @@ SIMULATE_PREMIUM_USER=$(grep -oE "SIMULATE_PREMIUM_USER\s*=\s*false" "$DEV_CONFI
 FORCE_SHOW_STREAK_MODAL=$(grep -oE "FORCE_SHOW_STREAK_MODAL\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
 SIMULATE_7_DAY_STREAK=$(grep -oE "SIMULATE_7_DAY_STREAK\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
 ALWAYS_SHOW_PREMIUM_MODAL=$(grep -oE "ALWAYS_SHOW_PREMIUM_MODAL\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
+FORCE_DARK_MODE=$(grep -oE "FORCE_DARK_MODE\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
+FORCE_AD_FREE_GIFT_ELIGIBLE=$(grep -oE "FORCE_AD_FREE_GIFT_ELIGIBLE\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
+FORCE_SHOW_ONBOARDING=$(grep -oE "FORCE_SHOW_ONBOARDING\s*=\s*false" "$DEV_CONFIG_FILE" | awk '{print $3}')
 
 # Check if all versions match
-if [ "$DEMO_MODE" != "false" ] || [ "$HIDE_ADS" != "false" ] || [ "$SKIP_REWARDED_ADS" != "false" ] || [ "$ALWAYS_SHOW_REVIEW_MODAL" != "false" ] || [ "$DISABLE_DATA_CACHE" != "false" ] || [ "$HIDE_SUPPORT_US" != "false" ] || [ "$SIMULATE_PREMIUM_USER" != "false" ] || [ "$FORCE_SHOW_STREAK_MODAL" != "false" ] || [ "$SIMULATE_7_DAY_STREAK" != "false" ] || [ "$ALWAYS_SHOW_PREMIUM_MODAL" != "false" ]; then
+if [ "$DEMO_MODE" != "false" ] || [ "$HIDE_ADS" != "false" ] || [ "$SKIP_REWARDED_ADS" != "false" ] || [ "$ALWAYS_SHOW_REVIEW_MODAL" != "false" ] || [ "$DISABLE_DATA_CACHE" != "false" ] || [ "$HIDE_SUPPORT_US" != "false" ] || [ "$SIMULATE_PREMIUM_USER" != "false" ] || [ "$FORCE_SHOW_STREAK_MODAL" != "false" ] || [ "$SIMULATE_7_DAY_STREAK" != "false" ] || [ "$ALWAYS_SHOW_PREMIUM_MODAL" != "false" ] || [ "$FORCE_DARK_MODE" != "false" ] || [ "$FORCE_AD_FREE_GIFT_ELIGIBLE" != "false" ] || [ "$FORCE_SHOW_ONBOARDING" != "false" ]; then
     echo "Development flags enabled detected!"
     echo "Enabled Development Config:"
     flags="  "
@@ -30,6 +33,9 @@ if [ "$DEMO_MODE" != "false" ] || [ "$HIDE_ADS" != "false" ] || [ "$SKIP_REWARDE
     [ "$FORCE_SHOW_STREAK_MODAL" != "false" ] && flags+="FORCE_SHOW_STREAK_MODAL, "
     [ "$SIMULATE_7_DAY_STREAK" != "false" ] && flags+="SIMULATE_7_DAY_STREAK, "
     [ "$ALWAYS_SHOW_PREMIUM_MODAL" != "false" ] && flags+="ALWAYS_SHOW_PREMIUM_MODAL, "
+    [ "$FORCE_DARK_MODE" != "false" ] && flags+="FORCE_DARK_MODE, "
+    [ "$FORCE_AD_FREE_GIFT_ELIGIBLE" != "false" ] && flags+="FORCE_AD_FREE_GIFT_ELIGIBLE, "
+    [ "$FORCE_SHOW_ONBOARDING" != "false" ] && flags+="FORCE_SHOW_ONBOARDING, "
     # Remove trailing comma and space, print only if not empty
     if [ -n "$flags" ]; then
         echo "${flags%, }"

@@ -2,7 +2,7 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-06-07T20:29:04.631Z
+ * Generated at: 2026-06-13T19:10:07.854Z
  * Exam: Spanish DELE B1
  * 
  * This file determines which exam configuration is active for the current build.

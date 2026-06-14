@@ -29,7 +29,7 @@ export const FORCE_DARK_MODE = false; // Set to true to force dark mode
 
 export const FORCE_AD_FREE_GIFT_ELIGIBLE = false; // Set to true to force show ad-free gift eligibility
 
-export const FORCE_SHOW_ONBOARDING = true; // Set to true to force show onboarding flow on app launch
+export const FORCE_SHOW_ONBOARDING = false; // Set to true to force show onboarding flow on app launch
 
 /**
  * Streak Feature Flags

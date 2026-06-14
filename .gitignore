@@ -37,4 +37,6 @@ coverage/
 # Service account credentials
 **/fastlane/*.json
 app/functions/*-firebase-adminsdk-*.json
+*-firebase-adminsdk-*.json
+service-account.json
 

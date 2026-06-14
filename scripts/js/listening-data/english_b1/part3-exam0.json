@@ -1,0 +1,82 @@
+{
+  "collection": "english_b1_telc_exam_data",
+  "part": 3,
+  "examId": 0,
+  "docId": "listening-part3",
+  "title": "Various announcements at the airport, hotel, and more",
+  "audio_url": "https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/english-b1-listening-question-part-3-exam-1.mp3?alt=media",
+  "transcript": "Listening Comprehension Part 3 You're going to hear five short texts. You will hear each text twice. After you've listened to each text, decide if the statement for each of the items 56 to 60 is true or not true. Mark your answer on the answer sheet. Now read number 56. You're booked on the 1945 flight to Belfast from Birmingham Airport this evening. You hear the following report on the radio. There has been a serious accident at Birmingham Airport. All flights have been cancelled until six o'clock this evening. Passengers booked on afternoon flights should get in touch with their travel agent as soon as possible for details of new flight arrangements. Passengers for later flights need not make any special arrangements. Listen to the text a second time. You're booked on the 1945 flight to Belfast from Birmingham Airport this evening. You hear the following report on the radio. There has been a serious accident at Birmingham Airport. All flights have been cancelled until six o'clock this evening. Passengers booked on afternoon flights should get in touch with their travel agent as soon as possible for details of new flight arrangements. Passengers for later flights need not make any special arrangements. Now read number 57. You phone the Central Guest House to reserve a room for next week and hear the following message on the answering machine. This is the Central Guest House. Unfortunately there's nobody at reception at the present time as our guest house is closed for a few days. We will be open for business again next week starting on Monday the 25th. Reception will be open as from tomorrow, Saturday. If you wish to reserve a room for next week, we will be pleased to hear from you. Listen to the text a second time. You phone the Central Guest House to reserve a room for next week and hear the following message on the answering machine. This is the Central Guest House. Unfortunately there's nobody at reception at the present time as our guest house is closed for a few days. We will be open for business again next week starting on Monday the 25th. Reception will be open as from tomorrow, Saturday. If you wish to reserve a room for next week, we will be pleased to hear from you. Now read number 58. You're listening to English radio because you want to hear a programme about life in Scotland. You hear the following announcement. And now it's almost time for the weather report at 5 to 8, after which you will be able to hear the world news at 8 o'clock. After that there will be a change to our normal Wednesday evening programmes. Instead of the planned programme on life in Scottish villages, you can hear the second half of the football match between England and Germany. But now here's Michael Fish with the weather report. Listen to the text a second time. You're listening to English radio because you want to hear a programme about life in Scotland. You hear the following announcement. And now it's almost time for the weather report at 5 to 8, after which you will be able to hear the world news at 8 o'clock. After that there will be a change to our normal Wednesday evening programmes. Instead of the planned programme on life in Scottish villages, you can hear the second half of the football match between England and Germany. But now here's Michael Fish with the weather report. Now read number 59. You're travelling by train to Liverpool. While the train is standing at a station, you hear the following announcement. Ladies and gentlemen, we're afraid to have to tell you that there are technical problems with this train. So passengers for Liverpool and Manchester should go to platform 6, where the next train will leave in 15 minutes' time. Other passengers should make their way to the station car park, where a special bus service has been arranged. Listen to the text a second time. You're travelling by train to Liverpool. While the train is standing at a station, you hear the following announcement. Ladies and gentlemen, we're afraid to have to tell you that there are technical problems with this train. So passengers for Liverpool and Manchester should go to platform 6, where the next train will leave in 15 minutes' time. Other passengers should make their way to the station car park, where a special bus service has been arranged. Now read number 60. You're listening to the weather report on the radio because you want to go for a long walk in the evening. And here's tomorrow's weather report. The day will start cool and dry with a strong wind coming from the north. This will bring clouds by lunchtime, with rain in most areas by the middle of the afternoon. The rain and wind shouldn't last too long, however, and by early evening it should be clear and sunny. Listen to the text a second time. You're listening to the weather report on the radio because you want to go for a long walk in the evening. And here's tomorrow's weather report. The day will start cool and dry with a strong wind coming from the north. This will bring clouds by lunchtime, with rain in most areas by the middle of the afternoon. The rain and wind shouldn't last too long, however, and by early evening it should be clear and sunny.",
+  "schemaType": "statements",
+  "statements": [
+    {
+      "id": 56,
+      "statement": "You should be at the airport earlier than usual.",
+      "is_correct": false,
+      "audio_transcript": "You're booked on the 1945 flight to Belfast from Birmingham Airport this evening. There has been a serious accident at Birmingham Airport. All flights have been cancelled until six o'clock this evening. Passengers booked on afternoon flights should get in touch with their travel agent as soon as possible for details of new flight arrangements. Passengers for later flights need not make any special arrangements.",
+      "explanation": {
+        "de": "FALSCH. Ihr Flug ist um 19:45, also nach 18 Uhr. Im Audio heißt es: «Passagiere späterer Flüge müssen keine besonderen Vorkehrungen treffen.» Sie müssen nicht früher kommen.",
+        "en": "INCORRECT. Your flight is at 19:45, which is after 6pm. The audio says 'passengers for later flights need not make any special arrangements'. You do not need to arrive earlier than usual.",
+        "ar": "خطأ. رحلتك في الساعة 19:45، أي بعد الساعة 6 مساءً. يقول التسجيل 'المسافرون على رحلات لاحقة لا يحتاجون لاتخاذ ترتيبات خاصة.' لا تحتاج للوصول مبكراً.",
+        "fr": "FAUX. Votre vol est à 19h45, donc après 18h. L'audio dit : 'Les passagers des vols ultérieurs n'ont pas besoin de prendre de dispositions particulières.' Pas besoin d'arriver plus tôt.",
+        "es": "INCORRECTO. Su vuelo es a las 19:45, después de las 18:00. El audio dice 'los pasajeros de vuelos posteriores no necesitan hacer arreglos especiales'. No necesita llegar antes de lo habitual.",
+        "ru": "НЕПРАВИЛЬНО. Ваш рейс в 19:45, после 18:00. В аудио говорится: 'Пассажирам более поздних рейсов не нужно предпринимать особых мер.' Приезжать раньше не требуется."
+      }
+    },
+    {
+      "id": 57,
+      "statement": "The hotel will be open for guests next week.",
+      "is_correct": true,
+      "audio_transcript": "This is the Central Guest House. Unfortunately there's nobody at reception at the present time as our guest house is closed for a few days. We will be open for business again next week starting on Monday the 25th. Reception will be open as from tomorrow, Saturday. If you wish to reserve a room for next week, we will be pleased to hear from you.",
+      "explanation": {
+        "de": "RICHTIG. Im Audio heißt es: «Wir sind ab nächster Woche, Montag den 25., wieder für Sie da.» Das Gästehaus öffnet nächste Woche wieder für Gäste.",
+        "en": "CORRECT. The audio says 'We will be open for business again next week starting on Monday the 25th.' The guest house will be open for guests next week.",
+        "ar": "صحيح. يقول التسجيل 'سنفتح مرة أخرى الأسبوع المقبل ابتداءً من يوم الاثنين 25.' سيكون الفندق مفتوحاً للنزلاء الأسبوع القادم.",
+        "fr": "CORRECT. L'audio dit : 'Nous rouvrirons la semaine prochaine à partir de lundi 25.' L'hôtel sera ouvert aux clients la semaine prochaine.",
+        "es": "CORRECTO. El audio dice 'Volveremos a abrir la próxima semana a partir del lunes 25.' El hotel estará abierto para huéspedes la próxima semana.",
+        "ru": "ПРАВИЛЬНО. В аудио говорится: 'Мы снова откроемся на следующей неделе, начиная с понедельника 25-го.' Отель будет открыт для гостей на следующей неделе."
+      }
+    },
+    {
+      "id": 58,
+      "statement": "You can hear the programme about Scotland.",
+      "is_correct": false,
+      "audio_transcript": "And now it's almost time for the weather report at 5 to 8, after which you will be able to hear the world news at 8 o'clock. After that there will be a change to our normal Wednesday evening programmes. Instead of the planned programme on life in Scottish villages, you can hear the second half of the football match between England and Germany.",
+      "explanation": {
+        "de": "FALSCH. Im Audio heißt es: «Anstelle des geplanten Programms über das Leben in schottischen Dörfern können Sie die zweite Halbzeit des Fußballspiels hören.» Das Schottland-Programm wurde ersetzt.",
+        "en": "INCORRECT. The audio says 'Instead of the planned programme on life in Scottish villages, you can hear the second half of the football match.' The Scotland programme has been replaced.",
+        "ar": "خطأ. يقول التسجيل 'بدلاً من البرنامج المخطط عن الحياة في القرى الاسكتلندية، يمكنكم سماع الشوط الثاني من مباراة كرة القدم.' تم استبدال برنامج اسكتلندا.",
+        "fr": "FAUX. L'audio dit : 'Au lieu du programme prévu sur la vie dans les villages écossais, vous pourrez écouter la deuxième mi-temps du match de football.' Le programme sur l'Écosse a été remplacé.",
+        "es": "INCORRECTO. El audio dice 'En lugar del programa previsto sobre la vida en pueblos escoceses, pueden escuchar la segunda parte del partido de fútbol.' El programa sobre Escocia fue reemplazado.",
+        "ru": "НЕПРАВИЛЬНО. В аудио говорится: 'Вместо запланированной программы о жизни в шотландских деревнях вы можете послушать второй тайм футбольного матча.' Программа о Шотландии заменена."
+      }
+    },
+    {
+      "id": 59,
+      "statement": "You have to go to another platform.",
+      "is_correct": true,
+      "audio_transcript": "Ladies and gentlemen, we're afraid to have to tell you that there are technical problems with this train. So passengers for Liverpool and Manchester should go to platform 6, where the next train will leave in 15 minutes' time. Other passengers should make their way to the station car park, where a special bus service has been arranged.",
+      "explanation": {
+        "de": "RICHTIG. Im Audio heißt es: «Passagiere nach Liverpool und Manchester sollten zu Gleis 6 gehen.» Da Sie nach Liverpool reisen, müssen Sie zu einem anderen Bahnsteig wechseln.",
+        "en": "CORRECT. The audio says 'passengers for Liverpool and Manchester should go to platform 6'. Since you are travelling to Liverpool, you need to go to another platform.",
+        "ar": "صحيح. يقول التسجيل 'المسافرون إلى ليفربول ومانشستر عليهم الذهاب إلى الرصيف 6.' بما أنك مسافر إلى ليفربول، عليك الانتقال إلى رصيف آخر.",
+        "fr": "CORRECT. L'audio dit : 'Les passagers pour Liverpool et Manchester doivent se rendre au quai 6.' Puisque vous allez à Liverpool, vous devez changer de quai.",
+        "es": "CORRECTO. El audio dice 'los pasajeros a Liverpool y Manchester deben ir al andén 6'. Como viaja a Liverpool, debe ir a otro andén.",
+        "ru": "ПРАВИЛЬНО. В аудио говорится: 'Пассажиры до Ливерпуля и Манчестера должны перейти на платформу 6.' Поскольку вы едете в Ливерпуль, нужно перейти на другую платформу."
+      }
+    },
+    {
+      "id": 60,
+      "statement": "The weather will be fine in the evening.",
+      "is_correct": true,
+      "audio_transcript": "The day will start cool and dry with a strong wind coming from the north. This will bring clouds by lunchtime, with rain in most areas by the middle of the afternoon. The rain and wind shouldn't last too long, however, and by early evening it should be clear and sunny.",
+      "explanation": {
+        "de": "RICHTIG. Im Audio heißt es: «Am frühen Abend sollte es klar und sonnig sein.» Da Sie abends spazieren gehen möchten, wird das Wetter gut sein.",
+        "en": "CORRECT. The audio says 'by early evening it should be clear and sunny'. Since you want to go for a long walk in the evening, the weather will be fine.",
+        "ar": "صحيح. يقول التسجيل 'بحلول المساء الباكر سيكون الطقس صافياً ومشمساً.' بما أنك تريد المشي مساءً، سيكون الطقس جيداً.",
+        "fr": "CORRECT. L'audio dit : 'En début de soirée, il devrait faire clair et ensoleillé.' Le temps sera beau pour votre promenade du soir.",
+        "es": "CORRECTO. El audio dice 'para el inicio de la noche debería estar despejado y soleado'. Como quiere dar un paseo largo por la noche, el tiempo será bueno.",
+        "ru": "ПРАВИЛЬНО. В аудио говорится: 'К раннему вечеру должно быть ясно и солнечно.' Поскольку вы хотите прогуляться вечером, погода будет хорошей."
+      }
+    }
+  ]
+}
