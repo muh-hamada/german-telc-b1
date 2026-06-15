@@ -10,16 +10,17 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { BrainGamesWrapper, type SupportedLanguage } from 'rn-app-lib';
+import AdBanner from '../components/AdBanner';
 import AnimatedGradientBorder from '../components/AnimatedGradientBorder';
 import Card from '../components/Card';
+import CrossAppPromotionButton from '../components/CrossAppPromotionButton';
 import HomeHeader from '../components/HomeHeader';
 import HomeProgressCard from '../components/HomeProgressCard';
 import LoginModal from '../components/LoginModal';
-import CrossAppPromotionButton from '../components/CrossAppPromotionButton';
 import SupportAdButton from '../components/SupportAdButton';
 import { activeExamConfig } from '../config/active-exam.config';
 import { HIDE_SUPPORT_US } from '../config/development.config';
-import { useAuth } from '../contexts/AuthContext';
 import { useModalQueue } from '../contexts/ModalQueueContext';
 import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
@@ -36,9 +37,8 @@ type HomeScreenNavigationProp = CompositeNavigationProp<
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { t } = useCustomTranslation();
+  const { t, i18n } = useCustomTranslation();
   const { enqueue } = useModalQueue();
-  const { user } = useAuth();
   const { isPremium, isLoading: isPremiumLoading, productPrice, productCurrency } = usePremium();
   const { isPremiumFeaturesEnabled } = useRemoteConfig();
   const insets = useSafeAreaInsets();
@@ -127,6 +127,22 @@ const HomeScreen: React.FC = () => {
         <HomeProgressCard
           onLoginPress={handleLoginPress}
           onViewFullStats={handleViewFullStats}
+        />
+
+        <BrainGamesWrapper
+          renderTrigger={(onPress) => (
+            <TouchableOpacity onPress={onPress} style={styles.brainGameButton}>
+              <Text style={styles.brainGameButtonText}>🧠 Warm up your brain</Text>
+            </TouchableOpacity>
+          )}
+          theme="light"
+          language={(i18n.language || 'en') as SupportedLanguage}
+          scoreTracking={false}
+          onGameEnd={(gameId, result) => {
+            console.log(`${gameId} ended:`, result);
+          }}
+          renderBannerAd={() => <AdBanner />}
+          onDismiss={() => {}}
         />
 
         <Card style={styles.card} onPress={handleExamStructurePress}>
@@ -293,6 +309,17 @@ const createStyles = (colors: ThemeColors) =>
       textAlign: 'left',
     },
     supportAdButton: {},
+    brainGameButton: {
+      backgroundColor: colors.primary[500],
+      borderRadius: 12,
+      paddingVertical: spacing.padding.md,
+      paddingHorizontal: spacing.padding.lg,
+      alignItems: 'center',
+    },
+    brainGameButtonText: {
+      ...typography.textStyles.h3,
+      color: '#FFFFFF',
+    },
     premiumButtonWrapper: {
       position: 'absolute',
       right: spacing.margin.lg,
