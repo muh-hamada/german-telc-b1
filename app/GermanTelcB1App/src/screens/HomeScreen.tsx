@@ -26,7 +26,7 @@ import { usePremium } from '../contexts/PremiumContext';
 import { useRemoteConfig } from '../contexts/RemoteConfigContext';
 import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
-import { AnalyticsEvents, logEvent } from '../services/analytics.events';
+import { AnalyticsEvents, logBrainGameEvent, logEvent } from '../services/analytics.events';
 import { spacing, typography, type ThemeColors } from '../theme';
 import { HomeStackNavigationProp, MainTabParamList } from '../types/navigation.types';
 
@@ -132,16 +132,17 @@ const HomeScreen: React.FC = () => {
         <BrainGamesWrapper
           renderTrigger={(onPress) => (
             <TouchableOpacity onPress={onPress} style={styles.brainGameButton}>
-              <Text style={styles.brainGameButtonText}>🧠 Warm up your brain</Text>
+              <Text style={styles.brainGameButtonText}>{t('home.brainWarmUp')}</Text>
             </TouchableOpacity>
           )}
-          theme="light"
+          theme="green"
           language={(i18n.language || 'en') as SupportedLanguage}
           scoreTracking={false}
           onGameEnd={(gameId, result) => {
             console.log(`${gameId} ended:`, result);
           }}
           renderBannerAd={() => <AdBanner />}
+          onTrackEvent={logBrainGameEvent}
           onDismiss={() => {}}
         />
 

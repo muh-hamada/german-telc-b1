@@ -343,6 +343,10 @@ export function logEvent(eventName: EventName, params?: Record<string, any>) {
   analyticsService.logEvent(eventName, withCommonParams(params));
 }
 
+export function logBrainGameEvent(event: { name: string; params?: Record<string, any> }) {
+  analyticsService.logEvent(`brain_game_${event.name}`, withCommonParams(event.params));
+}
+
 export function logScreenView(screenName: string) {
   analyticsService.logScreenView(screenName);
 }
