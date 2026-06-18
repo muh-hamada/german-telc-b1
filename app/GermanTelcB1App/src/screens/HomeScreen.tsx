@@ -135,7 +135,7 @@ const HomeScreen: React.FC = () => {
               <Text style={styles.brainGameButtonText}>{t('home.brainWarmUp')}</Text>
             </TouchableOpacity>
           )}
-          theme="green"
+          theme="purple"
           language={(i18n.language || 'en') as SupportedLanguage}
           scoreTracking={false}
           onGameEnd={(gameId, result) => {
@@ -144,6 +144,7 @@ const HomeScreen: React.FC = () => {
           renderBannerAd={() => <AdBanner />}
           onTrackEvent={logBrainGameEvent}
           onDismiss={() => {}}
+          gameTimers={{ default: 90 }}
         />
 
         <Card style={styles.card} onPress={handleExamStructurePress}>
