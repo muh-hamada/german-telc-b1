@@ -32,7 +32,7 @@ const SectionMenuScreen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
   const section = useMemo(
-    () => activeExamConfig.sections!.find(s => s.id === sectionId)!,
+    () => activeExamConfig.sections.find(s => s.id === sectionId)!,
     [sectionId],
   );
 

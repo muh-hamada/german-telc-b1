@@ -28,6 +28,7 @@ import { useAppTheme } from '../contexts/ThemeContext';
 import { useCustomTranslation } from '../hooks/useCustomTranslation';
 import { AnalyticsEvents, logBrainGameEvent, logEvent } from '../services/analytics.events';
 import { spacing, typography, type ThemeColors } from '../theme';
+import { findExtraMenuItem } from '../utils/exam-config.utils';
 import { HomeStackNavigationProp, MainTabParamList } from '../types/navigation.types';
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
@@ -46,9 +47,7 @@ const HomeScreen: React.FC = () => {
   const { colors } = useAppTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
 
-  const isA1 = activeExamConfig.level === 'A1';
-  const isA2 = activeExamConfig.level === 'A2';
-  const isDele = activeExamConfig.provider === 'dele';
+  const grammarStudyItem = findExtraMenuItem(activeExamConfig, 'grammar-study');
 
   const handleExamStructurePress = () => {
     logEvent(AnalyticsEvents.EXAM_STRUCTURE_OPENED);
@@ -218,11 +217,11 @@ const HomeScreen: React.FC = () => {
         <CrossAppPromotionButton placement="home" style={{ marginBottom: 0 }} />
 
         {/* Grammar Study Card */}
-        {!isA1 && !isA2 && (
+        {grammarStudyItem && (
           <Card style={styles.card} onPress={handleGrammarStudyPress}>
-            <Text style={styles.cardTitle}>{t('practice.grammar.study.title', { count: isDele ? 160 : 150 })}</Text>
+            <Text style={styles.cardTitle}>{t(grammarStudyItem.titleKey, grammarStudyItem.titleParams)}</Text>
             <Text style={styles.cardDescription}>
-              {t('practice.grammar.study.description', { count: isDele ? 160 : 150 })}
+              {t(grammarStudyItem.descriptionKey, grammarStudyItem.descriptionParams)}
             </Text>
           </Card>
         )}

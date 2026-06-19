@@ -224,8 +224,8 @@ export interface ExamConfig {
     [examType: string]: number[]; // e.g., { 'reading': [1, 2, 3], 'writing': [1, 2] }
   };
 
-  // Declarative Exam Configuration (optional during migration)
-  sections?: ExamSectionConfig[];
-  mockExam?: MockExamConfig;
+  // Declarative Exam Configuration
+  sections: ExamSectionConfig[];
+  mockExam: MockExamConfig;
 }
 

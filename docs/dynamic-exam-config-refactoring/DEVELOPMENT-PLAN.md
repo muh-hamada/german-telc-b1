@@ -1015,7 +1015,7 @@ This phase simplifies the navigation stack.
 
 ### Step 5.1: Refactor HomeStackNavigator — Dynamic Screen Registration
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 8.2](./dynamic-exam-configuration-report.md#82-proposed-approach) for the dynamic registration pattern.
 
@@ -1074,7 +1074,7 @@ This phase simplifies the navigation stack.
 
 ### Step 5.2: Simplify navigation.types.ts
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Clean up `HomeStackParamList` to remove level-specific duplicate routes that are now handled by the generic approach. Keep all screen keys that are referenced in `SCREEN_REGISTRY` as union type members.
 
@@ -1098,7 +1098,7 @@ This phase simplifies the navigation stack.
 
 ### Step 6.1: Remove isA1/isA2/isDele Checks from Remaining Files
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Search the codebase for any remaining `activeExamConfig.level === 'A1'`, `activeExamConfig.provider === 'dele'`, etc. patterns in screens and components that should now be config-driven. Fix any remaining instances.
 
@@ -1134,7 +1134,7 @@ This phase simplifies the navigation stack.
 
 ### Step 6.3: Make ExamConfig Fields Required
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Change `sections` and `mockExam` from optional to required in the `ExamConfig` type. Remove the deprecated `examStructure` field.
 
@@ -1154,7 +1154,7 @@ This phase simplifies the navigation stack.
 
 ### Step 6.4: Update Documentation
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Update `copilot-instructions.md` and any other project documentation to reflect the new architecture. Add a section explaining how to add a new exam.
 

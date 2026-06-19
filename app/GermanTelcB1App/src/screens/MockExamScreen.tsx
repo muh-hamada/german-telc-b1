@@ -115,11 +115,11 @@ const MockExamScreen: React.FC = () => {
   }
 
   const getTotalPoints = () => {
-    return activeExamConfig.mockExam!.totalMaxPoints;
+    return activeExamConfig.mockExam.totalMaxPoints;
   }
 
   const getPassingScore = () => {
-    return activeExamConfig.mockExam!.passingTotalPoints;
+    return activeExamConfig.mockExam.passingTotalPoints;
   }
 
   return (

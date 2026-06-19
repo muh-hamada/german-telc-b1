@@ -68,10 +68,7 @@ const MockExamRunningScreen: React.FC = () => {
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
-  const isA1 = activeExamConfig.level === 'A1';
-  const isA2 = activeExamConfig.level === 'A2';
-  const isDele = activeExamConfig.id === 'dele-spanish-b1';
-  const scoreMultiplier = activeExamConfig.provider === 'dele' ? 1 : 3;
+  const scoreMultiplier = activeExamConfig.mockExam.scoreMultiplier ?? 3;
 
   useEffect(() => {
     loadProgress();
@@ -199,10 +196,10 @@ const MockExamRunningScreen: React.FC = () => {
 
     // Check if this is a writing step
     const isWritingStep = stepId.includes('writing');
-    const isB1OrB2Level = activeExamConfig.level === 'B1' || activeExamConfig.level === 'B2';
+    const part = findPartConfig(activeExamConfig, stepId);
 
-    // Handle B1/B2 writing results
-    if (isWritingStep && isB1OrB2Level && step.answers.length > 0) {
+    // Handle writing results for parts with WritingUI (B1/B2/DELE - AI assessment)
+    if (isWritingStep && part?.uiComponentKey === 'WritingUI' && step.answers.length > 0) {
       // For writing steps, try to extract the WritingAssessment from answers
       const firstAnswer = step.answers[0];
 
@@ -210,20 +207,11 @@ const MockExamRunningScreen: React.FC = () => {
       if (firstAnswer.assessment) {
         setSelectedWritingAssessment(firstAnswer.assessment as WritingAssessmentResult);
 
-        // Load the exam data for this writing step
+        // Load the exam data for this writing step using config-driven fetch method
         try {
           const testId = getTestIdForStep(stepId, examProgress.selectedTests);
-          let loadedExam;
-
-          if (isDele) {
-            if (stepId === 'writing-1') {
-              loadedExam = await dataService.getDeleWritingPart1ExamById(testId);
-            } else if (stepId === 'writing-2') {
-              loadedExam = await dataService.getDeleWritingPart2ExamById(testId);
-            }
-          } else {
-            loadedExam = await dataService.getWritingExam(testId);
-          }
+          const fetchMethod = part.dataLoader.fetchMethod;
+          const loadedExam = await (dataService as any)[fetchMethod](testId);
 
           if (loadedExam) {
             setSelectedWritingExam(loadedExam);
@@ -236,42 +224,36 @@ const MockExamRunningScreen: React.FC = () => {
       }
     }
 
-    // Handle A1/A2 writing results (same format: writing-part1 form fill + writing-part2 short message)
-    if (isWritingStep && (isA1 || isA2) && step.answers.length > 0) {
+    // Handle writing results for multi-part writing (A1/A2 form fill + short message)
+    if (isWritingStep && part && part.uiComponentKey !== 'WritingUI' && step.answers.length > 0) {
       const firstAnswer = step.answers[0];
 
-      // Check if we have assessment data stored (Part 2 - WritingPart2UIA1)
+      // Check if we have assessment data stored
       if (firstAnswer.assessment) {
 
-        // Load the exam data for this writing step
+        // Load the exam data for this writing step using config-driven fetch method
         try {
           const testId = getTestIdForStep(stepId, examProgress.selectedTests);
-          let loadedExam;
+          const fetchMethod = part.dataLoader.fetchMethod;
+          const loadedExam = await (dataService as any)[fetchMethod](String(testId));
 
-          if (stepId === 'writing-part1') {
-            loadedExam = await dataService.getWritingPart1Exam(String(testId));
-
-            if (loadedExam) {
+          if (loadedExam) {
+            if (part.partNumber === 1) {
               setSelectedWritingExamA1(loadedExam);
               setIsWritingPart1ResultsModalA1Visible(true);
               setWritingPart1ResultsA1(firstAnswer.assessment);
-
-              return
+              return;
             }
-          }
 
-          if (stepId === 'writing-part2') {
-            loadedExam = await dataService.getWritingPart2Exam(String(testId));
-
-            if (loadedExam) {
+            if (part.partNumber === 2) {
               setSelectedWritingExamA1(loadedExam);
               setIsWritingPart2ResultsModalA1Visible(true);
               setSelectedWritingAssessmentA1(firstAnswer.assessment);
-              return
+              return;
             }
           }
         } catch (error) {
-          console.error('Error loading A1 writing exam data:', error);
+          console.error('Error loading writing exam data:', error);
         }
       }
     }
@@ -412,7 +394,7 @@ const MockExamRunningScreen: React.FC = () => {
             const stepPercentage = step.maxPoints > 0
               ? ((step.score || 0) / step.maxPoints) * 100
               : 0;
-            const isSkipped = activeExamConfig.mockExam!.skipSectionNumbers.includes(step.sectionNumber) && (step.score || 0) === 0;
+            const isSkipped = activeExamConfig.mockExam.skipSectionNumbers.includes(step.sectionNumber) && (step.score || 0) === 0;
 
             return (
               <View key={step.id} style={styles.stepBreakdownCard}>

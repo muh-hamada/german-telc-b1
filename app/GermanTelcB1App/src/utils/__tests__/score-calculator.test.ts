@@ -61,6 +61,7 @@ const createTelcB1Config = (): ExamConfig => ({
   premium: { productId: { android: '', ios: '' } },
   writingEvaluationFnName: 'test',
   examStructure: { reading: [1, 2, 3] },
+  sections: [],
   mockExam: {
     stepOrder: ['reading-1', 'reading-2', 'reading-3', 'grammar-1', 'grammar-2', 'listening-1', 'listening-2', 'listening-3', 'writing'],
     scoringGroups: [
@@ -155,8 +156,8 @@ describe('score-calculator', () => {
       expect(oral.passed).toBe(false);
     });
 
-    it('returns empty array when mockExam is undefined', () => {
-      const config = { ...createTelcB1Config(), mockExam: undefined };
+    it('returns empty array when mockExam has no scoring groups', () => {
+      const config = { ...createTelcB1Config(), mockExam: { ...createTelcB1Config().mockExam, scoringGroups: [] } };
       const results = calculateGroupResults(config, []);
       expect(results).toEqual([]);
     });

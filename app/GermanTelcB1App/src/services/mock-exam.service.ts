@@ -17,7 +17,7 @@ export const generateRandomExamSelection = async (): Promise<Record<string, any>
   const config = activeExamConfig;
   const selection: Record<string, any> = {};
 
-  for (const partId of config.mockExam!.stepOrder) {
+  for (const partId of config.mockExam.stepOrder) {
     const part = findPartConfig(config, partId);
     if (!part || part.skipInMockExam) continue;
 
@@ -133,7 +133,7 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
     steps,
     selectedTests,
     totalScore: 0,
-    totalMaxPoints: config.mockExam!.totalMaxPoints,
+    totalMaxPoints: config.mockExam.totalMaxPoints,
     isCompleted: false,
     hasStarted: false,
   };

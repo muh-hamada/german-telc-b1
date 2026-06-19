@@ -59,8 +59,6 @@ export const calculateGroupResults = (
   config: ExamConfig,
   steps: MockExamStep[],
 ): GroupResult[] => {
-  if (!config.mockExam) return [];
-
   return config.mockExam.scoringGroups.map((group: ScoringGroupConfig) => {
     const groupSteps = steps.filter(
       step => group.sectionNumbers.includes(step.sectionNumber),
@@ -92,11 +90,11 @@ export const calculateOverallResult = (
 ): OverallResult => {
   const totalScore = steps.reduce((sum, step) => sum + (step.score ?? 0), 0);
   const groupResults = calculateGroupResults(config, steps);
-  const totalMaxPoints = config.mockExam?.totalMaxPoints ?? 0;
+  const totalMaxPoints = config.mockExam.totalMaxPoints;
   const totalPercentage = totalMaxPoints > 0 ? (totalScore / totalMaxPoints) * 100 : 0;
   const allGroupsPassed = groupResults.every(g => g.passed);
   const passedOverall =
-    totalScore >= (config.mockExam?.passingTotalPoints ?? 0) && allGroupsPassed;
+    totalScore >= config.mockExam.passingTotalPoints && allGroupsPassed;
 
   return {
     totalScore,

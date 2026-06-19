@@ -2,6 +2,7 @@ import {
   ExamConfig,
   ExamPartConfig,
   ExamSectionConfig,
+  ExtraMenuItem,
 } from '../config/exam-config.types';
 import { MockExamStep } from '../types/mock-exam.types';
 
@@ -13,7 +14,6 @@ export const findPartConfig = (
   config: ExamConfig,
   partId: string,
 ): ExamPartConfig | undefined => {
-  if (!config.sections) return undefined;
   for (const section of config.sections) {
     for (const part of section.parts) {
       if (part.id === partId) return part;
@@ -30,7 +30,6 @@ export const findSectionForPart = (
   config: ExamConfig,
   partId: string,
 ): ExamSectionConfig | undefined => {
-  if (!config.sections) return undefined;
   for (const section of config.sections) {
     if (section.parts.some(part => part.id === partId)) {
       return section;
@@ -48,7 +47,7 @@ export const findSectionForPart = (
 export const generateMockExamSteps = (
   config: ExamConfig,
 ): Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime' | 'answers'>[] => {
-  if (!config.mockExam || !config.sections) return [];
+  if (!config.mockExam) return [];
 
   const steps: Omit<MockExamStep, 'isCompleted' | 'score' | 'startTime' | 'endTime' | 'answers'>[] = [];
 
@@ -69,4 +68,21 @@ export const generateMockExamSteps = (
   }
 
   return steps;
+};
+
+/**
+ * Finds an extra menu item by ID across all sections.
+ * Returns undefined if not found.
+ */
+export const findExtraMenuItem = (
+  config: ExamConfig,
+  itemId: string,
+): ExtraMenuItem | undefined => {
+  for (const section of config.sections) {
+    if (section.extraMenuItems) {
+      const item = section.extraMenuItems.find(i => i.id === itemId);
+      if (item) return item;
+    }
+  }
+  return undefined;
 };

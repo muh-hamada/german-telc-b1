@@ -143,7 +143,7 @@ const HomeStackNavigator: React.FC = () => {
         options={({ route }) => ({
           headerTitle: () => {
             const sectionId = route.params?.sectionId;
-            const section = activeExamConfig.sections?.find(s => s.id === sectionId);
+            const section = activeExamConfig.sections.find(s => s.id === sectionId);
             const titleKey = section?.menuTitleKey || 'home.solve';
             return <HeaderTitle titleKey={titleKey} />;
           },

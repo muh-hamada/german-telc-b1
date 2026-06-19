@@ -164,8 +164,8 @@ describe('exam-config.utils', () => {
       expect(part).toBeUndefined();
     });
 
-    it('returns undefined when sections is undefined', () => {
-      const config = createMockConfig({ sections: undefined });
+    it('returns undefined when sections is empty', () => {
+      const config = createMockConfig({ sections: [] });
       const part = findPartConfig(config, 'reading-1');
       expect(part).toBeUndefined();
     });
@@ -192,8 +192,8 @@ describe('exam-config.utils', () => {
       expect(section).toBeUndefined();
     });
 
-    it('returns undefined when sections is undefined', () => {
-      const config = createMockConfig({ sections: undefined });
+    it('returns undefined when sections is empty', () => {
+      const config = createMockConfig({ sections: [] });
       const section = findSectionForPart(config, 'reading-1');
       expect(section).toBeUndefined();
     });
@@ -225,14 +225,19 @@ describe('exam-config.utils', () => {
       });
     });
 
-    it('returns empty array when mockExam is undefined', () => {
-      const config = createMockConfig({ mockExam: undefined });
+    it('returns empty array when stepOrder is empty', () => {
+      const config = createMockConfig({
+        mockExam: {
+          ...createMockConfig().mockExam,
+          stepOrder: [],
+        },
+      });
       const steps = generateMockExamSteps(config);
       expect(steps).toEqual([]);
     });
 
-    it('returns empty array when sections is undefined', () => {
-      const config = createMockConfig({ sections: undefined });
+    it('returns empty array when sections is empty', () => {
+      const config = createMockConfig({ sections: [] });
       const steps = generateMockExamSteps(config);
       expect(steps).toEqual([]);
     });
