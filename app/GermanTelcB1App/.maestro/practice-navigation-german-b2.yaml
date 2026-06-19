@@ -1,0 +1,124 @@
+appId: ${APP_ID}
+---
+# Practice Menu - Config-driven sections test (German B2)
+# Verifies all sections render from config and navigation works.
+#
+# Prerequisites:
+# - HIDE_ADS = true
+# - active-exam = german-b2
+# - Onboarding completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Navigate to home
+- runFlow:
+    when:
+      visible:
+        text: "Home"
+    commands:
+      - tapOn:
+          text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Tap Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Verify all B2 sections are visible (config-driven from german-b2.config.ts)
+- extendedWaitUntil:
+    visible:
+      text: ".*Reading.*"
+    timeout: 10000
+
+- assertVisible:
+    text: ".*Reading.*"
+- assertVisible:
+    text: ".*Grammar.*"
+- assertVisible:
+    text: ".*Listening.*"
+
+- scrollUntilVisible:
+    element:
+      text: ".*Writing.*"
+    direction: DOWN
+    timeout: 5000
+- assertVisible:
+    text: ".*Writing.*"
+
+- scrollUntilVisible:
+    element:
+      text: ".*Speaking.*"
+    direction: DOWN
+    timeout: 5000
+- assertVisible:
+    text: ".*Speaking.*"
+
+# Navigate into Reading section
+- scrollUntilVisible:
+    element:
+      text: ".*Reading.*"
+    direction: UP
+    timeout: 5000
+- tapOn:
+    text: ".*Reading.*"
+
+# Verify section menu shows parts (config-driven)
+- extendedWaitUntil:
+    visible:
+      text: ".*Part 1.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*Part 1.*"
+
+# Go back
+- back
+
+# Navigate into Grammar section
+- tapOn:
+    text: ".*Grammar.*"
+
+# Verify Grammar Study extra menu item is shown (from config extraMenuItems)
+- extendedWaitUntil:
+    visible:
+      text: ".*Grammar Study.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*Grammar Study.*"
+
+# Go back
+- back
+
+# Navigate into Speaking section
+- scrollUntilVisible:
+    element:
+      text: ".*Speaking.*"
+    direction: DOWN
+    timeout: 5000
+- tapOn:
+    text: ".*Speaking.*"
+
+# Verify speaking parts load (B2 speaking had bugs with listResponseKey)
+- extendedWaitUntil:
+    visible:
+      text: ".*Part 1.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*Part 1.*"
+
+# Go back to home
+- back
+- back

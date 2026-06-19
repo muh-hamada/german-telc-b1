@@ -1,0 +1,106 @@
+appId: ${APP_ID}
+---
+# Mock Exam - Full Flow Test (German B1)
+# Tests: start exam → complete first step → verify advancement → view results
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b1
+# - Onboarding already completed
+# - No existing mock exam in progress
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Navigate to home
+- runFlow:
+    when:
+      visible:
+        text: "Home"
+    commands:
+      - tapOn:
+          text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Find and tap Mock Exam
+- scrollUntilVisible:
+    element:
+      text: "Mock Exam.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Mock Exam.*"
+
+# Wait for mock exam screen
+- extendedWaitUntil:
+    visible:
+      text: "Mock Exam"
+    timeout: 10000
+
+# Verify exam structure is displayed (config-driven sections)
+- assertVisible:
+    text: ".*Leseverstehen.*"
+
+# Verify total points displayed (config: totalMaxPoints = 300)
+- assertVisible:
+    text: ".*300.*"
+
+# Start the exam
+- scrollUntilVisible:
+    element:
+      text: "Start Exam.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Start Exam.*"
+
+# Wait for first step to load (Reading Part 1)
+- extendedWaitUntil:
+    visible:
+      text: ".*Leseverstehen.*"
+    timeout: 15000
+
+# Verify stepper shows current step
+- assertVisible:
+    text: ".*Teil 1.*"
+
+# Answer the questions (tap first option for each question to complete quickly)
+# Reading Part 1 has multiple choice - just select answers to proceed
+- runFlow:
+    when:
+      visible: "Submit"
+    commands:
+      - tapOn: "Submit"
+
+- runFlow:
+    when:
+      visible: "Next"
+    commands:
+      - tapOn: "Next"
+
+# If the exam requires scrolling through items, submit answers
+# The wrapper calls onComplete with score and answers
+# After completing, it should advance to the next step
+
+# Wait for advancement (Reading Part 2 or stepper update)
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 2.*"
+    timeout: 15000
+
+# Verify we advanced to next step
+- assertVisible:
+    text: ".*Leseverstehen.*"

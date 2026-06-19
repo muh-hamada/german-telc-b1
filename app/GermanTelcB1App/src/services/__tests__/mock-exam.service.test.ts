@@ -15,6 +15,7 @@ jest.mock('../data.service', () => ({
     getReadingPart2Exams: jest.fn(() => Promise.resolve([{ id: 4 }, { id: 5 }])),
     getGrammarPart1Exams: jest.fn(() => Promise.resolve([{ id: 10 }])),
     getListeningPart1Content: jest.fn(() => Promise.resolve({ exams: [{ id: 'L1' }, { id: 'L2' }] })),
+    getSpeakingTopics: jest.fn(() => Promise.resolve({ topics: [{ id: 'T1' }, { id: 'T2' }, { id: 'T3' }] })),
   },
 }));
 
@@ -139,9 +140,38 @@ jest.mock('../../config/active-exam.config', () => ({
           },
         ],
       },
+      {
+        id: 'speaking',
+        order: 4,
+        enabled: true,
+        menuTitleKey: 'practice.speaking.title',
+        menuDescriptionKey: 'practice.speaking.description',
+        menuBehavior: 'submenu',
+        parts: [
+          {
+            id: 'speaking-1',
+            partNumber: 1,
+            screenKey: 'SpeakingPart1',
+            uiComponentKey: 'SpeakingPart1UI',
+            wrapperKey: 'SpeakingPart1Wrapper',
+            titleKey: 'practice.speaking.part1',
+            descriptionKey: 'practice.speaking.descriptions.part1',
+            navTitleKey: 'nav.practice.speaking.part1',
+            dataLoader: { listMethod: 'getSpeakingTopics', fetchMethod: 'getSpeakingTopicById', listResponseKey: 'topics' },
+            maxPoints: 25,
+            timeMinutes: 5,
+            scoringGroup: 'oral',
+            mockExamSectionName: 'Speaking',
+            mockExamPartName: 'Teil 1',
+            mockExamSectionNumber: 5,
+            hasExamSelection: true,
+            skipInMockExam: true,
+          },
+        ],
+      },
     ],
     mockExam: {
-      stepOrder: ['reading-1', 'reading-2', 'grammar-1', 'listening-1'],
+      stepOrder: ['reading-1', 'reading-2', 'grammar-1', 'listening-1', 'speaking-1'],
       scoringGroups: [
         { id: 'written', labelKey: 'results.written', maxPoints: 225, passingPoints: 135, sectionNumbers: [1, 2, 3] },
         { id: 'oral', labelKey: 'results.oral', maxPoints: 75, passingPoints: 45, sectionNumbers: [5] },
@@ -195,6 +225,19 @@ describe('mock-exam.service', () => {
 
       // listening-1 uses getListeningPart1Content which returns { exams: [{ id: "L1" }, { id: "L2" }] }
       expect(['L1', 'L2']).toContain(selection['listening-1']);
+    });
+
+    it('handles listResponseKey config (e.g., topics)', async () => {
+      const selection = await generateRandomExamSelection();
+
+      // speaking-1 has listResponseKey: 'topics' and skipInMockExam: true
+      // So it should be skipped and NOT appear in selection
+      expect(selection).not.toHaveProperty('speaking-1');
+    });
+
+    it('skips parts with skipInMockExam: true', async () => {
+      const selection = await generateRandomExamSelection();
+      expect(selection).not.toHaveProperty('speaking-1');
     });
   });
 

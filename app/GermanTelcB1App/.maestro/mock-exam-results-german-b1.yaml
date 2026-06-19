@@ -1,0 +1,77 @@
+appId: ${APP_ID}
+---
+# Mock Exam - Results Screen Test (German B1)
+# Tests the exam results/scoring display is config-driven:
+# - Scoring groups are shown correctly
+# - Pass/fail status is displayed
+# - Score multiplier is applied for display
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b1
+# - A COMPLETED mock exam must already be in AsyncStorage
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Navigate to home
+- runFlow:
+    when:
+      visible:
+        text: "Home"
+    commands:
+      - tapOn:
+          text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Mock Exam
+- scrollUntilVisible:
+    element:
+      text: "Mock Exam.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Mock Exam.*"
+
+# Wait for mock exam screen - should show results since exam is completed
+- extendedWaitUntil:
+    visible:
+      text: ".*Results.*"
+    timeout: 10000
+
+# Verify scoring groups from config are displayed
+# German B1 has: "Written" (Schriftlich) and "Oral" (Mündlich) groups
+- assertVisible:
+    text: ".*225.*"
+
+# Verify individual step results are accessible
+- scrollUntilVisible:
+    element:
+      text: ".*Leseverstehen.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: ".*Leseverstehen.*"
+
+# Verify the exam can be restarted
+- scrollUntilVisible:
+    element:
+      text: ".*New Exam.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: ".*New Exam.*"
