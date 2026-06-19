@@ -53,7 +53,8 @@
     "build:all": "./check-dev-flags.sh && ./bump-version.sh && npm run build:android:german-a1 && npm run build:android:goethe-german-a1 && npm run build:android:german-a2 && npm run build:android:german-b1 && npm run build:android:german-b2 && npm run build:android:english-b1 && npm run build:android:english-b2 && npm run build:ios:german-a1 && npm run build:ios:goethe-german-a1 && npm run build:ios:german-a2 && npm run build:ios:german-b1 && npm run build:ios:german-b2 && npm run build:ios:english-b1 && npm run build:ios:english-b2",
     "e2e": "./scripts/run-maestro-tests.sh",
     "e2e:reading": "./scripts/run-maestro-tests.sh section-menu-reading-${EXAM:-german-b1}.yaml",
-    "e2e:grammar": "./scripts/run-maestro-tests.sh section-menu-grammar-${EXAM:-german-b2}.yaml"
+    "e2e:grammar": "./scripts/run-maestro-tests.sh section-menu-grammar-${EXAM:-german-b2}.yaml",
+    "e2e:mock-exam": "./scripts/run-maestro-tests.sh mock-exam-start-${EXAM:-german-a2}.yaml"
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.4.1",

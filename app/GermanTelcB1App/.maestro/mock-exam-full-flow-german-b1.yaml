@@ -1,26 +1,34 @@
 appId: ${APP_ID}
 ---
 # Mock Exam - Full Flow Test (German B1)
-# Tests: start exam → complete first step → verify advancement → view results
+# Tests: start a NEW exam → complete all 12 steps → reach results screen
+#
+# German B1 steps (12 total):
+#   1-3: Leseverstehen (Reading) - multiple choice, submit answers
+#   4-5: Sprachbausteine (Grammar) - multiple choice, submit answers
+#   6-8: Hörverstehen (Listening) - multiple choice, submit answers
+#   9:   Schriftlicher Ausdruck (Writing) - type text, evaluate via AI
+#   10-12: Mündlicher Ausdruck (Speaking) - skip and continue
 #
 # Prerequisites:
 # - HIDE_ADS = true in development.config.ts
+# - SKIP_REWARDED_ADS = true in development.config.ts
 # - active-exam = german-b1
 # - Onboarding already completed
-# - No existing mock exam in progress
+# - Network access (writing evaluation uses OpenAI API)
 
 - launchApp:
     clearState: false
     stopApp: true
 
-# Dismiss any modal
+# Dismiss premium upsell modal if visible
 - runFlow:
     when:
       visible: "Maybe Later"
     commands:
       - tapOn: "Maybe Later"
 
-# Navigate to home
+# Navigate to home tab
 - runFlow:
     when:
       visible:
@@ -35,7 +43,7 @@ appId: ${APP_ID}
       text: "Solve Exam Questions.*"
     timeout: 15000
 
-# Find and tap Mock Exam
+# Navigate to Mock Exam
 - scrollUntilVisible:
     element:
       text: "Mock Exam.*"
@@ -44,19 +52,28 @@ appId: ${APP_ID}
 - tapOn:
     text: "Mock Exam.*"
 
-# Wait for mock exam screen
+# Wait for mock exam screen to load
 - extendedWaitUntil:
     visible:
       text: "Mock Exam"
     timeout: 10000
 
-# Verify exam structure is displayed (config-driven sections)
-- assertVisible:
-    text: ".*Leseverstehen.*"
+# Handle existing in-progress exam (tap "Start New" if resume alert appears)
+- runFlow:
+    when:
+      visible: "Start New"
+    commands:
+      - tapOn: "Start New"
+      - extendedWaitUntil:
+          visible: "Yes, Start New"
+          timeout: 5000
+      - tapOn: "Yes, Start New"
 
-# Verify total points displayed (config: totalMaxPoints = 300)
+# Verify exam info is displayed
 - assertVisible:
     text: ".*300.*"
+- assertVisible:
+    text: ".*Leseverstehen.*"
 
 # Start the exam
 - scrollUntilVisible:
@@ -67,40 +84,361 @@ appId: ${APP_ID}
 - tapOn:
     text: "Start Exam.*"
 
-# Wait for first step to load (Reading Part 1)
+# Wait for first step to load
 - extendedWaitUntil:
     visible:
-      text: ".*Leseverstehen.*"
+      text: ".*Teil 1.*"
     timeout: 15000
 
-# Verify stepper shows current step
-- assertVisible:
-    text: ".*Teil 1.*"
+# ═══════════════════════════════════════════════════════════════
+# STEPS 1-8: Multiple choice steps (Reading, Grammar, Listening)
+# Strategy: Select answer "a" for each question, then submit.
+# We use repeat to handle varying numbers of questions per step.
+# After submit, the exam auto-advances to the next step.
+# ═══════════════════════════════════════════════════════════════
 
-# Answer the questions (tap first option for each question to complete quickly)
-# Reading Part 1 has multiple choice - just select answers to proceed
-- runFlow:
-    when:
-      visible: "Submit"
-    commands:
-      - tapOn: "Submit"
+# --- Step 1: Reading Part 1 (Globalverstehen - match headings) ---
+# Select unique headings for each text (a, b, c, d, e)
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "b"
+    index: 0
+- tapOn:
+    text: "c"
+    index: 0
+- tapOn:
+    text: "d"
+    index: 0
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "e"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
 
-- runFlow:
-    when:
-      visible: "Next"
-    commands:
-      - tapOn: "Next"
-
-# If the exam requires scrolling through items, submit answers
-# The wrapper calls onComplete with score and answers
-# After completing, it should advance to the next step
-
-# Wait for advancement (Reading Part 2 or stepper update)
+# Wait for Step 2
 - extendedWaitUntil:
     visible:
       text: ".*Teil 2.*"
     timeout: 15000
 
-# Verify we advanced to next step
+# --- Step 2: Reading Part 2 (Detailverstehen - a/b/c per question) ---
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "a"
+    index: 1
+- tapOn:
+    text: "a"
+    index: 2
+- tapOn:
+    text: "a"
+    index: 3
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 3
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 3.*"
+    timeout: 15000
+
+# --- Step 3: Reading Part 3 (Selektives Verstehen - Richtig/Falsch) ---
+- tapOn:
+    text: "Richtig"
+    index: 0
+- tapOn:
+    text: "Richtig"
+    index: 1
+- tapOn:
+    text: "Richtig"
+    index: 2
+- tapOn:
+    text: "Richtig"
+    index: 3
+- tapOn:
+    text: "Richtig"
+    index: 4
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Richtig"
+    index: 0
+- tapOn:
+    text: "Richtig"
+    index: 1
+- tapOn:
+    text: "Richtig"
+    index: 2
+- tapOn:
+    text: "Richtig"
+    index: 3
+- tapOn:
+    text: "Richtig"
+    index: 4
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 4 (Grammar)
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 1.*"
+    timeout: 15000
+
+# --- Step 4: Grammar Part 1 (Grammatik - a/b/c per gap) ---
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "a"
+    index: 1
+- tapOn:
+    text: "a"
+    index: 2
+- tapOn:
+    text: "a"
+    index: 3
+- tapOn:
+    text: "a"
+    index: 4
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 5
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 2.*"
+    timeout: 15000
+
+# --- Step 5: Grammar Part 2 (Lexik - word bank selection) ---
+# Word bank uses tap to select, then tap gap to assign
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "b"
+    index: 0
+- tapOn:
+    text: "c"
+    index: 0
+- tapOn:
+    text: "d"
+    index: 0
+- tapOn:
+    text: "e"
+    index: 0
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "f"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 6 (Listening)
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 1.*"
+    timeout: 15000
+
+# --- Step 6: Listening Part 1 (Globalverstehen - Richtig/Falsch) ---
+- tapOn:
+    text: "Richtig"
+    index: 0
+- tapOn:
+    text: "Richtig"
+    index: 1
+- tapOn:
+    text: "Richtig"
+    index: 2
+- tapOn:
+    text: "Richtig"
+    index: 3
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Richtig"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 7
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 2.*"
+    timeout: 15000
+
+# --- Step 7: Listening Part 2 (Detailverstehen - a/b/c) ---
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "a"
+    index: 1
+- tapOn:
+    text: "a"
+    index: 2
+- tapOn:
+    text: "a"
+    index: 3
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "Submit Answers.*"
+
+# Wait for Step 8
+- extendedWaitUntil:
+    visible:
+      text: ".*Teil 3.*"
+    timeout: 15000
+
+# --- Step 8: Listening Part 3 (Selektives Verstehen) ---
+- tapOn:
+    text: "a"
+    index: 0
+- tapOn:
+    text: "a"
+    index: 1
+- tapOn:
+    text: "a"
+    index: 2
+- scrollUntilVisible:
+    element:
+      text: "Submit Answers.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Submit Answers.*"
+
+# ═══════════════════════════════════════════════════════════════
+# STEP 9: Writing (Schriftlicher Ausdruck)
+# Type 50+ characters, tap Evaluate Answer, wait for AI response
+# ═══════════════════════════════════════════════════════════════
+
+- extendedWaitUntil:
+    visible:
+      text: ".*Schreiben.*|.*Writing.*|.*Your Answer.*"
+    timeout: 15000
+
+# Type answer text (minimum 50 characters required)
+- tapOn:
+    text: ".*Write your.*|.*Schreiben Sie.*|.*placeholder.*"
+- inputText: "Sehr geehrte Damen und Herren, ich schreibe Ihnen weil ich eine Frage habe. Vielen Dank."
+
+# Scroll to evaluate button
+- scrollUntilVisible:
+    element:
+      text: "Evaluate Answer"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Evaluate Answer"
+
+# Wait for evaluation (AI API call - give generous timeout)
+# After evaluation completes, onComplete is called and exam advances to speaking
+
+# ═══════════════════════════════════════════════════════════════
+# STEPS 10-12: Speaking (Mündlicher Ausdruck) - Skip all
+# ═══════════════════════════════════════════════════════════════
+
+- extendedWaitUntil:
+    visible:
+      text: "Skip and Continue"
+    timeout: 60000
+
+# Step 10: Speaking Part 1
+- tapOn:
+    text: "Skip and Continue"
+
+# Step 11: Speaking Part 2
+- extendedWaitUntil:
+    visible:
+      text: "Skip and Continue"
+    timeout: 10000
+- tapOn:
+    text: "Skip and Continue"
+
+# Step 12: Speaking Part 3
+- extendedWaitUntil:
+    visible:
+      text: "Skip and Continue"
+    timeout: 10000
+- tapOn:
+    text: "Skip and Continue"
+
+# ═══════════════════════════════════════════════════════════════
+# RESULTS SCREEN
+# ═══════════════════════════════════════════════════════════════
+
+- extendedWaitUntil:
+    visible:
+      text: "Exam Completed!"
+    timeout: 15000
+
+# Verify results screen content
+- assertVisible:
+    text: ".*Exam Completed.*"
+
+# Verify scoring groups are displayed
+- assertVisible:
+    text: ".*Written Exam.*"
+
+# Verify score is shown (format: X / 300)
+- assertVisible:
+    text: ".*/.*300.*"
+
+# Verify detailed breakdown is accessible
+- scrollUntilVisible:
+    element:
+      text: ".*Leseverstehen.*"
+    direction: DOWN
+    timeout: 10000
 - assertVisible:
     text: ".*Leseverstehen.*"
+
+# Verify Back to Home button exists
+- scrollUntilVisible:
+    element:
+      text: "Back to Home"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: "Back to Home"
