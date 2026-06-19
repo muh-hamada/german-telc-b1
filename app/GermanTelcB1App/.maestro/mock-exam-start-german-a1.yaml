@@ -1,0 +1,74 @@
+appId: ${APP_ID}
+---
+# Mock Exam - Start Flow Test (German A1)
+# Verifies mock exam can be started and the first step loads correctly.
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-a1
+# - Onboarding already completed
+# - No existing mock exam in progress
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell modal if visible
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Wait for home screen to load
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Mock Exam
+- scrollUntilVisible:
+    element:
+      text: "Mock Exam.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Mock Exam.*"
+
+# Wait for mock exam screen to load
+- extendedWaitUntil:
+    visible:
+      text: "Mock Exam"
+    timeout: 10000
+
+# Verify key information is displayed
+- assertVisible:
+    text: ".*minutes.*"
+- assertVisible:
+    text: ".*60.*"
+
+# Verify exam sections/steps are listed (A1 first section = Leseverstehen)
+- assertVisible:
+    text: ".*Leseverstehen.*"
+
+# Scroll to find and tap Start button
+- scrollUntilVisible:
+    element:
+      text: "Start Exam.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Start Exam.*"
+
+# Wait for first step (reading) to load
+- extendedWaitUntil:
+    visible:
+      text: ".*Leseverstehen.*"
+    timeout: 15000
+
+# Verify step content is shown
+- assertVisible:
+    text: ".*Teil 1.*"
+
+# Go back (abandon exam)
+- back
