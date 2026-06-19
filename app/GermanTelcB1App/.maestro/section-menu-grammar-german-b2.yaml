@@ -1,0 +1,76 @@
+appId: ${APP_ID}
+---
+# SectionMenuScreen - Grammar Section Test (German B2)
+# Verifies grammar section menu works correctly for B2.
+# B2 grammar has 2 parts, both with exam selection.
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b2
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell or any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Tap Home tab to ensure we're at home root
+- tapOn:
+    text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Navigate to Grammar section
+- tapOn:
+    text: "Language Building Blocks.*"
+
+# Wait for grammar section menu to load
+- extendedWaitUntil:
+    visible:
+      text: "Part 1.*"
+    timeout: 10000
+
+# Verify both grammar parts are visible
+- assertVisible:
+    text: "Part 1.*"
+- assertVisible:
+    text: "Part 2.*"
+
+# Verify extra menu items (Grammar Questions) are visible
+- scrollUntilVisible:
+    element:
+      text: "150 Grammar Questions.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: "150 Grammar Questions.*"
+
+# Tap Part 1 to open exam selection modal
+- tapOn:
+    text: "Part 1.*"
+
+# Verify modal opened
+- extendedWaitUntil:
+    visible:
+      text: "Test\\s+\\d+.*"
+    timeout: 10000
+
+# Close the modal
+- tapOn: "✕"
+
+# Go back to practice menu
+- back

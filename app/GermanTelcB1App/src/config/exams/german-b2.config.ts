@@ -216,6 +216,16 @@ export const germanB2Config: ExamConfig = {
           hasExamSelection: true,
         },
       ],
+      extraMenuItems: [
+        {
+          id: 'grammar-study',
+          titleKey: 'practice.grammar.study.title',
+          descriptionKey: 'practice.grammar.study.description',
+          screenKey: 'GrammarStudy',
+          titleParams: { count: 150 },
+          descriptionParams: { count: 150 },
+        },
+      ],
     },
     {
       id: 'listening',
