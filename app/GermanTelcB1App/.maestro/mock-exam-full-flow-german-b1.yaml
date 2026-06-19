@@ -19,7 +19,7 @@ appId: ${APP_ID}
 
 - launchApp:
     clearState: false
-    stopApp: true
+    stopApp: false
 
 # Dismiss premium upsell modal if visible
 - runFlow:
@@ -28,14 +28,9 @@ appId: ${APP_ID}
     commands:
       - tapOn: "Maybe Later"
 
-# Navigate to home tab
-- runFlow:
-    when:
-      visible:
-        text: "Home"
-    commands:
-      - tapOn:
-          text: "Home"
+# Navigate to Home tab first (app may be on any screen)
+- tapOn:
+    text: "Home"
 
 # Wait for home screen
 - extendedWaitUntil:
@@ -43,20 +38,29 @@ appId: ${APP_ID}
       text: "Solve Exam Questions.*"
     timeout: 15000
 
-# Navigate to Mock Exam
+# Navigate to Mock Exam via bottom tab
+- tapOn:
+    text: "Mock Exam"
+
+# Wait for mock exam screen to load and scroll to top
 - scrollUntilVisible:
     element:
-      text: "Mock Exam.*"
+      text: "Exam Overview"
+    direction: UP
+    timeout: 15000
+
+# Verify exam info is displayed
+- assertVisible:
+    text: ".*300 Points.*"
+
+# Start the exam
+- scrollUntilVisible:
+    element:
+      text: ".*Start Mock Exam.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "Mock Exam.*"
-
-# Wait for mock exam screen to load
-- extendedWaitUntil:
-    visible:
-      text: "Mock Exam"
-    timeout: 10000
+    text: ".*Start Mock Exam.*"
 
 # Handle existing in-progress exam (tap "Start New" if resume alert appears)
 - runFlow:
@@ -68,21 +72,6 @@ appId: ${APP_ID}
           visible: "Yes, Start New"
           timeout: 5000
       - tapOn: "Yes, Start New"
-
-# Verify exam info is displayed
-- assertVisible:
-    text: ".*300.*"
-- assertVisible:
-    text: ".*Leseverstehen.*"
-
-# Start the exam
-- scrollUntilVisible:
-    element:
-      text: "Start Exam.*"
-    direction: DOWN
-    timeout: 10000
-- tapOn:
-    text: "Start Exam.*"
 
 # Wait for first step to load
 - extendedWaitUntil:

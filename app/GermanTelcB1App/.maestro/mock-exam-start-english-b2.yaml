@@ -7,11 +7,10 @@ appId: ${APP_ID}
 # - HIDE_ADS = true in development.config.ts
 # - active-exam = english-b2
 # - Onboarding already completed
-# - No existing mock exam in progress
 
 - launchApp:
     clearState: false
-    stopApp: true
+    stopApp: false
 
 # Dismiss premium upsell modal if visible
 - runFlow:
@@ -20,53 +19,62 @@ appId: ${APP_ID}
     commands:
       - tapOn: "Maybe Later"
 
+# Navigate to Home tab first (app may be on any screen)
+- tapOn:
+    text: "Home"
+
 # Wait for home screen to load
 - extendedWaitUntil:
     visible:
       text: "Solve Exam Questions.*"
     timeout: 15000
 
-# Navigate to Mock Exam
+# Navigate to Mock Exam via bottom tab
+- tapOn:
+    text: "Mock Exam"
+
+# Wait for mock exam screen to load and scroll to top
 - scrollUntilVisible:
     element:
-      text: "Mock Exam.*"
-    direction: DOWN
-    timeout: 10000
-- tapOn:
-    text: "Mock Exam.*"
-
-# Wait for mock exam screen to load
-- extendedWaitUntil:
-    visible:
-      text: "Mock Exam"
-    timeout: 10000
+      text: "Exam Overview"
+    direction: UP
+    timeout: 15000
 
 # Verify key information is displayed
 - assertVisible:
-    text: ".*minutes.*"
+    text: ".*300 Points.*"
 - assertVisible:
-    text: ".*300.*"
-
-# Verify exam sections/steps are listed (English B2 uses German section names: Leseverstehen)
+    text: ".*240 Minutes.*"
 - assertVisible:
-    text: ".*Leseverstehen.*"
+    text: ".*180 Points.*60%.*"
 
-# Scroll to find and tap Start button
+# Start the exam
 - scrollUntilVisible:
     element:
-      text: "Start Exam.*"
+      text: ".*Start Mock Exam.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "Start Exam.*"
+    text: ".*Start Mock Exam.*"
+
+# Handle resume dialog if there's an in-progress exam
+- runFlow:
+    when:
+      visible: "Start New"
+    commands:
+      - tapOn: "Start New"
+      - extendedWaitUntil:
+          visible: "Yes, Start New"
+          timeout: 5000
+      - tapOn: "Yes, Start New"
 
 # Wait for first step (reading) to load
 - extendedWaitUntil:
     visible:
-      text: ".*Leseverstehen.*"
+      text: ".*Teil 1.*"
     timeout: 15000
 
-# Verify step content is shown
+# Verify step content is shown (exam question UI)
 - assertVisible:
     text: ".*Teil 1.*"
 
