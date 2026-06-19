@@ -46,7 +46,7 @@ This phase adds the new types and populates configs without changing any UI code
 
 ### Step 1.1: Add New Type Definitions
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 4](./dynamic-exam-configuration-report.md#4-extended-examconfig-type-definition) for the **exact** type definitions to implement. Copy them verbatim.
 
@@ -145,7 +145,7 @@ export interface MockExamConfig {
 
 ### Step 1.2: Create Utility Functions
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 6.1](./dynamic-exam-configuration-report.md#61-replace-hardcoded-step-arrays) for the `generateMockExamSteps` logic.
 
@@ -214,7 +214,7 @@ export const generateMockExamSteps = (
 
 ### Step 1.3: Create Score Calculator
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 7](./dynamic-exam-configuration-report.md#7-score-calculation-config-driven) for the scoring logic design. Also read the current scoring implementation in `src/screens/MockExamRunningScreen.tsx` → `handleCompleteStep()` and `renderResults()` to understand the existing behavior that must be replicated.
 
@@ -307,7 +307,7 @@ export const calculateOverallResult = (
 
 ### Step 1.4: Create Screen and Wrapper Registries
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 6.2](./dynamic-exam-configuration-report.md#62-replace-renderstepContent-branching) and [Section 8.2](./dynamic-exam-configuration-report.md#82-proposed-approach).
 
@@ -363,7 +363,7 @@ export const WRAPPER_REGISTRY: Record<string, React.ComponentType<{ testId: any;
 
 ### Step 1.5: Populate German B1 Config (Reference Implementation)
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 12](./dynamic-exam-configuration-report.md#12-example-adding-goethe-a2-german) for a complete example config. Use the same structure but with German B1 values.
 
@@ -409,7 +409,7 @@ export const WRAPPER_REGISTRY: Record<string, React.ComponentType<{ testId: any;
 
 ### Step 1.6: Populate All Remaining Configs
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: Follow the same approach described in Step 1.5. For each config, read the corresponding source files to extract values:
 - **german-a1 / goethe-german-a1**: Read `MOCK_EXAM_STEPS_A1` from `src/types/mock-exam.types.ts`, read `ReadingMenuScreen.tsx` with A1 conditionals, note grammar is `enabled: false`
@@ -443,7 +443,7 @@ export const WRAPPER_REGISTRY: Record<string, React.ComponentType<{ testId: any;
 
 ### Step 1.7: Generate Golden Files
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Create a script that captures the **current correct behavior** of the app as golden reference files. These will be used throughout later phases to detect regressions.
 
@@ -475,7 +475,7 @@ This phase makes `PracticeMenuScreen` render sections from config instead of har
 
 ### Step 2.1: Refactor PracticeMenuScreen to Use Config
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 5.1](./dynamic-exam-configuration-report.md#51-practicemenuscreen-refactoring) for the exact before/after code pattern. The "After" shows the complete replacement loop logic.
 
@@ -532,7 +532,7 @@ const handleSectionPress = (section: ExamSectionConfig) => {
 
 ### Step 2.2: Handle Writing Section Menu Behavior
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Ensure the writing section's `menuBehavior` from config drives the correct flow:
 - `"modal"`: B1/B2 writing opens exam selection modal directly from PracticeMenuScreen

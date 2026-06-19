@@ -1,0 +1,272 @@
+{
+  "examId": "dele-spanish-b1",
+  "steps": [
+    {
+      "id": "reading-1",
+      "sectionNumber": 1,
+      "sectionName": "Comprensión de Lectura",
+      "partNumber": 1,
+      "partName": "Tarea 1",
+      "maxPoints": 5,
+      "timeMinutes": 14
+    },
+    {
+      "id": "reading-2",
+      "sectionNumber": 1,
+      "sectionName": "Comprensión de Lectura",
+      "partNumber": 2,
+      "partName": "Tarea 2",
+      "maxPoints": 5,
+      "timeMinutes": 14
+    },
+    {
+      "id": "reading-3",
+      "sectionNumber": 1,
+      "sectionName": "Comprensión de Lectura",
+      "partNumber": 3,
+      "partName": "Tarea 3",
+      "maxPoints": 5,
+      "timeMinutes": 14
+    },
+    {
+      "id": "grammar-1",
+      "sectionNumber": 2,
+      "sectionName": "Bloques de construcción del idioma",
+      "partNumber": 1,
+      "partName": "Tarea 2",
+      "maxPoints": 5,
+      "timeMinutes": 14
+    },
+    {
+      "id": "grammar-2",
+      "sectionNumber": 2,
+      "sectionName": "Bloques de construcción del idioma",
+      "partNumber": 2,
+      "partName": "Tarea 3",
+      "maxPoints": 5,
+      "timeMinutes": 14
+    },
+    {
+      "id": "listening-1",
+      "sectionNumber": 3,
+      "sectionName": "Comprensión Auditiva",
+      "partNumber": 1,
+      "partName": "Tarea 1",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "listening-2",
+      "sectionNumber": 3,
+      "sectionName": "Comprensión Auditiva",
+      "partNumber": 2,
+      "partName": "Tarea 2",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "listening-3",
+      "sectionNumber": 3,
+      "sectionName": "Comprensión Auditiva",
+      "partNumber": 3,
+      "partName": "Tarea 3",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "listening-4",
+      "sectionNumber": 3,
+      "sectionName": "Comprensión Auditiva",
+      "partNumber": 4,
+      "partName": "Tarea 4",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "listening-5",
+      "sectionNumber": 3,
+      "sectionName": "Comprensión Auditiva",
+      "partNumber": 5,
+      "partName": "Tarea 5",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "writing-1",
+      "sectionNumber": 4,
+      "sectionName": "Expresión e Interacción Escritas",
+      "partNumber": 1,
+      "partName": "Tarea 1",
+      "maxPoints": 12.5,
+      "timeMinutes": 30
+    },
+    {
+      "id": "writing-2",
+      "sectionNumber": 4,
+      "sectionName": "Expresión e Interacción Escritas",
+      "partNumber": 2,
+      "partName": "Tarea 2",
+      "maxPoints": 12.5,
+      "timeMinutes": 30
+    }
+  ],
+  "totalMaxPoints": 100,
+  "passingTotalPoints": 60,
+  "scoreMultiplier": 1,
+  "scores": [
+    {
+      "percentage": 0,
+      "totalScore": 0,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 0,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 0,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 30,
+      "totalScore": 22.6,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 15.100000000000001,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 7.5,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 59,
+      "totalScore": 44.8,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 29.799999999999997,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 15,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 60,
+      "totalScore": 45,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 30,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": true
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 15,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 61,
+      "totalScore": 46.20000000000001,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 30.700000000000003,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": true
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 15.5,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 80,
+      "totalScore": 60,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 40,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": true
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 20,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 100,
+      "totalScore": 75,
+      "totalMaxPoints": 100,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "readingWriting",
+          "score": 50,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": true
+        },
+        {
+          "groupId": "listeningSpeaking",
+          "score": 25,
+          "maxPoints": 50,
+          "passingPoints": 30,
+          "passed": false
+        }
+      ]
+    }
+  ]
+}

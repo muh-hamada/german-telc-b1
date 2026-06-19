@@ -1,0 +1,236 @@
+{
+  "examId": "goethe-german-a1",
+  "steps": [
+    {
+      "id": "listening-1",
+      "sectionNumber": 3,
+      "sectionName": "Hörverstehen",
+      "partNumber": 1,
+      "partName": "Teil 1: Globalverstehen",
+      "maxPoints": 6,
+      "timeMinutes": 7
+    },
+    {
+      "id": "listening-2",
+      "sectionNumber": 3,
+      "sectionName": "Hörverstehen",
+      "partNumber": 2,
+      "partName": "Teil 2: Detailverstehen",
+      "maxPoints": 4,
+      "timeMinutes": 6
+    },
+    {
+      "id": "listening-3",
+      "sectionNumber": 3,
+      "sectionName": "Hörverstehen",
+      "partNumber": 3,
+      "partName": "Teil 3: Selektives Verstehen",
+      "maxPoints": 5,
+      "timeMinutes": 7
+    },
+    {
+      "id": "reading-1",
+      "sectionNumber": 1,
+      "sectionName": "Leseverstehen",
+      "partNumber": 1,
+      "partName": "Teil 1: Globalverstehen",
+      "maxPoints": 5,
+      "timeMinutes": 9
+    },
+    {
+      "id": "reading-2",
+      "sectionNumber": 1,
+      "sectionName": "Leseverstehen",
+      "partNumber": 2,
+      "partName": "Teil 2: Detailverstehen",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "reading-3",
+      "sectionNumber": 1,
+      "sectionName": "Leseverstehen",
+      "partNumber": 3,
+      "partName": "Teil 3: Selektives Verstehen",
+      "maxPoints": 5,
+      "timeMinutes": 8
+    },
+    {
+      "id": "writing-part1",
+      "sectionNumber": 4,
+      "sectionName": "Schriftlicher Ausdruck",
+      "partNumber": 1,
+      "partName": "Teil 1: Formular ausfüllen",
+      "maxPoints": 5,
+      "timeMinutes": 10
+    },
+    {
+      "id": "writing-part2",
+      "sectionNumber": 4,
+      "sectionName": "Schriftlicher Ausdruck",
+      "partNumber": 2,
+      "partName": "Teil 2: Eine kurze Mitteilung",
+      "maxPoints": 10,
+      "timeMinutes": 10
+    }
+  ],
+  "totalMaxPoints": 60,
+  "passingTotalPoints": 36,
+  "scoreMultiplier": 1,
+  "scores": [
+    {
+      "percentage": 0,
+      "totalScore": 0,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 0,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": false
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 30,
+      "totalScore": 13.5,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 13.5,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": false
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 59,
+      "totalScore": 26.799999999999997,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 26.799999999999997,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": false
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 60,
+      "totalScore": 27,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 27,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": true
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 61,
+      "totalScore": 27.700000000000003,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 27.700000000000003,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": true
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 80,
+      "totalScore": 36,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 36,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": true
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "percentage": 100,
+      "totalScore": 45,
+      "totalMaxPoints": 60,
+      "passedOverall": false,
+      "groupResults": [
+        {
+          "groupId": "written",
+          "score": 45,
+          "maxPoints": 45,
+          "passingPoints": 27,
+          "passed": true
+        },
+        {
+          "groupId": "oral",
+          "score": 0,
+          "maxPoints": 15,
+          "passingPoints": 9,
+          "passed": false
+        }
+      ]
+    }
+  ]
+}
