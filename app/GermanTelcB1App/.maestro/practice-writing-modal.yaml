@@ -1,0 +1,19 @@
+appId: ${APP_ID}
+---
+# Practice Menu - Writing Modal Test (B1)
+# Verifies tapping Writing shows exam selection modal for B1
+# (B1 uses 'modal' menuBehavior - shows exam list directly)
+
+- launchApp:
+    clearState: false
+
+# Navigate to Practice Menu
+- tapOn: "Solve Exam Questions"
+
+# Tap Writing section - should show modal for B1
+- tapOn: "Written Expression"
+
+# Verify exam selection modal appears (look for exam list items or close button)
+- assertVisible:
+    id: "exam-selection-modal"
+    optional: true

@@ -1,0 +1,18 @@
+appId: ${APP_ID}
+---
+# Practice Menu - Reading Navigation Test
+# Verifies tapping Reading Comprehension navigates to reading menu with parts
+
+- launchApp:
+    clearState: false
+
+# Navigate to Practice Menu
+- tapOn: "Solve Exam Questions"
+
+# Tap Reading section
+- tapOn: "Reading Comprehension"
+
+# Verify Reading menu parts are visible (B1 has 3 parts)
+- assertVisible: "Part 1"
+- assertVisible: "Part 2"
+- assertVisible: "Part 3"

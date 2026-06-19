@@ -9,11 +9,9 @@ import HomeScreen from '../screens/HomeScreen';
 import A1SpeakingPart1Screen from '../screens/practice/A1SpeakingPart1Screen';
 import A1SpeakingPart2Screen from '../screens/practice/A1SpeakingPart2Screen';
 import A1SpeakingPart3Screen from '../screens/practice/A1SpeakingPart3Screen';
-import GrammarMenuScreen from '../screens/practice/GrammarMenuScreen';
 import GrammarPart1Screen from '../screens/practice/GrammarPart1Screen';
 import GrammarPart2Screen from '../screens/practice/GrammarPart2Screen';
 import GrammarStudyScreen from '../screens/practice/GrammarStudyScreen';
-import ListeningMenuScreen from '../screens/practice/ListeningMenuScreen';
 import ListeningPart1A1Screen from '../screens/practice/ListeningPart1A1Screen';
 import ListeningPart1Screen from '../screens/practice/ListeningPart1Screen';
 import ListeningPart2A1Screen from '../screens/practice/ListeningPart2A1Screen';
@@ -27,7 +25,7 @@ import ListeningPracticeListScreen from '../screens/practice/ListeningPracticeLi
 import ListeningPracticeQuestionsScreen from '../screens/practice/ListeningPracticeQuestionsScreen';
 import ListeningPracticeScreen from '../screens/practice/ListeningPracticeScreen';
 import PracticeMenuScreen from '../screens/practice/PracticeMenuScreen';
-import ReadingMenuScreen from '../screens/practice/ReadingMenuScreen';
+import SectionMenuScreen from '../screens/practice/SectionMenuScreen';
 import ReadingPart1A1Screen from '../screens/practice/ReadingPart1A1Screen';
 import ReadingPart1Screen from '../screens/practice/ReadingPart1Screen';
 import ReadingPart2A1Screen from '../screens/practice/ReadingPart2A1Screen';
@@ -42,11 +40,9 @@ import SpeakingB2Part2Screen from '../screens/practice/SpeakingB2Part2Screen';
 import SpeakingB2Part3Screen from '../screens/practice/SpeakingB2Part3Screen';
 import SpeakingB2StructureScreen from '../screens/practice/SpeakingB2StructureScreen';
 import SpeakingImportantPhrasesScreen from '../screens/practice/SpeakingImportantPhrasesScreen';
-import SpeakingMenuScreen from '../screens/practice/SpeakingMenuScreen';
 import SpeakingPart1Screen from '../screens/practice/SpeakingPart1Screen';
 import SpeakingPart2Screen from '../screens/practice/SpeakingPart2Screen';
 import SpeakingPart3Screen from '../screens/practice/SpeakingPart3Screen';
-import WritingMenuScreen from '../screens/practice/WritingMenuScreen';
 import WritingPart1Screen from '../screens/practice/WritingPart1Screen';
 import WritingPart2Screen from '../screens/practice/WritingPart2Screen';
 import WritingScreen from '../screens/practice/WritingScreen';
@@ -59,6 +55,7 @@ import VocabularyStudyNewScreen from '../screens/VocabularyStudyNewScreen';
 import { HomeStackParamList } from '../types/navigation.types';
 // Prep Plan Screens
 import { activeExamConfig } from '../config/active-exam.config';
+import { findPartConfig } from '../utils/exam-config.utils';
 import DeleSpeakingAllPartsScreen from '../screens/dele/DeleSpeakingAllPartsScreen';
 import ListeningPart4Screen from '../screens/practice/ListeningPart4Screen';
 import ListeningPart5Screen from '../screens/practice/ListeningPart5Screen';
@@ -90,22 +87,11 @@ const HeaderTitle: React.FC<{ titleKey: string }> = ({ titleKey }) => {
 const HomeStackNavigator: React.FC = () => {
   const { t } = useCustomTranslation();
   const { colors } = useAppTheme();
-  const isDele = activeExamConfig.provider === 'dele';
-  
-  // Helper function to get title key based on part number
-  const getDeleSpeakingPartTitleKey = (part: number): string => {
-    switch (part) {
-      case 1:
-        return 'nav.practice.speaking.dele.part1';
-      case 2:
-        return 'nav.practice.speaking.dele.part2';
-      case 3:
-        return 'nav.practice.speaking.dele.part3';
-      case 4:
-        return 'nav.practice.speaking.dele.part4';
-      default:
-        return 'Speaking Practice'; // Should not happen
-    }
+
+  // Config-driven nav title lookup
+  const getNavTitle = (partId: string, fallback: string): string => {
+    const part = findPartConfig(activeExamConfig, partId);
+    return part?.navTitleKey || fallback;
   };
   
   // Common screen options for RTL support
@@ -152,8 +138,21 @@ const HomeStackNavigator: React.FC = () => {
         }}
       />
       <Stack.Screen
+        name="SectionMenu"
+        component={SectionMenuScreen}
+        options={({ route }) => ({
+          headerTitle: () => {
+            const sectionId = route.params?.sectionId;
+            const section = activeExamConfig.sections?.find(s => s.id === sectionId);
+            const titleKey = section?.menuTitleKey || 'home.solve';
+            return <HeaderTitle titleKey={titleKey} />;
+          },
+        })}
+      />
+      <Stack.Screen
         name="ReadingMenu"
-        component={ReadingMenuScreen}
+        component={SectionMenuScreen}
+        initialParams={{ sectionId: 'reading' }}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.reading.title" />,
         }}
@@ -181,7 +180,7 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="ReadingPart3"
         component={ReadingPart3Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.reading.dele.part3' : 'nav.practice.reading.part3')}
+        options={examScreenOptions(getNavTitle('reading-3', 'nav.practice.reading.part3'))}
       />
       <Stack.Screen
         name="ReadingPart3A1"
@@ -205,7 +204,8 @@ const HomeStackNavigator: React.FC = () => {
       />
       <Stack.Screen
         name="GrammarMenu"
-        component={GrammarMenuScreen}
+        component={SectionMenuScreen}
+        initialParams={{ sectionId: 'grammar' }}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.grammar.title" />,
         }}
@@ -213,12 +213,12 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="GrammarPart1"
         component={GrammarPart1Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.grammar.dele.part1' : 'nav.practice.grammar.part1')}
+        options={examScreenOptions(getNavTitle('grammar-1', 'nav.practice.grammar.part1'))}
       />
       <Stack.Screen
         name="GrammarPart2"
         component={GrammarPart2Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.grammar.dele.part2' : 'nav.practice.grammar.part2')}
+        options={examScreenOptions(getNavTitle('grammar-2', 'nav.practice.grammar.part2'))}
       />
       <Stack.Screen
         name="GrammarStudy"
@@ -232,7 +232,8 @@ const HomeStackNavigator: React.FC = () => {
       />
       <Stack.Screen
         name="WritingMenu"
-        component={WritingMenuScreen}
+        component={SectionMenuScreen}
+        initialParams={{ sectionId: 'writing' }}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.writing.title" />,
         }}
@@ -249,7 +250,8 @@ const HomeStackNavigator: React.FC = () => {
       />
       <Stack.Screen
         name="SpeakingMenu"
-        component={SpeakingMenuScreen}
+        component={SectionMenuScreen}
+        initialParams={{ sectionId: 'speaking' }}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.speaking.title" />,
         }}
@@ -314,7 +316,7 @@ const HomeStackNavigator: React.FC = () => {
         component={DeleSpeakingAllPartsScreen}
         options={({ route }) => ({
           headerTitle: () => (
-            <HeaderTitle titleKey={getDeleSpeakingPartTitleKey(route.params?.part || 1)} />
+            <HeaderTitle titleKey={getNavTitle(`speaking-${route.params?.part || 1}`, 'nav.practice.speaking.part1')} />
           ),
         })}
       />
@@ -325,7 +327,8 @@ const HomeStackNavigator: React.FC = () => {
       />
       <Stack.Screen
         name="ListeningMenu"
-        component={ListeningMenuScreen}
+        component={SectionMenuScreen}
+        initialParams={{ sectionId: 'listening' }}
         options={{
           headerTitle: () => <HeaderTitle titleKey="practice.listening.title" />,
         }}
@@ -333,7 +336,7 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="ListeningPart1"
         component={ListeningPart1Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.listening.dele.part1' : 'nav.practice.listening.part1')}
+        options={examScreenOptions(getNavTitle('listening-1', 'nav.practice.listening.part1'))}
       />
       <Stack.Screen
         name="ListeningPart1A1"
@@ -343,7 +346,7 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="ListeningPart2"
         component={ListeningPart2Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.listening.dele.part2' : 'nav.practice.listening.part2')}
+        options={examScreenOptions(getNavTitle('listening-2', 'nav.practice.listening.part2'))}
       />
       <Stack.Screen
         name="ListeningPart2A1"
@@ -353,7 +356,7 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="ListeningPart3"
         component={ListeningPart3Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.listening.dele.part3' : 'nav.practice.listening.part3')}
+        options={examScreenOptions(getNavTitle('listening-3', 'nav.practice.listening.part3'))}
       />
       <Stack.Screen
         name="ListeningPart3A1"
@@ -378,12 +381,12 @@ const HomeStackNavigator: React.FC = () => {
       <Stack.Screen
         name="ListeningPart4"
         component={ListeningPart4Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.listening.dele.part4' : 'nav.practice.listening.part4')}
+        options={examScreenOptions(getNavTitle('listening-4', 'nav.practice.listening.part4'))}
       />
       <Stack.Screen
         name="ListeningPart5"
         component={ListeningPart5Screen}
-        options={examScreenOptions(isDele ? 'nav.practice.listening.dele.part5' : 'nav.practice.listening.part5')}
+        options={examScreenOptions(getNavTitle('listening-5', 'nav.practice.listening.part5'))}
       />
       <Stack.Screen
         name="ListeningPracticeList"

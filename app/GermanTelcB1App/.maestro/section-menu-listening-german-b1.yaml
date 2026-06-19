@@ -1,0 +1,74 @@
+appId: ${APP_ID}
+---
+# SectionMenuScreen - Listening Section Test (German B1)
+# Verifies listening section menu works correctly.
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b1
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell or any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Tap Home tab to ensure we're at home root
+- tapOn:
+    text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Navigate to Listening section
+- tapOn:
+    text: "Listening Comprehension.*"
+
+# Wait for listening section menu to load
+- extendedWaitUntil:
+    visible:
+      text: "Part 1.*"
+    timeout: 10000
+
+# Verify all 3 listening parts are visible
+- assertVisible:
+    text: "Part 1.*"
+- assertVisible:
+    text: "Part 2.*"
+
+- scrollUntilVisible:
+    element:
+      text: "Part 3.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: "Part 3.*"
+
+# Tap Part 1 to open exam selection modal
+- tapOn:
+    text: "Part 1.*"
+
+# Verify modal opened
+- extendedWaitUntil:
+    visible:
+      text: "Test\\s+\\d+.*"
+    timeout: 10000
+
+# Close the modal
+- tapOn: "✕"
+
+# Go back to practice menu
+- back

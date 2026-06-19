@@ -1,0 +1,51 @@
+appId: ${APP_ID}
+---
+# SectionMenuScreen - Writing Section Test (German B1)
+# Verifies writing section uses modal behavior (exam selection from practice menu).
+# B1 writing has menuBehavior: 'modal' so tapping it opens exam selection directly.
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b1
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell or any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Tap Home tab to ensure we're at home root
+- tapOn:
+    text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Tap Writing section - should open exam selection modal directly (modal behavior)
+- tapOn:
+    text: "Written Expression.*"
+
+# Verify exam selection modal appears with exam list
+- extendedWaitUntil:
+    visible:
+      text: "Test\\s+\\d+.*"
+    timeout: 10000
+
+# Close the modal
+- tapOn: "✕"
+
+# Go back
+- back

@@ -21,7 +21,7 @@ import {
   saveMockExamProgress,
 } from '../services/mock-exam.service';
 import { spacing, typography, type ThemeColors } from '../theme';
-import { MOCK_EXAM_STEPS, MOCK_EXAM_STEPS_A1, MOCK_EXAM_STEPS_A2, MOCK_EXAM_STEPS_DELE_B1 } from '../types/mock-exam.types';
+import { generateMockExamSteps } from '../utils/exam-config.utils';
 
 const MockExamScreen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -107,10 +107,7 @@ const MockExamScreen: React.FC = () => {
     navigation.navigate('HomeStack', { screen: 'ExamStructure' });
   };
 
-  const isA1 = activeExamConfig.level === 'A1';
-  const isA2 = activeExamConfig.level === 'A2';
-  const isDele = activeExamConfig.provider === 'dele';
-  const mockExamSteps = isDele ? MOCK_EXAM_STEPS_DELE_B1 : (isA1 ? MOCK_EXAM_STEPS_A1 : (isA2 ? MOCK_EXAM_STEPS_A2 : MOCK_EXAM_STEPS));
+  const mockExamSteps = generateMockExamSteps(activeExamConfig);
   const totalTime = mockExamSteps.reduce((acc, step) => acc + (step.timeMinutes || 0), 0);
 
   const getExamDuration = () => {
@@ -118,19 +115,11 @@ const MockExamScreen: React.FC = () => {
   }
 
   const getTotalPoints = () => {
-    if (isDele) {
-      return 100;
-    }
-
-    return (isA1 || isA2) ? 60 : 300;
+    return activeExamConfig.mockExam!.totalMaxPoints;
   }
 
   const getPassingScore = () => {
-    if (isDele) {
-      return 60;
-    }
-
-    return (isA1 || isA2) ? 36 : 180;
+    return activeExamConfig.mockExam!.passingTotalPoints;
   }
 
   return (

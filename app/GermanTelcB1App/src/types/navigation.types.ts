@@ -23,7 +23,8 @@ export type HomeStackParamList = {
   Home: undefined;
   ExamStructure: undefined;
   PracticeMenu: undefined;
-  ReadingMenu: undefined;
+  SectionMenu: { sectionId: string };
+  ReadingMenu: { sectionId: string };
   ReadingPart1: { examId: string };
   ReadingPart1A1: { examId: string };
   ReadingPart2: { examId: string };
@@ -33,15 +34,15 @@ export type HomeStackParamList = {
   ReadingPart1A2: { examId: string };
   ReadingPart2A2: { examId: string };
   ReadingPart3A2: { examId: string };
-  GrammarMenu: undefined;
+  GrammarMenu: { sectionId: string };
   GrammarPart1: { examId: string };
   GrammarPart2: { examId: string };
   GrammarStudy: undefined;
   Writing: { examId: string , part: number}; // For DELE combined Writing screen
-  WritingMenu: undefined;
+  WritingMenu: { sectionId: string };
   WritingPart1: { examId: string };
   WritingPart2: { examId: string };
-  SpeakingMenu: undefined;
+  SpeakingMenu: { sectionId: string };
   SpeakingPart1: undefined;
   SpeakingPart2: { topicId: string };
   SpeakingPart3: { scenarioId: string };
@@ -53,7 +54,7 @@ export type HomeStackParamList = {
   B2SpeakingPart1: { topicId: string };
   B2SpeakingPart2: { topicId: string };
   B2SpeakingPart3: { questionId: string };
-  ListeningMenu: undefined;
+  ListeningMenu: { sectionId: string };
   ListeningPart1: { examId: string };
   ListeningPart1A1: { examId: string };
   ListeningPart2: { examId: string };

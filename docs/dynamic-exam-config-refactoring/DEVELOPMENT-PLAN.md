@@ -561,7 +561,7 @@ This phase replaces the 5 individual section menu screens with one generic compo
 
 ### Step 3.1: Create Generic SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 5.2](./dynamic-exam-configuration-report.md#52-generic-sectionmenuscreen) for the complete component design including the rendering logic, data loading pattern, and exam selection modal interaction.
 
@@ -610,7 +610,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.2: Replace ReadingMenuScreen with SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Wire up the navigation to use `SectionMenuScreen` instead of `ReadingMenuScreen` for the reading section. Update `HomeStackNavigator` to pass `sectionId: 'reading'` to the generic screen.
 
@@ -631,7 +631,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.3: Replace ListeningMenuScreen with SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Same as 3.2 but for listening. Wire `ListeningMenu` route to SectionMenuScreen with `sectionId: 'listening'`.
 
@@ -650,7 +650,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.4: Replace WritingMenuScreen with SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Wire `WritingMenu` route to SectionMenuScreen with `sectionId: 'writing'`. Note: Writing for B1/B2 uses `"modal"` behavior from PracticeMenuScreen and doesn't navigate here — this route is only used by A1/A2/DELE.
 
@@ -669,7 +669,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.5: Replace GrammarMenuScreen with SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Wire `GrammarMenu` route to SectionMenuScreen with `sectionId: 'grammar'`. Handle `extraMenuItems` (Grammar Study card).
 
@@ -689,7 +689,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.6: Replace SpeakingMenuScreen with SectionMenuScreen
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Speaking menu is the most complex due to the many variants (B1 Telc, B2, A1, A2, DELE). The config must handle:
 - B1: Parts 1, 2, 3 + Important Phrases
@@ -715,7 +715,7 @@ const SectionMenuScreen = ({ route }: Props) => {
 
 ### Step 3.7: Delete Old Section Menu Screens
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Remove the now-unused individual menu screen files.
 
@@ -746,7 +746,7 @@ This phase replaces the hardcoded mock exam logic with config-driven behavior.
 
 ### Step 4.1: Refactor generateRandomExamSelection()
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 6.3](./dynamic-exam-configuration-report.md#63-generic-generateRandomExamSelection) for the replacement algorithm.
 
@@ -793,7 +793,7 @@ export const generateRandomExamSelection = async (
 
 ### Step 4.2: Refactor createInitialMockExamProgress()
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Replace the if/else branching that selects which `MOCK_EXAM_STEPS_*` array to use. Instead, call `generateMockExamSteps(activeExamConfig)`.
 
@@ -814,7 +814,7 @@ export const generateRandomExamSelection = async (
 
 ### Step 4.3: Refactor MockExamRunningScreen — renderStepContent()
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 6.2](./dynamic-exam-configuration-report.md#62-replace-renderstepContent-branching) for the exact replacement pattern.
 
@@ -863,7 +863,7 @@ const renderStepContent = () => {
 
 ### Step 4.4: Refactor MockExamRunningScreen — handleCompleteStep() Scoring
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See Step 1.3 above for the exact `calculateStepScore` algorithm. Also see [Architecture Proposal, Section 7.3](./dynamic-exam-configuration-report.md#73-step-level-scoring) for the integration pattern.
 
@@ -894,7 +894,7 @@ const handleCompleteStep = (correctCount: number, answers: any[]) => {
 
 ### Step 4.5: Refactor MockExamRunningScreen — renderResults()
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Design reference**: See [Architecture Proposal, Section 7.2](./dynamic-exam-configuration-report.md#72-results-calculation) for the results rendering pattern. See Step 1.3 above for the exact `calculateOverallResult` and `GroupResult` interfaces.
 
@@ -940,7 +940,7 @@ const renderResults = () => {
 
 ### Step 4.6: Refactor MockExamScreen — Overview Display
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Replace the hardcoded `getTotalPoints()`, `getPassingScore()`, and `getExamDuration()` functions in MockExamScreen with config-driven values.
 
@@ -964,7 +964,7 @@ const renderResults = () => {
 
 ### Step 4.7: Refactor updateStepProgress() in mock-exam.service.ts
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Replace the scoring/pass-fail logic in `updateStepProgress()` (the exam completion tracking) with config-driven calls.
 
@@ -983,7 +983,7 @@ const renderResults = () => {
 
 ### Step 4.8: Remove Hardcoded Mock Exam Constants
 
-**Status**: `pending`
+**Status**: `completed-and-verified`
 
 **Scope**: Delete the 4 hardcoded step arrays and 12 scoring constants from `mock-exam.types.ts`.
 

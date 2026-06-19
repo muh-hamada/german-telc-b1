@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import {
   Text,
   StyleSheet,
@@ -15,6 +15,15 @@ import { dataService } from '../../services/data.service';
 import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import { useAppTheme } from '../../contexts/ThemeContext';
 import { activeExamConfig } from '../../config/active-exam.config';
+import { ExamSectionConfig } from '../../config/exam-config.types';
+
+const SECTION_NAV_MAP: Record<string, string> = {
+  reading: 'ReadingMenu',
+  listening: 'ListeningMenu',
+  grammar: 'GrammarMenu',
+  speaking: 'SpeakingMenu',
+  writing: 'WritingMenu',
+};
 
 const PracticeMenuScreen: React.FC = () => {
   const navigation = useNavigation<HomeStackNavigationProp>();
@@ -24,99 +33,126 @@ const PracticeMenuScreen: React.FC = () => {
   const { colors, typography } = useAppTheme();
   const styles = useMemo(() => createStyles(colors, typography), [colors, typography]);
 
+  const sections = useMemo(() => {
+    if (!activeExamConfig.sections) return null;
+    return activeExamConfig.sections
+      .filter(s => s.enabled)
+      .sort((a, b) => a.order - b.order);
+  }, []);
+
+  const writingSection = useMemo(
+    () => sections?.find(s => s.id === 'writing') ?? null,
+    [sections],
+  );
+
+  // Legacy fallback variables for configs without sections populated
   const isA1 = activeExamConfig.level === 'A1';
   const isA2 = activeExamConfig.level === 'A2';
   const isDele = activeExamConfig.provider === 'dele';
+  const useLegacy = !sections;
 
   useEffect(() => {
-    const loadWritingExams = async () => {
-      const exams = await dataService.getWritingExams();
-      setWritingExams(exams);
-    };
-
-    // Skip loading writing exams for A1, A2 and DELE as it will be loaded from the WritingMenuScreen
-    if (!isA1 && !isA2 && !isDele) {
+    // Load writing exams for modal behavior (config-driven) or for B1/B2 legacy
+    if (writingSection?.menuBehavior === 'modal' || (!useLegacy ? false : !isA1 && !isA2 && !isDele)) {
+      const loadWritingExams = async () => {
+        const exams = await dataService.getWritingExams();
+        setWritingExams(exams);
+      };
       loadWritingExams();
     }
-    // Section opened
     logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'practice_menu' });
   }, []);
 
-  const handleReadingPress = () => {
-    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' });
-    navigation.navigate('ReadingMenu');
-  };
+  const handleSelectWritingExam = useCallback((examId: string) => {
+    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
+    navigation.navigate('Writing', { examId, part: 1 });
+  }, [navigation]);
 
-  const handleListeningPress = () => {
-    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' });
-    navigation.navigate('ListeningMenu');
-  };
+  const handleSectionPress = useCallback((section: ExamSectionConfig) => {
+    if (section.menuBehavior === 'modal') {
+      logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: section.id, part: 1 });
+      setShowWritingModal(true);
+      return;
+    }
 
-  const handleWritingPress = () => {
+    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: section.id });
+    navigation.navigate('SectionMenu', { sectionId: section.id });
+  }, [navigation]);
+
+  // Legacy handlers for configs without sections
+  const handleLegacyWritingPress = useCallback(() => {
     if (isA1 || isA2 || isDele) {
-      // For A1, navigate to WritingMenu screen
       logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'writing' });
-      navigation.navigate('WritingMenu');
+      navigation.navigate('WritingMenu', { sectionId: 'writing' });
     } else {
-      // For B1/B2, show exam selection modal directly
       logEvent(AnalyticsEvents.EXAM_SELECTION_OPENED, { section: 'writing', part: 1 });
       setShowWritingModal(true);
     }
-  };
+  }, [navigation, isA1, isA2, isDele]);
 
-  const handleSelectWritingExam = (examId: string) => {
-    logEvent(AnalyticsEvents.PRACTICE_EXAM_OPENED, { section: 'writing', part: 1, exam_id: examId });
-    navigation.navigate('Writing', { examId, part: 1 });
-  };
+  // Config-driven rendering
+  if (sections) {
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
+          {sections.map(section => (
+            <Card
+              key={section.id}
+              style={styles.card}
+              onPress={() => handleSectionPress(section)}
+            >
+              <Text style={styles.cardTitle}>{t(section.menuTitleKey)}</Text>
+              <Text style={styles.cardDescription}>
+                {t(section.menuDescriptionKey)}
+              </Text>
+            </Card>
+          ))}
+        </ScrollView>
 
-  const handleSpeakingPress = () => {
-    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' });
-    navigation.navigate('SpeakingMenu');
-  };
+        {writingSection?.menuBehavior === 'modal' && (
+          <ExamSelectionModal
+            visible={showWritingModal}
+            onClose={() => setShowWritingModal(false)}
+            exams={writingExams}
+            onSelectExam={handleSelectWritingExam}
+            examType="writing"
+            partNumber={1}
+            title={t('practice.writing.title')}
+          />
+        )}
+      </View>
+    );
+  }
 
-  const handleGrammarPress = () => {
-    logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' });
-    navigation.navigate('GrammarMenu');
-  };
-
+  // Legacy rendering for configs without sections populated
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} contentContainerStyle={styles.scrollContent}>
-        <Card style={styles.card} onPress={handleReadingPress}>
+        <Card style={styles.card} onPress={() => { logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'reading' }); navigation.navigate('ReadingMenu', { sectionId: 'reading' }); }}>
           <Text style={styles.cardTitle}>{t('practice.reading.title')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.reading.descriptions.main')}
-          </Text>
+          <Text style={styles.cardDescription}>{t('practice.reading.descriptions.main')}</Text>
         </Card>
 
-        <Card style={styles.card} onPress={handleListeningPress}>
+        <Card style={styles.card} onPress={() => { logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'listening' }); navigation.navigate('ListeningMenu', { sectionId: 'listening' }); }}>
           <Text style={styles.cardTitle}>{t('practice.listening.title')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.listening.comingSoon')}
-          </Text>
+          <Text style={styles.cardDescription}>{t('practice.listening.comingSoon')}</Text>
         </Card>
 
         {!isA1 && !isA2 && (
-          <Card style={styles.card} onPress={handleGrammarPress}>
+          <Card style={styles.card} onPress={() => { logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'grammar' }); navigation.navigate('GrammarMenu', { sectionId: 'grammar' }); }}>
             <Text style={styles.cardTitle}>{t('practice.grammar.title')}</Text>
-            <Text style={styles.cardDescription}>
-              {t('practice.grammar.descriptions.main')}
-            </Text>
+            <Text style={styles.cardDescription}>{t('practice.grammar.descriptions.main')}</Text>
           </Card>
         )}
 
-        <Card style={styles.card} onPress={handleWritingPress}>
+        <Card style={styles.card} onPress={handleLegacyWritingPress}>
           <Text style={styles.cardTitle}>{t('practice.writing.title')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.writing.description')}
-          </Text>
+          <Text style={styles.cardDescription}>{t('practice.writing.description')}</Text>
         </Card>
 
-        <Card style={styles.card} onPress={handleSpeakingPress}>
+        <Card style={styles.card} onPress={() => { logEvent(AnalyticsEvents.PRACTICE_SECTION_OPENED, { section: 'speaking' }); navigation.navigate('SpeakingMenu', { sectionId: 'speaking' }); }}>
           <Text style={styles.cardTitle}>{t('practice.speaking.title')}</Text>
-          <Text style={styles.cardDescription}>
-            {t('practice.speaking.descriptions.main')}
-          </Text>
+          <Text style={styles.cardDescription}>{t('practice.speaking.descriptions.main')}</Text>
         </Card>
       </ScrollView>
 
@@ -131,7 +167,6 @@ const PracticeMenuScreen: React.FC = () => {
           title={t('practice.writing.title')}
         />
       )}
-
     </View>
   );
 };

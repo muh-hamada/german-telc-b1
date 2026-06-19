@@ -1,0 +1,50 @@
+appId: ${APP_ID}
+---
+# Practice Menu - German B1 Sections Visibility Test
+# Verifies that the practice menu shows the correct sections for German B1:
+# Reading, Listening, Grammar, Writing, Speaking (in that order)
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts (avoids ad WebViews blocking accessibility)
+# - hasLaunched = true in AsyncStorage (skips onboarding)
+# - user-language = en in AsyncStorage (English UI)
+# - Consent previously dismissed OR IABTCF_gdprApplies=0 in UserDefaults
+
+- launchApp:
+    clearState: false
+    stopApp: false
+
+# Dismiss premium upsell modal if visible
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Wait for home screen to load
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 30000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Verify all 5 sections are visible for German B1
+- assertVisible:
+    text: "Reading Comprehension.*"
+- assertVisible:
+    text: "Listening Comprehension.*"
+- assertVisible:
+    text: "Language Building Blocks.*"
+- assertVisible:
+    text: "Written Expression.*"
+# Scroll down to see Oral Expression (below the fold on smaller screens)
+- scrollUntilVisible:
+    element:
+      text: "Oral Expression.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: "Oral Expression.*"

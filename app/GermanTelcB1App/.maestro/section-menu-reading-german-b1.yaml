@@ -1,0 +1,72 @@
+appId: ${APP_ID}
+---
+# SectionMenuScreen - Reading Section Test (German B1)
+# Verifies reading section works through the generic SectionMenuScreen.
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b1
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell or any modal via Android back button
+- back
+
+# Tap Home tab to ensure we're at home root
+- tapOn:
+    text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Navigate to Reading section (now goes through SectionMenuScreen)
+- tapOn:
+    text: "Reading Comprehension.*"
+
+# Wait for reading screen to load
+- extendedWaitUntil:
+    visible:
+      text: "Part 1: Matching Headings.*"
+    timeout: 10000
+
+# Verify all 3 reading parts are visible
+- assertVisible:
+    text: "Part 1: Matching Headings.*"
+- assertVisible:
+    text: "Part 2: Multiple Choice.*"
+- assertVisible:
+    text: "Part 3: Advertisement Matching.*"
+
+# Verify descriptions are included
+- assertVisible:
+    text: ".*Match headings to texts.*"
+
+# Verify SectionStatsCard is shown
+- assertVisible:
+    text: "YOUR PROGRESS.*"
+
+# Tap Part 1 to open exam selection modal
+- tapOn:
+    text: "Part 1: Matching Headings.*"
+
+# Verify modal opened with exam list (double-space in "Test  1")
+- extendedWaitUntil:
+    visible:
+      text: "Test\\s+\\d+.*"
+    timeout: 10000
+
+# Close the modal
+- tapOn: "✕"
+
+# Go back to practice menu
+- back

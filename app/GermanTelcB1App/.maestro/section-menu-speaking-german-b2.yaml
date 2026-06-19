@@ -1,0 +1,85 @@
+appId: ${APP_ID}
+---
+# SectionMenuScreen - Speaking Section Test (German B2)
+# Verifies speaking section menu works correctly for B2.
+# B2 speaking has 3 parts: Part 1 (no exam selection), Part 2 & 3 (with exam selection).
+#
+# Prerequisites:
+# - HIDE_ADS = true in development.config.ts
+# - active-exam = german-b2
+# - Onboarding already completed
+
+- launchApp:
+    clearState: false
+    stopApp: true
+
+# Dismiss premium upsell or any modal
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Tap Home tab to ensure we're at home root
+- tapOn:
+    text: "Home"
+
+# Wait for home screen
+- extendedWaitUntil:
+    visible:
+      text: "Solve Exam Questions.*"
+    timeout: 15000
+
+# Navigate to Practice Menu
+- tapOn:
+    text: "Solve Exam Questions.*"
+
+# Scroll to Speaking section and tap it
+- scrollUntilVisible:
+    element:
+      text: "Oral Expression.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Oral Expression.*"
+
+# Wait for speaking section menu to load
+- extendedWaitUntil:
+    visible:
+      text: "Part 1.*"
+    timeout: 10000
+
+# Verify all 3 speaking parts are visible
+- assertVisible:
+    text: "Part 1.*"
+- assertVisible:
+    text: "Part 2.*"
+
+- scrollUntilVisible:
+    element:
+      text: "Part 3.*"
+    direction: DOWN
+    timeout: 10000
+- assertVisible:
+    text: "Part 3.*"
+
+# Tap Part 2 to open exam selection modal (Part 1 has no exam selection)
+- scrollUntilVisible:
+    element:
+      text: "Part 2.*"
+    direction: UP
+    timeout: 5000
+- tapOn:
+    text: "Part 2.*"
+
+# Verify modal opened
+- extendedWaitUntil:
+    visible:
+      text: "Test\\s+\\d+.*"
+    timeout: 10000
+
+# Close the modal
+- tapOn: "✕"
+
+# Go back to practice menu
+- back

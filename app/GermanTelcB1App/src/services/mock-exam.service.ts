@@ -4,209 +4,48 @@ import { dataService } from './data.service';
 import { AnalyticsEvents, logEvent } from './analytics.events';
 import { UserAnswer } from '../types/exam.types';
 import { activeExamConfig } from '../config/active-exam.config';
+import { findPartConfig } from '../utils/exam-config.utils';
 
 const MOCK_EXAM_STORAGE_KEY = '@mock_exam_progress';
 
-const getRandomId = (exams: any[], section?: string) => {
-  console.log('[generateRandomExamSelection] exams', exams, section);
-  if (!exams || exams.length === 0) return 0;
-  const randomIndex = Math.floor(Math.random() * exams.length);
-  return exams[randomIndex].id;
-};
-
 /**
- * Generates random test selection for mock exam
- * Picks one random test from each section's available exams
+ * Generates random test selection for mock exam.
+ * Iterates config.mockExam.stepOrder, loads exams via dataLoader.listMethod,
+ * and picks a random ID for each non-skipped part.
  */
-export const generateRandomExamSelection = async () => {
-  const isA1 = activeExamConfig.level === 'A1';
-  const isDele = activeExamConfig.id === 'dele-spanish-b1';
+export const generateRandomExamSelection = async (): Promise<Record<string, any>> => {
+  const config = activeExamConfig;
+  const selection: Record<string, any> = {};
 
-  if (isDele) {
-    // DELE Spanish B1 has different structure
-    const promises = [
-      dataService.getDeleReadingPart1Exams(),
-      dataService.getDeleReadingPart2Exams(),
-      dataService.getDeleReadingPart3Exams(),
-      dataService.getDeleGrammarPart1Exams(),
-      dataService.getDeleGrammarPart2Exams(),
-      dataService.getDeleListeningPart1Exams(),
-      dataService.getDeleListeningPart2Exams(),
-      dataService.getDeleListeningPart3Exams(),
-      dataService.getDeleListeningPart4Exams(),
-      dataService.getDeleListeningPart5Exams(),
-      dataService.getDeleWritingPart1Exams(),
-      dataService.getDeleWritingPart2Exams(),
-    ];
+  for (const partId of config.mockExam!.stepOrder) {
+    const part = findPartConfig(config, partId);
+    if (!part || part.skipInMockExam) continue;
 
-    const [
-      readingPart1Exams,
-      readingPart2Exams,
-      readingPart3Exams,
-      grammarPart1Exams,
-      grammarPart2Exams,
-      listeningPart1Exams,
-      listeningPart2Exams,
-      listeningPart3Exams,
-      listeningPart4Exams,
-      listeningPart5Exams,
-      writingPart1Exams,
-      writingPart2Exams,
-    ] = await Promise.all(promises);
+    const method = part.dataLoader.listMethod;
+    const data = await (dataService as any)[method]();
 
-    const getRandomId = (exams: any[]) => {
-      if (!exams || exams.length === 0) return 0;
+    // Handle array responses, { exams: [...] }, and listResponseKey configs
+    let exams: any[];
+    if (Array.isArray(data)) {
+      exams = data;
+    } else if (part.dataLoader.listResponseKey && data?.[part.dataLoader.listResponseKey]) {
+      const items = data[part.dataLoader.listResponseKey];
+      exams = Array.isArray(items)
+        ? items.map((item: any, idx: number) => (item.id !== undefined ? item : { ...item, id: idx }))
+        : [];
+    } else {
+      exams = data?.exams || [];
+    }
+
+    if (exams.length > 0) {
       const randomIndex = Math.floor(Math.random() * exams.length);
-      return exams[randomIndex].id;
-    };
-
-    const selectedTests: any = {
-      'reading-1': getRandomId(readingPart1Exams),
-      'reading-2': getRandomId(readingPart2Exams),
-      'reading-3': getRandomId(readingPart3Exams),
-      'grammar-1': getRandomId(grammarPart1Exams),
-      'grammar-2': getRandomId(grammarPart2Exams),
-      'listening-1': getRandomId(listeningPart1Exams),
-      'listening-2': getRandomId(listeningPart2Exams),
-      'listening-3': getRandomId(listeningPart3Exams),
-      'listening-4': getRandomId(listeningPart4Exams),
-      'listening-5': getRandomId(listeningPart5Exams),
-      'writing-1': getRandomId(writingPart1Exams),
-      'writing-2': getRandomId(writingPart2Exams),
-    };
-
-    console.log('[generateRandomExamSelection] DELE selectedTests', selectedTests);
-    return selectedTests;
+      selection[partId] = exams[randomIndex].id;
+    } else {
+      selection[partId] = 0;
+    }
   }
 
-  // Telc Exams for A1, A2, and B1/B2
-  const isA2 = activeExamConfig.level === 'A2';
-  let readingPart1Exams, readingPart2Exams, readingPart3Exams;
-  let grammarPart1Exams, grammarPart2Exams;
-  let writingExams, writingPart1Exams, writingPart2Exams;
-  let listeningPart1Data, listeningPart2Data, listeningPart3Data;
-
-  if (isA1) {
-    const promises: Promise<any>[] = [
-      dataService.getReadingPart1A1Exams(),
-      dataService.getReadingPart2A1Exams(),
-      dataService.getReadingPart3A1Exams(),
-    ];
-
-    // Fetch writing part 1 and part 2 for A1
-    promises.push(
-      dataService.getWritingPart1Exams(),
-      dataService.getWritingPart2Exams()
-    );
-
-    promises.push(
-      dataService.getListeningPart1Content(),
-      dataService.getListeningPart2Content(),
-      dataService.getListeningPart3Content()
-    );
-
-    const results = await Promise.all(promises);
-
-    [
-      readingPart1Exams,
-      readingPart2Exams,
-      readingPart3Exams,
-      writingPart1Exams,
-      writingPart2Exams,
-      listeningPart1Data,
-      listeningPart2Data,
-      listeningPart3Data
-    ] = results;
-  } else if (isA2) {
-    const promises: Promise<any>[] = [
-      dataService.getReadingPart1A2Exams(),
-      dataService.getReadingPart2A2Exams(),
-      dataService.getReadingPart3A2Exams(),
-    ];
-
-    promises.push(
-      dataService.getWritingPart1Exams(),
-      dataService.getWritingPart2Exams()
-    );
-
-    promises.push(
-      dataService.getListeningPart1Content(),
-      dataService.getListeningPart2Content(),
-      dataService.getListeningPart3Content()
-    );
-
-    const results = await Promise.all(promises);
-
-    [
-      readingPart1Exams,
-      readingPart2Exams,
-      readingPart3Exams,
-      writingPart1Exams,
-      writingPart2Exams,
-      listeningPart1Data,
-      listeningPart2Data,
-      listeningPart3Data
-    ] = results;
-  } else {
-    const promises: Promise<any>[] = [
-      dataService.getReadingPart1Exams(),
-      dataService.getReadingPart2Exams(),
-      dataService.getReadingPart3Exams(),
-    ];
-
-    // Fetch grammar for B1/B2
-    promises.push(
-      dataService.getGrammarPart1Exams(),
-      dataService.getGrammarPart2Exams()
-    );
-
-    promises.push(
-      dataService.getWritingExams(),
-      dataService.getListeningPart1Content(),
-      dataService.getListeningPart2Content(),
-      dataService.getListeningPart3Content()
-    );
-
-    const results = await Promise.all(promises);
-
-    [
-      readingPart1Exams,
-      readingPart2Exams,
-      readingPart3Exams,
-      grammarPart1Exams,
-      grammarPart2Exams,
-      writingExams,
-      listeningPart1Data,
-      listeningPart2Data,
-      listeningPart3Data
-    ] = results;
-  }
-
-  const listeningPart1Exams = listeningPart1Data?.exams || [];
-  const listeningPart2Exams = listeningPart2Data?.exams || [];
-  const listeningPart3Exams = listeningPart3Data?.exams || [];
-
-  const selectedTests: any = {
-    'reading-1': getRandomId(readingPart1Exams),
-    'reading-2': getRandomId(readingPart2Exams),
-    'reading-3': getRandomId(readingPart3Exams),
-    'listening-1': getRandomId(listeningPart1Exams),
-    'listening-2': getRandomId(listeningPart2Exams),
-    'listening-3': getRandomId(listeningPart3Exams),
-  };
-
-  if (isA1 || isA2) {
-    // A1/A2 have writing-part1 and writing-part2
-    selectedTests['writing-part1'] = getRandomId(writingPart1Exams, 'writing-part1');
-    selectedTests['writing-part2'] = getRandomId(writingPart2Exams, 'writing-part2');
-  } else {
-    // B1/B2 have language sections and single writing
-    selectedTests['language-1'] = getRandomId(grammarPart1Exams);
-    selectedTests['language-2'] = getRandomId(grammarPart2Exams);
-    selectedTests['writing'] = getRandomId(writingExams);
-  }
-
-  return selectedTests;
+  return selection;
 };
 
 /**
@@ -275,54 +114,17 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
   const selectedTests = await generateRandomExamSelection();
   const examId = `mock-exam-${Date.now()}`;
 
-  // Import appropriate MOCK_EXAM_STEPS based on exam level
-  const isA1 = activeExamConfig.level === 'A1';
-  const isA2 = activeExamConfig.level === 'A2';
-  const isDele = activeExamConfig.id === 'dele-spanish-b1';
-  const {
-    MOCK_EXAM_STEPS,
-    MOCK_EXAM_STEPS_A1,
-    MOCK_EXAM_STEPS_A2,
-    MOCK_EXAM_STEPS_DELE_B1,
-    TOTAL_WRITTEN_MAX_POINTS,
-    TOTAL_WRITTEN_MAX_POINTS_A1,
-    TOTAL_WRITTEN_MAX_POINTS_A2,
-    TOTAL_WRITTEN_MAX_POINTS_DELE_B1,
-    TOTAL_ORAL_MAX_POINTS_DELE_B1,
-  } = require('../types/mock-exam.types');
+  const config = activeExamConfig;
+  const { generateMockExamSteps } = require('../utils/exam-config.utils');
 
-  let examSteps, writtenMaxPoints;
-
-  if (isDele) {
-    examSteps = MOCK_EXAM_STEPS_DELE_B1;
-    // DELE: Group 1 (Reading + Writing) + Group 2 (Listening only, no speaking in mock)
-    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS_DELE_B1 + (TOTAL_ORAL_MAX_POINTS_DELE_B1 / 2); // 50 + 25 = 75
-  } else if (isA1) {
-    examSteps = MOCK_EXAM_STEPS_A1;
-    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS_A1;
-  } else if (isA2) {
-    examSteps = MOCK_EXAM_STEPS_A2;
-    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS_A2;
-  } else {
-    examSteps = MOCK_EXAM_STEPS;
-    writtenMaxPoints = TOTAL_WRITTEN_MAX_POINTS;
-  }
-
-  // Filter out speaking sections as they're not included in mock exam
-  // For German/English: section 5 is speaking
-  // For DELE: section 5 is speaking
-  const speakingSectionNumber = 5;
-  const steps = examSteps
-    .filter((step: any) => step.sectionNumber !== speakingSectionNumber) // Exclude speaking
-    .map((step: any) => ({
-      ...step,
-      isCompleted: false,
-      score: undefined,
-      startTime: undefined,
-      endTime: undefined,
-    }));
-
-  console.log('[createInitialMockExamProgress] examSteps', steps);
+  const examSteps = generateMockExamSteps(config);
+  const steps = examSteps.map((step: any) => ({
+    ...step,
+    isCompleted: false,
+    score: undefined,
+    startTime: undefined,
+    endTime: undefined,
+  }));
 
   return {
     examId,
@@ -331,7 +133,7 @@ export const createInitialMockExamProgress = async (): Promise<MockExamProgress>
     steps,
     selectedTests,
     totalScore: 0,
-    totalMaxPoints: writtenMaxPoints, // Written sections only (no speaking)
+    totalMaxPoints: config.mockExam!.totalMaxPoints,
     isCompleted: false,
     hasStarted: false,
   };
@@ -395,42 +197,18 @@ export const updateStepProgress = async (
       progress.isCompleted = true;
       progress.endDate = Date.now();
 
-      // Track exam completed
-      const isA1 = activeExamConfig.level === 'A1';
-      const isA2 = activeExamConfig.level === 'A2';
-      const isDele = activeExamConfig.id === 'dele-spanish-b1';
-
-      let writtenScore, writtenMaxPoints, passingWrittenPoints, passingTotalPoints;
-
-      if (isDele) {
-        // DELE: Group 1 (Reading + Writing) is sections 1-2
-        writtenScore = progress.steps
-          .filter(s => s.sectionNumber <= 2)
-          .reduce((acc, s) => acc + (s.score || 0), 0);
-        writtenMaxPoints = 50; // Reading (25) + Writing (25)
-        passingWrittenPoints = 30; // 60% of 50
-        passingTotalPoints = 60; // 60% of 100
-      } else {
-        // German/English: Sections 1-4 are written
-        writtenScore = progress.steps
-          .filter(s => s.sectionNumber <= 4)
-          .reduce((acc, s) => acc + (s.score || 0), 0);
-        writtenMaxPoints = progress.totalMaxPoints;
-        passingWrittenPoints = isA1 ? 27 : (isA2 ? 27 : 135); // 60% of max points
-        passingTotalPoints = isA1 ? 36 : (isA2 ? 36 : 180); // 60% of total points
-      }
-
-      const passedWritten = writtenScore >= passingWrittenPoints;
-      const passedOverall = progress.totalScore >= passingTotalPoints && passedWritten;
+      // Track exam completed using config-driven scoring
+      const { calculateOverallResult } = require('../utils/score-calculator');
+      const result = calculateOverallResult(activeExamConfig, progress.steps);
 
       logEvent(AnalyticsEvents.MOCK_EXAM_COMPLETED, {
         exam_id: progress.examId,
         total_score: progress.totalScore,
         total_max_points: progress.totalMaxPoints,
-        written_score: writtenScore,
-        percentage: Math.round((progress.totalScore / progress.totalMaxPoints) * 100),
-        passed_written: passedWritten,
-        passed_overall: passedOverall,
+        written_score: result.groupResults[0]?.score ?? 0,
+        percentage: Math.round(result.totalPercentage),
+        passed_written: result.groupResults[0]?.passed ?? false,
+        passed_overall: result.passedOverall,
         duration_ms: (progress.endDate || 0) - progress.startDate,
       });
     }
