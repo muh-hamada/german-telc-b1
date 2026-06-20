@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { View, Text, StyleSheet, ScrollView, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
-import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
-import { spacing, type ThemeColors, type Typography } from '../../theme';
-import { useAppTheme } from '../../contexts/ThemeContext';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { ActivityIndicator, Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ExamHeaderMenu from '../../components/ExamHeaderMenu';
+import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 import dataService from '../../services/data.service';
+import { spacing, type ThemeColors, type Typography } from '../../theme';
 import { SpeakingImportantPhrasesContent, SpeakingImportantPhrasesGroup } from '../../types/exam.types';
 import { HomeStackParamList } from '../../types/navigation.types';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { useExamCompletion } from '../../contexts/CompletionContext';
-import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
 
 type SpeakingPart4RouteProp = RouteProp<HomeStackParamList, 'SpeakingPart4'>;
 
@@ -36,6 +35,7 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
       setIsLoading(true);
       setError(null);
       const data = await dataService.getSpeakingImportantPhrases();
+      console.log('Fetched speaking important phrases content:', data);
       setContent(data);
     } catch (err) {
       console.error('Error loading speaking important phrases:', err);
@@ -47,6 +47,9 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
 
   const groups: SpeakingImportantPhrasesGroup[] = content?.groups || [];
   const activeGroup = groups[groupIndex];
+
+  console.log('Loaded content:', content);
+  console.log('Active group:', activeGroup);
 
   // Setup header completion toggle
   useEffect(() => {

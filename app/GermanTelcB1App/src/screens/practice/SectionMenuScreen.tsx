@@ -103,6 +103,7 @@ const SectionMenuScreen: React.FC = () => {
         exam_id: examId,
       });
       const paramKey = part.navigationParamKey || 'examId';
+      console.log('Navigating to', part.screenKey, 'with params', { [paramKey]: examId });
       navigation.navigate(part.screenKey as any, { [paramKey]: examId } as any);
     },
     [sectionId, navigation],
