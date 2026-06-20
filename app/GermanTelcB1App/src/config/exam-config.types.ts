@@ -60,6 +60,10 @@ export interface ExamPartConfig {
   skipInMockExam?: boolean;
   /** Navigation param key for this part (e.g., "examId", "topicId") */
   navigationParamKey?: string;
+  /** Translation key for item label in exam selection modal (e.g., "Topic", "Part") */
+  modalItemType?: string;
+  /** If set, renders a separator with this translation key before this part in the section menu */
+  separatorBeforeKey?: string;
 }
 
 /** Extra menu item that doesn't correspond to an exam part */

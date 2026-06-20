@@ -99,6 +99,9 @@
   "exam": {
     "selectExam": "Select Exam:",
     "test": "Test",
+    "topic": "Topic",
+    "part": "Part",
+    "scenario": "Scenario",
     "loadingExam": "Loading exam...",
     "failedToLoad": "Failed to load exam data",
     "selectAnExam": "Select an exam",

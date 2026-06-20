@@ -99,6 +99,9 @@
   "exam": {
     "selectExam": "اختر الامتحان:",
     "test": "اختبار",
+    "topic": "موضوع",
+    "part": "جزء",
+    "scenario": "سيناريو",
     "loadingExam": "جارٍ تحميل الامتحان...",
     "failedToLoad": "فشل تحميل بيانات الامتحان",
     "selectAnExam": "اختر امتحاناً",

@@ -99,6 +99,9 @@
   "exam": {
     "selectExam": "Seleccionar examen:",
     "test": "Test",
+    "topic": "Tema",
+    "part": "Parte",
+    "scenario": "Escenario",
     "loadingExam": "Cargando examen...",
     "failedToLoad": "Error al cargar los datos del examen",
     "selectAnExam": "Seleccionar un examen",

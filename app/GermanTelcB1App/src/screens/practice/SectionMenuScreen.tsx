@@ -137,14 +137,18 @@ const SectionMenuScreen: React.FC = () => {
         )}
 
         {section.parts.map(part => (
-          <Card
-            key={part.id}
-            style={styles.card}
-            onPress={() => handlePartPress(part)}
-          >
-            <Text style={styles.cardTitle}>{t(part.titleKey)}</Text>
-            <Text style={styles.cardDescription}>{t(part.descriptionKey)}</Text>
-          </Card>
+          <React.Fragment key={part.id}>
+            {part.separatorBeforeKey && (
+              <CardsListSeperator title={t(part.separatorBeforeKey)} />
+            )}
+            <Card
+              style={styles.card}
+              onPress={() => handlePartPress(part)}
+            >
+              <Text style={styles.cardTitle}>{t(part.titleKey)}</Text>
+              <Text style={styles.cardDescription}>{t(part.descriptionKey)}</Text>
+            </Card>
+          </React.Fragment>
         ))}
 
         {section.extraMenuItems && section.extraMenuItems.length > 0 && (
@@ -180,6 +184,7 @@ const SectionMenuScreen: React.FC = () => {
             examType={sectionId}
             partNumber={part.partNumber}
             title={t(part.titleKey)}
+            itemType={part.modalItemType ? t(part.modalItemType) : undefined}
           />
         ))}
     </View>
