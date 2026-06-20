@@ -54,7 +54,7 @@
     "e2e": "./scripts/run-maestro-tests.sh",
     "e2e:reading": "./scripts/run-maestro-tests.sh section-menu-reading-${EXAM:-german-b1}.yaml",
     "e2e:grammar": "./scripts/run-maestro-tests.sh section-menu-grammar-${EXAM:-german-b2}.yaml",
-    "e2e:mock-exam": "./scripts/run-maestro-tests.sh mock-exam-start-${EXAM:-german-a2}.yaml"
+    "e2e:mock-exam": "./scripts/run-maestro-tests.sh mock-exam-full-flow-${EXAM:-german-a2}.yaml"
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.4.1",
