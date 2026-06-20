@@ -56,8 +56,13 @@ const SectionMenuScreen: React.FC = () => {
             } else if (part.dataLoader.listResponseKey && data?.[part.dataLoader.listResponseKey]) {
               const items = data[part.dataLoader.listResponseKey];
               // If items don't have 'id' field, map them with index as id
+              // If items have 'name' but not 'title', map name to title for modal display
               results[part.id] = Array.isArray(items)
-                ? items.map((item: any, idx: number) => (item.id !== undefined ? item : { ...item, id: idx }))
+                ? items.map((item: any, idx: number) => ({
+                    ...item,
+                    ...(item.id === undefined ? { id: idx } : {}),
+                    ...(item.title === undefined && item.name ? { title: item.name } : {}),
+                  }))
                 : [];
             } else {
               results[part.id] = data?.exams || [];
