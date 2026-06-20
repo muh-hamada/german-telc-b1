@@ -263,7 +263,7 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
           </View>
 
           {/* Table Rows */}
-          {exam.statements.map((statement) => {
+          {exam.statements.map((statement, stmtIndex) => {
             const userAnswer = getUserAnswer(statement.id);
             return (
               <View key={statement.id} style={styles.tableRow}>
@@ -273,6 +273,7 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
                 </View>
                 <View style={[styles.tableCell, styles.answerCell]}>
                   <TouchableOpacity
+                    testID={`answer-q${stmtIndex}-true`}
                     style={[
                       styles.radioButton,
                       userAnswer === true && styles.radioButtonSelected
@@ -284,6 +285,7 @@ const ListeningPart3UI: React.FC<ListeningPart3UIProps> = ({ exam, sectionDetail
                 </View>
                 <View style={[styles.tableCell, styles.answerCell]}>
                   <TouchableOpacity
+                    testID={`answer-q${stmtIndex}-false`}
                     style={[
                       styles.radioButton,
                       userAnswer === false && styles.radioButtonSelected

@@ -133,7 +133,7 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete, initi
       {/* Texts */}
       <View style={styles.textsSection}>
         <Text style={styles.sectionTitle}>{t('reading.part1.texts', { count: exam.texts.length })}</Text>
-        {exam.texts.map((text) => (
+        {exam.texts.map((text, textIndex) => (
           <View key={text.id} style={styles.textCard}>
             <Text style={styles.textNumber}>{t('reading.part1.text')} {text.id}</Text>
             <Text style={styles.textContent}>{text.text}</Text>
@@ -149,6 +149,7 @@ const ReadingPart1UI: React.FC<ReadingPart1UIProps> = ({ exam, onComplete, initi
                   return (
                     <TouchableOpacity
                       key={headingIndex}
+                      testID={`answer-q${textIndex}-${headingIndex}`}
                       style={[
                         styles.answerButton,
                         isSelected && styles.answerButtonSelected

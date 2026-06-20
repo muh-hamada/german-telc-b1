@@ -67,6 +67,7 @@ const MultiChoiceSelectionModal: React.FC<MultiChoiceSelectionModalProps> = ({
             {options.map((option) => (
               <TouchableOpacity
                 key={option.key}
+                testID={`modal-option-${option.key}`}
                 style={[
                   styles.answerOption,
                   option.isSelected && styles.answerOptionSelected

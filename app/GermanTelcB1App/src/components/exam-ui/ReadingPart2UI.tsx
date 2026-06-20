@@ -121,7 +121,7 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete, initi
           first: exam.questions[0]?.id, 
           last: exam.questions[exam.questions.length - 1]?.id 
         })}</Text>
-        {exam.questions.map((question) => (
+        {exam.questions.map((question, qIndex) => (
           <View key={question.id} style={styles.questionCard}>
             <Text style={styles.questionNumber}>{question.id}.</Text>
             <Text style={styles.questionText}>{question.question}</Text>
@@ -131,6 +131,7 @@ const ReadingPart2UI: React.FC<ReadingPart2UIProps> = ({ exam, onComplete, initi
               return (
                 <TouchableOpacity
                   key={index}
+                  testID={`answer-q${qIndex}-${index}`}
                   style={[
                     styles.answerOption,
                     isSelected && styles.answerOptionSelected

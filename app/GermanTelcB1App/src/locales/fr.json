@@ -672,7 +672,11 @@
       "part2": "Partie 2 : Présentation de sujet",
       "part3": "Partie 3 : Planifier ensemble",
       "descriptions": {
-        "main": "Pratiquez l'expression orale et les compétences de conversation"
+        "main": "Pratiquez l'expression orale et les compétences de conversation",
+        "part1": "Présentez-vous et répondez à des questions personnelles",
+        "part2": "Présentez un sujet et exprimez votre opinion",
+        "part3": "Planifiez un événement ou une activité avec un partenaire",
+        "part4": "Apprenez et pratiquez des phrases importantes pour l'examen oral"
       },
       "part4": "Phrases importantes",
       "a1Part2": "Partie 2: Demander et fournir des informations",

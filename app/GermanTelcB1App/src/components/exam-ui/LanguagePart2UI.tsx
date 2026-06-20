@@ -60,6 +60,7 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete, ini
 
   const renderTextWithGaps = () => {
     const parts = exam.text.split(/(\[\d{2}\])/g);
+    let gapCounter = 0;
 
     return (
       <View style={styles.textContainer}>
@@ -68,9 +69,11 @@ const LanguagePart2UI: React.FC<LanguagePart2UIProps> = ({ exam, onComplete, ini
             const gapMatch = part.match(/\[(\d{2})\]/);
             if (gapMatch) {
               const gapId = parseInt(gapMatch[1]);
+              const currentGapIndex = gapCounter++;
               return (
                 <Text
                   key={index}
+                  testID={`gap-${currentGapIndex}`}
                   style={styles.gapButton}
                   onPress={() => {
                     setSelectedGap(gapId);

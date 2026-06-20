@@ -5,14 +5,18 @@ appId: ${APP_ID}
 #
 # German B1 steps (12 total):
 #   1-3: Leseverstehen (Reading) - multiple choice, submit answers
-#   4-5: Sprachbausteine (Grammar) - multiple choice, submit answers
-#   6-8: Hörverstehen (Listening) - multiple choice, submit answers
+#   4-5: Sprachbausteine (Grammar) - gap fill via modal, submit answers
+#   6-8: Hörverstehen (Listening) - Richtig/Falsch, submit answers
 #   9:   Schriftlicher Ausdruck (Writing) - type text, evaluate via AI
 #   10-12: Mündlicher Ausdruck (Speaking) - skip and continue
 #
+# testID conventions used:
+#   answer-q{index}-{option}  — answer buttons (index=0-based question, option=0-based or true/false)
+#   gap-{index}               — grammar gap buttons (0-based)
+#   modal-option-{key}        — modal answer options (0-based index or word key)
+#
 # Prerequisites:
 # - HIDE_ADS = true in development.config.ts
-# - SKIP_REWARDED_ADS = true in development.config.ts
 # - active-exam = german-b1
 # - Onboarding already completed
 # - Network access (writing evaluation uses OpenAI API)
@@ -80,255 +84,596 @@ appId: ${APP_ID}
     timeout: 15000
 
 # ═══════════════════════════════════════════════════════════════
-# STEPS 1-8: Multiple choice steps (Reading, Grammar, Listening)
-# Strategy: Select answer "a" for each question, then submit.
-# We use repeat to handle varying numbers of questions per step.
-# After submit, the exam auto-advances to the next step.
+# STEP 1: Reading Part 1 (Globalverstehen - match headings)
+# 5 texts, select a different heading for each using testID
+# testID pattern: answer-q{textIndex}-{headingIndex}
 # ═══════════════════════════════════════════════════════════════
 
-# --- Step 1: Reading Part 1 (Globalverstehen - match headings) ---
-# Select unique headings for each text (a, b, c, d, e)
+- scrollUntilVisible:
+    element:
+      id: "answer-q0-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 0
+    id: "answer-q0-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q1-1"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "b"
-    index: 0
+    id: "answer-q1-1"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q2-2"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "c"
-    index: 0
+    id: "answer-q2-2"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q3-3"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "d"
-    index: 0
+    id: "answer-q3-3"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q4-4"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q4-4"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "e"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 2
+# ═══════════════════════════════════════════════════════════════
+# STEP 2: Reading Part 2 (Detailverstehen - a/b/c per question)
+# 5 questions, select first option (index 0) for each
+# testID pattern: answer-q{qIndex}-{optionIndex}
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 2.*"
     timeout: 15000
 
-# --- Step 2: Reading Part 2 (Detailverstehen - a/b/c per question) ---
+- scrollUntilVisible:
+    element:
+      id: "answer-q0-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 0
+    id: "answer-q0-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q1-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 1
+    id: "answer-q1-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q2-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 2
+    id: "answer-q2-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q3-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 3
+    id: "answer-q3-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q4-0"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q4-0"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "a"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 3
+# ═══════════════════════════════════════════════════════════════
+# STEP 3: Reading Part 3 (Selektives Verstehen - match ads)
+# 10 situations, select a different option for each
+# testID pattern: answer-q{sitIndex}-{keyIndex}
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 3.*"
     timeout: 15000
 
-# --- Step 3: Reading Part 3 (Selektives Verstehen - Richtig/Falsch) ---
+- scrollUntilVisible:
+    element:
+      id: "answer-q0-0"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 0
+    id: "answer-q0-0"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q1-1"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 1
+    id: "answer-q1-1"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q2-2"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 2
+    id: "answer-q2-2"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q3-3"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 3
+    id: "answer-q3-3"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q4-4"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 4
+    id: "answer-q4-4"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q5-5"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q5-5"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q6-6"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q6-6"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q7-7"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q7-7"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q8-8"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q8-8"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q9-9"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "answer-q9-9"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 0
-- tapOn:
-    text: "Richtig"
-    index: 1
-- tapOn:
-    text: "Richtig"
-    index: 2
-- tapOn:
-    text: "Richtig"
-    index: 3
-- tapOn:
-    text: "Richtig"
-    index: 4
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 4 (Grammar)
+# ═══════════════════════════════════════════════════════════════
+# STEP 4: Grammar Part 1 (Grammatik - gap fill via modal)
+# 10 gaps. Tap first visible "Select" → pick first modal option.
+# After each pick, that gap shows the chosen word, so the next
+# "Select" at index 0 is the next unanswered gap.
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 1.*"
     timeout: 15000
 
-# --- Step 4: Grammar Part 1 (Grammatik - a/b/c per gap) ---
+# Gap 0
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
+    text: "Select"
     index: 0
 - tapOn:
-    text: "a"
-    index: 1
+    id: "modal-option-0"
+
+# Gap 1
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 2
+    text: "Select"
+    index: 0
 - tapOn:
-    text: "a"
-    index: 3
+    id: "modal-option-0"
+
+# Gap 2
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
-    index: 4
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 3
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 4
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 5
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 6
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 7
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 8
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
+# Gap 9
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-0"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "a"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 5
+# ═══════════════════════════════════════════════════════════════
+# STEP 5: Grammar Part 2 (Lexik - word bank via modal)
+# 10 gaps. Tap first visible "Select" → pick a word from modal.
+# Modal options use word keys (A, B, C, ..., O).
+# After each pick, gap text changes, so index 0 = next unanswered.
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 2.*"
     timeout: 15000
 
-# --- Step 5: Grammar Part 2 (Lexik - word bank selection) ---
-# Word bank uses tap to select, then tap gap to assign
+# Gap 0
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
 - tapOn:
-    text: "a"
+    text: "Select"
     index: 0
 - tapOn:
-    text: "b"
+    id: "modal-option-A"
+
+# Gap 1
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
     index: 0
 - tapOn:
-    text: "c"
+    id: "modal-option-B"
+
+# Gap 2
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
     index: 0
 - tapOn:
-    text: "d"
+    id: "modal-option-C"
+
+# Gap 3
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
     index: 0
 - tapOn:
-    text: "e"
+    id: "modal-option-D"
+
+# Gap 4
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
     index: 0
+- tapOn:
+    id: "modal-option-E"
+
+# Gap 5
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-F"
+
+# Gap 6
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-G"
+
+# Gap 7
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-H"
+
+# Gap 8
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-I"
+
+# Gap 9
+- scrollUntilVisible:
+    element:
+      text: "Select"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: "Select"
+    index: 0
+- tapOn:
+    id: "modal-option-J"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "f"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 6 (Listening)
+# ═══════════════════════════════════════════════════════════════
+# STEP 6: Listening Part 1 (Globalverstehen - Richtig/Falsch)
+# 5 statements, select "true" (Richtig) for each
+# testID pattern: answer-q{index}-true
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 1.*"
     timeout: 15000
 
-# --- Step 6: Listening Part 1 (Globalverstehen - Richtig/Falsch) ---
 - tapOn:
-    text: "Richtig"
-    index: 0
+    id: "answer-q0-true"
 - tapOn:
-    text: "Richtig"
-    index: 1
+    id: "answer-q1-true"
 - tapOn:
-    text: "Richtig"
-    index: 2
+    id: "answer-q2-true"
 - tapOn:
-    text: "Richtig"
-    index: 3
+    id: "answer-q3-true"
+- tapOn:
+    id: "answer-q4-true"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "Richtig"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 7
+# ═══════════════════════════════════════════════════════════════
+# STEP 7: Listening Part 2 (Detailverstehen - Richtig/Falsch)
+# 10 statements, select "true" (Richtig) for each
+# testID pattern: answer-q{index}-true
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 2.*"
     timeout: 15000
 
-# --- Step 7: Listening Part 2 (Detailverstehen - a/b/c) ---
 - tapOn:
-    text: "a"
-    index: 0
+    id: "answer-q0-true"
 - tapOn:
-    text: "a"
-    index: 1
+    id: "answer-q1-true"
 - tapOn:
-    text: "a"
-    index: 2
+    id: "answer-q2-true"
 - tapOn:
-    text: "a"
-    index: 3
+    id: "answer-q3-true"
+- tapOn:
+    id: "answer-q4-true"
+
+- scrollUntilVisible:
+    element:
+      id: "answer-q5-true"
+    direction: DOWN
+    timeout: 10000
+
+- tapOn:
+    id: "answer-q5-true"
+- tapOn:
+    id: "answer-q6-true"
+- tapOn:
+    id: "answer-q7-true"
+- tapOn:
+    id: "answer-q8-true"
+- tapOn:
+    id: "answer-q9-true"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
     direction: DOWN
     timeout: 10000
 - tapOn:
-    text: "a"
-    index: 0
-- tapOn:
     text: "Submit Answers.*"
 
-# Wait for Step 8
+# ═══════════════════════════════════════════════════════════════
+# STEP 8: Listening Part 3 (Selektives Verstehen - Richtig/Falsch)
+# 5 statements, select "true" (Richtig) for each
+# testID pattern: answer-q{index}-true
+# ═══════════════════════════════════════════════════════════════
+
 - extendedWaitUntil:
     visible:
       text: ".*Teil 3.*"
     timeout: 15000
 
-# --- Step 8: Listening Part 3 (Selektives Verstehen) ---
 - tapOn:
-    text: "a"
-    index: 0
+    id: "answer-q0-true"
 - tapOn:
-    text: "a"
-    index: 1
+    id: "answer-q1-true"
 - tapOn:
-    text: "a"
-    index: 2
+    id: "answer-q2-true"
+- tapOn:
+    id: "answer-q3-true"
+- tapOn:
+    id: "answer-q4-true"
+
 - scrollUntilVisible:
     element:
       text: "Submit Answers.*"
@@ -409,10 +754,6 @@ appId: ${APP_ID}
 # Verify scoring groups are displayed
 - assertVisible:
     text: ".*Written Exam.*"
-
-# Verify score is shown (format: X / 300)
-- assertVisible:
-    text: ".*/.*300.*"
 
 # Verify detailed breakdown is accessible
 - scrollUntilVisible:

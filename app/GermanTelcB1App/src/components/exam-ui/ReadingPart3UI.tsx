@@ -164,7 +164,7 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete, initi
       {/* Situations */}
       <View style={styles.situationsSection}>
         <Text style={styles.sectionTitle}>{t('reading.part3.situations')}</Text>
-        {exam.situations.map((situation) => (
+        {exam.situations.map((situation, sitIndex) => (
           <View key={situation.id} style={styles.situationCard}>
             <Text style={styles.situationNumber}>{situation.id}.</Text>
             <View style={styles.situationTextContainer}>
@@ -175,12 +175,13 @@ const ReadingPart3UI: React.FC<ReadingPart3UIProps> = ({ exam, onComplete, initi
             <View style={styles.answerSection}>
               <Text style={styles.answerLabel}>{t('reading.part3.selectAdvertisement')}</Text>
               <View style={styles.answerButtons}>
-                {adKeys.map((key) => {
+                {adKeys.map((key, keyIndex) => {
                   const isSelected = userAnswers[situation.id] === key;
                   
                   return (
                     <TouchableOpacity
                       key={key}
+                      testID={`answer-q${sitIndex}-${keyIndex}`}
                       style={[
                         styles.answerButton,
                         isSelected && styles.answerButtonSelected
