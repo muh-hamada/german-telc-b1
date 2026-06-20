@@ -46,7 +46,7 @@ const SpeakingImportantPhrasesScreen: React.FC = () => {
   };
 
   const groups: SpeakingImportantPhrasesGroup[] = content?.groups || [];
-  const activeGroup = groups[groupIndex];
+  const activeGroup = groups.find(g => g.id === Number(groupIndex)) || groups[groupIndex];
 
   console.log('Loaded content:', content);
   console.log('Active group:', activeGroup);
