@@ -22,66 +22,9 @@ import { type ThemeColors } from '../theme';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-// Screens where tab bar should be hidden
-const HIDE_TAB_SCREENS = [
-  'PracticeMenu',
-  'ReadingMenu',
-  'WritingMenu',
-  'WritingPart1',
-  'WritingPart2',
-  'ReadingPart1',
-  'ReadingPart2',
-  'ReadingPart3',
-  'GrammarMenu',
-  'GrammarPart1',
-  'GrammarPart2',
-  'GrammarStudy',
-  'Writing',
-  'SpeakingMenu',
-  'SpeakingPart1',
-  'SpeakingPart2',
-  'SpeakingPart3',
-  'SpeakingPart4',
-  'ListeningMenu',
-  'ListeningPart1',
-  'ListeningPart2',
-  'ListeningPart3',
-  'ExamStructure',
-  'Settings',
-  'CompletionStats',
-  'B2SpeakingStructure',
-  'B2SpeakingPart1',
-  'B2SpeakingPart2',
-  'B2SpeakingPart3',
-  'VocabularyHome',
-  'VocabularyStudyNew',
-  'VocabularyReview',
-  'VocabularyProgress',
-  'VocabularyOnboarding',
-  'VocabularyStudiedList',
-  'ListeningPracticeList',
-  'ListeningPractice',
-  'ListeningPracticeQuestions',
-  'Premium',
-  'AssessmentResults',
-  'SpeakingAssessment',
-  'ReportedIssues',
-  'DeleSpeakingAllParts',
-  'ReadingPart1A1',
-  'ReadingPart2A1',
-  'ReadingPart3A1',
-  'ListeningPart1A1',
-  'ListeningPart2A1',
-  'ListeningPart3A1',
-  'ListeningPart1A2',
-  'ListeningPart2A2',
-  'ListeningPart3A2',
-  'ReadingPart1A2',
-  'ReadingPart2A2',
-  'ReadingPart3A2',
-  'A1SpeakingPart1',
-  'A1SpeakingPart2',
-  'A1SpeakingPart3',
+// Screens where tab bar should be shown (root screens only)
+const SHOW_TAB_SCREENS = [
+  'Home',
 ];
 
 const HIDE_BANNER_SCREENS = [
@@ -114,7 +57,7 @@ const CustomTabBar = ({ colors, ...props }: any) => {
     props.state.routes[props.state.index]?.state?.index ?? 0
   ]?.name;
 
-  const shouldHideTabBar = routeName && HIDE_TAB_SCREENS.includes(routeName);
+  const shouldHideTabBar = routeName && !SHOW_TAB_SCREENS.includes(routeName);
 
   const shouldHideBanner = routeName && HIDE_BANNER_SCREENS.includes(routeName);
 
