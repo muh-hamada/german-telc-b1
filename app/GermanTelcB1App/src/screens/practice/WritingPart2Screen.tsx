@@ -1,25 +1,26 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
-  View,
-  Text,
+  Alert,
   StyleSheet,
-  TouchableOpacity,
-  Alert,} from 'react-native';
-import { useRoute, useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { spacing, type ThemeColors } from '../../theme';
-import { useCustomTranslation } from '../../hooks/useCustomTranslation';
-import { useExamCompletion } from '../../contexts/CompletionContext';
-import { useAppTheme } from '../../contexts/ThemeContext';
-import ExamHeaderMenu from '../../components/ExamHeaderMenu';
-import { HomeStackRouteProp } from '../../types/navigation.types';
-import { dataService } from '../../services/data.service';
-import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
-import { useProgress } from '../../contexts/ProgressContext';
-import { UserAnswer , ExamProgress } from '../../types/exam.types';
+  Text,
+  View
+} from 'react-native';
 import WritingPart2UIA1 from '../../components/exam-ui/WritingPart2UIA1';
+import WritingUI from '../../components/exam-ui/WritingUI';
+import ExamHeaderMenu from '../../components/ExamHeaderMenu';
 import ReportIssueModal from '../../components/ReportIssueModal';
 import ResumeExamModal from '../../components/ResumeExamModal';
+import { activeExamConfig } from '../../config/active-exam.config';
+import { useExamCompletion } from '../../contexts/CompletionContext';
+import { useProgress } from '../../contexts/ProgressContext';
+import { useAppTheme } from '../../contexts/ThemeContext';
+import { useCustomTranslation } from '../../hooks/useCustomTranslation';
+import { AnalyticsEvents, logEvent } from '../../services/analytics.events';
+import { dataService } from '../../services/data.service';
+import { spacing, type ThemeColors } from '../../theme';
+import { ExamProgress, UserAnswer } from '../../types/exam.types';
+import { HomeStackRouteProp } from '../../types/navigation.types';
 
 const WritingPart2Screen: React.FC = () => {
   const { t } = useCustomTranslation();
@@ -29,6 +30,8 @@ const WritingPart2Screen: React.FC = () => {
   const styles = useMemo(() => createStyles(colors), [colors]);
   const examId = route.params?.examId ?? 0;
   const { updateExamProgress, getExamProgress } = useProgress();
+
+  const isA2 = activeExamConfig.level === 'A2';
 
   const { isCompleted, toggleCompletion } = useExamCompletion('writing-part2', examId);
 
@@ -49,6 +52,10 @@ const WritingPart2Screen: React.FC = () => {
     try {
       setIsLoading(true);
       const exam = await dataService.getWritingPart2Exam(examId);
+      if (exam && isA2) {
+        // WritingUI expects incomingEmail field
+        exam.incomingEmail = exam.instruction;
+      }
       setCurrentExam(exam || null);
         // Check for saved progress from previous attempt
         const progress = getExamProgress('writing-part2', String(examId));
@@ -153,7 +160,11 @@ const WritingPart2Screen: React.FC = () => {
           setShowResumeModal(false);
         }}
       />
-      <WritingPart2UIA1 key={uiKey} exam={currentExam} onComplete={handleComplete} isMockExam={false} initialAnswers={resumedAnswers} />
+      {isA2 ? (
+        <WritingUI key={uiKey} exam={currentExam} onComplete={handleComplete} part={2} />
+      ) : (
+        <WritingPart2UIA1 key={uiKey} exam={currentExam} onComplete={handleComplete} isMockExam={false} initialAnswers={resumedAnswers} />
+      )}
       
       <ReportIssueModal
         visible={showReportIssueModal}
