@@ -280,6 +280,7 @@ export const germanA1Config: ExamConfig = {
           navTitleKey: 'nav.practice.writing.part2',
           dataLoader: { listMethod: 'getWritingPart2Exams', fetchMethod: 'getWritingPart2Exam' },
           maxPoints: 10,
+          scoreScaling: 1,
           timeMinutes: 10,
           scoringGroup: 'written',
           mockExamSectionName: 'Schriftlicher Ausdruck',

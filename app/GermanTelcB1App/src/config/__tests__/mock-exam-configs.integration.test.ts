@@ -177,6 +177,11 @@ describe('Mock Exam Config Integration', () => {
         const firstGroup = config.mockExam.scoringGroups[0];
         const secondGroup = config.mockExam.scoringGroups[1];
 
+        // Check if the second group is fully skipped
+        const secondGroupSkipped = secondGroup.sectionNumbers.every(
+          sn => config.mockExam.skipSectionNumbers.includes(sn),
+        );
+
         const mixedSteps: MockExamStep[] = steps.map(step => {
           const isInFirstGroup = firstGroup.sectionNumbers.includes(step.sectionNumber);
           return {
@@ -194,11 +199,24 @@ describe('Mock Exam Config Integration', () => {
         const secondResult = results.find(r => r.groupId === secondGroup.id);
 
         if (firstResult) expect(firstResult.passed).toBe(true);
-        if (secondResult) expect(secondResult.passed).toBe(false);
+        if (secondResult) {
+          if (secondGroupSkipped) {
+            // Skipped groups are treated as passed
+            expect(secondResult.skipped).toBe(true);
+            expect(secondResult.passed).toBe(true);
+          } else {
+            expect(secondResult.passed).toBe(false);
+          }
+        }
 
-        // Overall should fail because not all groups pass
         const overall = calculateOverallResult(config, mixedSteps);
-        expect(overall.passedOverall).toBe(false);
+        if (secondGroupSkipped) {
+          // When second group is skipped, overall depends only on first group
+          expect(overall.passedOverall).toBe(true);
+        } else {
+          // Overall should fail because not all groups pass
+          expect(overall.passedOverall).toBe(false);
+        }
       }
     });
   });

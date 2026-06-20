@@ -13,6 +13,7 @@ export interface GroupResult {
   passingPoints: number;
   percentage: number;
   passed: boolean;
+  skipped: boolean;
 }
 
 export interface OverallResult {
@@ -59,7 +60,14 @@ export const calculateGroupResults = (
   config: ExamConfig,
   steps: MockExamStep[],
 ): GroupResult[] => {
+  const skipSectionNumbers = config.mockExam.skipSectionNumbers;
+
   return config.mockExam.scoringGroups.map((group: ScoringGroupConfig) => {
+    // A group is skipped if ALL its section numbers are in skipSectionNumbers
+    const isSkipped = group.sectionNumbers.every(
+      sn => skipSectionNumbers.includes(sn),
+    );
+
     const groupSteps = steps.filter(
       step => group.sectionNumbers.includes(step.sectionNumber),
     );
@@ -73,28 +81,47 @@ export const calculateGroupResults = (
       maxPoints: group.maxPoints,
       passingPoints: group.passingPoints,
       percentage,
-      passed: score >= group.passingPoints,
+      passed: isSkipped ? true : score >= group.passingPoints,
+      skipped: isSkipped,
     };
   });
 };
 
 /**
- * 1. totalScore = sum of all step scores
+ * 1. totalScore = sum of all non-skipped step scores
  * 2. groupResults = calculateGroupResults(config, steps)
- * 3. allGroupsPassed = every group.passed is true
- * 4. passedOverall = totalScore >= config.mockExam.passingTotalPoints AND allGroupsPassed
+ * 3. Exclude skipped groups from totalMaxPoints and passingTotalPoints
+ * 4. allGroupsPassed = every non-skipped group.passed is true
+ * 5. passedOverall = totalScore >= adjustedPassingPoints AND allGroupsPassed
  */
 export const calculateOverallResult = (
   config: ExamConfig,
   steps: MockExamStep[],
 ): OverallResult => {
-  const totalScore = steps.reduce((sum, step) => sum + (step.score ?? 0), 0);
   const groupResults = calculateGroupResults(config, steps);
-  const totalMaxPoints = config.mockExam.totalMaxPoints;
+
+  // Exclude skipped groups from totals
+  const skippedMaxPoints = groupResults
+    .filter(g => g.skipped)
+    .reduce((sum, g) => sum + g.maxPoints, 0);
+
+  const totalMaxPoints = config.mockExam.totalMaxPoints - skippedMaxPoints;
+  const totalScore = steps.reduce((sum, step) => sum + (step.score ?? 0), 0);
   const totalPercentage = totalMaxPoints > 0 ? (totalScore / totalMaxPoints) * 100 : 0;
-  const allGroupsPassed = groupResults.every(g => g.passed);
+
+  // Only check non-skipped groups for pass/fail
+  const allGroupsPassed = groupResults
+    .filter(g => !g.skipped)
+    .every(g => g.passed);
+
+  // Adjust passing points proportionally (subtract skipped groups' passing points)
+  const skippedPassingPoints = groupResults
+    .filter(g => g.skipped)
+    .reduce((sum, g) => sum + g.passingPoints, 0);
+  const adjustedPassingPoints = config.mockExam.passingTotalPoints - skippedPassingPoints;
+
   const passedOverall =
-    totalScore >= config.mockExam.passingTotalPoints && allGroupsPassed;
+    totalScore >= adjustedPassingPoints && allGroupsPassed;
 
   return {
     totalScore,

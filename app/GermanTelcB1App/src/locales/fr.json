@@ -1425,7 +1425,11 @@
     "deleReadingWriting": "Groupe 1 : Lecture et écriture",
     "deleListeningSpeaking": "Groupe 2 : Écoute (parler sauté)",
     "viewAnswers": "Afficher les réponses",
-    "noResultsAvailable": "Aucun résultat disponible pour cette étape."
+    "noResultsAvailable": "Aucun résultat disponible pour cette étape.",
+    "results": {
+      "written": "Examen Écrit",
+      "oral": "Examen Oral"
+    }
   },
   "grammar": {
     "part1": {

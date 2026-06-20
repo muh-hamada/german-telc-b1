@@ -979,7 +979,11 @@
     "deleReadingWriting": "المجموعة الأولى: القراءة والكتابة",
     "deleListeningSpeaking": "المجموعة 2: الاستماع (تخطي التحدث)",
     "viewAnswers": "عرض الإجابات",
-    "noResultsAvailable": "لا توجد نتائج متاحة لهذه الخطوة."
+    "noResultsAvailable": "لا توجد نتائج متاحة لهذه الخطوة.",
+    "results": {
+      "written": "الامتحان الكتابي",
+      "oral": "الامتحان الشفوي"
+    }
   },
   "questions": {
     "checkAnswers": "التحقق من الإجابات",

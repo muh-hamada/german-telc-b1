@@ -992,7 +992,11 @@
     "deleReadingWriting": "Gruppe 1: Lesen und Schreiben",
     "deleListeningSpeaking": "Gruppe 2: Zuhören (Sprechen übersprungen)",
     "viewAnswers": "Antworten ansehen",
-    "noResultsAvailable": "Keine Ergebnisse für diesen Schritt verfügbar."
+    "noResultsAvailable": "Keine Ergebnisse für diesen Schritt verfügbar.",
+    "results": {
+      "written": "Schriftliche Prüfung",
+      "oral": "Mündliche Prüfung"
+    }
   },
   "questions": {
     "checkAnswers": "Antworten prüfen",

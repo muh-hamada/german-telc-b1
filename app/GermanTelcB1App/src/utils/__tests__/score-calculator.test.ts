@@ -153,7 +153,8 @@ describe('score-calculator', () => {
 
       const oral = results.find(r => r.groupId === 'oral')!;
       expect(oral.score).toBe(0); // no section 5 steps
-      expect(oral.passed).toBe(false);
+      expect(oral.skipped).toBe(true); // section 5 is in skipSectionNumbers
+      expect(oral.passed).toBe(true); // skipped groups are treated as passed
     });
 
     it('returns empty array when mockExam has no scoring groups', () => {
@@ -227,31 +228,34 @@ describe('score-calculator', () => {
       expect(result.passedOverall).toBe(false); // listeningSpeaking group fails
     });
 
-    it('Telc B1: written passes, oral skipped (0) → overall fails because oral group fails', () => {
+    it('Telc B1: written passes, oral skipped → overall passes because skipped groups are excluded', () => {
       const config = createTelcB1Config();
       const steps: MockExamStep[] = [
         createMockStep({ sectionNumber: 1, score: 75 }),
         createMockStep({ sectionNumber: 2, score: 30 }),
         createMockStep({ sectionNumber: 3, score: 75 }),
         createMockStep({ sectionNumber: 4, score: 45 }),
-        // No section 5 steps — oral score is 0
+        // No section 5 steps — oral is skipped
       ];
 
       const result = calculateOverallResult(config, steps);
       expect(result.totalScore).toBe(225);
       // Written group: 225 >= 135 → pass
-      // Oral group: 0 < 45 → fail
-      expect(result.passedOverall).toBe(false);
+      // Oral group: skipped → excluded from pass/fail
+      expect(result.passedOverall).toBe(true);
+      // totalMaxPoints excludes skipped oral (75): 300 - 75 = 225
+      expect(result.totalMaxPoints).toBe(225);
     });
 
-    it('calculates percentage correctly', () => {
+    it('calculates percentage correctly excluding skipped groups', () => {
       const config = createTelcB1Config();
       const steps: MockExamStep[] = [
         createMockStep({ sectionNumber: 1, score: 150 }),
       ];
 
       const result = calculateOverallResult(config, steps);
-      expect(result.totalPercentage).toBe(50); // 150/300 * 100
+      // totalMaxPoints = 300 - 75 (oral skipped) = 225
+      expect(result.totalPercentage).toBeCloseTo(66.67, 1); // 150/225 * 100
     });
   });
 });

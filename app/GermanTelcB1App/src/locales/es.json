@@ -991,7 +991,11 @@
     "deleReadingWriting": "Grupo 1: Lectura y Escritura",
     "deleListeningSpeaking": "Grupo 2: Escuchar (se omite hablar)",
     "viewAnswers": "Ver respuestas",
-    "noResultsAvailable": "No hay resultados disponibles para este paso."
+    "noResultsAvailable": "No hay resultados disponibles para este paso.",
+    "results": {
+      "written": "Examen Escrito",
+      "oral": "Examen Oral"
+    }
   },
   "questions": {
     "checkAnswers": "Verificar respuestas",

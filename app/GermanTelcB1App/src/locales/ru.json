@@ -979,7 +979,11 @@
     "deleReadingWriting": "Группа 1: Чтение и письмо",
     "deleListeningSpeaking": "Группа 2: Аудирование (говорение пропускается)",
     "viewAnswers": "Посмотреть ответы",
-    "noResultsAvailable": "Для этого шага нет результатов."
+    "noResultsAvailable": "Для этого шага нет результатов.",
+    "results": {
+      "written": "Письменный экзамен",
+      "oral": "Устный экзамен"
+    }
   },
   "questions": {
     "checkAnswers": "Проверить ответы",

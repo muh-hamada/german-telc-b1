@@ -374,15 +374,23 @@ const MockExamRunningScreen: React.FC = () => {
             <Text style={styles.componentTitle}>
               {t(group.labelKey)}
             </Text>
-            <Text style={styles.componentScore}>
-              {group.score.toFixed(1)} / {group.maxPoints} ({group.percentage.toFixed(1)}%)
-            </Text>
-            <Text style={[
-              styles.componentStatus,
-              group.passed ? styles.componentStatusPass : styles.componentStatusFail
-            ]}>
-              {group.passed ? `✓ ${t('mockExam.passed')} (≥60%)` : `✗ ${t('mockExam.failed')} (<60%)`}
-            </Text>
+            {group.skipped ? (
+              <Text style={styles.componentScore}>
+                {t('mockExam.skipped')}
+              </Text>
+            ) : (
+              <>
+                <Text style={styles.componentScore}>
+                  {group.score.toFixed(1)} / {group.maxPoints} ({group.percentage.toFixed(1)}%)
+                </Text>
+                <Text style={[
+                  styles.componentStatus,
+                  group.passed ? styles.componentStatusPass : styles.componentStatusFail
+                ]}>
+                  {group.passed ? `✓ ${t('mockExam.passed')} (≥60%)` : `✗ ${t('mockExam.failed')} (<60%)`}
+                </Text>
+              </>
+            )}
           </View>
         ))}
 

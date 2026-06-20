@@ -1135,7 +1135,11 @@
     "deleReadingWriting": "Group 1: Reading and Writing",
     "deleListeningSpeaking": "Group 2: Listening (speaking skipped)",
     "viewAnswers": "View Answers",
-    "noResultsAvailable": "No results available for this step."
+    "noResultsAvailable": "No results available for this step.",
+    "results": {
+      "written": "Written Exam",
+      "oral": "Oral Exam"
+    }
   },
   "questions": {
     "checkAnswers": "Check Answers",
