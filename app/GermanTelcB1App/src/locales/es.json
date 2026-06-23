@@ -568,6 +568,12 @@
           "part2": "Lea textos extensos y responda preguntas VERDADERAS/FALSAS",
           "part1": "Leer información sobre un edificio y responder preguntas.",
           "part3": "Relacionar situaciones con anuncios"
+        },
+        "goetheA2": {
+          "part1": "Leer un artículo periodístico y responder preguntas de opción múltiple",
+          "part2": "Leer el directorio de unos grandes almacenes y encontrar la planta correcta",
+          "part3": "Leer un correo electrónico y responder preguntas de opción múltiple",
+          "part4": "Relacionar las necesidades de las personas con el anuncio correcto"
         }
       },
       "part1": "Parte 1: Encabezados coincidentes",
@@ -578,6 +584,12 @@
         "part1": "Parte 1: Opción múltiple",
         "part2": "Parte 2: leer el texto y responder preguntas",
         "part3": "Parte 3: relacionar texto con anuncios"
+      },
+      "goetheA2": {
+        "part1": "Parte 1: Leer texto periodístico",
+        "part2": "Parte 2: Tablón de información",
+        "part3": "Parte 3: Leer correo electrónico",
+        "part4": "Parte 4: Relacionar anuncios"
       }
     },
     "listening": {
@@ -615,6 +627,12 @@
           "part3": "Escuchar seis noticias en un programa de radio",
           "part4": "Escuche a seis personas compartiendo recuerdos",
           "part5": "Escuchar una conversación entre dos amigos"
+        },
+        "goetheA2": {
+          "part1": "Escuchar 5 textos cortos (se escuchan dos veces) y responder preguntas de opción múltiple",
+          "part2": "Escuchar una conversación (se escucha una vez) y relacionar actividades con días de la semana",
+          "part3": "Escuchar 5 conversaciones cortas (se escuchan una vez) y responder preguntas de opción múltiple",
+          "part4": "Escuchar una entrevista (se escucha dos veces) y responder preguntas de Sí/No"
         }
       },
       "comingSoon": "Ejercicios de audición próximamente",
@@ -636,6 +654,12 @@
         "part3": "Parte 3: Noticias",
         "part4": "Parte 4: Compartir recuerdos",
         "part5": "Parte 5: Conversaciones"
+      },
+      "goetheA2": {
+        "part1": "Parte 1: Textos cortos",
+        "part2": "Parte 2: Relacionar conversación",
+        "part3": "Parte 3: Conversaciones cortas",
+        "part4": "Parte 4: Entrevista"
       }
     },
     "writing": {
@@ -661,6 +685,10 @@
         "a2": {
           "part1": "Leer un escenario y completar la información que falta en un formulario.",
           "part2": "Implica escribir un mensaje corto como un correo electrónico o una carta."
+        },
+        "goetheA2": {
+          "part1": "Escribir un SMS personal corto (20-30 palabras) sobre 3 puntos dados",
+          "part2": "Escribir un correo electrónico semiformal (30-40 palabras) sobre 3 puntos dados"
         }
       },
       "taskPoints": "Puntos de tarea",
@@ -679,6 +707,10 @@
       "a2": {
         "part1": "Parte 1: Complete un formulario",
         "part2": "Parte 2: escribir una carta o un correo electrónico breve"
+      },
+      "goetheA2": {
+        "part1": "Parte 1: Mensaje personal (SMS)",
+        "part2": "Parte 2: Correo electrónico semiformal"
       }
     },
     "speaking": {
@@ -705,7 +737,9 @@
         "importantPhrases": "Frases importantes"
       },
       "a2Part2": "Parte 2: Conversación cotidiana",
-      "a2Part3": "Parte 3: Negociar algo"
+      "a2Part3": "Parte 3: Negociar algo",
+      "goetheA2Part2": "Parte 2: Hablar sobre tu vida",
+      "goetheA2Part3": "Parte 3: Planificar algo juntos"
     },
     "grammar": {
       "title": "Bloques de construcción del idioma",
@@ -1407,6 +1441,12 @@
     },
     "a2Part2": {
       "menuDescription": "Mantener una conversación sobre un tema cotidiano utilizando tarjetas."
+    },
+    "goetheA2Part2": {
+      "menuDescription": "Hablar sobre tu vida usando tarjetas con temas cotidianos"
+    },
+    "goetheA2Part3": {
+      "menuDescription": "Planificar algo junto con tu compañero de conversación"
     }
   },
   "results": {

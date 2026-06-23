@@ -1,0 +1,87 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 4",
+        "instructions_de": "Sie hören ein Interview. Sie hören den Text zweimal. Wählen Sie für die Aufgaben 16 bis 20 Ja oder Nein.",
+        "instructions_en": "You will hear an interview. You will hear the text twice. Choose Yes or No for tasks 16 to 20.",
+        "instructions_ar": "ستسمع مقابلة. ستسمع النص مرتين. اختر نعم أو لا للمهام من 16 إلى 20.",
+        "instructions_ru": "Вы услышите интервью. Текст прозвучит дважды. Выберите Да или Нет для заданий с 16 по 20.",
+        "instructions_fr": "Vous entendrez une interview. Vous entendrez le texte deux fois. Choisissez Oui ou Non pour les tâches 16 à 20.",
+        "instructions_es": "Escucharás una entrevista. Escucharás el texto dos veces. Elige Sí o No para las tareas 16 a 20.",
+        "duration_minutes": 7,
+        "prep_time_seconds": 30
+    },
+    "exams": [
+        {
+            "id": "ga2-lp4-001",
+            "audio_url": "",
+            "audio_transcription": "Mann: Sarah, Sie kommen aus Ghana, in Afrika. Wann sind Sie nach Deutschland gekommen?\nFrau: Das war kurz nach meinem fünften Geburtstag. Da sind wir dann mit der ganzen Familie umgezogen.\n\nMann: Und wie fanden Sie das neue Leben in Deutschland?\nFrau: Ja, es hat mir sofort gefallen, ich habe ganz schnell Freunde gefunden – beim Fußballspielen auf der Straße. Meine beiden großen Brüder haben mich immer mitgenommen. Zuerst haben sie mir Tipps gegeben, aber nach ein paar Monaten war ich besser als sie!\n\nMann: Und dann? Wie ging es dann weiter?\nFrau: Als ich in der Schule war, hat mein Sportlehrer mir gesagt, bei welchem Fußballverein ich mich anmelden soll. Und dort spiele ich immer noch.\n\nMann: Jetzt schon seit 14 Jahren! Und seit zwei Wochen sind Sie sogar in der deutschen Frauennationalmannschaft. Glückwunsch!\nFrau: Danke. Ja, und ich hoffe, dass ich bald auch einmal in einem internationalen Spiel mitspielen darf.\n\nMann: Was machen Sie denn, wenn Sie nicht Fußball spielen?\nFrau: Im Moment habe ich keine Zeit für anderes. Aber später, wenn ich nicht mehr so gut bin, möchte ich studieren.\n\nMann: Und sagen Sie uns auch welches Fach?\nFrau: Natürlich Sport!\n\nMann: Na dann, alles Gute für Sie und danke für das Gespräch.\nFrau: Gerne.",
+            "statements": [
+                {
+                    "id": 16,
+                    "statement": "Sarah hatte am Anfang in Deutschland Probleme.",
+                    "is_correct": false,
+                    "explanation": {
+                        "en": "No. Sarah says it immediately appealed to her ('es hat mir sofort gefallen') and she quickly made friends playing football on the street. She had no problems at the beginning.",
+                        "de": "Nein. Sarah sagt, es hat ihr sofort gefallen und sie hat ganz schnell Freunde gefunden. Sie hatte am Anfang keine Probleme.",
+                        "fr": "Non. Sarah dit que ça lui a plu tout de suite et qu'elle a rapidement trouvé des amis. Elle n'a pas eu de problèmes au début.",
+                        "es": "No. Sarah dice que le gustó inmediatamente y que rápidamente hizo amigos. No tuvo problemas al principio.",
+                        "ru": "Нет. Сара говорит, что ей сразу понравилось и она быстро нашла друзей. У неё не было проблем в начале.",
+                        "ar": "لا. تقول سارة أنها أحبت ذلك فوراً ووجدت أصدقاء بسرعة. لم تكن لديها مشاكل في البداية."
+                    }
+                },
+                {
+                    "id": 17,
+                    "statement": "Ihre Geschwister haben ihr das Fußballspielen gezeigt.",
+                    "is_correct": false,
+                    "explanation": {
+                        "en": "No. Sarah says her two older brothers took her along to play football on the street ('Meine beiden großen Brüder haben mich immer mitgenommen'). They gave her tips, but they didn't teach her to play – she found friends through street football. She learned by playing, not from formal instruction by siblings.",
+                        "de": "Nein. Sarah sagt, ihre beiden großen Brüder haben sie immer mitgenommen und ihr Tipps gegeben, aber sie haben ihr nicht das Fußballspielen beigebracht – sie hat es auf der Straße gelernt. Nach ein paar Monaten war sie besser als sie.",
+                        "fr": "Non. Ses frères l'emmenaient jouer et lui donnaient des conseils, mais ils ne lui ont pas appris à jouer au football.",
+                        "es": "No. Sus hermanos la llevaban a jugar y le daban consejos, pero no le enseñaron a jugar al fútbol.",
+                        "ru": "Нет. Братья брали её с собой играть и давали советы, но не учили её играть в футбол.",
+                        "ar": "لا. إخوتها كانوا يأخذونها معهم للعب ويعطونها نصائح، لكنهم لم يعلموها كرة القدم."
+                    }
+                },
+                {
+                    "id": 18,
+                    "statement": "Ihr Lehrer hat ihr einen Verein empfohlen.",
+                    "is_correct": true,
+                    "explanation": {
+                        "en": "Yes. Sarah says: 'Als ich in der Schule war, hat mein Sportlehrer mir gesagt, bei welchem Fußballverein ich mich anmelden soll.' Her sports teacher told her which football club to join.",
+                        "de": "Ja. Sarah sagt: 'mein Sportlehrer hat mir gesagt, bei welchem Fußballverein ich mich anmelden soll.' Ihr Sportlehrer hat ihr einen Verein empfohlen.",
+                        "fr": "Oui. Sarah dit que son professeur de sport lui a dit dans quel club de football s'inscrire.",
+                        "es": "Sí. Sarah dice que su profesor de deportes le dijo en qué club de fútbol inscribirse.",
+                        "ru": "Да. Сара говорит, что учитель физкультуры сказал ей, в какой футбольный клуб записаться.",
+                        "ar": "نعم. تقول سارة أن معلم الرياضة أخبرها في أي نادي كرة قدم يجب أن تسجل."
+                    }
+                },
+                {
+                    "id": 19,
+                    "statement": "Sarah hat schon bei vielen internationalen Spielen mitgespielt.",
+                    "is_correct": false,
+                    "explanation": {
+                        "en": "No. Sarah says she hopes to play in an international game soon ('ich hoffe, dass ich bald auch einmal in einem internationalen Spiel mitspielen darf'). She hasn't played in any international games yet.",
+                        "de": "Nein. Sarah sagt, sie hofft, bald einmal in einem internationalen Spiel mitspielen zu dürfen. Sie hat noch bei keinem internationalen Spiel mitgespielt.",
+                        "fr": "Non. Sarah dit qu'elle espère bientôt jouer dans un match international. Elle n'a pas encore joué dans des matchs internationaux.",
+                        "es": "No. Sarah dice que espera jugar pronto en un partido internacional. Aún no ha jugado en partidos internacionales.",
+                        "ru": "Нет. Сара говорит, что надеется вскоре сыграть в международном матче. Она ещё не играла в международных матчах.",
+                        "ar": "لا. تقول سارة إنها تأمل أن تلعب قريباً في مباراة دولية. لم تلعب بعد في مباريات دولية."
+                    }
+                },
+                {
+                    "id": 20,
+                    "statement": "Sie studiert jetzt Sport an der Universität.",
+                    "is_correct": false,
+                    "explanation": {
+                        "en": "No. Sarah says she has no time for anything else at the moment, but later she would like to study ('später, wenn ich nicht mehr so gut bin, möchte ich studieren'). She wants to study sports in the future, not now.",
+                        "de": "Nein. Sarah sagt, sie hat im Moment keine Zeit für anderes, aber später möchte sie studieren. Sie will in der Zukunft Sport studieren, nicht jetzt.",
+                        "fr": "Non. Sarah dit qu'elle n'a pas le temps pour autre chose en ce moment, mais qu'elle aimerait étudier plus tard. Elle ne fait pas d'études maintenant.",
+                        "es": "No. Sarah dice que no tiene tiempo para nada más en este momento, pero le gustaría estudiar más tarde. No está estudiando ahora.",
+                        "ru": "Нет. Сара говорит, что сейчас у неё нет времени на другое, но позже она хотела бы учиться. Она не учится сейчас.",
+                        "ar": "لا. تقول سارة أنه ليس لديها وقت لأي شيء آخر الآن، لكنها تريد الدراسة لاحقاً. هي لا تدرس الآن."
+                    }
+                }
+            ]
+        }
+    ]
+}

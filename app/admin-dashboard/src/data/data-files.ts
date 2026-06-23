@@ -20,6 +20,19 @@ import germanA1ListeningPractice from './german-a1/listening-practice.json';
 import goetheGermanA1ExamInfo from './goethe-german-a1/exam-info.json';
 // The rest of the sections are the same as the Telc German A1 sections
 
+// Goethe German A2
+import goetheGermanA2ExamInfo from './goethe-german-a2/exam-info.json';
+import goetheGermanA2ReadingPart1 from './goethe-german-a2/reading-part1.json';
+import goetheGermanA2ReadingPart2 from './goethe-german-a2/reading-part2.json';
+import goetheGermanA2ReadingPart3 from './goethe-german-a2/reading-part3.json';
+import goetheGermanA2ReadingPart4 from './goethe-german-a2/reading-part4.json';
+import goetheGermanA2ListeningPart1 from './goethe-german-a2/listening-part1.json';
+import goetheGermanA2ListeningPart2 from './goethe-german-a2/listening-part2.json';
+import goetheGermanA2ListeningPart3 from './goethe-german-a2/listening-part3.json';
+import goetheGermanA2ListeningPart4 from './goethe-german-a2/listening-part4.json';
+import goetheGermanA2WritingPart1 from './goethe-german-a2/writing-part1.json';
+import goetheGermanA2WritingPart2 from './goethe-german-a2/writing-part2.json';
+
  
 // TelcGerman A2
 import germanA2ExamInfo from './german-a2/exam-info.json';
@@ -158,6 +171,7 @@ interface AppData {
     'listening-part5'?: any;
     'speaking-part4'?: any;
     'speaking-part5'?: any;
+    'reading-part4'?: any;
 }
 
 interface AppDataMap {
@@ -293,5 +307,18 @@ export const appDataMap: AppDataMap = {
     },
     [APP_CONFIGS['goethe-german-a1'].id]: {
         'goethe-exam-info': goetheGermanA1ExamInfo,
+    },
+    [APP_CONFIGS['goethe-german-a2'].id]: {
+        'goethe-exam-info': goetheGermanA2ExamInfo,
+        'reading-part1': goetheGermanA2ReadingPart1,
+        'reading-part2': goetheGermanA2ReadingPart2,
+        'reading-part3': goetheGermanA2ReadingPart3,
+        'reading-part4': goetheGermanA2ReadingPart4,
+        'listening-part1': goetheGermanA2ListeningPart1,
+        'listening-part2': goetheGermanA2ListeningPart2,
+        'listening-part3': goetheGermanA2ListeningPart3,
+        'listening-part4': goetheGermanA2ListeningPart4,
+        'writing-part1': goetheGermanA2WritingPart1,
+        'writing-part2': goetheGermanA2WritingPart2,
     },
 }

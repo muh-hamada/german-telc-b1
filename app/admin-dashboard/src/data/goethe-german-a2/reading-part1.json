@@ -1,0 +1,141 @@
+{
+    "exams": [
+        {
+            "id": "ga2-rp1-001",
+            "title": "Der TV-Koch Stefan Berger",
+            "text": "Bei Stefan Berger gibt es Gerichte, von denen man vorher noch nie gehört hat. Er hat dauernd neue Ideen. Den Gästen gefällt das. Man muss unbedingt vorher anrufen und einen der wenigen Tische bestellen, wenn man in seinem Restaurant „Bremer Lokal“ essen möchte. Er hat viele Gäste, will aber kein zweites Lokal aufmachen. „Klar, ich könnte vielleicht reich damit werden, aber ich habe mich bewusst dagegen entschieden. Ich mag es einfach, wie wir hier arbeiten.“\n\nStefan Berger wurde 1968 im Rheinland geboren, war auf der Realschule und lernte dann in einem großen Hotel kochen.\n\nNach der Berufsausbildung brauchte er erstmal eine zweijährige Pause. Er fuhr durch die Welt, hatte verschiedene Jobs und lernte viel Neues kennen. Wegen einer Frau kam er dann nach Bremen. Das „Bremer Lokal“ in seiner Nachbarschaft suchte einen Koch, Berger nahm die Stelle an, und drei Jahre später kaufte er das Restaurant.\n\nDie meisten kennen ihn aber erst durch seine Fernsehshow „Berger kocht“. In der beliebten Sendung besuchen ihn Sänger und Schauspieler und kochen mit ihm ihre Lieblingsrezepte.",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Die Gäste im „Bremer Lokal“ …",
+                    "answers": [
+                        {
+                            "text": "finden immer einen Tisch.",
+                            "correct": false
+                        },
+                        {
+                            "text": "müssen anrufen und Essen bestellen.",
+                            "correct": false
+                        },
+                        {
+                            "text": "sollen Plätze reservieren.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The text says 'Man muss unbedingt vorher anrufen und einen der wenigen Tische bestellen' – you must call in advance and reserve one of the few tables.",
+                        "de": "Im Text steht: 'Man muss unbedingt vorher anrufen und einen der wenigen Tische bestellen' – man muss vorher anrufen und reservieren.",
+                        "fr": "Le texte dit qu'il faut absolument appeler à l'avance et réserver une des rares tables.",
+                        "es": "El texto dice que hay que llamar con antelación y reservar una de las pocas mesas.",
+                        "ru": "В тексте говорится, что нужно обязательно позвонить заранее и забронировать один из немногих столиков.",
+                        "ar": "يقول النص أنه يجب الاتصال مسبقاً وحجز إحدى الطاولات القليلة."
+                    }
+                },
+                {
+                    "id": 2,
+                    "question": "Stefan Berger möchte …",
+                    "answers": [
+                        {
+                            "text": "ein neues Restaurant eröffnen.",
+                            "correct": false
+                        },
+                        {
+                            "text": "mit seinem Restaurant mehr Geld verdienen.",
+                            "correct": false
+                        },
+                        {
+                            "text": "nur ein Restaurant haben.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Stefan Berger says he could maybe become rich by opening a second restaurant, but he consciously decided against it. He likes how they work in his one restaurant.",
+                        "de": "Stefan Berger sagt, er könnte vielleicht reich werden, aber er hat sich bewusst dagegen entschieden. Er mag es, wie sie arbeiten.",
+                        "fr": "Stefan Berger dit qu'il pourrait devenir riche en ouvrant un deuxième restaurant, mais il a décidé de ne pas le faire.",
+                        "es": "Stefan Berger dice que podría hacerse rico abriendo un segundo restaurante, pero ha decidido no hacerlo.",
+                        "ru": "Штефан Бергер говорит, что мог бы разбогатеть, открыв второй ресторан, но сознательно решил этого не делать.",
+                        "ar": "يقول شتيفان بيرغر إنه يمكن أن يصبح غنياً بفتح مطعم ثانٍ، لكنه قرر عدم القيام بذلك."
+                    }
+                },
+                {
+                    "id": 3,
+                    "question": "Sofort nach der Ausbildung …",
+                    "answers": [
+                        {
+                            "text": "arbeitete er in einem großen Hotel.",
+                            "correct": false
+                        },
+                        {
+                            "text": "kaufte er ein Restaurant.",
+                            "correct": false
+                        },
+                        {
+                            "text": "machte er eine lange Reise.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "After his training, he needed a two-year break. He traveled the world, had various jobs and got to know many new things.",
+                        "de": "Nach der Berufsausbildung brauchte er eine zweijährige Pause. Er fuhr durch die Welt und lernte viel Neues kennen.",
+                        "fr": "Après sa formation, il a eu besoin d'une pause de deux ans. Il a voyagé à travers le monde.",
+                        "es": "Después de su formación, necesitó una pausa de dos años. Viajó por el mundo.",
+                        "ru": "После обучения ему понадобился двухлетний перерыв. Он путешествовал по миру.",
+                        "ar": "بعد تدريبه المهني، احتاج إلى استراحة لمدة عامين. سافر حول العالم."
+                    }
+                },
+                {
+                    "id": 4,
+                    "question": "Stefan Berger ist bekannt durch …",
+                    "answers": [
+                        {
+                            "text": "eine Fernsehsendung.",
+                            "correct": true
+                        },
+                        {
+                            "text": "Lieder und Filme.",
+                            "correct": false
+                        },
+                        {
+                            "text": "sein Restaurant.",
+                            "correct": false
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The text says most people know him through his TV show 'Berger kocht'.",
+                        "de": "Im Text steht: 'Die meisten kennen ihn durch seine Fernsehshow Berger kocht.'",
+                        "fr": "Le texte dit que la plupart des gens le connaissent grâce à son émission de télévision.",
+                        "es": "El texto dice que la mayoría lo conoce a través de su programa de televisión.",
+                        "ru": "В тексте говорится, что большинство людей знают его благодаря его телешоу.",
+                        "ar": "يقول النص أن معظم الناس يعرفونه من خلال برنامجه التلفزيوني."
+                    }
+                },
+                {
+                    "id": 5,
+                    "question": "Dieser Text informiert über …",
+                    "answers": [
+                        {
+                            "text": "den Berufsweg eines Kochs.",
+                            "correct": true
+                        },
+                        {
+                            "text": "einen Koch in einem Hotel.",
+                            "correct": false
+                        },
+                        {
+                            "text": "eine neue Berufsausbildung.",
+                            "correct": false
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The text follows Stefan Berger's career path from training to TV fame. It's about a chef's career journey.",
+                        "de": "Der Text folgt Stefan Bergers Berufsweg von der Ausbildung bis zum TV-Erfolg. Es geht um den Berufsweg eines Kochs.",
+                        "fr": "Le texte retrace le parcours professionnel de Stefan Berger. C'est l'histoire de la carrière d'un chef.",
+                        "es": "El texto sigue la trayectoria profesional de Stefan Berger. Es sobre la carrera de un chef.",
+                        "ru": "Текст прослеживает карьерный путь Штефана Бергера. Это о карьере повара.",
+                        "ar": "يتتبع النص المسيرة المهنية لشتيفان بيرغر. إنه عن مسيرة طاهٍ."
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,157 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 3",
+        "instructions_de": "Sie hören fünf kurze Gespräche. Sie hören jeden Text einmal. Wählen Sie für die Aufgaben 11 bis 15 die richtige Lösung a, b oder c.",
+        "instructions_en": "You will hear five short conversations. You will hear each text once. Choose the correct answer a, b or c for tasks 11 to 15.",
+        "instructions_ar": "ستسمع خمس محادثات قصيرة. ستسمع كل نص مرة واحدة. اختر الإجابة الصحيحة a أو b أو c للمهام من 11 إلى 15.",
+        "instructions_ru": "Вы услышите пять коротких разговоров. Каждый текст прозвучит один раз. Выберите правильный ответ a, b или c для заданий с 11 по 15.",
+        "instructions_fr": "Vous entendrez cinq courtes conversations. Vous entendrez chaque texte une seule fois. Choisissez la bonne réponse a, b ou c pour les tâches 11 à 15.",
+        "instructions_es": "Escucharás cinco conversaciones cortas. Escucharás cada texto una vez. Elige la respuesta correcta a, b o c para las tareas 11 a 15.",
+        "duration_minutes": 7,
+        "prep_time_seconds": 0
+    },
+    "exams": [
+        {
+            "id": "ga2-lp3-001",
+            "title": "Kurze Alltagsgespräche",
+            "audio_url": "",
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "Was hat das Mädchen gestern Abend gegessen?",
+                    "audio_transcription": "Junge: Was hast du gestern Abend Tolles gegessen?\nMädchen: Ich wollte nur einen Hamburger haben, aber Lena und Sarah wollten lieber Fisch essen gehen. Im Fischrestaurant gab es auch Hähnchen, also habe ich das genommen. Es war o.k.\nJunge: Ja, dann ist es ja gut.",
+                    "explanation": {
+                        "en": "The girl wanted a hamburger, but her friends wanted fish. At the fish restaurant, there was also chicken, so she had chicken ('habe ich das genommen'). She ate chicken.",
+                        "de": "Das Mädchen wollte einen Hamburger, aber ihre Freundinnen wollten Fisch. Im Fischrestaurant gab es auch Hähnchen, also hat sie Hähnchen genommen.",
+                        "fr": "La fille voulait un hamburger, mais ses amies voulaient du poisson. Au restaurant de poisson, il y avait aussi du poulet, alors elle a pris du poulet.",
+                        "es": "La chica quería una hamburguesa, pero sus amigas querían pescado. En el restaurante de pescado también había pollo, así que tomó pollo.",
+                        "ru": "Девушка хотела гамбургер, но подруги хотели рыбу. В рыбном ресторане была также курица, и она взяла курицу.",
+                        "ar": "أرادت الفتاة همبرغر، لكن صديقاتها أردن سمكاً. في مطعم السمك كان هناك أيضاً دجاج، فأخذت الدجاج."
+                    },
+                    "options": [
+                        {
+                            "text": "Hamburger",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Fisch",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Hähnchen",
+                            "is_correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "question": "Für welches Kleidungsstück interessiert sich die Frau?",
+                    "audio_transcription": "Frau: Entschuldigung, die Jacke da gefällt mir. Die mit den weißen Buchstaben.\nMann: Welche Größe haben Sie denn?\nFrau: L\nMann: Ach, tut mir leid, aber diese haben wir nur noch in S. Aber vielleicht gefällt Ihnen die Jeansjacke hier oder der blaue Mantel?\nFrau: Ne, die Jeansjacke gefällt mir nicht. Mhh, der Mantel ist hübsch, aber zu warm. Den brauch' ich nicht.",
+                    "explanation": {
+                        "en": "The woman says: 'die Jacke da gefällt mir. Die mit den weißen Buchstaben.' She is interested in the jacket with white letters. She doesn't like the jeans jacket and doesn't need the coat.",
+                        "de": "Die Frau sagt: 'die Jacke da gefällt mir. Die mit den weißen Buchstaben.' Sie interessiert sich für die Jacke mit weißen Buchstaben. Die Jeansjacke gefällt ihr nicht und den Mantel braucht sie nicht.",
+                        "fr": "La femme dit : 'cette veste me plaît. Celle avec les lettres blanches.' Elle s'intéresse à la veste avec des lettres blanches.",
+                        "es": "La mujer dice: 'esa chaqueta me gusta. La de las letras blancas.' Se interesa por la chaqueta con letras blancas.",
+                        "ru": "Женщина говорит: 'мне нравится эта куртка. Та, с белыми буквами.' Она интересуется курткой с белыми буквами.",
+                        "ar": "تقول المرأة: 'تعجبني تلك السترة. التي عليها حروف بيضاء.' هي مهتمة بالسترة ذات الحروف البيضاء."
+                    },
+                    "options": [
+                        {
+                            "text": "Die Jacke mit weißen Buchstaben",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Die Jeansjacke",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Den blauen Mantel",
+                            "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "question": "Was fehlt für die Anmeldung?",
+                    "audio_transcription": "Mann: Ja, bitte?\nFrau: Guten Tag, Herr Thung. Hier ist Reimann vom Sportverein Ramersdorf. Ich rufe an wegen Ihrer Anmeldung.\nMann: Das ausgefüllte Formular habe ich Ihnen gestern in den Briefkasten gesteckt.\nFrau: Ja, das habe ich hier, aber für den Ausweis brauchen wir noch ein Foto von Ihnen.\nMann: Kein Problem. Ich bring' Ihnen morgen eins.\nFrau: Schön. Sonst haben wir alles, auch Ihre Unterschrift.\nMann: Gut. Dann bis morgen.",
+                    "explanation": {
+                        "en": "The woman from the sports club says they have the form and the signature, but they still need a photo ('für den Ausweis brauchen wir noch ein Foto von Ihnen'). A photo is missing.",
+                        "de": "Die Frau vom Sportverein sagt, sie haben das Formular und die Unterschrift, aber sie brauchen noch ein Foto für den Ausweis.",
+                        "fr": "La femme du club sportif dit qu'ils ont le formulaire et la signature, mais qu'il leur faut encore une photo pour la carte.",
+                        "es": "La mujer del club deportivo dice que tienen el formulario y la firma, pero necesitan una foto para el carné.",
+                        "ru": "Женщина из спортивного клуба говорит, что у них есть анкета и подпись, но им ещё нужна фотография для удостоверения.",
+                        "ar": "تقول المرأة من النادي الرياضي أن لديهم الاستمارة والتوقيع، لكنهم يحتاجون صورة للبطاقة."
+                    },
+                    "options": [
+                        {
+                            "text": "Das Formular",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Ein Foto",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Die Unterschrift",
+                            "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "question": "Was ist kaputt?",
+                    "audio_transcription": "Mann 1: Hallo Herr Talas. Hier Miguel Alba aus Haus Nr. 9. Wir haben gestern schon wegen der Reparaturen telefoniert.\nMann 2: Ja. Der Mechaniker hat den Aufzug in Ihrem Haus gestern Abend noch repariert. Und die Lampe am Eingang geht auch wieder.\nMann 1: Ja, ja. Aber jetzt wird die Heizung in meiner Wohnung nicht mehr warm. Können Sie vorbeikommen und sich das mal ansehen?",
+                    "explanation": {
+                        "en": "The elevator and entrance lamp have already been repaired. But now the heating in his apartment doesn't work ('die Heizung in meiner Wohnung wird nicht mehr warm'). The heating is broken.",
+                        "de": "Der Aufzug und die Lampe am Eingang sind schon repariert. Aber jetzt funktioniert die Heizung in seiner Wohnung nicht mehr. Die Heizung ist kaputt.",
+                        "fr": "L'ascenseur et la lampe de l'entrée ont déjà été réparés. Mais maintenant le chauffage de son appartement ne fonctionne plus.",
+                        "es": "El ascensor y la lámpara de la entrada ya han sido reparados. Pero ahora la calefacción de su apartamento no funciona.",
+                        "ru": "Лифт и лампа у входа уже отремонтированы. Но теперь не работает отопление в его квартире.",
+                        "ar": "المصعد ومصباح المدخل تم إصلاحهما بالفعل. لكن الآن التدفئة في شقته لا تعمل."
+                    },
+                    "options": [
+                        {
+                            "text": "Der Aufzug",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Die Lampe",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Die Heizung",
+                            "is_correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "question": "Wohin soll der Mann gehen?",
+                    "audio_transcription": "Frau: Guten Tag, hier ist Messner von der Arztpraxis Vollmer.\nMann: Ja? Guten Tag.\nFrau: Ich rufe an wegen Ihrer Krankengymnastik. Sie können nächste Woche Montag und Donnerstag um 16 Uhr kommen.\nMann: Ja, das passt.\nFrau: Sie müssen nicht an der Information warten. Gehen Sie direkt in den Sportraum. Und bitte vergessen Sie das Rezept vom Arzt und Ihre Sportkleidung nicht.",
+                    "explanation": {
+                        "en": "The woman says: 'Gehen Sie direkt in den Sportraum' – go directly to the sports room. He doesn't need to wait at the information desk.",
+                        "de": "Die Frau sagt: 'Gehen Sie direkt in den Sportraum.' Er muss nicht an der Information warten.",
+                        "fr": "La femme dit : 'Allez directement dans la salle de sport.' Il n'a pas besoin d'attendre à l'accueil.",
+                        "es": "La mujer dice: 'Vaya directamente a la sala de deporte.' No necesita esperar en la información.",
+                        "ru": "Женщина говорит: 'Идите прямо в спортзал.' Ему не нужно ждать на стойке информации.",
+                        "ar": "تقول المرأة: 'اذهب مباشرة إلى غرفة الرياضة.' لا يحتاج للانتظار عند الاستعلامات."
+                    },
+                    "options": [
+                        {
+                            "text": "Zur Information",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Zum Arzt",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "In den Sportraum",
+                            "is_correct": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

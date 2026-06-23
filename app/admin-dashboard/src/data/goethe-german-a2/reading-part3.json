@@ -1,0 +1,141 @@
+{
+    "exams": [
+        {
+            "id": "ga2-rp3-001",
+            "title": "E-Mail von Gülcan aus Hamburg",
+            "text": "Liebe Sonja,\n\nich bin jetzt schon vier Wochen in Hamburg und bin noch dabei, mich hier einzuleben. An der Universität ist vieles ganz anders organisiert als zu Hause.\n\nUnd auch im täglichen Leben musste ich erst einmal lernen, wie einige Dinge hier gemacht werden. Zum Beispiel, wie ich ein Zimmer finde und wo ich was einkaufen kann.\n\nIn der ersten Woche haben ein paar Studenten eine Willkommensführung für uns ausländische Studierende gemacht. Sie haben uns die Uni gezeigt: die Bibliothek, die Cafeteria und die Multimedia-Räume. Hamburg habe ich dann alleine mit dem Stadtplan kennengelernt.\n\nIch wohne mit drei anderen Studenten aus Italien, Japan und Mexiko zusammen. Immer freitags kocht einer von uns etwas aus seinem Land und wir essen zusammen, obwohl wir nur eine winzig kleine Küche haben! Ich finde das super, du weißt ja, wie gerne ich koche!\n\nWir sprechen in der Wohnung nicht nur Deutsch, sondern oft auch Englisch miteinander. Manchmal ist das einfacher, aber mich stört das ein bisschen. Ich möchte dieses Jahr möglichst viel Deutsch lernen. Und weißt du, was mir am meisten Spaß macht? Der Literaturkurs. Der Dozent, Herr Hahn, ist ein total witziger Typ. Den müsstest du mal erleben. :-)\n\nIch freue mich auf deinen Besuch im März. Dann zeige ich dir die Stadt und an einem Nachmittag fahren wir an die Ostsee. Da ist es total schön. Du kannst dann bei Mario schlafen. Das ist der Italiener, der neben mir wohnt. Er ist einverstanden, denn er fährt in den Ferien nach Hause, nach Genua.\n\nSchreib mir bald!\nBis dann\nGülcan",
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "Gülcan sagt über ihr Leben in Hamburg, dass …",
+                    "answers": [
+                        {
+                            "text": "das Studium wie in ihrem Heimatland ist.",
+                            "correct": false
+                        },
+                        {
+                            "text": "im Alltag einiges wie zu Hause ist.",
+                            "correct": false
+                        },
+                        {
+                            "text": "im Moment vieles neu für sie ist.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Gülcan writes that she's been in Hamburg for four weeks and is still settling in ('noch dabei, mich hier einzuleben'). The university is organized very differently from home, and she had to learn how everyday things work. Everything is new for her.",
+                        "de": "Gülcan schreibt, dass sie seit vier Wochen in Hamburg ist und sich noch einlebt. An der Uni ist vieles anders als zu Hause organisiert, und sie musste erst lernen, wie einige Dinge hier gemacht werden. Vieles ist neu für sie.",
+                        "fr": "Gülcan écrit qu'elle est à Hambourg depuis quatre semaines et qu'elle est encore en train de s'adapter. Beaucoup de choses sont nouvelles pour elle.",
+                        "es": "Gülcan escribe que lleva cuatro semanas en Hamburgo y que aún se está adaptando. Muchas cosas son nuevas para ella.",
+                        "ru": "Гюльджан пишет, что она в Гамбурге уже четыре недели и всё ещё привыкает. Многое для неё ново.",
+                        "ar": "تكتب غولجان أنها في هامبورغ منذ أربعة أسابيع ولا تزال تتأقلم. الكثير من الأشياء جديدة بالنسبة لها."
+                    }
+                },
+                {
+                    "id": 12,
+                    "question": "Die Studentengruppe hat …",
+                    "answers": [
+                        {
+                            "text": "den Neuen die Hochschule gezeigt.",
+                            "correct": true
+                        },
+                        {
+                            "text": "für neue Studenten eine Stadtführung gemacht.",
+                            "correct": false
+                        },
+                        {
+                            "text": "Gülcan anderen ausländischen Studenten vorgestellt.",
+                            "correct": false
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The text says: 'ein paar Studenten [haben] eine Willkommensführung für uns ausländische Studierende gemacht. Sie haben uns die Uni gezeigt: die Bibliothek, die Cafeteria und die Multimedia-Räume.' They showed the new students the university, not the city.",
+                        "de": "Im Text steht: 'ein paar Studenten haben eine Willkommensführung gemacht. Sie haben uns die Uni gezeigt.' Sie haben den Neuen die Hochschule gezeigt, nicht die Stadt.",
+                        "fr": "Le texte dit que des étudiants ont fait une visite de bienvenue et leur ont montré l'université, pas la ville.",
+                        "es": "El texto dice que unos estudiantes hicieron una visita de bienvenida y les mostraron la universidad, no la ciudad.",
+                        "ru": "В тексте говорится, что студенты провели экскурсию и показали им университет, а не город.",
+                        "ar": "يقول النص أن بعض الطلاب قاموا بجولة ترحيبية وأروهم الجامعة، وليس المدينة."
+                    }
+                },
+                {
+                    "id": 13,
+                    "question": "In der Wohnung …",
+                    "answers": [
+                        {
+                            "text": "kochen alle zusammen.",
+                            "correct": false
+                        },
+                        {
+                            "text": "kocht Gülcan immer für alle.",
+                            "correct": false
+                        },
+                        {
+                            "text": "kocht jeder einmal für die anderen.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "The text says: 'Immer freitags kocht einer von uns etwas aus seinem Land und wir essen zusammen.' Each person cooks once for the others – they take turns, each cooking a dish from their country.",
+                        "de": "Im Text steht: 'Immer freitags kocht einer von uns etwas aus seinem Land und wir essen zusammen.' Jeder kocht einmal für die anderen – sie wechseln sich ab.",
+                        "fr": "Le texte dit : 'Chaque vendredi, l'un de nous cuisine quelque chose de son pays.' Chacun cuisine à son tour pour les autres.",
+                        "es": "El texto dice: 'Cada viernes, uno de nosotros cocina algo de su país.' Cada uno cocina una vez para los demás.",
+                        "ru": "В тексте говорится: 'Каждую пятницу один из нас готовит что-то из своей страны.' Каждый готовит по очереди для остальных.",
+                        "ar": "يقول النص: 'كل يوم جمعة يطبخ واحد منا شيئاً من بلده.' كل شخص يطبخ مرة للآخرين."
+                    }
+                },
+                {
+                    "id": 14,
+                    "question": "Gülcan ist es wichtig …",
+                    "answers": [
+                        {
+                            "text": "auch Englisch zu üben.",
+                            "correct": false
+                        },
+                        {
+                            "text": "Deutsch zu sprechen.",
+                            "correct": true
+                        },
+                        {
+                            "text": "Herrn Hahn kennenzulernen.",
+                            "correct": false
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Gülcan writes that speaking English in the apartment bothers her a bit: 'mich stört das ein bisschen. Ich möchte dieses Jahr möglichst viel Deutsch lernen.' She wants to learn as much German as possible this year.",
+                        "de": "Gülcan schreibt, dass es sie stört, wenn in der Wohnung Englisch gesprochen wird: 'mich stört das ein bisschen. Ich möchte dieses Jahr möglichst viel Deutsch lernen.' Ihr ist es wichtig, Deutsch zu sprechen.",
+                        "fr": "Gülcan écrit que parler anglais dans l'appartement la dérange un peu. Elle veut apprendre le plus d'allemand possible cette année.",
+                        "es": "Gülcan escribe que le molesta un poco hablar inglés en el apartamento. Quiere aprender el mayor alemán posible este año.",
+                        "ru": "Гюльджан пишет, что ей немного мешает, когда в квартире говорят по-английски. Она хочет выучить как можно больше немецкого в этом году.",
+                        "ar": "تكتب غولجان أن التحدث بالإنجليزية في الشقة يزعجها قليلاً. تريد أن تتعلم أكبر قدر ممكن من الألمانية هذا العام."
+                    }
+                },
+                {
+                    "id": 15,
+                    "question": "Im März …",
+                    "answers": [
+                        {
+                            "text": "besuchen sie Mario zu Hause.",
+                            "correct": false
+                        },
+                        {
+                            "text": "machen Sonja und Gülcan Urlaub am Meer.",
+                            "correct": false
+                        },
+                        {
+                            "text": "übernachtet Sonja in Marios Zimmer.",
+                            "correct": true
+                        }
+                    ],
+                    "explanation": {
+                        "en": "Gülcan writes: 'Du kannst dann bei Mario schlafen. Das ist der Italiener, der neben mir wohnt. Er ist einverstanden, denn er fährt in den Ferien nach Hause.' Sonja will sleep in Mario's room because he's going home to Genoa during the holidays.",
+                        "de": "Gülcan schreibt: 'Du kannst dann bei Mario schlafen. Er fährt in den Ferien nach Hause.' Sonja übernachtet in Marios Zimmer, weil er in den Ferien nach Genua fährt.",
+                        "fr": "Gülcan écrit que Sonja pourra dormir chez Mario car il rentre chez lui à Gênes pendant les vacances.",
+                        "es": "Gülcan escribe que Sonja puede dormir en la habitación de Mario porque él va a casa a Génova durante las vacaciones.",
+                        "ru": "Гюльджан пишет, что Соня может переночевать в комнате Марио, потому что он уезжает домой в Геную на каникулы.",
+                        "ar": "تكتب غولجان أن سونيا يمكنها النوم في غرفة ماريو لأنه يسافر إلى بيته في جنوة خلال العطلة."
+                    }
+                }
+            ]
+        }
+    ]
+}

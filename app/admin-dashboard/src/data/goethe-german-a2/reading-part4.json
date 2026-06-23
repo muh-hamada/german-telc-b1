@@ -1,0 +1,84 @@
+{
+    "exams": [
+        {
+            "id": "ga2-rp4-001",
+            "title": "Lokale und Restaurants",
+            "advertisements": {
+                "a": "**www.park-cafe.de**\nSelbstgemachte Torten, Kuchen und italienisches Eis. Große Sonnenterrasse mit Spielplatz. Alles auch zum Mitnehmen! Täglich außer montags von 14 bis 19 Uhr geöffnet. Bergstraße 7, 89312 Günzburg, Tel. 08221 36152",
+                "b": "**www.feine-speisen.de**\nEgal, wo Sie feiern wollen, wir liefern für Ihre Hochzeit oder andere private Feiern bestes Essen. Z. B. Hochzeitsmenü ab 30 € p. P.; bayerisches Buffet 20,50 € p. P. Wir bieten außerdem Tische und Stühle, Dekoration, Servicepersonal und Kinderbetreuung an.",
+                "c": "**www.weinhaus-walter.de**\nInternationale Spezialitäten. Beste Weine. Jetzt neu: Jeden Tag anderes 3-Gänge-Menü mit Getränk ab 20 € pro Person. Im Sommer auch in unserem ruhigen Garten. Sie finden uns direkt hinter dem Rathaus. Schöner Raum für kleine Feiern.",
+                "d": "**www.cafe-sand.de**\nUrlaub in der Stadtmitte – direkt am Fluss, täglich ab 10.00 Uhr geöffnet. Jeden Samstag und Sonntag gibt es das stadtbekannte große Frühstück. Ab Mai jeden Sonnabend Party mit Live-Musik, ab 22 Uhr. Tischreservierung Tel. 785 43 65.",
+                "e": "**www.towabu.de**\nAuf über 2500 qm auch bei schlechtem Wetter spielen und toben! Tolle Geburtstagspartys mit Super-Programm. Getränke inklusive. Täglich 10 bis 20 Uhr. Auch in den Sommerferien geöffnet.",
+                "f": "**www.hansen-im-moor.de**\nDas Ausflugsrestaurant im Teufelsmoor. Mit dem Bus nur 20 Minuten vom Zentrum! Norddeutsche Küche. Mit Terrasse direkt am See. Sie suchen einen Ort für Ihr Familienfest, Ihre Hochzeit, Ihre Firmenfeier? Sprechen Sie uns an! Unsere Räume bieten Platz für 150 Personen.",
+                "x": "Keine passende Anzeige"
+            },
+            "questions": [
+                {
+                    "id": 16,
+                    "question": "Sarah heiratet bald und möchte mit vielen Gästen in einem Lokal feiern.",
+                    "answer": "f",
+                    "explanation": {
+                        "en": "Sarah is getting married and wants to celebrate with many guests in a restaurant. 'Hansen im Moor' (f) offers space for 150 people and specifically mentions weddings ('Ihre Hochzeit'). While 'feine-speisen' (b) also mentions weddings, they deliver food to wherever you celebrate – they don't have their own venue.",
+                        "de": "Sarah heiratet und möchte mit vielen Gästen in einem Lokal feiern. 'Hansen im Moor' (f) bietet Platz für 150 Personen und erwähnt speziell Hochzeiten. 'Feine Speisen' (b) liefert nur Essen, hat aber kein eigenes Lokal.",
+                        "fr": "Sarah se marie et veut célébrer avec beaucoup d'invités dans un restaurant. 'Hansen im Moor' (f) offre de la place pour 150 personnes et mentionne les mariages.",
+                        "es": "Sarah se casa y quiere celebrar con muchos invitados en un restaurante. 'Hansen im Moor' (f) ofrece espacio para 150 personas y menciona bodas.",
+                        "ru": "Сара выходит замуж и хочет праздновать с большим количеством гостей в ресторане. 'Hansen im Moor' (f) предлагает место для 150 человек и упоминает свадьбы.",
+                        "ar": "سارة ستتزوج وتريد الاحتفال مع الكثير من الضيوف في مطعم. 'Hansen im Moor' (f) يوفر مكاناً لـ 150 شخصاً ويذكر حفلات الزفاف."
+                    }
+                },
+                {
+                    "id": 17,
+                    "question": "Petra will mit Geschäftspartnern in der Stadt essen gehen und über die Arbeit sprechen.",
+                    "answer": "c",
+                    "explanation": {
+                        "en": "Petra wants to eat with business partners in the city and talk about work. 'Weinhaus Walter' (c) is in the city center (behind the town hall), offers international specialties, and has a quiet garden – perfect for a business dinner.",
+                        "de": "Petra möchte mit Geschäftspartnern in der Stadt essen gehen und über die Arbeit sprechen. 'Weinhaus Walter' (c) ist in der Stadtmitte (hinter dem Rathaus), bietet internationale Spezialitäten und hat einen ruhigen Garten – perfekt für ein Geschäftsessen.",
+                        "fr": "Petra veut dîner avec des partenaires commerciaux en ville. 'Weinhaus Walter' (c) est au centre-ville et a un jardin calme – parfait pour un dîner d'affaires.",
+                        "es": "Petra quiere comer con socios comerciales en la ciudad. 'Weinhaus Walter' (c) está en el centro de la ciudad y tiene un jardín tranquilo – perfecto para una cena de negocios.",
+                        "ru": "Петра хочет поужинать с деловыми партнёрами в городе. 'Weinhaus Walter' (c) находится в центре города и имеет тихий сад – идеально для делового ужина.",
+                        "ar": "بيترا تريد تناول الطعام مع شركاء العمل في المدينة. 'Weinhaus Walter' (c) في وسط المدينة ولديه حديقة هادئة – مثالي لعشاء عمل."
+                    }
+                },
+                {
+                    "id": 18,
+                    "question": "Jens feiert seinen Geburtstag zu Hause und möchte guten Wein anbieten.",
+                    "answer": "x",
+                    "explanation": {
+                        "en": "Jens is celebrating his birthday at home and wants to offer good wine. None of the advertisements sell wine to take home. 'Weinhaus Walter' (c) is a restaurant – it doesn't sell wine for home consumption. There is no wine shop among the ads.",
+                        "de": "Jens feiert seinen Geburtstag zu Hause und möchte guten Wein anbieten. Keine der Anzeigen verkauft Wein zum Mitnehmen nach Hause. 'Weinhaus Walter' (c) ist ein Restaurant, kein Weinladen. Es gibt keinen Weinladen unter den Anzeigen.",
+                        "fr": "Jens fête son anniversaire à la maison et veut offrir du bon vin. Aucune des annonces ne vend du vin à emporter. Il n'y a pas de magasin de vin parmi les annonces.",
+                        "es": "Jens celebra su cumpleaños en casa y quiere ofrecer buen vino. Ningún anuncio vende vino para llevar a casa. No hay tienda de vinos entre los anuncios.",
+                        "ru": "Йенс празднует день рождения дома и хочет предложить хорошее вино. Ни одно из объявлений не продаёт вино для дома. Среди объявлений нет винного магазина.",
+                        "ar": "ينس يحتفل بعيد ميلاده في المنزل ويريد تقديم نبيذ جيد. لا يوجد إعلان يبيع النبيذ للمنزل. لا يوجد متجر نبيذ بين الإعلانات."
+                    }
+                },
+                {
+                    "id": 19,
+                    "question": "Karsten lädt am Abend Gäste zu sich nach Hause ein, möchte aber nicht kochen.",
+                    "answer": "b",
+                    "explanation": {
+                        "en": "Karsten is inviting guests to his home in the evening but doesn't want to cook. 'Feine Speisen' (b) delivers food for private events wherever you celebrate ('Egal, wo Sie feiern wollen, wir liefern'). They also provide service staff.",
+                        "de": "Karsten lädt Gäste nach Hause ein, möchte aber nicht kochen. 'Feine Speisen' (b) liefert Essen für private Feiern, egal wo man feiert. Sie bieten auch Servicepersonal an.",
+                        "fr": "Karsten invite des amis chez lui mais ne veut pas cuisiner. 'Feine Speisen' (b) livre de la nourriture pour des événements privés, où que vous célébriez.",
+                        "es": "Karsten invita a amigos a su casa pero no quiere cocinar. 'Feine Speisen' (b) entrega comida para eventos privados, donde sea que celebre.",
+                        "ru": "Карстен приглашает гостей домой, но не хочет готовить. 'Feine Speisen' (b) доставляет еду для частных мероприятий, где бы вы ни праздновали.",
+                        "ar": "كارستن يدعو ضيوفاً إلى منزله لكنه لا يريد الطبخ. 'Feine Speisen' (b) يوصل الطعام للحفلات الخاصة أينما تحتفل."
+                    }
+                },
+                {
+                    "id": 20,
+                    "question": "Gabriele und ihre Tochter feiern Kindergeburtstag und möchten Kuchen essen gehen.",
+                    "answer": "a",
+                    "explanation": {
+                        "en": "Gabriele and her daughter are celebrating a children's birthday and want to eat cake. 'Park-Café' (a) offers homemade cakes and tarts ('Selbstgemachte Torten, Kuchen') and has a playground ('Spielplatz') – perfect for a children's birthday.",
+                        "de": "Gabriele und ihre Tochter feiern Kindergeburtstag und möchten Kuchen essen. 'Park-Café' (a) bietet selbstgemachte Torten und Kuchen und hat einen Spielplatz – perfekt für einen Kindergeburtstag.",
+                        "fr": "Gabriele et sa fille fêtent un anniversaire d'enfant et veulent manger du gâteau. 'Park-Café' (a) offre des gâteaux faits maison et a une aire de jeux.",
+                        "es": "Gabriele y su hija celebran un cumpleaños infantil y quieren comer pastel. 'Park-Café' (a) ofrece pasteles caseros y tiene un parque infantil.",
+                        "ru": "Габриэле и её дочь празднуют детский день рождения и хотят поесть торт. 'Park-Café' (a) предлагает домашние торты и имеет детскую площадку.",
+                        "ar": "غابرييلا وابنتها يحتفلان بعيد ميلاد أطفال ويريدان تناول الكعك. 'Park-Café' (a) يقدم كعكاً منزلياً ولديه ملعب أطفال."
+                    }
+                }
+            ]
+        }
+    ]
+}

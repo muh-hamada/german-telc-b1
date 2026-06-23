@@ -1,0 +1,260 @@
+{
+    "exam_info": {
+        "title": {
+            "en": "Goethe-Zertifikat A2 Exam Overview",
+            "ar": "نظرة عامة على اختبار Goethe-Zertifikat A2",
+            "ru": "Обзор экзамена Goethe-Zertifikat A2",
+            "fr": "Aperçu de l'examen Goethe-Zertifikat A2",
+            "es": "Resumen del examen Goethe-Zertifikat A2",
+            "de": "Überblick über die Prüfung Goethe-Zertifikat A2"
+        },
+        "cefr_level": "A2",
+        "total_duration_minutes": 105,
+        "total_max_points": 100,
+        "passing_score": {
+            "overall_points": 60,
+            "written_component_min_points": 45,
+            "oral_component_min_points": 15,
+            "note": {
+                "en": "A minimum of 60% must be achieved in both the Written (45/75) and Oral (15/25) components to pass the entire exam. In the Written parts (Lesen, Hören, Schreiben), the result of 20 measurement points is multiplied by 1.25 to get the final score of max 25 per section.",
+                "ar": "يجب الحصول على 60٪ على الأقل في كل من الجزء الكتابي (45/75) والشفوي (15/25) لاجتياز الاختبار بالكامل. في الأجزاء الكتابية (القراءة، الاستماع، الكتابة)، تُضرب نتيجة 20 نقطة قياس في 1.25 للحصول على الدرجة النهائية بحد أقصى 25 لكل قسم.",
+                "ru": "Для сдачи экзамена необходимо набрать минимум 60% в обоих компонентах: Письменном (45/75 баллов) и Устном (15/25 баллов). В письменных частях (Чтение, Аудирование, Письмо) результат из 20 измерительных пунктов умножается на 1,25 для получения итогового балла максимум 25 за раздел.",
+                "fr": "Un minimum de 60% doit être atteint dans les DEUX composantes : Écrit (45/75 points) et Oral (15/25 points) pour réussir l'examen. Dans les parties écrites (Lire, Écouter, Écrire), le résultat de 20 points de mesure est multiplié par 1,25 pour obtenir le score final de max 25 par section.",
+                "es": "Se debe alcanzar un mínimo del 60% en AMBOS componentes: Escrito (45/75 puntos) y Oral (15/25 puntos) para aprobar el examen. En las partes escritas (Lectura, Audición, Escritura), el resultado de 20 puntos de medición se multiplica por 1,25 para obtener la puntuación final de máximo 25 por sección.",
+                "de": "Zum Bestehen müssen mindestens 60% in BEIDEN Prüfungsteilen erreicht werden: Schriftliche Prüfung (45/75 Punkte) und Mündliche Prüfung (15/25 Punkte). In den schriftlichen Teilen Lesen, Hören und Schreiben wird das Ergebnis von 20 Messpunkten mit 1,25 multipliziert, um die Endpunktzahl von maximal 25 pro Abschnitt zu erhalten."
+            }
+        },
+        "exam_structure": {
+            "title": {
+                "en": "Detailed Exam Structure and Timing",
+                "ar": "الهيكل التفصيلي للاختبار والتوقيت",
+                "ru": "Подробная структура и тайминг экзамена",
+                "fr": "Structure détaillée de l'examen et calendrier",
+                "es": "Estructura detallada del examen y horarios",
+                "de": "Detaillierte Prüfungsstruktur und Zeitrahmen"
+            },
+            "sections": [
+                {
+                    "name": "Schriftliche Prüfung",
+                    "total_time_minutes": 90,
+                    "max_points": 75,
+                    "weight_percent": 75,
+                    "parts": [
+                        {
+                            "part_name": "1. Lesen",
+                            "time_minutes": 30,
+                            "max_points": 25,
+                            "measurement_points": 20,
+                            "multiplier": 1.25,
+                            "question_type_detail": {
+                                "en": "Four parts: Part 1 – Read a newspaper text and answer 5 multiple-choice questions (a/b/c). Part 2 – Read an information board (department store directory) and match situations to floors (5 questions, a/b/c). Part 3 – Read an email and answer 5 multiple-choice questions (a/b/c). Part 4 – Match 5 people to advertisements (a-f), one situation has no matching ad (x).",
+                                "de": "Vier Teile: Teil 1 – Einen Zeitungstext lesen und 5 Multiple-Choice-Fragen (a/b/c) beantworten. Teil 2 – Eine Informationstafel (Kaufhausverzeichnis) lesen und Situationen den Stockwerken zuordnen (5 Fragen, a/b/c). Teil 3 – Eine E-Mail lesen und 5 Multiple-Choice-Fragen (a/b/c) beantworten. Teil 4 – 5 Personen Anzeigen (a-f) zuordnen, eine Situation hat keine passende Anzeige (x).",
+                                "ar": "أربعة أجزاء: الجزء 1 – قراءة نص من جريدة والإجابة على 5 أسئلة اختيار من متعدد. الجزء 2 – قراءة لوحة معلومات والإجابة على 5 أسئلة. الجزء 3 – قراءة بريد إلكتروني والإجابة على 5 أسئلة. الجزء 4 – مطابقة 5 أشخاص مع إعلانات.",
+                                "ru": "Четыре части: Часть 1 – Прочитать газетный текст и ответить на 5 вопросов с выбором ответа. Часть 2 – Прочитать информационную доску и соотнести ситуации с этажами. Часть 3 – Прочитать email и ответить на 5 вопросов. Часть 4 – Соотнести 5 человек с объявлениями.",
+                                "fr": "Quatre parties : Partie 1 – Lire un texte de journal et répondre à 5 questions à choix multiples. Partie 2 – Lire un tableau d'information et associer des situations aux étages. Partie 3 – Lire un e-mail et répondre à 5 questions. Partie 4 – Associer 5 personnes à des annonces.",
+                                "es": "Cuatro partes: Parte 1 – Leer un texto periodístico y responder 5 preguntas de opción múltiple. Parte 2 – Leer un tablero de información y asociar situaciones con pisos. Parte 3 – Leer un correo electrónico y responder 5 preguntas. Parte 4 – Asociar 5 personas con anuncios."
+                            }
+                        },
+                        {
+                            "part_name": "2. Hören",
+                            "time_minutes": 30,
+                            "max_points": 25,
+                            "measurement_points": 20,
+                            "multiplier": 1.25,
+                            "question_type_detail": {
+                                "en": "Four parts: Part 1 – Listen to 5 short texts (heard twice), answer multiple-choice (a/b/c). Part 2 – Listen to a conversation (heard once), match activities to days of the week using pictures (a-i). Part 3 – Listen to 5 short conversations (heard once), answer picture-based multiple-choice (a/b/c). Part 4 – Listen to an interview (heard twice), answer Yes/No questions.",
+                                "de": "Vier Teile: Teil 1 – 5 kurze Texte hören (zweimal), Multiple-Choice beantworten (a/b/c). Teil 2 – Ein Gespräch hören (einmal), Aktivitäten den Wochentagen zuordnen mit Bildern (a-i). Teil 3 – 5 kurze Gespräche hören (einmal), bildbasierte Multiple-Choice-Fragen beantworten (a/b/c). Teil 4 – Ein Interview hören (zweimal), Ja/Nein-Fragen beantworten.",
+                                "ar": "أربعة أجزاء: الجزء 1 – الاستماع إلى 5 نصوص قصيرة والإجابة على أسئلة اختيار من متعدد. الجزء 2 – الاستماع إلى محادثة ومطابقة الأنشطة مع أيام الأسبوع. الجزء 3 – الاستماع إلى 5 محادثات قصيرة والإجابة على أسئلة. الجزء 4 – الاستماع إلى مقابلة والإجابة بنعم/لا.",
+                                "ru": "Четыре части: Часть 1 – Прослушать 5 коротких текстов и ответить на вопросы с выбором ответа. Часть 2 – Прослушать разговор и соотнести занятия с днями недели. Часть 3 – Прослушать 5 коротких разговоров и ответить на вопросы. Часть 4 – Прослушать интервью и ответить Да/Нет.",
+                                "fr": "Quatre parties : Partie 1 – Écouter 5 textes courts et répondre à des questions à choix multiples. Partie 2 – Écouter une conversation et associer des activités aux jours. Partie 3 – Écouter 5 conversations courtes et répondre à des questions. Partie 4 – Écouter une interview et répondre Oui/Non.",
+                                "es": "Cuatro partes: Parte 1 – Escuchar 5 textos cortos y responder preguntas de opción múltiple. Parte 2 – Escuchar una conversación y asociar actividades con días. Parte 3 – Escuchar 5 conversaciones cortas y responder preguntas. Parte 4 – Escuchar una entrevista y responder Sí/No."
+                            }
+                        },
+                        {
+                            "part_name": "3. Schreiben",
+                            "time_minutes": 30,
+                            "max_points": 25,
+                            "measurement_points": 20,
+                            "multiplier": 1.25,
+                            "question_type_detail": {
+                                "en": "Two parts: Part 1 – Write a short personal message (SMS) to a friend, addressing 3 given points (20-30 words). Part 2 – Write a semi-formal email, addressing 3 given points (30-40 words).",
+                                "de": "Zwei Teile: Teil 1 – Eine kurze persönliche Nachricht (SMS) an einen Freund schreiben, 3 vorgegebene Punkte behandeln (20-30 Wörter). Teil 2 – Eine halbformelle E-Mail schreiben, 3 vorgegebene Punkte behandeln (30-40 Wörter).",
+                                "ar": "جزءان: الجزء 1 – كتابة رسالة شخصية قصيرة (SMS) لصديق مع معالجة 3 نقاط (20-30 كلمة). الجزء 2 – كتابة بريد إلكتروني شبه رسمي مع معالجة 3 نقاط (30-40 كلمة).",
+                                "ru": "Две части: Часть 1 – Написать короткое личное сообщение (SMS) другу, затронув 3 заданных пункта (20-30 слов). Часть 2 – Написать полуофициальное электронное письмо, затронув 3 пункта (30-40 слов).",
+                                "fr": "Deux parties : Partie 1 – Écrire un court message personnel (SMS) à un ami, en abordant 3 points donnés (20-30 mots). Partie 2 – Écrire un e-mail semi-formel, en abordant 3 points donnés (30-40 mots).",
+                                "es": "Dos partes: Parte 1 – Escribir un mensaje personal corto (SMS) a un amigo, abordando 3 puntos dados (20-30 palabras). Parte 2 – Escribir un correo electrónico semiformal, abordando 3 puntos dados (30-40 palabras)."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Mündliche Prüfung",
+                    "total_time_minutes": 15,
+                    "max_points": 25,
+                    "weight_percent": 25,
+                    "parts": [
+                        {
+                            "part_name": "1. Fragen zur Person",
+                            "time_minutes": 5,
+                            "max_points": 8,
+                            "question_type_detail": {
+                                "en": "Exchange personal information with a partner using prompt cards. Each candidate receives 4 cards with topics (e.g., birthday, residence, job, hobby) and asks their partner questions.",
+                                "de": "Mit einem Partner persönliche Informationen anhand von Fragekarten austauschen. Jeder Kandidat erhält 4 Karten mit Themen (z.B. Geburtstag, Wohnort, Beruf, Hobby) und stellt dem Partner Fragen.",
+                                "ar": "تبادل المعلومات الشخصية مع شريك باستخدام بطاقات. يحصل كل مرشح على 4 بطاقات بمواضيع ويطرح أسئلة على شريكه.",
+                                "ru": "Обмен личной информацией с партнёром с использованием карточек-подсказок. Каждый кандидат получает 4 карточки с темами и задаёт вопросы партнёру.",
+                                "fr": "Échanger des informations personnelles avec un partenaire à l'aide de cartes. Chaque candidat reçoit 4 cartes avec des sujets et pose des questions à son partenaire.",
+                                "es": "Intercambiar información personal con un compañero usando tarjetas. Cada candidato recibe 4 tarjetas con temas y hace preguntas a su compañero."
+                            }
+                        },
+                        {
+                            "part_name": "2. Von sich erzählen",
+                            "time_minutes": 5,
+                            "max_points": 8,
+                            "question_type_detail": {
+                                "en": "Tell the examiner about your own life in detail. You receive a card with a central question and 4 related subtopics to guide your monologue.",
+                                "de": "Dem Prüfer ausführlich über das eigene Leben erzählen. Man erhält eine Karte mit einer zentralen Frage und 4 verwandten Unterthemen als Leitfaden für den Monolog.",
+                                "ar": "أخبر المُمتحن عن حياتك بالتفصيل. تحصل على بطاقة بسؤال مركزي و4 مواضيع فرعية لتوجيه حديثك.",
+                                "ru": "Рассказать экзаменатору подробно о своей жизни. Вы получите карточку с центральным вопросом и 4 связанными подтемами.",
+                                "fr": "Raconter en détail au/à la examinateur/trice sa propre vie. On reçoit une carte avec une question centrale et 4 sous-thèmes pour guider le monologue.",
+                                "es": "Contar al examinador sobre su propia vida en detalle. Recibe una tarjeta con una pregunta central y 4 subtemas para guiar su monólogo."
+                            }
+                        },
+                        {
+                            "part_name": "3. Etwas aushandeln",
+                            "time_minutes": 5,
+                            "max_points": 9,
+                            "question_type_detail": {
+                                "en": "Plan something with your partner (e.g., find a time for shopping). Both candidates receive a schedule card and must negotiate to find a suitable time slot.",
+                                "de": "Mit dem Partner etwas planen (z.B. einen Termin zum Einkaufen finden). Beide Kandidaten erhalten einen Terminplan und müssen verhandeln, um einen passenden Zeitpunkt zu finden.",
+                                "ar": "خطط لشيء مع شريكك (مثل إيجاد وقت للتسوق). يحصل كلا المرشحين على جدول مواعيد ويجب التفاوض لإيجاد وقت مناسب.",
+                                "ru": "Спланировать что-то с партнёром (например, найти время для покупок). Оба кандидата получают расписание и должны договориться о подходящем времени.",
+                                "fr": "Planifier quelque chose avec son partenaire (ex: trouver un moment pour faire des achats). Les deux candidats reçoivent un emploi du temps et doivent négocier pour trouver un créneau.",
+                                "es": "Planificar algo con su compañero (ej: encontrar un momento para ir de compras). Ambos candidatos reciben un horario y deben negociar para encontrar un momento adecuado."
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "assessment_score": {
+            "title": {
+                "en": "Assessment Criteria and Maximum Scores by Section",
+                "ar": "معايير التقييم والحد الأقصى للدرجات حسب القسم",
+                "ru": "Критерии оценки и максимальные баллы по разделам",
+                "fr": "Critères d'évaluation et scores maximums par section",
+                "es": "Criterios de evaluación y puntuaciones máximas por sección",
+                "de": "Bewertungskriterien und Höchstpunktzahlen nach Teilbereich"
+            },
+            "assessment_details": [
+                {
+                    "section_name": "Lesen",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "Leseverstehen",
+                            "max_points": 25,
+                            "explanation": {
+                                "en": "20 items × 1 point each = 20 measurement points × 1.25 = 25 points maximum. Four parts testing global, detailed, and selective reading comprehension with multiple-choice and matching tasks.",
+                                "de": "20 Aufgaben × 1 Punkt = 20 Messpunkte × 1,25 = 25 Punkte maximal. Vier Teile testen globales, detailliertes und selektives Leseverstehen mit Multiple-Choice- und Zuordnungsaufgaben.",
+                                "ar": "20 مهمة × نقطة واحدة = 20 نقطة قياس × 1.25 = 25 نقطة بحد أقصى.",
+                                "ru": "20 заданий × 1 балл = 20 измерительных пунктов × 1,25 = максимум 25 баллов.",
+                                "fr": "20 items × 1 point = 20 points de mesure × 1,25 = 25 points maximum.",
+                                "es": "20 ítems × 1 punto = 20 puntos de medición × 1,25 = 25 puntos máximo."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "section_name": "Hören",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "Hörverstehen",
+                            "max_points": 25,
+                            "explanation": {
+                                "en": "20 items × 1 point each = 20 measurement points × 1.25 = 25 points maximum. Four parts testing comprehension of radio announcements, conversations, short dialogues, and interviews.",
+                                "de": "20 Aufgaben × 1 Punkt = 20 Messpunkte × 1,25 = 25 Punkte maximal. Vier Teile testen das Verstehen von Radioansagen, Gesprächen, kurzen Dialogen und Interviews.",
+                                "ar": "20 مهمة × نقطة واحدة = 20 نقطة قياس × 1.25 = 25 نقطة بحد أقصى.",
+                                "ru": "20 заданий × 1 балл = 20 измерительных пунктов × 1,25 = максимум 25 баллов.",
+                                "fr": "20 items × 1 point = 20 points de mesure × 1,25 = 25 points maximum.",
+                                "es": "20 ítems × 1 punto = 20 puntos de medición × 1,25 = 25 puntos máximo."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "section_name": "Schreiben",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "I. Teil 1: Persönliche Mitteilung",
+                            "max_points": 10,
+                            "explanation": {
+                                "en": "Write a short personal message (SMS) addressing 3 content points. Evaluated on: Task fulfillment (are all 3 points addressed appropriately?) and Language (register, coherence, vocabulary, structures).",
+                                "de": "Eine kurze persönliche Nachricht (SMS) schreiben, die 3 inhaltliche Punkte behandelt. Bewertet nach: Aufgabenerfüllung (sind alle 3 Punkte angemessen behandelt?) und Sprache (Register, Kohärenz, Wortschatz, Strukturen).",
+                                "ar": "كتابة رسالة شخصية قصيرة تعالج 3 نقاط محتوى. يتم التقييم على أساس: تحقيق المهمة واللغة.",
+                                "ru": "Написать короткое личное сообщение, затрагивающее 3 пункта содержания. Оценивается: выполнение задания и язык.",
+                                "fr": "Écrire un court message personnel abordant 3 points de contenu. Évalué sur : réalisation de la tâche et langue.",
+                                "es": "Escribir un mensaje personal corto abordando 3 puntos de contenido. Evaluado por: cumplimiento de la tarea e idioma."
+                            }
+                        },
+                        {
+                            "name": "II. Teil 2: Halbformelle Mitteilung",
+                            "max_points": 15,
+                            "explanation": {
+                                "en": "Write a semi-formal email addressing 3 content points. Evaluated on: Task fulfillment (A-E scale) and Language quality (A-E scale). Higher word count (30-40 words) and more formal register required.",
+                                "de": "Eine halbformelle E-Mail schreiben, die 3 inhaltliche Punkte behandelt. Bewertet nach: Aufgabenerfüllung (A-E Skala) und Sprachqualität (A-E Skala). Höhere Wortanzahl (30-40 Wörter) und formelleres Register erforderlich.",
+                                "ar": "كتابة بريد إلكتروني شبه رسمي يعالج 3 نقاط محتوى. يتم التقييم على مقياس A-E.",
+                                "ru": "Написать полуофициальное электронное письмо, затрагивающее 3 пункта содержания. Оценивается по шкале A-E.",
+                                "fr": "Écrire un e-mail semi-formel abordant 3 points de contenu. Évalué sur une échelle A-E.",
+                                "es": "Escribir un correo electrónico semiformal abordando 3 puntos de contenido. Evaluado en una escala A-E."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "section_name": "Sprechen",
+                    "max_points": 25,
+                    "criteria": [
+                        {
+                            "name": "I. Teil 1: Fragen zur Person",
+                            "max_points": 8,
+                            "explanation": {
+                                "en": "Exchange personal information with a partner. Evaluated on ability to ask and answer questions about personal topics using prompt cards.",
+                                "de": "Persönliche Informationen mit einem Partner austauschen. Bewertet wird die Fähigkeit, Fragen zu persönlichen Themen anhand von Fragekarten zu stellen und zu beantworten.",
+                                "ar": "تبادل المعلومات الشخصية مع شريك. يتم تقييم القدرة على طرح الأسئلة والإجابة عليها.",
+                                "ru": "Обмен личной информацией с партнёром. Оценивается способность задавать и отвечать на вопросы.",
+                                "fr": "Échanger des informations personnelles avec un partenaire. Évalué sur la capacité à poser et répondre aux questions.",
+                                "es": "Intercambiar información personal con un compañero. Evaluado por la capacidad de hacer y responder preguntas."
+                            }
+                        },
+                        {
+                            "name": "II. Teil 2: Von sich erzählen",
+                            "max_points": 8,
+                            "explanation": {
+                                "en": "Tell the examiner about your own life. Evaluated on ability to give detailed information about a personal topic guided by a prompt card.",
+                                "de": "Dem Prüfer über das eigene Leben erzählen. Bewertet wird die Fähigkeit, anhand einer Themenkarte ausführlich über ein persönliches Thema zu berichten.",
+                                "ar": "أخبر المُمتحن عن حياتك. يتم تقييم القدرة على تقديم معلومات مفصلة.",
+                                "ru": "Рассказать экзаменатору о своей жизни. Оценивается способность подробно рассказывать на личную тему.",
+                                "fr": "Raconter sa vie à l'examinateur. Évalué sur la capacité à donner des informations détaillées.",
+                                "es": "Contar al examinador sobre su vida. Evaluado por la capacidad de dar información detallada."
+                            }
+                        },
+                        {
+                            "name": "III. Teil 3: Etwas aushandeln",
+                            "max_points": 9,
+                            "explanation": {
+                                "en": "Plan and negotiate something with a partner. Evaluated on ability to make suggestions, respond to proposals, and find a common solution.",
+                                "de": "Mit einem Partner etwas planen und verhandeln. Bewertet wird die Fähigkeit, Vorschläge zu machen, auf Vorschläge zu reagieren und eine gemeinsame Lösung zu finden.",
+                                "ar": "التخطيط والتفاوض على شيء مع شريك. يتم تقييم القدرة على تقديم اقتراحات وإيجاد حل مشترك.",
+                                "ru": "Спланировать и обсудить что-то с партнёром. Оценивается способность предлагать, реагировать на предложения и находить общее решение.",
+                                "fr": "Planifier et négocier quelque chose avec un partenaire. Évalué sur la capacité à faire des propositions et trouver une solution commune.",
+                                "es": "Planificar y negociar algo con un compañero. Evaluado por la capacidad de hacer propuestas y encontrar una solución común."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -20,6 +20,7 @@ const STORE_ID_MAP: Record<string, { iosNumericId: string; androidPackageName: s
   'english-b1':       { iosNumericId: '6755912773', androidPackageName: 'com.mhamada.telcb1english' },
   'english-b2':       { iosNumericId: '6756295159', androidPackageName: 'com.mhamada.telcb2english' },
   'goethe-german-a1': { iosNumericId: '6759726606', androidPackageName: 'com.mhamada.goethea1german' },
+  'goethe-german-a2': { iosNumericId: '', androidPackageName: 'com.mhamada.goethea2german' },
   'dele-spanish-b1':  { iosNumericId: '6758210099', androidPackageName: 'com.mhamada.deleb1spanish' },
 };
 

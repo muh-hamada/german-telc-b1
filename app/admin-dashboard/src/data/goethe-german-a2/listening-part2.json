@@ -1,0 +1,99 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 2",
+        "instructions_de": "Sie hören ein Gespräch. Sie hören den Text einmal. Was machen der Mann und die Frau in der Woche? Wählen Sie für die Aufgaben 6 bis 10 ein passendes Bild aus a bis i. Wählen Sie jeden Buchstaben nur einmal.",
+        "instructions_en": "You will hear a conversation. You will hear the text once. What do the man and woman do during the week? Choose a matching picture from a to i for tasks 6 to 10. Use each letter only once.",
+        "instructions_ar": "ستسمع محادثة. ستسمع النص مرة واحدة. ماذا يفعل الرجل والمرأة خلال الأسبوع؟ اختر صورة مناسبة من a إلى i للمهام من 6 إلى 10. استخدم كل حرف مرة واحدة فقط.",
+        "instructions_ru": "Вы услышите разговор. Текст прозвучит один раз. Что делают мужчина и женщина в течение недели? Выберите подходящую картинку от a до i для заданий 6-10. Используйте каждую букву только один раз.",
+        "instructions_fr": "Vous entendrez une conversation. Vous entendrez le texte une seule fois. Que font l'homme et la femme pendant la semaine ? Choisissez une image correspondante de a à i pour les tâches 6 à 10. Utilisez chaque lettre une seule fois.",
+        "instructions_es": "Escucharás una conversación. Escucharás el texto una vez. ¿Qué hacen el hombre y la mujer durante la semana? Elige una imagen correspondiente de a a i para las tareas 6 a 10. Usa cada letra solo una vez.",
+        "duration_minutes": 7,
+        "prep_time_seconds": 0
+    },
+    "exams": [
+        {
+            "id": "ga2-lp2-001",
+            "title": "Urlaubswoche zu Hause – Aktivitäten planen",
+            "audio_url": "",
+            "audio_transcription": "Mann: Sag mal, hast du schon Ideen für unsere Woche Urlaub? Wir wollen ja zu Hause bleiben, aber ich möchte schon jeden Tag etwas Besonderes machen. Vielleicht ein bisschen Sport? Oder Kultur?\n\nFrau: Mal sehen, wir könnten ins Kino gehen, am Montag kommt ein guter Film.\nMann: Gute Idee! Montags gibt's dort Ermäßigung!\n\nFrau: Und am Dienstag müssen wir zu unserem Tanzkurs, oder?\nMann: Diese Woche nicht, die Lehrerin ist auch im Urlaub. Wir könnten ins Theater gehen, ich hab gesehen, es gibt ein interessantes Stück.\nFrau: Mhhm, warum nicht. Dann müssen wir am Mittwoch aber Sport machen!\nMann: Klar, wir können schwimmen gehen, im neuen Schwimmbad!\nFrau: Aber du weißt doch, dass ich das nicht gerne mache. Können wir nicht einen Ausflug mit dem Rad machen?\nMann: Okay, das macht mir ja auch Spaß. Und was machen wir am Donnerstag und Freitag?\nFrau: Am Donnerstag können wir Eis essen gehen, bei Francesco!\nMann: Moment, Donnerstagabend sind wir bei Julia und Tim zum Kochen eingeladen. Da sollten wir vorher nicht so viel essen.\nFrau: Ja, da hast du recht. Und wegen Freitag, da gehen wir zum Konzert vorm Rathaus! Da spielen tolle Bands.\nMann: Okay, wie du möchtest. Aber am nächsten Tag, am Samstag, darfst du dann nicht so lange schlafen, da ist nämlich unsere Schifffahrt auf der Elbe.\nFrau: Keine Sorge, ich werde früh wach sein und dir sogar das Frühstück ans Bett bringen! (lacht)",
+            "options": {
+                "a": "Kino",
+                "b": "Theater",
+                "c": "Schwimmen",
+                "d": "Radfahren",
+                "e": "Eis essen",
+                "f": "Kochen / Einladung zum Essen",
+                "g": "Konzert",
+                "h": "Schifffahrt",
+                "i": "Tanzkurs"
+            },
+            "questions": [
+                {
+                    "id": 6,
+                    "question": "Dienstag",
+                    "answer": "b",
+                    "explanation": {
+                        "en": "On Tuesday, they originally had a dance class, but the teacher is on vacation. Instead, they decide to go to the theater ('Wir könnten ins Theater gehen').",
+                        "de": "Am Dienstag hatten sie eigentlich Tanzkurs, aber die Lehrerin ist im Urlaub. Stattdessen entscheiden sie sich fürs Theater.",
+                        "fr": "Le mardi, ils devaient avoir un cours de danse, mais la professeure est en vacances. Ils décident d'aller au théâtre.",
+                        "es": "El martes tenían clase de baile, pero la profesora está de vacaciones. Deciden ir al teatro.",
+                        "ru": "Во вторник у них должен был быть курс танцев, но учительница в отпуске. Они решают пойти в театр.",
+                        "ar": "يوم الثلاثاء كان لديهم درس رقص، لكن المعلمة في إجازة. يقررون الذهاب إلى المسرح."
+                    }
+                },
+                {
+                    "id": 7,
+                    "question": "Mittwoch",
+                    "answer": "d",
+                    "explanation": {
+                        "en": "On Wednesday, they want to do sports. The man suggests swimming, but the woman doesn't like it. They agree on a bike trip ('einen Ausflug mit dem Rad machen').",
+                        "de": "Am Mittwoch wollen sie Sport machen. Der Mann schlägt Schwimmen vor, aber die Frau mag das nicht. Sie einigen sich auf eine Radtour.",
+                        "fr": "Le mercredi, ils veulent faire du sport. L'homme propose la natation, mais la femme n'aime pas ça. Ils s'accordent sur une balade à vélo.",
+                        "es": "El miércoles quieren hacer deporte. El hombre sugiere nadar, pero a la mujer no le gusta. Se ponen de acuerdo en ir en bicicleta.",
+                        "ru": "В среду они хотят заниматься спортом. Мужчина предлагает плавание, но женщине это не нравится. Они договариваются о велосипедной прогулке.",
+                        "ar": "يوم الأربعاء يريدون ممارسة الرياضة. يقترح الرجل السباحة، لكن المرأة لا تحب ذلك. يتفقون على جولة بالدراجة."
+                    }
+                },
+                {
+                    "id": 8,
+                    "question": "Donnerstag",
+                    "answer": "f",
+                    "explanation": {
+                        "en": "On Thursday, the woman suggests eating ice cream, but the man reminds her they are invited to Julia and Tim's place for cooking/dinner ('Donnerstagabend sind wir bei Julia und Tim zum Kochen eingeladen').",
+                        "de": "Am Donnerstag schlägt die Frau Eis essen vor, aber der Mann erinnert sie, dass sie bei Julia und Tim zum Kochen eingeladen sind.",
+                        "fr": "Le jeudi, la femme propose de manger des glaces, mais l'homme lui rappelle qu'ils sont invités chez Julia et Tim pour cuisiner.",
+                        "es": "El jueves, la mujer sugiere comer helado, pero el hombre le recuerda que están invitados a cocinar en casa de Julia y Tim.",
+                        "ru": "В четверг женщина предлагает поесть мороженое, но мужчина напоминает, что их пригласили к Юлии и Тиму на ужин.",
+                        "ar": "يوم الخميس تقترح المرأة أكل الآيس كريم، لكن الرجل يذكرها بأنهم مدعوون عند يوليا وتيم للطبخ."
+                    }
+                },
+                {
+                    "id": 9,
+                    "question": "Freitag",
+                    "answer": "g",
+                    "explanation": {
+                        "en": "On Friday, they will go to a concert in front of the town hall ('da gehen wir zum Konzert vorm Rathaus! Da spielen tolle Bands').",
+                        "de": "Am Freitag gehen sie zum Konzert vorm Rathaus, wo tolle Bands spielen.",
+                        "fr": "Le vendredi, ils vont au concert devant l'hôtel de ville où de super groupes jouent.",
+                        "es": "El viernes van al concierto frente al ayuntamiento donde tocan bandas geniales.",
+                        "ru": "В пятницу они идут на концерт перед ратушей, где играют отличные группы.",
+                        "ar": "يوم الجمعة يذهبون إلى الحفلة الموسيقية أمام مبنى البلدية حيث تعزف فرق رائعة."
+                    }
+                },
+                {
+                    "id": 10,
+                    "question": "Samstag",
+                    "answer": "h",
+                    "explanation": {
+                        "en": "On Saturday, they have a boat trip on the Elbe river ('da ist nämlich unsere Schifffahrt auf der Elbe'). The man tells the woman not to sleep late.",
+                        "de": "Am Samstag haben sie eine Schifffahrt auf der Elbe. Der Mann sagt der Frau, sie soll nicht so lange schlafen.",
+                        "fr": "Le samedi, ils font une croisière sur l'Elbe. L'homme dit à la femme de ne pas trop dormir.",
+                        "es": "El sábado tienen un paseo en barco por el Elba. El hombre le dice a la mujer que no duerma mucho.",
+                        "ru": "В субботу у них прогулка на теплоходе по Эльбе. Мужчина говорит женщине не спать долго.",
+                        "ar": "يوم السبت لديهم رحلة بالسفينة على نهر الإلبه. يقول الرجل للمرأة ألا تنام طويلاً."
+                    }
+                }
+            ]
+        }
+    ]
+}

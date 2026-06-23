@@ -1,0 +1,22 @@
+Goethe A2 is quite similar to Telc A2 exam but with some difference is a few question format and the order of the questions
+
+Below is a mapping from Goethe to Telc
+
+
+reading
+- part 1: similar to Telc A2 part 2 question (read text and select correct answer - not true/false like Telc)
+- part 2: similar to Telc A2 part 1 question (building info)
+- part 3: different (read email and answer multi choice question)
+- part 4: similar to Telc A2 part 3 question (match text with ads)
+
+listening
+- part 1: similar to Telc A2 part 2 question (listen to text short twice and answer multi choice)
+- part 2: similar to Telc A2 part 3 question (listen to conversation once and choose from choises)
+- part 3: similar to Telc A2 part 2 question (listen to text but only once and answer multi choice)
+- part 4: similar to Telc b1 part 2 question (listen to interview twice and answer true/false) questions
+
+writing (page 22)
+- part 1: write a short message to a friend (informal) (similar to B1/B2 writing questions)
+- part 2: writte an email to a person (formal) (similar to B1/B2 writing questions)
+
+--- skip speaking section for now

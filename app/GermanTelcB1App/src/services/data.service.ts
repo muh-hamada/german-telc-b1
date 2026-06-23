@@ -336,6 +336,73 @@ class DataService {
     return exams.find(exam => exam.id.toString() === id.toString());
   }
 
+  // ===== Goethe A2 Reading Parts =====
+
+  // Goethe A2 Reading Part 1 (Newspaper text + multi-choice)
+  async getReadingPart1GoetheA2Exams(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('reading-part1', null);
+    return data?.exams || [];
+  }
+
+  async getReadingPart1GoetheA2ExamById(id: string): Promise<any | undefined> {
+    const exams = await this.getReadingPart1GoetheA2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Goethe A2 Reading Part 2 (Kaufhaus directory)
+  async getReadingPart2GoetheA2Exams(): Promise<any[]> {
+    return await this.fetchFromFirestore('reading-part2', null);
+  }
+
+  async getReadingPart2GoetheA2ExamById(id: string): Promise<any | undefined> {
+    const exams = await this.getReadingPart2GoetheA2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Goethe A2 Reading Part 3 (Email + multi-choice)
+  async getReadingPart3GoetheA2Exams(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('reading-part3', null);
+    return data?.exams || [];
+  }
+
+  async getReadingPart3GoetheA2ExamById(id: string): Promise<any | undefined> {
+    const exams = await this.getReadingPart3GoetheA2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // Goethe A2 Reading Part 4 (Advertisement matching)
+  async getReadingPart4GoetheA2Exams(): Promise<any[]> {
+    const data = await this.fetchFromFirestore('reading-part4', null);
+    return data?.exams || [];
+  }
+
+  async getReadingPart4GoetheA2ExamById(id: string): Promise<any | undefined> {
+    const exams = await this.getReadingPart4GoetheA2Exams();
+    return exams.find(exam => exam.id.toString() === id.toString());
+  }
+
+  // ===== Goethe A2 Listening Parts =====
+
+  // Goethe A2 Listening Part 1 (Short texts, multi-choice)
+  async getListeningPart1GoetheA2Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part1', null);
+  }
+
+  // Goethe A2 Listening Part 2 (Conversation matching)
+  async getListeningPart2GoetheA2Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part2', null);
+  }
+
+  // Goethe A2 Listening Part 3 (Short conversations, multi-choice)
+  async getListeningPart3GoetheA2Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part3', null);
+  }
+
+  // Goethe A2 Listening Part 4 (Interview, Ja/Nein)
+  async getListeningPart4GoetheA2Content(): Promise<any> {
+    return await this.fetchFromFirestore('listening-part4', null);
+  }
+
   // Writing
   async getWritingExams(): Promise<WritingExam[]> {
     const data = await this.fetchFromFirestore('writing', null);
@@ -444,7 +511,8 @@ class DataService {
   // Exam Info (structure, assessment criteria, etc.)
   async getExamInfo(): Promise<any> {
     const isGoetheGermanA1 = activeExamConfig.id === 'goethe-german-a1'
-    const collectionName = isGoetheGermanA1 ? 'goethe-exam-info' : 'exam-info';
+    const isGoetheGermanA2 = activeExamConfig.id === 'goethe-german-a2'
+    const collectionName = (isGoetheGermanA1 || isGoetheGermanA2) ? 'goethe-exam-info' : 'exam-info';
     return await this.fetchFromFirestore(collectionName, null);
   }
 

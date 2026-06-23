@@ -17,8 +17,8 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Apps to build (can be configured)
-# german-a1,goethe-german-a1,german-a2,german-b1,german-b2,english-b1,english-b2,dele-spanish-b1
-DEFAULT_APPS=("german-a1" "goethe-german-a1" "german-a2" "german-b1" "german-b2" "english-b1" "english-b2" "dele-spanish-b1")
+# german-a1,goethe-german-a1,goethe-german-a2,german-a2,german-b1,german-b2,english-b1,english-b2,dele-spanish-b1
+DEFAULT_APPS=("german-a1" "goethe-german-a1" "goethe-german-a2" "german-a2" "german-b1" "german-b2" "english-b1" "english-b2" "dele-spanish-b1")
 
 # Usage message
 usage() {
@@ -41,7 +41,7 @@ usage() {
   echo ""
   echo "Examples:"
   echo "  ./release-all.sh 0"
-  echo "  ./release-all.sh 0 --apps german-a1,goethe-german-a1,german-b1,english-b2"
+  echo "  ./release-all.sh 0 --apps german-a1,goethe-german-a1,goethe-german-a2,german-b1,english-b2"
   echo "  ./release-all.sh 0 --android-only"
   echo "  ./release-all.sh 0 --skip-build --rollout 0.1"
   echo "  ./release-all.sh 0 --debug"

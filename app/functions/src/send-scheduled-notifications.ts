@@ -148,14 +148,16 @@ const STREAK_MESSAGES_WITH_NAME: { [key: string]: string } = {
 };
 
 // App IDs to check for streaks (in priority order)
-const STREAK_APP_IDS = ['german-b1', 'german-b2', 'english-b1', 'english-b2', 'dele-spanish-b1'];
+const STREAK_APP_IDS = ['german-a1', 'goethe-german-a1', 'german-a2', 'goethe-german-a2', 'german-b1', 'german-b2', 'english-b1', 'english-b2', 'dele-spanish-b1'];
 
 // Placeholder image URL
 const NOTIFICATION_IMAGE_URL = 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification-logo.jpg?alt=media';
 
 const NOTIFICATION_IMAGE_URLS = {
   'german-a1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-a1.png?alt=media',
+  'goethe-german-a1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-goethe-german-a1.png?alt=media',
   'german-a2': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-a2.png?alt=media',
+  'goethe-german-a2': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-goethe-german-a2.png?alt=media',
   'german-b1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-b1.png?alt=media',
   'german-b2': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-german-b2.png?alt=media',
   'english-b1': 'https://firebasestorage.googleapis.com/v0/b/telc-b1-german.firebasestorage.app/o/notification%2Flogo-ios-english-b1.png?alt=media',

@@ -568,6 +568,12 @@
           "part2": "Lesen Sie den Langtext und beantworten Sie WAHR/FALSCH-Fragen",
           "part1": "Lesen Sie Informationen zu einem Gebäude und beantworten Sie Fragen",
           "part3": "Ordnen Sie Situationen der Werbung zu"
+        },
+        "goetheA2": {
+          "part1": "Einen Zeitungsartikel lesen und Multiple-Choice-Fragen beantworten",
+          "part2": "Ein Kaufhaus-Verzeichnis lesen und das richtige Stockwerk finden",
+          "part3": "Eine E-Mail lesen und Multiple-Choice-Fragen beantworten",
+          "part4": "Bedürfnisse von Personen der passenden Anzeige zuordnen"
         }
       },
       "part1": "Teil 1: Passende Überschriften",
@@ -578,6 +584,12 @@
         "part1": "Teil 1: Multiple Choice",
         "part2": "Teil 2: Text lesen und Fragen beantworten",
         "part3": "Teil 3: Text mit Werbung abgleichen"
+      },
+      "goetheA2": {
+        "part1": "Teil 1: Zeitungstext lesen",
+        "part2": "Teil 2: Informationstafel",
+        "part3": "Teil 3: E-Mail lesen",
+        "part4": "Teil 4: Anzeigen zuordnen"
       }
     },
     "listening": {
@@ -615,6 +627,12 @@
           "part3": "Hören Sie sich sechs Nachrichten in einer Radiosendung an",
           "part4": "Hören Sie zu, wie sechs Menschen ihre Erinnerungen teilen",
           "part5": "Hören Sie sich ein Gespräch zwischen zwei Freunden an"
+        },
+        "goetheA2": {
+          "part1": "5 kurze Texte hören (zweimal) und Multiple-Choice-Fragen beantworten",
+          "part2": "Ein Gespräch hören (einmal) und Aktivitäten den Wochentagen zuordnen",
+          "part3": "5 kurze Gespräche hören (einmal) und Multiple-Choice-Fragen beantworten",
+          "part4": "Ein Interview hören (zweimal) und Ja/Nein-Fragen beantworten"
         }
       },
       "comingSoon": "Hörübungen kommen bald",
@@ -636,6 +654,12 @@
         "part3": "Teil 3: Nachrichten",
         "part4": "Teil 4: Erinnerungen teilen",
         "part5": "Teil 5: Gespräche"
+      },
+      "goetheA2": {
+        "part1": "Teil 1: Kurze Texte",
+        "part2": "Teil 2: Gespräch zuordnen",
+        "part3": "Teil 3: Kurze Gespräche",
+        "part4": "Teil 4: Interview"
       }
     },
     "writing": {
@@ -661,6 +685,10 @@
         "a2": {
           "part1": "Lesen Sie ein Szenario und tragen Sie die fehlenden Informationen in ein Formular ein",
           "part2": "Dabei handelt es sich um das Verfassen einer kurzen Nachricht, beispielsweise einer E-Mail oder eines Briefes"
+        },
+        "goetheA2": {
+          "part1": "Eine kurze persönliche SMS schreiben (20-30 Wörter) zu 3 vorgegebenen Punkten",
+          "part2": "Eine halbformelle E-Mail schreiben (30-40 Wörter) zu 3 vorgegebenen Punkten"
         }
       },
       "taskPoints": "Aufgabenpunkte",
@@ -679,6 +707,10 @@
       "a2": {
         "part1": "Teil 1: Füllen Sie ein Formular aus",
         "part2": "Teil 2: Schreiben Sie eine kurze E-Mail oder einen Brief"
+      },
+      "goetheA2": {
+        "part1": "Teil 1: Persönliche Nachricht (SMS)",
+        "part2": "Teil 2: Halbformelle E-Mail"
       }
     },
     "speaking": {
@@ -705,7 +737,9 @@
         "importantPhrases": "Wichtige Sätze"
       },
       "a2Part2": "Teil 2: Alltagsgespräche",
-      "a2Part3": "Teil 3: Etwas aushandeln"
+      "a2Part3": "Teil 3: Etwas aushandeln",
+      "goetheA2Part2": "Teil 2: Über Ihr Leben sprechen",
+      "goetheA2Part3": "Teil 3: Etwas gemeinsam planen"
     },
     "grammar": {
       "title": "Sprachbausteine",
@@ -1408,6 +1442,12 @@
     },
     "a2Part2": {
       "menuDescription": "Führen Sie mithilfe von Karten ein Gespräch über ein alltägliches Thema"
+    },
+    "goetheA2Part2": {
+      "menuDescription": "Über Ihr Leben sprechen mithilfe von Karten zu Alltagsthemen"
+    },
+    "goetheA2Part3": {
+      "menuDescription": "Etwas gemeinsam mit Ihrem Gesprächspartner planen"
     }
   },
   "results": {

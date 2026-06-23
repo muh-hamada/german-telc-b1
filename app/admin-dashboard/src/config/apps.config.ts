@@ -79,6 +79,15 @@ export const APP_CONFIGS: Record<string, AppConfig> = {
     description: 'German language exam preparation for TELC A2 level',
     dataFolder: 'german-a2',
   },
+  'goethe-german-a2': {
+    id: 'goethe-german-a2',
+    language: 'german',
+    level: 'A2',
+    displayName: 'Goethe German A2',
+    collectionName: 'goethe_german_a2_exam_data',
+    description: 'German language exam preparation for Goethe German A2 level',
+    dataFolder: 'goethe-german-a2',
+  },
   'dele-spanish-b1': {
     id: 'dele-spanish-b1',
     language: 'spanish',

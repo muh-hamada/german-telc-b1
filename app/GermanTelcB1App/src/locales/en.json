@@ -570,6 +570,12 @@
     },
     "a2Part2": {
       "menuDescription": "Hold a conversation about an everyday topic using cards"
+    },
+    "goetheA2Part2": {
+      "menuDescription": "Talk about your life using prompt cards with everyday topics"
+    },
+    "goetheA2Part3": {
+      "menuDescription": "Plan something together with your conversation partner"
     }
   },
   "vocabulary": {
@@ -714,6 +720,12 @@
           "part2": "Read long text and answer TRUE/FALSE questions",
           "part1": "Read info about a building and answer questions",
           "part3": "Match situations to advertisements"
+        },
+        "goetheA2": {
+          "part1": "Read a newspaper article and answer multiple choice questions",
+          "part2": "Read a department store directory and find the correct floor",
+          "part3": "Read an email and answer multiple choice questions",
+          "part4": "Match people's needs to the correct advertisement"
         }
       },
       "dele": {
@@ -723,6 +735,12 @@
         "part1": "Part 1: Multiple Choice",
         "part2": "Part 2: Read text and answer questions",
         "part3": "Part 3: Match text with advertisements"
+      },
+      "goetheA2": {
+        "part1": "Part 1: Read Newspaper Text",
+        "part2": "Part 2: Information Board",
+        "part3": "Part 3: Read Email",
+        "part4": "Part 4: Match Advertisements"
       }
     },
     "listening": {
@@ -743,6 +761,12 @@
         "part2": "Part 2: Radio Information",
         "part3": "Part 3: Conversation"
       },
+      "goetheA2": {
+        "part1": "Part 1: Short Texts",
+        "part2": "Part 2: Conversation Matching",
+        "part3": "Part 3: Short Conversations",
+        "part4": "Part 4: Interview"
+      },
       "descriptions": {
         "a1": {
           "part1": "Listen to short conversations and announcements, then answer multiple choice questions",
@@ -753,6 +777,12 @@
           "part1": "Listen to telephone messages and complete the notes by filling in the missing information",
           "part2": "Listen to radio announcements and answer multiple choice questions",
           "part3": "Listen to a conversation and match people to locations"
+        },
+        "goetheA2": {
+          "part1": "Listen to 5 short texts (heard twice) and answer multiple choice questions",
+          "part2": "Listen to a conversation (heard once) and match activities to days of the week",
+          "part3": "Listen to 5 short conversations (heard once) and answer multiple choice questions",
+          "part4": "Listen to an interview (heard twice) and answer Yes/No questions"
         },
         "dele": {
           "part1": "Listen to six voicemail messages from a telephone",
@@ -804,6 +834,10 @@
         "a2": {
           "part1": "Read a scenario and fill in the missing information in a form",
           "part2": "It involves writing a short message such as an email or letter"
+        },
+        "goetheA2": {
+          "part1": "Write a short personal SMS (20-30 words) addressing 3 given points",
+          "part2": "Write a semi-formal email (30-40 words) addressing 3 given points"
         }
       },
       "taskPoints": "Task Points",
@@ -822,6 +856,10 @@
       "a2": {
         "part1": "Part 1: Fill in a Form",
         "part2": "Part 2: Write short email or letter"
+      },
+      "goetheA2": {
+        "part1": "Part 1: Personal Message (SMS)",
+        "part2": "Part 2: Semi-formal Email"
       }
     },
     "speaking": {
@@ -848,7 +886,9 @@
         "importantPhrases": "Important Phrases"
       },
       "a2Part2": "Part 2: Everyday Conversation",
-      "a2Part3": "Part 3: Negotiate Something"
+      "a2Part3": "Part 3: Negotiate Something",
+      "goetheA2Part2": "Part 2: Talk About Your Life",
+      "goetheA2Part3": "Part 3: Plan Something Together"
     },
     "grammar": {
       "title": "Language Building Blocks",

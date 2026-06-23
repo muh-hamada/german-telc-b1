@@ -1,0 +1,157 @@
+{
+    "section_details": {
+        "title": "Hörverstehen Teil 1",
+        "instructions_de": "Sie hören fünf kurze Texte. Sie hören jeden Text zweimal. Wählen Sie für die Aufgaben 1 bis 5 die richtige Lösung a, b oder c.",
+        "instructions_en": "You will hear five short texts. You will hear each text twice. Choose the correct answer a, b or c for tasks 1 to 5.",
+        "instructions_ar": "ستسمع خمسة نصوص قصيرة. ستسمع كل نص مرتين. اختر الإجابة الصحيحة a أو b أو c للمهام من 1 إلى 5.",
+        "instructions_ru": "Вы услышите пять коротких текстов. Каждый текст прозвучит дважды. Выберите правильный ответ a, b или c для заданий с 1 по 5.",
+        "instructions_fr": "Vous entendrez cinq courts textes. Vous entendrez chaque texte deux fois. Choisissez la bonne réponse a, b ou c pour les tâches 1 à 5.",
+        "instructions_es": "Escucharás cinco textos cortos. Escucharás cada texto dos veces. Elige la respuesta correcta a, b o c para las tareas 1 a 5.",
+        "duration_minutes": 7,
+        "prep_time_seconds": 0
+    },
+    "exams": [
+        {
+            "id": "ga2-lp1-001",
+            "title": "Alltagssituationen: Parken, Hochzeit, Treffen, Wetter, Gewinnspiel",
+            "audio_url": "",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "Wo kann man noch parken?",
+                    "audio_transcription": "Eine Information für die Besucher des Basketballspiels heute in der Olympia-Halle: Die Parkplätze in der Nähe sind schon besetzt. Im Parkhaus am Einkaufszentrum gibt es noch freie Plätze. Besucher von außerhalb sollten nicht mit dem Auto kommen. Nehmen Sie die Bahn! Vom Hauptbahnhof gibt es kostenlose Busse zur Olympia-Halle.",
+                    "explanation": {
+                        "en": "The announcement says: 'Im Parkhaus am Einkaufszentrum gibt es noch freie Plätze' – there are still free parking spaces at the shopping center.",
+                        "de": "Die Ansage sagt: 'Im Parkhaus am Einkaufszentrum gibt es noch freie Plätze' – es gibt noch freie Parkplätze am Einkaufszentrum.",
+                        "fr": "L'annonce dit qu'il y a encore des places libres au parking du centre commercial.",
+                        "es": "El anuncio dice que todavía hay plazas libres en el parking del centro comercial.",
+                        "ru": "В объявлении говорится, что на парковке торгового центра ещё есть свободные места.",
+                        "ar": "يقول الإعلان أنه لا تزال هناك أماكن مجانية في موقف السيارات في مركز التسوق."
+                    },
+                    "options": [
+                        {
+                            "text": "Am Bahnhof.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Am Einkaufszentrum.",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Bei der Olympia-Halle.",
+                            "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Was soll Sabine nicht vergessen?",
+                    "audio_transcription": "Hallo Sabine. Denk bitte an meinen dunklen Anzug. Du wolltest ihn doch aus der Reinigung abholen. Sonst weiß ich nicht, was ich bei Helenas Hochzeit morgen anziehen soll. Das Geschenk hab' ich heute in der Mittagspause schon gekauft. Die Blumen holen wir ja erst morgen früh. Dank dir.",
+                    "explanation": {
+                        "en": "The speaker asks Sabine to remember his dark suit ('Denk bitte an meinen dunklen Anzug'). She was supposed to pick it up from the dry cleaner's. The gift is already bought and the flowers will be picked up tomorrow.",
+                        "de": "Der Sprecher bittet Sabine, an seinen dunklen Anzug zu denken. Sie sollte ihn aus der Reinigung abholen. Das Geschenk ist schon gekauft und die Blumen werden morgen geholt.",
+                        "fr": "Le locuteur demande à Sabine de penser à son costume sombre. Elle devait le récupérer au pressing.",
+                        "es": "El hablante pide a Sabine que recuerde su traje oscuro. Ella debía recogerlo de la tintorería.",
+                        "ru": "Говорящий просит Сабину не забыть его тёмный костюм. Она должна была забрать его из химчистки.",
+                        "ar": "يطلب المتحدث من سابينه أن تتذكر بدلته الداكنة. كان يجب عليها استلامها من المغسلة."
+                    },
+                    "options": [
+                        {
+                            "text": "Das Geschenk.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Den Anzug.",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Die Blumen.",
+                            "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Wo findet das Treffen statt?",
+                    "audio_transcription": "Guten Tag Frau Meyer. Ingrid Sollms hier. Der Termin heute findet nicht in meinem Büro statt. Da ist ein Fehler in der Einladung. Ich habe im Hotel Leopold einen Raum reserviert. Sie wissen ja, am Bahnhofsplatz. Bitte kommen Sie um 10.00 Uhr direkt dorthin. Danke! Auf Wiederhören.",
+                    "explanation": {
+                        "en": "The speaker says the meeting is NOT in her office – there was an error in the invitation. She reserved a room at Hotel Leopold. The meeting takes place at Hotel Leopold.",
+                        "de": "Die Sprecherin sagt, das Treffen ist NICHT in ihrem Büro – es gab einen Fehler in der Einladung. Sie hat einen Raum im Hotel Leopold reserviert.",
+                        "fr": "La locutrice dit que la réunion n'est PAS dans son bureau. Elle a réservé une salle à l'Hôtel Leopold.",
+                        "es": "La hablante dice que la reunión NO es en su oficina. Ha reservado una sala en el Hotel Leopold.",
+                        "ru": "Говорящая сообщает, что встреча НЕ в её офисе. Она забронировала зал в отеле «Леопольд».",
+                        "ar": "تقول المتحدثة أن الاجتماع ليس في مكتبها. لقد حجزت غرفة في فندق ليوبولد."
+                    },
+                    "options": [
+                        {
+                            "text": "Am Bahnhof.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Im Büro.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Im Hotel Leopold.",
+                            "is_correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Wie wird das Wetter am Sonntag?",
+                    "audio_transcription": "Nun zum Wetter. Am Wochenende ist es im Norden windig und bewölkt. Es regnet bei maximal 17 Grad. Im Süden am Samstag sonnig und warm bis 25 Grad. Am Sonntag kommt das kalte Regenwetter dann auch nach Süddeutschland. Die Temperaturen fallen auch hier auf unter 15 Grad.",
+                    "explanation": {
+                        "en": "On Sunday, the cold rainy weather also comes to southern Germany. The north already has rain, and on Sunday the south gets rain too. So both north and south will be wet on Sunday.",
+                        "de": "Am Sonntag kommt das kalte Regenwetter auch nach Süddeutschland. Der Norden hat schon Regen, und am Sonntag regnet es auch im Süden. Also wird es im Norden und Süden nass.",
+                        "fr": "Le dimanche, le temps pluvieux froid arrive aussi dans le sud de l'Allemagne. Il pleut dans le nord et le sud.",
+                        "es": "El domingo, el clima frío y lluvioso también llega al sur de Alemania. Llueve en el norte y en el sur.",
+                        "ru": "В воскресенье холодная дождливая погода приходит и на юг Германии. Дождь идёт и на севере, и на юге.",
+                        "ar": "يوم الأحد، يصل الطقس البارد الممطر أيضاً إلى جنوب ألمانيا. يمطر في الشمال والجنوب."
+                    },
+                    "options": [
+                        {
+                            "text": "Im Norden trocken.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Im Norden und Süden nass.",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Im Süden trocken.",
+                            "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Was sollen die Hörerinnen und Hörer tun?",
+                    "audio_transcription": "Und jetzt unser Frühstücksradio-Gewinnspiel. Für alle, die es noch nicht kennen: Genau um 7.00 Uhr spielen wir ein neues Lied. Wenn Sie wissen, wie der Sänger heißt, rufen Sie uns an. Es gibt tolle Preise zu gewinnen: T-Shirts, CDs oder eine Eintrittskarte für ein Konzert Ihrer Wahl.",
+                    "explanation": {
+                        "en": "The radio host says: 'Wenn Sie wissen, wie der Sänger heißt, rufen Sie uns an' – if you know the singer's name, call us. The listeners should say the name of the singer.",
+                        "de": "Der Moderator sagt: 'Wenn Sie wissen, wie der Sänger heißt, rufen Sie uns an.' Die Hörer sollen den Namen des Sängers sagen.",
+                        "fr": "L'animateur dit : 'Si vous connaissez le nom du chanteur, appelez-nous.' Les auditeurs doivent dire le nom du chanteur.",
+                        "es": "El presentador dice: 'Si saben cómo se llama el cantante, llámennos.' Los oyentes deben decir el nombre del cantante.",
+                        "ru": "Ведущий говорит: 'Если вы знаете, как зовут певца, звоните нам.' Слушатели должны назвать имя певца.",
+                        "ar": "يقول المذيع: 'إذا كنتم تعرفون اسم المغني، اتصلوا بنا.' يجب على المستمعين قول اسم المغني."
+                    },
+                    "options": [
+                        {
+                            "text": "Den Namen des Sängers sagen.",
+                            "is_correct": true
+                        },
+                        {
+                            "text": "Eine Konzertkarte kaufen.",
+                            "is_correct": false
+                        },
+                        {
+                            "text": "Ein neues Lied singen.",
+                            "is_correct": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

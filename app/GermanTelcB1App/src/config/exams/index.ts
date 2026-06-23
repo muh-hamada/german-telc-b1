@@ -14,6 +14,7 @@ import { germanB2Config } from './german-b2.config';
 import { englishB1Config } from './english-b1.config';
 import { englishB2Config } from './english-b2.config';
 import { deleSpanishB1Config } from './dele-spanish-b1.config';
+import { goetheGermanA2Config } from './goethe-german-a2.config';
 
 /**
  * Registry of all available exam configurations
@@ -24,6 +25,7 @@ export const EXAM_CONFIGS: Record<string, ExamConfig> = {
   'german-a1': germanA1Config,
   'goethe-german-a1': goetheGermanA1Config,
   'german-a2': germanA2Config,
+  'goethe-german-a2': goetheGermanA2Config,
   'german-b1': germanB1Config,
   'german-b2': germanB2Config,
   'english-b1': englishB1Config,

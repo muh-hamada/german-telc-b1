@@ -1,0 +1,15 @@
+{
+    "exams": [
+        {
+            "title": "SMS an Freundin – zu spät zum Treffen",
+            "id": "ga2-wp1-001",
+            "modalAnswer": "Liebe Ekaterini,\n\nes tut mir leid, ich komme leider 30 Minuten zu spät! Mein Bus hat Verspätung wegen eines Unfalls. Können wir uns um 15:30 Uhr am Café Müller treffen?\n\nBis gleich!",
+            "writingPoints": [
+                "Entschuldigen Sie sich, dass Sie zu spät kommen.",
+                "Schreiben Sie, warum.",
+                "Nennen Sie einen neuen Ort und eine neue Uhrzeit für das Treffen."
+            ],
+            "instruction": "Sie sind unterwegs in der Stadt und schreiben eine SMS an Ihre Freundin Ekaterini.\n\n– Entschuldigen Sie sich, dass Sie zu spät kommen.\n– Schreiben Sie, warum.\n– Nennen Sie einen neuen Ort und eine neue Uhrzeit für das Treffen.\n\nSchreiben Sie 20–30 Wörter.\nSchreiben Sie zu allen drei Punkten."
+        }
+    ]
+}

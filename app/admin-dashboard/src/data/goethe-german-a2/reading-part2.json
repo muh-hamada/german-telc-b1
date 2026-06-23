@@ -1,0 +1,161 @@
+[
+    {
+        "id": "ga2-rp2-001",
+        "title": "Kaufhaus Alexa",
+        "information": {
+            "4": "4. Stock: Bücher, Geschenke, Spielsachen, Freizeittaschen, Koffer, Brieftaschen und Geldbeutel, Café, Friseur- und Nagelstudio, Kunden-WC, Telefon",
+            "3": "3. Stock: Handys, Telefone, MP3-Player, CD-Player, DVD-Player, Radios, Fernseher, Computer, Notebooks, Tablets, Software, Drucker, CDs, DVDs, Videospiele, Sportkleidung, Arbeitskleidung",
+            "2": "2. Stock: Herrenmode, Nachtwäsche für ihn, Unterwäsche für ihn, Möbel für Wohnzimmer, Bad und Küche, Teppiche, Lampen, Gardinen, Kissen, Decken, Stoffe und Dekoartikel, Handtücher",
+            "1": "1. Stock: Damenmode, Nachtwäsche für sie, Unterwäsche für sie, Mode für Kinder und Jugendliche, Babybekleidung, Kinderwagen, Schuhe, Geschirr und Gläser, Besteck, Töpfe und Pfannen, Grills",
+            "EG": "EG: Information, Uhren, Schmuck, Parfüm, Kosmetik, Schreibwaren, Glückwunschkarten, Kalender, Schultaschen, Reiseführer, Souvenirs, Schuhwerkstatt, Schlüsseldienst, Blumenladen",
+            "UG": "UG: Bäcker, Supermarkt, Putz- und Waschmittel, Fotoservice, Tabak, Zeitschriften und Zeitungen, Theater- und Konzertkarten, Reisebüro, Geldautomat, Kunden-WC"
+        },
+        "questions": [
+            {
+                "id": 6,
+                "question": "Sie möchten einer Freundin Rosen schenken.",
+                "explanation": {
+                    "en": "You are looking for flowers (Rosen = roses). According to the directory, 'Blumenladen' (flower shop) is located on the ground floor (EG).",
+                    "de": "Sie suchen Blumen (Rosen). Laut dem Verzeichnis befindet sich der 'Blumenladen' im Erdgeschoss (EG).",
+                    "fr": "Vous cherchez des fleurs (roses). Selon le répertoire, le 'Blumenladen' (fleuriste) se trouve au rez-de-chaussée (EG).",
+                    "es": "Busca flores (rosas). Según el directorio, la 'Blumenladen' (floristería) se encuentra en la planta baja (EG).",
+                    "ru": "Вы ищете цветы (розы). Согласно указателю, 'Blumenladen' (цветочный магазин) находится на первом этаже (EG).",
+                    "ar": "أنت تبحث عن زهور (ورود). وفقاً للدليل، يوجد 'Blumenladen' (محل الزهور) في الطابق الأرضي (EG)."
+                },
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "4. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "anderer Stock",
+                        "is_correct": true
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "question": "Sie möchten Ihre Urlaubsbilder drucken lassen.",
+                "explanation": {
+                    "en": "You want to print holiday photos. According to the directory, 'Fotoservice' is located in the basement (UG).",
+                    "de": "Sie möchten Urlaubsbilder drucken lassen. Laut dem Verzeichnis befindet sich der 'Fotoservice' im Untergeschoss (UG).",
+                    "fr": "Vous voulez faire imprimer vos photos de vacances. Selon le répertoire, le 'Fotoservice' se trouve au sous-sol (UG).",
+                    "es": "Quiere imprimir fotos de vacaciones. Según el directorio, el 'Fotoservice' se encuentra en el sótano (UG).",
+                    "ru": "Вы хотите напечатать фотографии из отпуска. Согласно указателю, 'Fotoservice' находится в подвальном этаже (UG).",
+                    "ar": "تريد طباعة صور العطلة. وفقاً للدليل، يوجد 'Fotoservice' (خدمة الصور) في الطابق السفلي (UG)."
+                },
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "3. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "UG",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "anderer Stock",
+                        "is_correct": false
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "question": "Sie möchten einen Tee trinken gehen.",
+                "explanation": {
+                    "en": "You want to have tea. According to the directory, 'Café' is located on the 4th floor. The only other food/drink option is 'Bäcker' in UG, but for sitting down and drinking tea, the Café on the 4th floor is the right place. Neither option a (2. Stock) nor b (UG) is correct.",
+                    "de": "Sie möchten Tee trinken. Laut dem Verzeichnis befindet sich das 'Café' im 4. Stock. Der 'Bäcker' ist im UG, aber zum Tee trinken ist das Café im 4. Stock der richtige Ort. Weder 2. Stock noch UG ist richtig.",
+                    "fr": "Vous voulez boire un thé. Selon le répertoire, le 'Café' se trouve au 4e étage. Ni le 2e étage ni le sous-sol ne sont corrects.",
+                    "es": "Quiere tomar un té. Según el directorio, el 'Café' se encuentra en el 4º piso. Ni el 2º piso ni el sótano son correctos.",
+                    "ru": "Вы хотите выпить чай. Согласно указателю, 'Café' находится на 4-м этаже. Ни 2-й этаж, ни подвал не являются правильными.",
+                    "ar": "تريد شرب الشاي. وفقاً للدليل، يوجد 'Café' (المقهى) في الطابق الرابع. لا الطابق الثاني ولا الطابق السفلي صحيح."
+                },
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "2. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "UG",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "anderer Stock",
+                        "is_correct": true
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "question": "Sie wollen Ihre Schuhe reparieren lassen.",
+                "explanation": {
+                    "en": "You want to get your shoes repaired. According to the directory, 'Schuhwerkstatt' (shoe repair) is located on the ground floor (EG).",
+                    "de": "Sie möchten Ihre Schuhe reparieren lassen. Laut dem Verzeichnis befindet sich die 'Schuhwerkstatt' im Erdgeschoss (EG).",
+                    "fr": "Vous voulez faire réparer vos chaussures. Selon le répertoire, la 'Schuhwerkstatt' (cordonnerie) se trouve au rez-de-chaussée (EG).",
+                    "es": "Quiere reparar sus zapatos. Según el directorio, la 'Schuhwerkstatt' (zapatería de reparación) se encuentra en la planta baja (EG).",
+                    "ru": "Вы хотите отремонтировать обувь. Согласно указателю, 'Schuhwerkstatt' (обувная мастерская) находится на первом этаже (EG).",
+                    "ar": "تريد إصلاح حذائك. وفقاً للدليل، يوجد 'Schuhwerkstatt' (ورشة إصلاح الأحذية) في الطابق الأرضي (EG)."
+                },
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "EG",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "anderer Stock",
+                        "is_correct": false
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "question": "Sie suchen eine Laufhose für Ihren Bruder zum Geburtstag.",
+                "explanation": {
+                    "en": "You are looking for running pants (Laufhose) for your brother. 'Sportkleidung' (sportswear) is located on the 3rd floor.",
+                    "de": "Sie suchen eine Laufhose für Ihren Bruder. 'Sportkleidung' befindet sich im 3. Stock.",
+                    "fr": "Vous cherchez un pantalon de course pour votre frère. Les 'Sportkleidung' (vêtements de sport) se trouvent au 3e étage.",
+                    "es": "Busca pantalones para correr para su hermano. La 'Sportkleidung' (ropa deportiva) se encuentra en el 3er piso.",
+                    "ru": "Вы ищете беговые штаны для брата. 'Sportkleidung' (спортивная одежда) находится на 3-м этаже.",
+                    "ar": "أنت تبحث عن سروال رياضي لأخيك. يوجد 'Sportkleidung' (الملابس الرياضية) في الطابق الثالث."
+                },
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "3. Stock",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "2. Stock",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "anderer Stock",
+                        "is_correct": false
+                    }
+                ]
+            }
+        ]
+    }
+]

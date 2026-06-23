@@ -44,6 +44,9 @@ case "$EXAM_ID" in
     "goethe-german-a1")
         SOURCE_IMAGE="../../logos/ios/logo-ios-goethe-german-a1.png"
         ;;
+    "goethe-german-a2")
+        SOURCE_IMAGE="../../logos/ios/logo-ios-goethe-german-a2.png"
+        ;;
     "german-a2")
         SOURCE_IMAGE="../../logos/ios/logo-ios-german-a2.png"
         ;;

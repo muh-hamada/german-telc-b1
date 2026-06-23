@@ -1,0 +1,15 @@
+{
+    "exams": [
+        {
+            "title": "E-Mail an den Chef – Einladung zur Geburtstagsfeier",
+            "id": "ga2-wp2-001",
+            "modalAnswer": "Sehr geehrter Herr Lehmann,\n\nvielen Dank für die Einladung zu Ihrer Geburtstagsfeier. Ich komme sehr gerne. Darf ich meine Frau mitbringen? Könnten Sie mir bitte noch erklären, wie ich am besten zu Ihnen komme?\n\nMit freundlichen Grüßen",
+            "writingPoints": [
+                "Bedanken Sie sich und sagen Sie, dass Sie kommen.",
+                "Informieren Sie, dass Sie jemanden mitbringen.",
+                "Fragen Sie nach dem Weg."
+            ],
+            "instruction": "Ihr Chef, Herr Lehmann, hat bald Geburtstag. Er hat Ihnen eine Einladung zu seiner Feier geschickt. Schreiben Sie Herrn Lehmann eine E-Mail:\n\n– Bedanken Sie sich und sagen Sie, dass Sie kommen.\n– Informieren Sie, dass Sie jemanden mitbringen.\n– Fragen Sie nach dem Weg.\n\nSchreiben Sie 30–40 Wörter.\nSchreiben Sie zu allen drei Punkten."
+        }
+    ]
+}

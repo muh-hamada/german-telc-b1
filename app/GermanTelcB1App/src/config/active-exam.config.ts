@@ -2,7 +2,7 @@
  * Active Exam Configuration
  * 
  * THIS FILE IS AUTO-GENERATED - DO NOT EDIT MANUALLY
- * Generated at: 2026-06-20T14:26:51.306Z
+ * Generated at: 2026-06-22T19:09:08.658Z
  * Exam: German TELC A2
  * 
  * This file determines which exam configuration is active for the current build.
